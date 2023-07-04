@@ -1,0 +1,3 @@
+# Ignore compiled binaries for chemistry code
+chemistry/src/*.o
+chemistry/src/*.mod
