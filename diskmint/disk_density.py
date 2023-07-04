@@ -3,15 +3,15 @@
 # author: Dingshan Deng @ University of Arizona
 # contact: dingshandeng@arizona.edu
 # created: 05/18/2023
-# DiskMINT v3.3-alpha
+# updated: 07/04/2023
+# DiskMINT v1.0beta
 
 """
-Here I will define the key functions to calculate the disk density
+Here I define the key functions to calculate the disk density
 in VHSE and also set up the initial inputs for chemical network
 
-This will be based on the disk density file in v3.1alpha
-as well as the initial setups that was called as
-wrapper_model_parameters.py
+This is based on the disk density file in v3.1-3.3alpha
+as well as the initial setups (wrapper_model_parameters.py)
 """
 
 import os, sys, copy

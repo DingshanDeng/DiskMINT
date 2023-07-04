@@ -3,7 +3,8 @@
 # author: Dingshan Deng @ University of Arizona
 # contact: dingshandeng@arizona.edu
 # created: 05/18/2023
-# DiskMINT v3.3-alpha
+# updated: 07/04/2023
+# DiskMINT v1.0beta
 
 import copy, os
 

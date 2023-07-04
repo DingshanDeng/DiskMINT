@@ -8,7 +8,7 @@ from . import constants
 # from . import wrapper_model_parameters
 # from . import wrapper_disk_density
 
-__version__ = "3.2alpha"
+__version__ = "1.0beta"
 __author__ = "Dingshan Deng"
 __copyright__ = "Copyright (C) 2023 Dingshan Deng"
 __all__ = ["constants", "model", "disk_density"]

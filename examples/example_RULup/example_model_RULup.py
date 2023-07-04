@@ -6,6 +6,18 @@
 
 """
 The model example of RU Lup best-fit model
+for DiskMINT v1.0beta
+"""
+
+"""
+**NOTE**
+Please edit the following `Yourpath` and `Yourpath_saving_files`
+according to your system directories.
+
+Please follow the instructions in the README file to use the DiskMINT code
+and this example.
+
+Go through this Python3 script before running the code is highly recommended
 """
 
 import os, sys, copy
@@ -15,12 +27,12 @@ import numpy as np
 # Temporarily add the package position to the Python Path
 # If it is already added to your Python path, then you can ignore this line
 #
-# Please Make sure radmc3dPy is installed, and the PATH is added to Python Path
-#  radmc3dPy_position = "/Users/dingshandeng/github/radmc3d-2.0/python/radmc3dPy/"
+## Please Make sure radmc3dPy is installed, and the PATH is added to Python Path
+#  radmc3dPy_position = "Yourpath/radmc3d-2.0/python/radmc3dPy/"
 #  sys.path.append(radmc3dPy_position)
 #
-package_position = "/home/dingshandeng/github/DiskModeling/0-DiskMINT/"
-#  package_position = "/Users/dingshandeng/github/DiskModeling/0-DiskMINT/"
+## Import the diskmint Python3 module
+package_position = "Yourpath/DiskMINT/"
 sys.path.append(package_position)
 import diskmint.constants as const
 import diskmint.model as model
@@ -31,7 +43,6 @@ import diskmint.disk_density as dd
 #
 # (0) Working Direcotry: this is the place that you want to keep every files together
 working_dir = os.path.join(package_position, 'examples', 'example_RULup')
-#  working_dir = "/home/dingshandeng/github/DiskModeling/0-DiskMINT/examples/example_RULup/"
 #
 # (1) Data directory:
 # where you want to save all of the model input and output files?
@@ -42,7 +53,7 @@ data_dir = os.path.join(working_dir, 'data')
 # (2) Saving files directory:
 # a place where a copy of the chemical and RADMC-3D input/output files will be saved
 # NOTE: This dir can also be changed in the parameters.dat file which is called 'chemical_save_dir'
-save_dir = "/home/dingshandeng/data/diskmass/DiskMINTv3p2_results/RULup_chemistry/"
+save_dir = "Yourpath_saving_files"
 #
 # (3) Name of this model:
 # Properly name each model you run to prevent any confusions!
@@ -58,8 +69,6 @@ file_parameters = os.path.join(working_dir, 'example_RULup_parameters.dat')
 # (5) (Optional) Chemistry code directory:
 # where is the checmial network, only needed if you want to use the chemical network we provide
 chem_code_dir = os.path.join(package_position, 'chemistry', 'reducedRGH22')
-#  chem_code_dir = '/home/dingshandeng/github/DiskModeling/0-DiskMINT/chemistry/reducedRGH22/'
-#  print('chem_code_dir = ', chem_code_dir)
 
 #
 # II. The Options of the Model

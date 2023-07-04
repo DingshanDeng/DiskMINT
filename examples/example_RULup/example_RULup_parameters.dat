@@ -1,8 +1,8 @@
 # set up some parameters in CSV format: , as divider
 # lines start with '#' will not be read
-# dev DiskMINT v3.2alpha
 # author: Dingshan Deng @ University of Arizona
 # contact: dingshandeng@arizona.edu
+# wrote for DiskMINT v1.0beta
 
 # the data file is seperated with comma
 # which means it can be easily be converted to csv format
