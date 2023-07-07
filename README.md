@@ -19,7 +19,7 @@ The University of Arizona
 
 `DiskMINT` (Disk Model for INdividual Targets) is a tool for modeling individual disks and deriving more robust disk mass estimates.
 `DiskMINT` is a `Python3`-`Fortran` code built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0) for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract) to determine the C18O emission.
-For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs) (link will be updated once the paper is put on astroph).
+For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract).
 
 ### The Code
 
@@ -56,7 +56,7 @@ NOTE: There are also a few other packages that are required by [`radmc3dPy`](htt
 We do not provide the code to do the line radiative transfer and synthetic imaging (*But do not worry, examples are provided*). 
 To get the synthetic image, please use `LIME` -- supports LTE (Local Thermal Equilibrium) and non-LTE -- or the `RADMC-3D` -- only supports LTE -- line radiative transfer module. 
 `LIME (v1.9.5)` and `RADMC-3D (v2.0)` are tested on `DiskMINT` mdoel.
-For the example results as presented in [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs), we used [`LIME` v1.9.5](https://github.com/lime-rt/lime) to do non-LTE line radiative transfer.
+For the example results as presented in [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract), we used [`LIME` v1.9.5](https://github.com/lime-rt/lime) to do non-LTE line radiative transfer.
 
 We also note that to compare with the observation, a proper **image convolution** based on the beam of observation is necessary, and including the continuum emission from the dust in the synthetic image would be helpful in many cases (the continuum can then be subtracted with the same method that is adopted for the observation dataset, or directly compare the synthetic image with continuum to the observation dataset that also contains the continuum).
 
