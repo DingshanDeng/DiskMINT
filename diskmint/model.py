@@ -1303,8 +1303,8 @@ class Mint:
         #### Read Dust Species Info #####
         #################################
 
-        fracs    = np.loadtxt(os.path.join(file_dir,file_aave)) # mass fracs of dust species
-        a_ave    = np.loadtxt(os.path.join(file_dir,file_fracs)) # average dust radius of dust species
+        a_ave    = np.loadtxt(os.path.join(file_dir,file_aave)) # mass fracs of dust species
+        fracs    = np.loadtxt(os.path.join(file_dir,file_fracs)) # average dust radius of dust species
         fracs_nb = np.loadtxt(os.path.join(file_dir,file_fracs_numb)) # number fracs of dust species
         ndsd     = np.loadtxt(os.path.join(file_dir,file_ndsd)) # n_d(a) pi a^2
 
