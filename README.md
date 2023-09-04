@@ -55,7 +55,7 @@ NOTE: There are also a few other packages that are required by [`radmc3dPy`](htt
 **Line Radiative Transfer Code.** The `DiskMINT` module will generate the thermal and density distributions of the disk, which can then be used to do line radiative transfer and make synthetic images.
 We do not provide the code to do the line radiative transfer and synthetic imaging (*But do not worry, examples are provided*). 
 To get the synthetic image, please use `LIME` -- supports LTE (Local Thermal Equilibrium) and non-LTE -- or the `RADMC-3D` -- only supports LTE -- line radiative transfer module. 
-`LIME (v1.9.5)` and `RADMC-3D (v2.0)` are tested on `DiskMINT` mdoel.
+`LIME (v1.9.5)` and `RADMC-3D (v2.0)` are tested on `DiskMINT` model.
 For the example results as presented in [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract), we used [`LIME` v1.9.5](https://github.com/lime-rt/lime) to do non-LTE line radiative transfer.
 
 We also note that to compare with the observation, a proper **image convolution** based on the beam of observation is necessary, and including the continuum emission from the dust in the synthetic image would be helpful in many cases (the continuum can then be subtracted with the same method that is adopted for the observation dataset, or directly compare the synthetic image with continuum to the observation dataset that also contains the continuum).
