@@ -3,8 +3,7 @@
 # author: Dingshan Deng @ University of Arizona
 # contact: dingshandeng@arizona.edu
 # created: 05/18/2023
-# updated: 07/04/2023
-# DiskMINT v1.0beta
+# DiskMINT v1.3.0.beta(dev)
 
 import copy, os
 
@@ -112,52 +111,94 @@ class Parameters:
             return self.parameters[name]['value']
          
 
-    def read_parameters_from_csv(self, filename):
+    def read_parameters_from_csv(self, filename, directory='./', extension='', verbose=False):
         """
         return self.parameters[name]['value']
         Read parameter information from a CSV file.
 
         Args:
+            directory (str): The directory where to save this CSV file.
             filename (str): The name of the CSV file.
+            extension (str): The file extension, recommand using '.csv'.
         """
-        with open(filename, 'r') as file:
+        # the parameters that will be a grid so it would not be in the main dat file
+        # and they will be stored in stand alone files
+        stand_alone_parameter_list = ['ratio_g2d', 'sigmad_ref']
+        
+        filename_full = os.path.join(directory, filename+extension)
+        
+        with open(filename_full, 'r') as file:
             for line in file:
                 line = line.strip()
 
                 if not line.startswith('#') and line:
                     # skip the lines that start with '#' or are empty
+                    
                     data = line.split(',')
+                    if verbose:
+                        print(line)
+                        print(data)
+                    
                     name = data[0].strip()
                     value = data[1].strip()
                     units = data[2].strip()
                     valuetype = data[3].strip()
                     description = data[4].strip()
-                    print(value)
-                    if valuetype in ['str', 'list']:
-                        value = value
-                    elif valuetype == 'int':
-                        value = int(value)
-                    else:
-                        try:
-                            value = np.float64(value)
-                        except ValueError:
-                            print('the input value is not str and cannot be converted to float64')
-                            print('If it is a str or list, please identify in the valuetype column')
+                    # print(value)
+                    
+                    if name not in stand_alone_parameter_list:
+                        # then the value would be the value here
+                        if valuetype in ['str', 'list']:
                             value = value
+                        elif valuetype == 'int':
+                            value = int(value)
+                        else:
+                            try:
+                                value = np.float64(value)
+                            except ValueError:
+                                print('the input value is not str and cannot be converted to float64')
+                                print('If it is a str or list, please identify in the valuetype column')
+                                value = value
+                        
+                    else:
+                        # if name in stand_alone_parameter_list
+                        # the value would be stroed in a another file in the same directory
+                        stand_alone_file_name = filename.replace('.', '_') + '_' + name + '.dat'
+                        value = np.loadtxt(os.path.join(directory, stand_alone_file_name))
+                        
                     self.set_parameter(name, value, units, description, valuetype=valuetype)
+                        
+        return 1
 
-    def write_parameters_to_csv(self, filename):
+
+    def write_parameters_to_csv(self, filename, directory='./', extension=''):
         """
         Write parameter information to a CSV file.
 
         Args:
             filename (str): The name of the CSV file.
+            directory (str): The directory where to save this CSV file.
+            extension (str): The file extension, recommand using '.csv'.
         """
-        with open(filename, 'w') as file:
+        # the parameters that will be a grid so it would not be in the main dat file
+        # and they will be stored in stand alone files
+        stand_alone_parameter_list = ['ratio_g2d', 'sigmad_ref']
+        
+        filename_full = os.path.join(directory, filename+extension)
+        
+        with open(filename_full, 'w') as file:
             file.write(f'# the model parameters of\n# %s \n'%(self.chemical_save_name))
             file.write(f'# name(str),value(str/float),units(str),valuetype(str),description(str)\n')
             for name, info in self.parameters.items():
-                file.write(f"{name},{info['value']},{info['units']},{info['valuetype']},{info['description']}\n")
+                if name not in stand_alone_parameter_list: 
+                    file.write(f"{name},{info['value']},{info['units']},{info['valuetype']},{info['description']}\n")
+                elif name in stand_alone_parameter_list:
+                    stand_alone_file_name = filename.replace('.', '_') + '_' + name + '.dat'
+                    file.write(f"{name},{stand_alone_file_name},{info['units']},{info['valuetype']},{info['description']}\n")
+                    np.savetxt(os.path.join(directory, stand_alone_file_name), info['value'])
+                    
+        return 1
+                    
 
     @property
     def nphot(self):
@@ -232,6 +273,14 @@ class Parameters:
         self.edit_parameter("thetaup", new_value=value, new_units=None, new_description='Upper edge of theta grid -- needs to be large enough to include all possible emission')
 
     @property
+    def r_step_max(self):
+        return self.get_parameter_value("r_step_max") * au
+
+    @r_step_max.setter
+    def r_step_max(self, value):
+        self.edit_parameter("r_step_max", new_value=value, new_units='au', new_description='Maximum allowable step in the grid')
+    
+    @property
     def fmodel_filename(self):
         return self.get_parameter_value("fmodel_filename")
 
@@ -302,6 +351,14 @@ class Parameters:
     @mdiskd.setter
     def mdiskd(self, value):
         self.edit_parameter("mdiskd", new_value=value, new_units='solar masses', new_description='Disk dust mass')
+        
+    @property
+    def mdiskd_2(self):
+        return self.get_parameter_value("mdiskd_2") * ms
+
+    @mdiskd_2.setter
+    def mdiskd_2(self, value):
+        self.edit_parameter("mdiskd_2", new_value=value, new_units='solar masses', new_description='Secondary Disk dust mass')
 
     @property
     def ratio_g2d_global(self):
@@ -318,7 +375,15 @@ class Parameters:
     @ratio_g2d.setter
     def ratio_g2d(self, value):
         self.edit_parameter("ratio_g2d", new_value=value, new_units=None, new_description='Disk gas-to-dust mass ratio -- can be a number or a 2D or 3D array representing the spatial varying ratio')
- 
+
+    @property
+    def sigmad_ref(self):
+        return self.get_parameter_value("sigmad_ref")
+
+    @sigmad_ref.setter
+    def sigmad_ref(self, value):
+        self.edit_parameter("sigmad_ref", new_value=value, new_units='g cm**(-2)', new_description='Disk reference sigmad -- an 2D array; radius_incm = sigmad_ref[:, 0] and sigmad_ref_ingcm-2 = sigmad_ref[:, 1]. If not set up; it uses pls and pltap to setup a disk surface density distribution with a tappering off radius')
+    
     @property
     def pl_sufdens(self):
         return self.get_parameter_value("pl_sufdens")
@@ -326,6 +391,14 @@ class Parameters:
     @pl_sufdens.setter
     def pl_sufdens(self, value):
         self.edit_parameter("pl_sufdens", new_value=value, new_units=None, new_description='Power law index for disk surface density distribution')
+        
+    @property
+    def pl_sufdens_2(self):
+        return self.get_parameter_value("pl_sufdens_2")
+
+    @pl_sufdens_2.setter
+    def pl_sufdens_2(self, value):
+        self.edit_parameter("pl_sufdens_2", new_value=value, new_units=None, new_description='Power law index for Secondary disk surface density distribution')
 
     @property
     def pl_tapoff(self):
@@ -336,12 +409,28 @@ class Parameters:
         self.edit_parameter("pl_tapoff", new_value=value, new_units=None, new_description='Power law index for disk tappring off outer edge')
 
     @property
+    def rdisk_in(self):
+        return self.get_parameter_value("rdisk_in") * au
+
+    @rdisk_in.setter
+    def rdisk_in(self, value):
+        self.edit_parameter("rdisk_in", new_value=value, new_units=None, new_description='the sharp-cut radius of the disk inner radius')
+
+    @property
     def Rtap(self):
         return self.get_parameter_value("Rtap") * au
 
     @Rtap.setter
     def Rtap(self, value):
         self.edit_parameter("Rtap", new_value=value, new_units=None, new_description='Disk tappering off radius')
+        
+    @property
+    def rdisk_out_2(self):
+        return self.get_parameter_value("rdisk_out_2") * au
+
+    @rdisk_out_2.setter
+    def rdisk_out_2(self, value):
+        self.edit_parameter("rdisk_out_2", new_value=value, new_units=None, new_description='Secondary Disk outer radius')
 
     @property
     def scaleheight_index(self):
@@ -350,6 +439,14 @@ class Parameters:
     @scaleheight_index.setter
     def scaleheight_index(self, value):
         self.edit_parameter("scaleheight_index", new_value=value, new_units=None, new_description='Different index tells the model to use different method to set up the scale height')
+        
+    @property
+    def scaleheight_index_2(self):
+        return self.get_parameter_value("scaleheight_index_2")
+
+    @scaleheight_index_2.setter
+    def scaleheight_index_2(self, value):
+        self.edit_parameter("scaleheight_index_2", new_value=value, new_units=None, new_description='For Secondary disk: Different index tells the model to use different method to set up the scale height')
 
     @property
     def hp100(self):
@@ -358,6 +455,14 @@ class Parameters:
     @hp100.setter
     def hp100(self, value):
         self.edit_parameter("hp100", new_value=value, new_units='au', new_description='Pressure scale height at 100 au')
+        
+    @property
+    def hp100_2(self):
+        return self.get_parameter_value("hp100_2") * au
+
+    @hp100_2.setter
+    def hp100_2(self, value):
+        self.edit_parameter("hp100_2", new_value=value, new_units='au', new_description='For Secondary disk: Pressure scale height at 100 au')
 
     @property
     def hprcr(self):
@@ -374,6 +479,14 @@ class Parameters:
     @plh.setter
     def plh(self, value):
         self.edit_parameter("plh", new_value=value, new_units=None, new_description='Power law index of the pressure scale height radial dependence')
+    
+    @property
+    def plh_2(self):
+        return self.get_parameter_value("plh_2")
+
+    @plh_2.setter
+    def plh_2(self, value):
+        self.edit_parameter("plh_2", new_value=value, new_units=None, new_description='For Secondary disk: Power law index of the pressure scale height radial dependence')
 
     @property
     def dustopacname_1(self):
@@ -478,7 +591,39 @@ class Parameters:
     @rhobulk.setter
     def rhobulk(self, value):
         self.edit_parameter("rhobulk", new_value=value, new_units='g cm^-3', new_description='Bulk density of dust grains')
+        
+    @property
+    def visc_alpha(self):
+        return self.get_parameter_value("visc_alpha")
 
+    @visc_alpha.setter
+    def visc_alpha(self, value):
+        self.edit_parameter("visc_alpha", new_value=value, new_units=None, new_description='alpha parameter for dust settling (ref. Estrada+2016) and radial distribution')
+        
+    @property
+    def vel_frag(self):
+        return self.get_parameter_value("vel_frag")
+
+    @vel_frag.setter
+    def vel_frag(self, value):
+        self.edit_parameter("vel_frag", new_value=value, new_units='cm s^-1', new_description='fragmentation threshold for dust grains')
+
+    @property
+    def radius_drift(self):
+        return self.get_parameter_value("radius_drift") * au
+
+    @radius_drift.setter
+    def radius_drift(self, value):
+        self.edit_parameter("radius_drift", new_value=value, new_units='au', new_description='The grains that needs to be drifted will be dirfted inside this radius')
+    
+    @property
+    def a_drift(self):
+        return self.get_parameter_value("a_drift")
+
+    @a_drift.setter
+    def a_drift(self, value):
+        self.edit_parameter("a_drift", new_value=value, new_units='cm', new_description='The grains that are larger than this size will be drifted in')
+    
     #  @property
     #  def fracs(self):
         #  return list(self.get_parameter_value("fracs"))
@@ -527,6 +672,25 @@ class Parameters:
     def nz_cyl_LIME(self, value):
         self.edit_parameter("nz_cyl_LIME", new_value=value, new_units=None, new_description='Number of z grid that will be used in LIME')
 
+    """
+    (devloping quantities)
+    """
+    @property
+    def R_temp_trans(self):
+        return self.get_parameter_value("R_temp_trans") * au
+
+    @R_temp_trans.setter
+    def R_temp_trans(self, value):
+        self.edit_parameter("R_temp_trans", new_value=value, new_units='au', new_description='The temperature transition radius where the gas temperature deviates (get hotter) from the dust temperature within it')
+        
+    @property
+    def fact_Tgas_2_Tdust(self):
+        return self.get_parameter_value("fact_Tgas_2_Tdust")
+
+    @fact_Tgas_2_Tdust.setter
+    def fact_Tgas_2_Tdust(self, value):
+        self.edit_parameter("fact_Tgas_2_Tdust", new_value=value, new_units=None, new_description='the factor to which the gas temperature is larger than the dust temperature within the temperature transition radius')
+    
     #  @property
     #  def dummy(self):
         #  return self.get_parameter_value("dummy")
@@ -622,6 +786,12 @@ class Parameters:
         # 500*au to include as much disk as possible
         self.rout              = 500 # * au
         #
+        # maximum allowable step in the grid
+        # if 0, nr will be used and it will be an log space r grid
+        # if used, once the diff_r is larger than this,
+        # the r-grid changes to linear scale
+        self.r_step_max        = 0. # * au
+        #
         # thetaup needs to be large enough to include all the dust in the higher layers
         # especially for the very puffed up Gaussian disk
         # 1.2; 0.7 # adopted 0.7 for VHSE disks
@@ -684,6 +854,8 @@ class Parameters:
         #
         # 3.2 Powerlaw of the surface density
         #
+        # set up the reference surface density distribution directly
+        self.sigmad_ref        = []
         # surface density power index; usually as -1.0
         # (NOTE) in some codes it is called the column density,
         # surface density is used here to avoid potential confusion
@@ -698,6 +870,9 @@ class Parameters:
         #
         # tappering Radius Rtap = rc
         self.Rtap              = 63.0 # * au
+        #
+        # disk inner edge, if not 0, disk has a sharp cut inner edge
+        self.rdisk_in          = 0.0 # * au
         #
         # 3.3 Flaring of the disk
         # (Not Important if VHSE turned on)
@@ -720,17 +895,39 @@ class Parameters:
         # flaring index of the disk
         self.plh               = 1.10
         #
+        # dust settling parameter (ref. Estrada+2016)
+        # default is 1e-2 for minor settling
+        # or 1e-3 and even 1e-4 for stronger settling
+        self.visc_alpha        = 1.0e-2
+        #
+        # the fragmentation threshold for dust grains
+        self.vel_frag          = 100
+        #
+        # the grain radial drifting size
+        self.a_drift           = 5e-3
+        # 
+        # the grain radial drifting radius
+        self.radius_drift      = 300 # au
+        #
         # 3.4 geometry
         # 
         # disk inclination angle
-        self.incl              = 18.8
+        self.incl              = 0.0 # 18.8
         #
         # disk position angle
-        self.pos               = -121.
+        self.pos               = 0.0 # -121.
         #
         # which angle to observe the disk
         # used in radmc3d
         self.phi               = 0.
+        #
+        # 2nd disk
+        # [**Dev**]
+        self.mdiskd_2          = 0.
+        self.pl_sufdens_2      = self.pl_sufdens
+        self.rdisk_out_2       = 0.
+        self.hp100_2           = self.hp100
+        self.plh_2             = self.plh
 
         #################################################
         """
@@ -810,6 +1007,9 @@ class Parameters:
         """
         **TODO**
         add the function of computing ndsd accordingly with fracs
+        
+        **NOTE**
+        the ndsd is now be setup at the dust setup section
         """
         # ndsd = number density * a**2
         #  self.ndsd               = []
@@ -817,8 +1017,11 @@ class Parameters:
         """
         **TODO**
         add the option to change the dust compositions (to be added)
+        
+        **NOTE**
+        the dust composition is now changed in the main file with the utils
+        to call the optool
         """
-
         #
         # Set additional Composition for Troilite
         #
@@ -866,6 +1069,14 @@ class Parameters:
         easy to change parameters if people prefer to do so
         and the description will be easy as well be easy as well
         """
+        
+        """
+        (developing parameters)
+        """
+        self.R_temp_trans = 0.
+        self.fact_Tgas_2_Tdust = 1.
+        
+        return 1
 
 """
 para = parameters()
@@ -896,7 +1107,7 @@ class Mint:
         # the name (the name for chemical_save_name) of previous model
         self.prev_setup_name = ''
         # the previous setup gas-to-dust mass ratio
-        self.ratio_g2d_prev  = None
+        # self.ratio_g2d_prev  = None
         #
         # whether created new Dust Kappa File
         # so that want to calculate dust parameters
@@ -910,6 +1121,16 @@ class Mint:
         self.bool_VHSE          = True
         # the number of loops it tries to go through to solve the VHSE
         self.n_vhse_loop        = int(20) 
+        # 
+        # whether to enalble dust settling
+        # (Developing)
+        self.bool_dust_settling = False
+        #
+        # whether to relocate the dust
+        # (Developing)
+        # we have two options: fragmentation and drifting
+        self.bool_dust_fragmentation = False
+        self.bool_dust_radial_drifting = False
         #
         # whether to run the chemical network
         self.bool_chemistry     = True
@@ -921,6 +1142,20 @@ class Mint:
         # whether to save the radmc3d model results in another folder
         self.bool_savemodel     = True
         
+        """
+        **NOTE**
+        below are the bools that are still under development   
+        """
+        """START (DEV)"""
+        # decouple the gas and dust in the inner disk
+        self.bool_temp_decouple = False
+        
+        # radially distribute the dust distribution according to their sizes
+        self.bool_dust_fragmentation = False
+        self.bool_dust_radial_drifting = False
+        
+        """END (DEV)"""
+        
         #
         # copy the parameters we setup to the model
         #
@@ -929,15 +1164,26 @@ class Mint:
 
         # Set up distributions for density, temperature, and grid
         self.setup_radmc3d_grid(para)
-        self.setup_dust_density_initial_gaussian(para)
-        self.setup_gas_density(para)
+        self.setup_dust_density_initial_gaussian(para, bool_initial_setup=True)
+        
+        # If a Secondary disk is added
+        # if para.mdiskd_2 > 0:
+        self.setup_secondary_dust_density_initial_gaussian(para, bool_initial_setup=True)
+            
+        self.setup_gas_density(para, bool_initial_setup=True)
 
-        print('input mdiskd: %.3e [ms]'%(para.mdiskd/ms))
-        print('setup mdiskd: %.3e [ms]'%(self.mdiskd_setup/ms))
+        print('input primary mdiskd: %.3e [ms]'%(para.mdiskd/ms))
+        print('setup primary mdiskd: %.3e [ms]'%(self.mdiskd_setup_1/ms))
+        
+        # if para.mdiskd_2 > 0:
+        print('input secondary mdiskd_2: %.3e [ms]'%(para.mdiskd_2/ms))
+        print('setup secondary mdiskd_2: %.3e [ms]'%(self.mdiskd_setup_2/ms))
+
+        print('setup total mdiskd: %.3e [ms]'%(self.mdiskd_setup/ms))
 
         print('setup mdiskg: %.3e [ms]'%(self.mdiskg_setup/ms))
         print('setup gtd: %.3e'%(self.mdiskg_setup/self.mdiskd_setup))
-
+        
         # set up wavelength
         self.setup_wavelengths(para)
 
@@ -962,7 +1208,7 @@ class Mint:
         #
 
         # what we really want is the grids based on collumn density
-        self.ri = dd.grid_radial_profile(para.rin, para.rout, para.nr)
+        self.ri, self.nr = dd.grid_radial_profile(para.rin, para.rout, para.nr, para.r_step_max)
 
         if hasattr(para, 'ncoarse'):
             #  print("Parameter 'ncoarse' exists in parameters.")
@@ -1024,11 +1270,14 @@ class Mint:
         # and it needs to be matched with the LIME input file
         self.nr_cyl_LIME = para.nr_cyl_LIME
         self.nz_cyl_LIME = para.nz_cyl_LIME
+        
+        return 1
+    
 
-    def calculate_volumn(self):
+    def calculate_volume(self):
         """
-        # Calculate the volumn
-        # calculate the volumn for each cell in spherical coordinate
+        # Calculate the volume
+        # calculate the volume for each cell in spherical coordinate
         """
 
         v_grid = self.v_grid = np.meshgrid(self.ri, self.thetai, self.phii[0], indexing = 'ij')
@@ -1042,10 +1291,16 @@ class Mint:
         # since only half of the disk (upper part) is calculated
 
         self.vol = dvrr * self.rr * np.sin(self.tt) * 2*np.pi * self.rr * dvtt
+        
+        return 1
+    
 
-    def setup_dust_density_initial_gaussian(self, para):
+    def setup_dust_density_initial_gaussian(self, para, bool_initial_setup=False):
         """
         set up the initial gaussian vertical distribution
+        
+        Args:
+            bool_initial_setup (bool): if true, put the sigmad_setup to the class
         """
         
         #
@@ -1066,12 +1321,20 @@ class Mint:
         plh   = para.plh
         Rtap  = para.Rtap
 
+        sigmad_reference = para.sigmad_ref
         #
         # Make Dust Density model according to Woitke2016
         #
-        print('Used the powerlow for surface density and tapering-off: %.3f; %.3f'%(plsig, plsig2))
-        self.sigmad = sigmad0 * (self.rr*np.cos(self.zr)/au)**plsig * np.exp(-(self.rr*np.cos(self.zr)/Rtap)**(plsig2))
-
+        if len(sigmad_reference) == 0:
+            print('Used the powerlow for surface density and tapering-off: %.3f; %.3f'%(plsig, plsig2))
+            self.sigmad = sigmad0 * (self.rr*np.cos(self.zr)/au)**plsig * np.exp(-(self.rr*np.cos(self.zr)/Rtap)**(plsig2))
+        else:
+            print('Use the input reference surface density distribution to build the sigmad')
+            self.sigmad = dd.place_surface_density(sigmad_reference, rc=self.rc, thetac=self.thetac, phic=self.phic, coord='sph')
+        
+        if para.rdisk_in > 0.0:
+            self.sigmad[self.rr < para.rdisk_in] = 0.0
+        
         if scaleheight_index == 1:
             print('Used the Method 1 to setup Hp, with Hp100 = %.3f'%(hp100/au))
             self.hp   = hp100 * (self.rr*np.cos(self.zr)/(100*au))**plh
@@ -1085,55 +1348,181 @@ class Mint:
         if hasattr(self, 'vol'):
             pass
         else:
-            self.calculate_volumn()
+            self.calculate_volume()
 
         self.rhod = self.sigmad/(np.sqrt(2*np.pi) * self.hp) * np.exp(-((self.rr*np.sin(self.zr))**2 / ( 2 * self.hp**2)))
+        
         mass = (self.rhod*self.vol).sum(0).sum(0).sum(0)
-        self.sigmad = self.sigmad * (para.mdiskd/2/mass)
-        #  sigmad_f = sigmad.copy()
-        self.rhod = self.rhod * (para.mdiskd/2/mass)
+        self.sigmad_1 = self.sigmad = self.sigmad * (para.mdiskd/2/mass)
+        self.rhod_1   = self.rhod   = self.rhod * (para.mdiskd/2/mass)
+        
+        if bool_initial_setup:
+            self.sigmad_setup = self.sigmad_1_setup = self.sigmad
+            self.mdiskd_setup_half_1 = self.mdiskd_setup_half = (self.rhod*self.vol).sum(0).sum(0).sum(0)
+            self.mdiskd_setup_1      = self.mdiskd_setup      = 2 * self.mdiskd_setup_half   
+        
+        return 1
+        
+        
+    def setup_secondary_dust_density_initial_gaussian(self, para, bool_initial_setup=False):
+        """
+        **Devloping**
+        set up the initial gaussian vertical distribution
+        for Secondary dust disk Zone
+        this is ideal for modeling transition disks and build Two-Zone model
+        
+        the secondary dust disk is normally the disk with smaller disk mass, thus the inner disk of a transit disk.
+        
+        Args:
+            bool_initial_setup (bool): if true, put the sigmad_setup to the class
+        """
+        
+        #
+        # Disk Parameters
+        #
+        # the sigmag0 is muted because we set up sigmad0 first,
+        # then scale the sigmad0 to match the total dust mass
+        # then scale the sigmad(r) with gtd(r) to have the setup sigmag(r)
+        # the sigmad0 here is a dummy parameter which will be then scaled
+        # to the set up disk dust mass (mdiskd)
+        
+        #
+        # set up the secondary secondary dust disk when it is not 0
+        # 
+        if para.mdiskd_2 > 0.0:
+            sigmad0  = 1e1 # sigmag0 / ratio_g2d  # Sigma dust at 1 AU
+            plsig    = para.pl_sufdens_2 # Powerlaw of the surface density
+            # plsig2   = para.pl_tapoff_2 # tapering off power index
 
-        self.mdiskd_setup_half = (self.rhod*self.vol).sum(0).sum(0).sum(0)
-        self.mdiskd_setup      = 2 * self.mdiskd_setup_half
+            scaleheight_index = para.scaleheight_index_2 # which method to setup scale height
+            hp100 = para.hp100_2
+            plh   = para.plh_2
+            Rout  = para.rdisk_out_2
 
-    def setup_g2d_grid(self, para):
+            #
+            # Make Dust Density model according to Woitke2016
+            #
+            print('Used the powerlow for surface density: %.3f;'%(plsig))
+            self.sigmad_2 = sigmad0 * (self.rr*np.cos(self.zr)/au)**plsig
+            self.sigmad_2[self.rr > Rout] = 0.0 # sharp-cut the outer rim of the secondary dust disk.
+            
+            if scaleheight_index == 1:
+                print('Used the Method 1 to setup Hp, with Hp100 = %.3f'%(hp100/au))
+                self.hp   = hp100 * (self.rr*np.cos(self.zr)/(100*au))**plh
+            else:
+                print('WRONG INPUT for the ScaleHeight Index, \n now switching to default value of using hp100 = 10 AU at 100AU')
+                self.hp   = 10 * au * (self.rr*np.cos(self.zr)/(100*au))**plh
+
+            if hasattr(self, 'vol'):
+                pass
+            else:
+                self.calculate_volume()
+
+            self.rhod_2 = self.sigmad_2/(np.sqrt(2*np.pi) * self.hp) * np.exp(-((self.rr*np.sin(self.zr))**2 / ( 2 * self.hp**2)))
+            mass = (self.rhod_2*self.vol).sum(0).sum(0).sum(0)
+            self.sigmad_2 = self.sigmad_2 * (para.mdiskd_2/2/mass)
+            #  sigmad_f = sigmad.copy()
+            self.rhod_2 = self.rhod_2 * (para.mdiskd_2/2/mass)
+
+            if bool_initial_setup:
+                self.mdiskd_setup_half_2 = (self.rhod_2*self.vol).sum(0).sum(0).sum(0)
+                self.mdiskd_setup_2      = 2 * self.mdiskd_setup_half_2
+        
+        else:
+            self.rhod_2   = self.rhod.copy() * 0.0
+            self.sigmad_2 = self.sigmad.copy() * 0.0
+            if bool_initial_setup:
+                self.mdiskd_setup_half_2 = 0.0
+                self.mdiskd_setup_2      = 0.0
+        
+        # save a copy of the primary disk
+        self.rhod_1 = self.rhod.copy()
+        self.sigmad_1 = self.sigmad.copy()
+        
+        if bool_initial_setup:
+            self.mdiskd_setup_1 = self.mdiskd_setup.copy()
+            self.mdiskd_setup_half_1 = self.mdiskd_setup_half.copy()
+        
+        # combine the primary with the secondary disk
+        self.rhod = self.rhod + self.rhod_2 
+        self.sigmad = self.sigmad + self.sigmad_2
+        if bool_initial_setup:
+            self.sigmad_2_setup = self.sigmad_2
+            self.sigmad_setup = self.sigmad
+            self.mdiskd_setup = self.mdiskd_setup + self.mdiskd_setup_2
+            self.mdiskd_setup_half = self.mdiskd_setup_half + self.mdiskd_setup_half_2
+        
+        return 1
+    
+
+    def setup_g2d_grid(self, para, bool_initial_setup=False):
         """
         # set up a grid of g2d in the shape of the model grid
+        
+        Args:
+            bool_initial_setup (bool): if true, put the ratio_g2d_setup to the class
         """
         
         if hasattr(para, 'ratio_g2d') and para.ratio_g2d is not None:
             #  print('case 1')
-            ratio_g2d = para.ratio_g2d
+            ratio_g2d_set = para.ratio_g2d
         else:
             #  print('case 2')
-            ratio_g2d = para.ratio_g2d_global
+            ratio_g2d_set = para.ratio_g2d_global
         
-        #  print(para.dummy, 'this is the dummy')
-
-        ratio_g2d_set = copy.deepcopy(ratio_g2d)
+        """
+        dev
+        put up a grid of g2d in the DiskMINT model
+        """
+        # ratio_g2d_set = copy.deepcopy(ratio_g2d)
         #  print(ratio_g2d_set)
-        ratio_g2d     = dd.place_ratio_g2d(ratio_g2d_set, self.sigmad.shape, self.rc)
-        self.ratio_g2d = ratio_g2d
+        # ratio_g2d     = dd.place_ratio_g2d(ratio_g2d_set, self.sigmad.shape, self.rc)
+        ratio_g2d_grid = dd.place_ratio_g2d(ratio_g2d_set, rc=self.rc, thetac=self.thetac, phic=self.phic, coord='sph', ratio_g2d_outgrid=para.ratio_g2d_global)
+        
+        self.ratio_g2d = ratio_g2d_grid
+        
+        if bool_initial_setup:
+            self.ratio_g2d_setup = self.ratio_g2d
+            self.sigmagas_setup = self.sigmad_setup * self.ratio_g2d_setup
+        
+        return 1
+    
 
-    def setup_gas_density(self, para):
+    def setup_gas_density(self, para, bool_initial_setup=False):
         """
         # set up the gas density accordingly to the dust disk
+        
+        Args:
+            bool_initial_setup (bool): if true, put the rhogas_setup (not used now) and the mdiskg_setup to the code 
+
+        Returns:
+            add rhogas
+            and mdiskg_setup to the mint class
+            
+        Description:
+            TBA
         """
         
         if hasattr(self, 'ratio_g2d'):
             pass
         else:
-            self.setup_g2d_grid(para)
+            self.setup_g2d_grid(para, bool_initial_setup=bool_initial_setup)
         
         self.rhogas = self.rhod * self.ratio_g2d
 
         if hasattr(self, 'vol'):
             pass
         else:
-            self.calculate_volumn()
+            self.calculate_volume()
         
-        # calculate the total disk gas mass in the volume
-        self.mdiskg_setup = (self.rhogas*self.vol).sum(0).sum(0).sum(0) * 2
+        if bool_initial_setup:
+            # # record the initial rhogas setup
+            # self.rhogas_setup = self.rhogas
+            # calculate the total disk gas mass in the volume
+            self.mdiskg_setup = (self.rhogas*self.vol).sum(0).sum(0).sum(0) * 2
+        
+        return 1
+    
 
     def setup_wavelengths(self, para):
         """
@@ -1169,7 +1558,10 @@ class Mint:
             lam14    = np.logspace(np.log10(lam1),np.log10(lam4),n14,endpoint=True)
             # lam      = np.concatenate([lam12,lam23,lam34])
             self.lam      = lam14
-            self.nlam     = lam.size
+            self.nlam     = self.lam.size
+            
+        return 1
+    
 
     def setup_dust_info(self, para, bool_savefile=False):
         """
@@ -1220,7 +1612,7 @@ class Mint:
             return a_ave
 
         pla     = para.pla_dustsize
-        q_h     = para.pla_dustsize
+        # q_h     = para.pla_dustsize
         rhobulk = para.rhobulk
 
         #
@@ -1228,46 +1620,57 @@ class Mint:
         #
         a_ave    = []
         fracs_nb = []
-        fracs    = [] # para.fracs # fracs is setup in the parameters file
-        ndsd     = [] # para.fracs # ndsd is setup in the parameters file;
+        """**TODO** [DEV] enalbling the feature of set the fracs in the parameters file"""
+        fracs    = [] # para.fracs # fracs can be setup in the parameters file
+        ndsd     = [] # para.fracs # ndsd can be setup in the parameters file;
         # if the fracs is provided, then ndsd needs to be provided manually
 
-        ai_sm = np.logspace(np.log10(para.amin_1), np.log10(para.amax_1), para.nr_dust_1 + 1)
-        #  ai_bg = np.logspace(np.log10(para.amin_2), np.log10(para.amax_2), para.nr_dust_2 + 1)
-        #  ai    = np.hstack([ai_sm[:-1], ai_bg])
+        # ai_sm = np.logspace(np.log10(para.amin_1), np.log10(para.amax_1), para.nr_dust_1 + 1)
+        # ai_bg = np.logspace(np.log10(para.amin_2), np.log10(para.amax_2), para.nr_dust_2 + 1)
+        # ai    = np.hstack([ai_sm[:-1], ai_bg])
+        ai_1 = np.logspace(np.log10(para.amin_1), np.log10(para.amax_1), para.nr_dust_1 + 1)
+        ai_2 = np.logspace(np.log10(para.amin_2), np.log10(para.amax_2), para.nr_dust_2 + 1)
         """
         **TODO**
         in current version, only one uniform dust composition
         is supported, will add more versatile treatment in the future
         """
-        ai = ai_sm.copy()
+        # ai = ai_sm.copy()
 
         #  print('input paras:', amin_1, amax_1, amin_2, amax_2, nr_dust_1, nr_dust_2, pla)
 
+        
         if len(fracs) == 0:
             print('Computing Frations of Dust Species Assuming in the same Slope')
-            mass_dustfrac_all = massdust_i(np.max(ai), np.min(ai), rhobulk = rhobulk, pla=pla)
-            numb_dustfrac_all = numbdust_i(np.max(ai), np.min(ai), rhobulk = rhobulk, pla=pla)
+            
+            for ai in [ai_1, ai_2]:
+                mass_dustfrac_all = massdust_i(np.max(ai), np.min(ai), rhobulk = rhobulk, pla=pla)
+                numb_dustfrac_all = numbdust_i(np.max(ai), np.min(ai), rhobulk = rhobulk, pla=pla)
 
-            # set up the fractions for each dust sub-species
-            for i in range(len(ai) - 1):
-                ai_max = ai[i+1]
-                ai_min = ai[i]
+                # set up the fractions for each dust sub-species
+                for i in range(len(ai) - 1):
+                    ai_max = ai[i+1]
+                    ai_min = ai[i]
 
-                a_ave.append(a_average(ai_max, ai_min, pla=pla))
-                fracs.append(massdust_i(ai_max, ai_min, rhobulk = rhobulk, pla=pla)/mass_dustfrac_all)
-                fracs_nb.append(numbdust_i(ai_max, ai_min, rhobulk = rhobulk, pla=pla)/numb_dustfrac_all)
-                ndsd.append(ndsd_i(ai_max, ai_min, rhobulk = rhobulk, pla=pla))
+                    a_ave.append(a_average(ai_max, ai_min, pla=pla))
+                    fracs.append(massdust_i(ai_max, ai_min, rhobulk = rhobulk, pla=pla)/mass_dustfrac_all)
+                    fracs_nb.append(numbdust_i(ai_max, ai_min, rhobulk = rhobulk, pla=pla)/numb_dustfrac_all)
+                    ndsd.append(ndsd_i(ai_max, ai_min, rhobulk = rhobulk, pla=pla))
 
         else:
+            """
+            **TODO** the part below might not work as designed so far.
+            """
             print('Using User Provided Dust Mass Fractions as:', fracs)
-            # set up the fractions for each dust sub-species
-            for i in range(len(ai) - 1):
-                ai_max = ai[i+1]
-                ai_min = ai[i]
-                a_ave_t = a_average(ai_max, ai_min, pla=pla)
-                a_ave.append(a_ave_t)
-                fracs_nb.append(fracs[i]/(4/3*np.pi*rhobulk*a_ave_t**3))
+            
+            for ai in [ai_1, ai_2]:
+                # set up the fractions for each dust sub-species
+                for i in range(len(ai) - 1):
+                    ai_max = ai[i+1]
+                    ai_min = ai[i]
+                    a_ave_t = a_average(ai_max, ai_min, pla=pla)
+                    a_ave.append(a_ave_t)
+                    fracs_nb.append(fracs[i]/(4/3*np.pi*rhobulk*a_ave_t**3))
 
             fracs_nb = np.array(fracs_nb)/np.sum(np.array(fracs_nb))
 
@@ -1283,6 +1686,9 @@ class Mint:
             np.savetxt('fracs.inp', fracs)
             np.savetxt('fracs_numb.inp', fracs_nb)
             np.savetxt('ndsd.inp', ndsd)
+            
+        return 1
+    
 
     def readin_dust_info(self, file_dir, \
                          file_aave='aave.inp', file_fracs='fracs.inp',\
@@ -1327,3 +1733,4 @@ class Mint:
 
         self.dust_spec_nr = len(fracs)
 
+        return 1
