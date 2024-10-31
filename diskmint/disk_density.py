@@ -3719,7 +3719,7 @@ def runmodel(mint, test_alliteration=False):
 
     print('----------------------')
     print('finished the model for')
-    print('%s'%(mint.chemical_save_name))
+    print('%s'%(para.chemical_save_name))
     print('----------------------')
     
     return proceed_code
