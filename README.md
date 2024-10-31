@@ -114,3 +114,14 @@ For using the model on another target, or if you want to play with it a bit, the
 
 With all of these files and parameters being correctly set up, you should be able to start running your first model.
 Also, remember to change the script you have (not provided here) for doing line radiative transfer and making the synthetic image for the new target or new observation to compare with.
+
+--
+
+## Recent Updates:
+
+v1.3.0.beta
+
+Included a few new features and fixed a few bugs. New features including  handling dust settling, set up dust and gas surface densities as function of radii, etc.
+
+More descriptions and tutorials with a more detailed documentation will be added soon.
+
