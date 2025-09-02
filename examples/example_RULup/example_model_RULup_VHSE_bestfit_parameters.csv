@@ -1,8 +1,8 @@
 # the model parameters of
 # example_model_RULup_VHSE_bestfit 
 # name(str),value(str/float),units(str),valuetype(str),description(str)
-nphot,10000000.0,None,float64,Number of Photon Packages
-nthreads,24.0,None,float64,Number of Threads using in RADMC3D
+nphot,100000.0,None,float64,Number of Photon Packages
+nthreads,32.0,None,float64,Number of Threads using in RADMC3D
 scattering_mode,0.0,None,float64,Scatter Mode in RADMC3D
 nr,170.0,None,float64,Number of Grid in r-direction
 ntheta,200.0,None,float64,Number of Grid in theta-direction
@@ -31,6 +31,8 @@ visc_alpha,0.01,None,float64,alpha parameter for dust settling (ref. Estrada+201
 vel_frag,100,cm s^-1,float64,fragmentation threshold for dust grains
 a_drift,0.005,cm,float64,The grains that are larger than this size will be drifted in
 radius_drift,300,au,float64,The grains that needs to be drifted will be dirfted inside this radius
+r_wall_surf,0.0,au,float64,the surface of the disk inner wall (rim) as well as the outer radii
+factor_wall_height,1.0,,float64,the factor of how much the disk inner wall will be elevated compared to hp
 incl,18.8,degree,float64,Inclination angle of the disk -- refer to RADMC3D defination
 phi,0.0,None,float64,Observation position angle of the disk -- refer to RADMC3D defination
 mdiskd_2,0.0,solar masses,float64,Secondary Disk dust mass
@@ -51,8 +53,9 @@ amin_all,1e-06,cm,float64,Overall minimum grain size for dust
 amax_all,0.3,cm,float64,Overall maximum grain size for dust
 pla_dustsize,3.5,None,float64,Power law index for dust grain size distribution slope
 rhobulk,3.224,g cm^-3,float64,Bulk density of dust grains
-chemical_save_dir,/home/dingshandeng/data/diskmass/DiskMINTv3p2_results/RULup_chemistry/,None,str,Directory to save the chemical model
+chemical_save_dir,/home/dingshandeng/data/diskmass/DiskMINTv1p5p0_results/RULup_diskmint/,None,str,Directory to save the chemical model
 chemical_save_name,example_model_RULup_VHSE_bestfit,None,str,Name of this model (and also the chemical part)
+G0Hab_set,0.0,None,float64,The FUV field G0 in Habbin unit at the stellar radius
 nr_cyl_LIME,100.0,None,float64,Number of r grid that will be used in LIME
 nz_cyl_LIME,200.0,None,float64,Number of z grid that will be used in LIME
 R_temp_trans,0.0,au,float64,The temperature transition radius where the gas temperature deviates (get hotter) from the dust temperature within it

@@ -1,0 +1,103 @@
+# set up some parameters in CSV format: , as divider
+# lines start with '#' will not be read
+# DiskMINT v1.1.0beta
+# author: Dingshan Deng @ University of Arizona
+# contact: dingshandeng@arizona.edu
+
+# the data file is seperated with comma
+# which means it can be easily be converted to csv format
+# the columns are:
+# name(str), value(str/int/float), units(str), valuetype, description
+
+# 1. RADMC3D Setup
+# the basic setups for using RADMC3D, r.f., RADMC3D-2.0 manual
+nphot           , 1.0e7 , None , float64 , Number of Photon Packages
+nthreads        , 10    , None , float64 , Number of Threads using in RADMC3D
+scattering_mode , 0     , None , float64 , Scatter Mode in RADMC3D
+nr              , 170   , None , float64 , Number of Grid in r-direction
+ntheta          , 200   , None , float64 , Number of Grid in theta-direction
+nphi            , 1     , None , float64 , Number of Grid in phi-direction
+rin             , 0.055 , au   , float64 , Inner edge of the r grid -- needs to push to dust sublimation radius to solve VHSE correctly
+rout            , 1000  , au   , float64 , Outer edge of the r grid -- needs to be large enough to include all the dust and CO gas
+thetaup         , 0.7   , None , float64 , Upper edge of theta grid -- needs to be large enough to include all possible emission
+
+# 2. Stellar Parameters
+fmodel_filename , R22_benchmark_SpecModel_wuv.inp , None                  , str     , File name for the stellar spectrum in RADMC3D format
+# IM Lup is a K5 star according to MAPS
+tstar           , 4250                   , K                     , float64 , Stellar temperature -- not used now since the stellar spectrum is required
+mstar           , 1.0                    , solar masses          , float64 , Stellar mass
+rstar           , 2.0                    , solar radius          , float64 , Stellar radius
+mdotacc         , 1e-8                   , solar masses per year , float64 , Disk mass accretion rate
+# 3. Disk Parameters
+#
+# 3.1 Masses
+# Disk dust mass
+mdiskd           , 0.001 , solar masses , float64 , Disk dust mass
+# Disk gas mass
+# Gas Mass is set by the Gas-to-dust Mass Ratio
+# the g2d can also be set up as a function of radius (will be added)
+# currently we set a global value
+ratio_g2d_global , 100.0   , None         , float64 , Disk global gas-to-dust mass ratio -- this is the overall ratio represented as only one number
+#
+# 3.2 Powerlaw of the surface density
+# surface density power index; default as -1.0
+# pl_sufdens = -0.84 from Franceschi+2023
+pl_sufdens       , -1.0   , None         , float64 , Power law index for disk surface density distribution
+#
+# tapering off power index 
+# from viscous evolving solution, it should be 2+pl_sufdens
+# the Rtap = 300 [AU] is from the dust radius measured in Franceschi+2023
+pl_tapoff        , 1.0     , None         , float64 , Power law index for disk tappring off outer edge
+Rtap             , 100.0   , None         , float64 , Disk tappering off radius
+#
+# 3.3 Flaring of the disk
+# the index refering to how to setup the scaleheight
+# if scaleheight_index == 1, using hp100 as DIANA project
+# hp = hp100 * (r/rc)**plh
+# if scaleheight_index == 2, using hprcr = hp/Rc as DALI model
+# hp = hprcr * rc * (r/rc)**plh
+scaleheight_index , 1    , None , float64 , Different index tells the model to use different method to set up the scale height
+hp100             , 10   , au   , float64 , Pressure scale height at 100 au
+hprcr             , 0.1  , None , float64 , Ratio of pressure scale height over tappering off radius at tappering off radius
+plh               , 1.15 , None , float64 , Power law index of the pressure scale height radial dependence
+
+# 3.4 Special treatment on disk (developing)
+visc_alpha        , 0.0005, None   , float64, alpha parameter for dust settling (ref. Estrada+2016) and radial distribution
+vel_frag          , 500.0 , cm s^-1, float64, fragmentation threshold for dust grains
+a_drift           , 0.01  , cm     , float64, The grains that are larger than this size will be drifted in
+radius_drift      , 300   , au     , float64, The grains that needs to be drifted will be dirfted inside this radius
+r_wall_surf       , 0.0   , au     , float64, the surface of the disk inner wall (rim) as well as the outer radii
+factor_wall_height, 3.0   ,        , float64, the factor of how much the disk inner wall will be elevated compared to hp
+mdiskd_2          , 0.0   , solar masses, float64, Secondary Disk dust mass
+pl_sufdens_2      , -1.0  , None   , float64, Power law index for Secondary disk surface density distribution
+rdisk_out_2       , 0.0   , None   , float64, Secondary Disk outer radius
+hp100_2           , 10    , au     , float64, For Secondary disk: Pressure scale height at 100 au
+plh_2             , 1.1   , None   , float64, For Secondary disk: Power law index of the pressure scale height radial dependence
+R_temp_trans      , 5.0   , au     , float64, The temperature transition radius where the gas temperature deviates (get hotter) from the dust temperature within it
+fact_Tgas_2_Tdust , 3.0   , None   , float64, the factor to which the gas temperature is larger than the dust temperature within the temperature transition radius
+
+#
+# 3.4 geometry
+incl , 0.0  , degree , float64 , Inclination angle of the disk -- refer to RADMC3D defination
+phi  , 0.0  , None   , float64 , Observation position angle of the disk -- refer to RADMC3D defination
+
+# 4. Dust Kappa Setup
+dustopacname_1 , optool_20250122, None    , str     , Opacity file name for the dust opacity 3
+dustopacname_2 , optool_20250122, None    , str     , Opacity file name for the dust opacity 2
+nr_dust_1      , 20             , None    , float64 , Number of the dust species with the dust opacity 1
+nr_dust_2      , 0              , None    , float64 , Number of the dust species with the dust opacity 2
+dust_spec_nr   , 20             , None    , float64 , Total number of dust species
+amin_1         , 1e-06          , cm      , float64 , Minimum grain size for dust with opacity 1
+amin_2         , 1e-06          , cm      , float64 , Minimum grain size for dust with opacity 2
+amax_1         , 0.1            , cm      , float64 , Maximum grain size for dust with opacity 2
+amax_2         , 0.1            , cm      , float64 , Maximum grain size for dust with opacity 2
+amin_all       , 1e-06          , cm      , float64 , Overall minimum grain size for dust
+amax_all       , 0.1            , cm      , float64 , Overall maximum grain size for dust
+pla_dustsize   , 3.5            , None    , float64 , Power law index for dust grain size distribution slope
+rhobulk        , 2.08           , g cm^-3 , float64 , Bulk density of dust grains
+
+# 4. Chemistry Setup
+chemical_save_dir  , output                      , None , str     , Directory to save the chemical model
+chemical_save_name , example_model               , None , str     , Name of this model (and also the chemical part)
+nr_cyl_LIME        , 200                         , None , float64 , Number of r grid that will be used in LIME
+nz_cyl_LIME        , 200                         , None , float64 , Number of z grid that will be used in LIME

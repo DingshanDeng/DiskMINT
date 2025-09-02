@@ -2,17 +2,17 @@
 # author: Dingshan Deng @ University of Arizona
 # contact: dingshandeng@arizona.edu
 # created: 07/03/2023
+# DiskMINT v3.3-alpha
 
 """
 Wrapper of using LIME to make a group of synthetic images
 This is a very simple example of using LIME v1.9.5
-and this script is prepared in `bash` (also work in `zsh`) shell
 Please prepare your own script
 
 To modify this script for your own purpose,
 Please change both the parameters here in the section
-`Changing Parameters`
-and also the `colimemodel.c` accordingly in the same directory
+Changing Parameters
+and also the colimemodel.c accordingly
 """
 
 import numpy as np
@@ -267,7 +267,7 @@ Caution! Change the LIME parameters in colimemodel.c accordingly!
 #
 # Where is your LIME bin files
 #
-LIMEfile_dir = 'Yourpath/lime-1.9.5/lime'
+LIMEfile_dir = '~/github/lime-1.9.5/lime'
 
 #
 # Which line, for example it can be '2-1', or '3-2' 

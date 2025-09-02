@@ -1,0 +1,11 @@
+# Include docs and license in the sdist
+include README.md LICENSE
+
+# Include Fortran chemistry sources in sdist so source users can build
+recursive-include chemistry/src *.f90 *.f *.F90 *.mod *.o Makefile
+
+# Optionally include examples in sdist
+# recursive-include examples *
+
+# Exclude build artefacts (defensive)
+global-exclude *.py[cod] __pycache__/*.py[cod] *.so *.dylib *.dll

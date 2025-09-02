@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diskmint"
+dynamic = ["version"]                # derive version from git tags
+description = "Self-consistent thermochemical disk model for individual targets (Python + external Fortran chemistry)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Dingshan Deng", email = "dingshandeng@arizona.edu" }, 
+            {name = 'Ruaud Maxime'},
+            {name = 'Uma Gorti'},
+            {name = 'Ilaria Pascucci'}]
+
+dependencies = [
+  "numpy",
+  "scipy",
+]
+
+# [project.optional-dependencies]
+# dev  = ["pytest>=7", "pytest-cov", "ruff", "build", "twine"]
+# docs = ["mkdocs-material"]
+
+[project.urls]
+Homepage = "https://github.com/DingshanDeng/DiskMINT"
+Issues   = "https://github.com/DingshanDeng/DiskMINT/issues"
+
+# --- setuptools config ---
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+license-files = ["LICENSE*"]
+
+# Include small runtime data files that live *inside* the Python package.
+# (Adjust or remove if not needed.)
+[tool.setuptools.package-data]
+"diskmint" = ["data/**/*"]
+
+# setuptools_scm: version from git tags (e.g., v1.5.0)
+[tool.setuptools_scm]
+# (defaults usually suffice; you can add write_to if you want a _version.py file)

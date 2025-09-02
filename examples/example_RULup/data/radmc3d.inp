@@ -1,7 +1,7 @@
-nphot = 10000000
+nphot = 100000
 scattering_mode_max = 0
 iranfreqmode = 0
-setthreads = 24
+setthreads = 32
 modified_random_walk = 1
 istar_sphere = 1
 itempdecoup  = 1

@@ -19,12 +19,13 @@ import numpy as np
 #  radmc3dPy_position = "/Users/dingshandeng/github/radmc3d-2.0/python/radmc3dPy/"
 #  sys.path.append(radmc3dPy_position)
 #
-package_position = "/home/dingshandeng/github/DiskModeling/0-DiskMINT/"
-#  package_position = "/Users/dingshandeng/github/DiskModeling/0-DiskMINT/"
-sys.path.append(package_position)
+# If the diskmint python package is not installed through pip
+package_position = "/home/dingshandeng/github/DiskMINT/"
+sys.path.append(os.path.join(package_position, 'src'))
 import diskmint.constants as const
 import diskmint.model as model
 import diskmint.disk_density as dd
+import diskmint.execute as exe
 
 #
 # I. Set up the directories and the names
@@ -42,7 +43,7 @@ data_dir = os.path.join(working_dir, 'data')
 # (2) Saving files directory:
 # a place where a copy of the chemical and RADMC-3D input/output files will be saved
 # NOTE: This dir can also be changed in the parameters.dat file which is called 'chemical_save_dir'
-save_dir = "/home/dingshandeng/data/diskmass/DiskMINTv3p2_results/RULup_chemistry/"
+save_dir = "/home/dingshandeng/data/diskmass/DiskMINTv1p5p0_results/RULup_diskmint/"
 #
 # (3) Name of this model:
 # Properly name each model you run to prevent any confusions!
@@ -78,6 +79,11 @@ bool_VHSE          = True
 # the iteration will automatically stop if it converges (normally <10 iterations)
 # but you still would like to set a maximum limit here
 n_vhse_loop        = int(20)
+# 
+# whether to enalble dust settling
+# In this example model, dust and gas are well-coupled without settling
+# but you can try to turn on the settling if needed
+bool_dust_settling = False
 #
 # whether to run the chemical network
 bool_chemistry     = True
@@ -154,6 +160,7 @@ mint.bool_VHSE          = bool_VHSE
 mint.n_vhse_loop        = n_vhse_loop
 mint.bool_chemistry     = bool_chemistry
 mint.bool_savemodel     = bool_savemodel
+mint.bool_dust_settling = bool_dust_settling
 mint.chem_code_dir      = chem_code_dir
 print(mint.chem_code_dir)
 
@@ -166,4 +173,9 @@ print(mint.chem_code_dir)
 #
 # Run model
 #
-dd.runmodel(mint)
+# dd.runmodel(mint)
+
+# if test_alliteration = True, then it will run through all the iteration numbers
+# that are set up to find the VHSE solution while ignoring whether they really
+# converge
+exe.runmodel(mint, test_alliteration=False)

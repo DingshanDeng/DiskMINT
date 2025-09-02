@@ -47,10 +47,9 @@ So please make sure the `RADMC-3D` is properly installed.
     numpy: used for array operations
     os, sys, copy, shutil: used for handling files and paths
     subprocess (for chemical network): used for executing Fortran code if you want to use the chemical network we provided
-    radmc3dPy (v2.00): used for handling RADMC-3D format files
 ```
 
-NOTE: There are also a few other packages that are required by [`radmc3dPy`](https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/index.html), such as `Matplotlib`, so please check their website to properly install the package.
+> Acknowlegement: In this recent update (v1.5.0), the package [`radmc3dPy`](https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/index.html) is no longer required. New stand-alone functions are added to `DiskMINT` to handle the input/output files for `RADMC-3D`. These functions are based on the original `radmc3dPy` scripts that are developed by Dr. Attila Juhasz and later maintained by Prof. Dr. Cornelis P. Dullemond. If you are still using the old version of `DiskMINT` (any of the pre-release versions before v1.5.0), please make sure to install `radmc3dPy`. We note that there are also a few other packages that are required by `radmc3dPy`, such as `Matplotlib`, so please check [their website](https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/index.html) to properly install the package.
 
 **Line Radiative Transfer Code.** The `DiskMINT` module will generate the thermal and density distributions of the disk, which can then be used to do line radiative transfer and make synthetic images.
 We do not provide the code to do the line radiative transfer and synthetic imaging (*But do not worry, examples are provided*). 
@@ -63,6 +62,8 @@ We also note that to compare with the observation, a proper **image convolution*
 **Dust Opacities.** Because one major step in the model is to match the Spectral Energy Distribution (SED) of the disk, which requires different dust opacities for each disk.
 Therefore, to properly use the model, you need to bring your own dust opacity files (in `RADMC-3D` format), and we also provide a few examples here in the `/examples/`
 We recommend using [`optool`](https://github.com/cdominik/optool) or [`dsharp_opac`](https://github.com/birnstiel/dsharp_opac) to generate the opacities for multiple size distributions that are required to correctly calculate the gas thermal structure from gas-dust thermal equilibrium.
+
+**In development.** We will also release a utility file/functions to handle the input/output of the line radiative transfer and dust opacities in late 2025 together with a install-friendly version and a detailed documentation.
 
 ---
 
@@ -115,13 +116,29 @@ For using the model on another target, or if you want to play with it a bit, the
 With all of these files and parameters being correctly set up, you should be able to start running your first model.
 Also, remember to change the script you have (not provided here) for doing line radiative transfer and making the synthetic image for the new target or new observation to compare with.
 
----
+## Citations
+If you use `DiskMINT` as part of your research, please cite 
 
-## Recent Updates:
+```
+@ARTICLE{2023ApJ...954..165D,
+       author = {{Deng}, Dingshan and {Ruaud}, Maxime and {Gorti}, Uma and {Pascucci}, Ilaria},
+        title = "{DiskMINT: A Tool to Estimate Disk Masses with CO Isotopologues}",
+      journal = {\apj},
+     keywords = {Protoplanetary disks, Astrochemistry, Chemical abundances, CO line emission, Planet formation, 1300, 75, 224, 262, 1241, Astrophysics - Earth and Planetary Astrophysics, Astrophysics - Instrumentation and Methods for Astrophysics, Astrophysics - Solar and Stellar Astrophysics},
+         year = 2023,
+        month = sep,
+       volume = {954},
+       number = {2},
+          eid = {165},
+        pages = {165},
+          doi = {10.3847/1538-4357/acdfcc},
+archivePrefix = {arXiv},
+       eprint = {2307.02657},
+ primaryClass = {astro-ph.EP},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
 
-v1.3.0.beta
-
-Included a few new features and fixed a few bugs. New features including  handling dust settling, set up dust and gas surface densities as function of radii, etc.
-
-More descriptions and tutorials with a more detailed documentation will be added soon.
-
+## Community Guidelines
+We welcome contributions, issue reports, and questions about `DiskMINT`! If you encounter a bug or issue, check out the [Issues page](https://github.com/DingshanDeng/DiskMINT/issues) and provide a report with details about the problem and steps to reproduce it. For general support, usage questions and suggestions, you can start a discussion in [Discussions page](https://github.com/DingshanDeng/DiskMINT/discussions), and of course feel free to send emails directly to us. If you want to contribute, feel free to fork the repository and create pull requests here. `DiskMINT` is licensed under MIT license, so feel free to make use of the source code in any part of your own work/software.
