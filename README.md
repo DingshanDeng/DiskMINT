@@ -1,6 +1,10 @@
 # DiskMINT
 ## DiskMINT (Disk Model For INdividual Targets): a tool to estimate disk masses with CO isotopologues
 
+<p align="center">
+  <img src="assets/images/card-software.png" alt="" style="width:67%; height:auto;">
+</p>
+
 **Contributors:**
 
 Dingshan Deng (dingshandeng@arizona.edu),
