@@ -48,9 +48,12 @@ So please make sure the `RADMC-3D` is properly installed.
 **Python Module.** The `Python3` module of `DiskMINT` relies on several auxiliary but widely used `Python3` packages:
 
 ```
-    numpy: used for array operations
+    numpy, scipy: used for array operations and calculations
+
+    # Python 3 standard library
     os, sys, copy, shutil: used for handling files and paths
-    subprocess (for chemical network): used for executing Fortran code if you want to use the chemical network we provided
+    subprocess (for chemical network): used for executing Fortran code 
+    if you want to use the chemical network we provided
 ```
 
 > Acknowlegement: In this recent update (v1.5.0), the package [`radmc3dPy`](https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/index.html) is no longer required. New stand-alone functions are added to `DiskMINT` to handle the input/output files for `RADMC-3D`. These functions are based on the original `radmc3dPy` scripts that are developed by Dr. Attila Juhasz and later maintained by Prof. Dr. Cornelis P. Dullemond. If you are still using the old version of `DiskMINT` (any of the pre-release versions before v1.5.0), please make sure to install `radmc3dPy`. We note that there are also a few other packages that are required by `radmc3dPy`, such as `Matplotlib`, so please check [their website](https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/index.html) to properly install the package.
