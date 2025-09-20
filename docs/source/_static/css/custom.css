@@ -1,0 +1,12 @@
+/* RTD theme v1.x (classic layout) */
+.wy-side-nav-search a img.logo,
+.wy-side-nav-search .wy-nav-top a img {
+  max-height: 120px;     /* adjust as you like */
+  width: auto;           /* preserve aspect ratio */
+}
+
+/* RTD theme v2.x (new layout) */
+.sidebar-logo img {
+  max-height: 120px;
+  width: auto;
+}
