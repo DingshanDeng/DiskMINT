@@ -1,0 +1,7 @@
+sphinx_rtd_theme
+myst_parser
+sphinx-design
+sphinx-autodoc2
+nbsphinx
+ipykernel
+linkify-it-py

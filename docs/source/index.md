@@ -1,8 +1,7 @@
 # DiskMINT
-**Disk Model For INdividual Targets**
 
 <p align="center">
-  <img src="docs/source/assets/images/card-software-transparent.png" alt="" style="width:38.2%; height:auto;">
+  <img src="assets/images/card-software-transparent.png" alt="" style="width:38.2%; height:auto;">
 </p>
 
 **Contributors:**
