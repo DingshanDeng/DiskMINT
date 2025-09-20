@@ -29,7 +29,7 @@ release = '1.5.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-  'myst_parser',
+  'myst_parser', # MyST Markdown
   'sphinx_design',
   'autodoc2',
 #   'sphinx.ext.autodoc',
@@ -38,6 +38,7 @@ extensions = [
   'sphinx.ext.imgmath',
   'nbsphinx',
   'IPython.sphinxext.ipython_console_highlighting',
+  "sphinx.ext.mathjax",   # MathJax support
 ]
 master_doc = 'index'
 
@@ -45,7 +46,7 @@ master_doc = 'index'
 # autodoc_mock_imports = ['astropy', 'scipy', 'numpy', 'pandas', 'matplotlib']
 # autodoc_member_order = 'bysource'
 
-autodoc2_packages = ['../../ysoisochrone']
+autodoc2_packages = ['../../src/diskmint']
 
 
 source_suffix = {
@@ -55,11 +56,11 @@ source_suffix = {
 }
 
 myst_enable_extensions = [
-    'amsmath',
+    'amsmath',  # LaTeX math environments
     'attrs_inline',
     'colon_fence',
     'deflist',
-    'dollarmath',
+    'dollarmath', # inline $...$ and display $$...$$
     'fieldlist',
     'html_admonition',
     'html_image',
@@ -69,6 +70,7 @@ myst_enable_extensions = [
     'strikethrough',
     'substitution',
     'tasklist',
+    "attrs",  
 ]
 
 # Add any paths that contain templates here, relative to this directory.
