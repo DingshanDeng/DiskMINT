@@ -28,26 +28,44 @@ release = '1.5.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+# extensions = [
+#   'myst_parser', # MyST Markdown
+#   'sphinx_design',
+#   'autodoc2',
+# #   'sphinx.ext.autodoc',
+#   'sphinx.ext.coverage',
+#   'sphinx.ext.napoleon',
+#   'sphinx.ext.imgmath',
+#   'nbsphinx',
+#   'IPython.sphinxext.ipython_console_highlighting',
+#   "sphinx.ext.mathjax",   # MathJax support
+# ]
+
 extensions = [
-  'myst_parser', # MyST Markdown
-  'sphinx_design',
-  'autodoc2',
-#   'sphinx.ext.autodoc',
-  'sphinx.ext.coverage',
-  'sphinx.ext.napoleon',
-  'sphinx.ext.imgmath',
-  'nbsphinx',
-  'IPython.sphinxext.ipython_console_highlighting',
-  "sphinx.ext.mathjax",   # MathJax support
+    'myst_parser',
+    'sphinx_design',
+    'autodoc2',
+    'sphinx.ext.coverage',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.mathjax',        # prefer MathJax over imgmath on RTD
+    'nbsphinx',
+    'IPython.sphinxext.ipython_console_highlighting',
 ]
+
 master_doc = 'index'
 
 # Get that autodoc working.
 # autodoc_mock_imports = ['astropy', 'scipy', 'numpy', 'pandas', 'matplotlib']
 # autodoc_member_order = 'bysource'
 
-autodoc2_packages = ['../../src/diskmint']
+# autodoc2_packages = ['../../src/diskmint']
 
+# autodoc2: tell it where your package lives and to parse Markdown docstrings
+autodoc2_packages = [
+    {"path": "../../src/diskmint", "module": "diskmint", "auto_mode": True},
+]
+autodoc2_docstring_parser = "myst"   # parse docstrings with MyST/Markdown
+autodoc2_render_plugin = "myst"      # render them with MyST too
 
 source_suffix = {
     '.rst': 'restructuredtext',
@@ -70,7 +88,7 @@ myst_enable_extensions = [
     'strikethrough',
     'substitution',
     'tasklist',
-    "attrs",  
+    # "attrs",  
 ]
 
 # Add any paths that contain templates here, relative to this directory.

@@ -1,6 +1,10 @@
 # DiskMINT
 
+**Disk Model for INdividual Targets**
+
 ![DiskMINT](_static/assets/images/card-software-transparent.png){width=38.2% align=center}
+
+*Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background*
 
 **Contributors:**
 
