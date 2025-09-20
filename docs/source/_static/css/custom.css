@@ -1,12 +1,15 @@
-/* RTD theme v1.x (classic layout) */
-.wy-side-nav-search a img.logo,
-.wy-side-nav-search .wy-nav-top a img {
-  max-height: 120px;     /* adjust as you like */
-  width: auto;           /* preserve aspect ratio */
+/* RTD theme v2 (current) */
+.sidebar-logo::before {
+  content: "DiskMINT";
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
-
-/* RTD theme v2.x (new layout) */
-.sidebar-logo img {
-  max-height: 120px;
-  width: auto;
+.sidebar-logo::after {
+  content: "Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background";
+  display: block;
+  margin-top: 8px;
+  font-style: italic;
+  opacity: 0.9;
+  line-height: 1.3;
 }
