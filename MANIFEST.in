@@ -1,11 +1,25 @@
-# Include docs and license in the sdist
-include README.md LICENSE
+# --- top-level files needed by users and builders ---
+include README.md
+include LICENSE
+include pyproject.toml
+include CMakeLists.txt
 
-# Include Fortran chemistry sources in sdist so source users can build
-recursive-include chemistry/src *.f90 *.f *.F90 *.mod *.o Makefile
+# --- Fortran chemistry sources (so sdists can build the executables) ---
+recursive-include chemistry/src *.f90 *.F90 *.inc *.f
 
-# Optionally include examples in sdist
+# --- Runtime template/data folders shipped inside the wheel (installed by CMake) ---
+recursive-include chemistry/reducedRGH22 *
+recursive-include chemistry/with_CO2_ice *
+recursive-include chemistry/without_CO2_ice *
+
+# --- Do NOT ship prebuilt binaries or local build artifacts ---
+prune chemistry/bin
+prune build
+prune dist
+
+# --- Optionally include examples in sdist
 # recursive-include examples *
 
-# Exclude build artefacts (defensive)
-global-exclude *.py[cod] __pycache__/*.py[cod] *.so *.dylib *.dll
+# --- Defensive excludes (object files, modules, caches, DS_Store, etc.) ---
+global-exclude *.o *.obj *.mod *.a *.lib *.dll *.dylib *.so *.pyd
+global-exclude *.py[cod] __pycache__/* .DS_Store
