@@ -69,7 +69,7 @@ master_doc = 'index'
 
 # autodoc2: tell it where your package lives and to parse Markdown docstrings
 autodoc2_packages = [
-    {"path": PKG_PATH, "module": "diskmint", "auto_mode": True},
+    {"path": "../../src/diskmint", "module": "diskmint", "auto_mode": True},
 ]
 
 # Put the generated API pages under docs/apidocs/
@@ -140,5 +140,5 @@ html_logo = '_static/assets/images/card-software-transparent.png'
 html_theme_options = {
     "logo_only": True,       # either is fine; does not block the ::before/::after text
     "display_version": False, # we’re adding our own caption via CSS anyway
-    "navigation_depth": 3, # make the sidebar expand more levels
+    # "navigation_depth": 3, # make the sidebar expand more levels
 }
