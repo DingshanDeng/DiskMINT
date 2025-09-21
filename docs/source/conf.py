@@ -14,6 +14,10 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
+# If your package uses a src/ layout: repo/src/diskmint
+# conf.py is at repo/docs/source/conf.py, so go up twice to reach repo/
+sys.path.insert(0, os.path.abspath('../../src'))
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -64,8 +68,17 @@ master_doc = 'index'
 autodoc2_packages = [
     {"path": "../../src/diskmint", "module": "diskmint", "auto_mode": True},
 ]
-autodoc2_docstring_parser = "myst"   # parse docstrings with MyST/Markdown
-autodoc2_render_plugin = "myst"      # render them with MyST too
+
+# Put the generated API pages under docs/apidocs/
+autodoc2_output_dir = "apidocs"
+
+# Parse & render docstrings as Markdown via MyST
+autodoc2_docstring_parser = "myst"
+autodoc2_render_plugin = "myst"
+
+# Useful filters (optional)
+autodoc2_hidden_objects = ["dunder", "private"]   # hide __dunder__ and _private
+# autodoc2_module_all = True                      # respect __all__ if you use it
 
 source_suffix = {
     '.rst': 'restructuredtext',
@@ -123,5 +136,6 @@ html_css_files = ["css/custom.css"]   # make this file in docs/_static/css/custo
 html_logo = '_static/assets/images/card-software-transparent.png'
 html_theme_options = {
     "logo_only": True,       # either is fine; does not block the ::before/::after text
-    "display_version": False # we’re adding our own caption via CSS anyway
+    "display_version": False, # we’re adding our own caption via CSS anyway
+    "navigation_depth": 3, # make the sidebar expand more levels
 }

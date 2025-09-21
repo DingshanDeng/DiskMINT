@@ -2,13 +2,13 @@
 
 /* Put caption directly under the logo image */
 .wy-side-nav-search a::after {
-  content: "Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background";
+  content: ""; /* Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background */
   display: block;
   margin-top: 8px;
   font-style: italic;
   opacity: 0.9;
   line-height: 1.3;
-  font-size: 0.9rem;   /* adjust as needed */
+  font-size: 0.3rem;   /* adjust as needed */
 }
 
 /* Optional: title above logo (if you want it) */
@@ -38,11 +38,11 @@
   margin-bottom: 8px;
 }
 .sidebar-logo::after {
-  content: "Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background";
+  content: ""; /* Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background */
   display: block;
   margin-top: 8px;
   font-style: italic;
   opacity: 0.9;
   line-height: 1.3;
-  font-size: 0.9rem;
+  font-size: 0.3rem;
 }
