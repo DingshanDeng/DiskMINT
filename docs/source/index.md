@@ -149,7 +149,10 @@ We welcome contributions, issue reports, and questions about `DiskMINT`! If you 
 
 ```{toctree}
 :hidden:
+:titlesonly:
 :maxdepth: 2
-:caption: API Reference
 
-api
+About DiskMINT <self>
+Quick Start <quickstart>
+Advanced Usage <advanced>
+API Reference <api>

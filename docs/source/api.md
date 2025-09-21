@@ -1,8 +1,7 @@
 # API Reference
 
 ```{toctree}
-:caption: DiskMINT API
-:maxdepth: 2
 :glob:
+:maxdepth: 2
 
-apidocs/diskmint*
+apidocs/*

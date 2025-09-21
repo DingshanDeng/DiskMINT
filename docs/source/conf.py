@@ -16,7 +16,10 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # If your package uses a src/ layout: repo/src/diskmint
 # conf.py is at repo/docs/source/conf.py, so go up twice to reach repo/
-sys.path.insert(0, os.path.abspath('../../src'))
+# (optional; not required for autodoc2, but helpful if you import anywhere)
+sys.path.insert(0, os.path.abspath(os.path.join(__file__, "..", "..", "..", "diskmint", "src")))
+PKG_PATH = os.path.abspath(os.path.join(__file__, "..", "..", "..", "diskmint", "src", "diskmint"))
+
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -66,7 +69,7 @@ master_doc = 'index'
 
 # autodoc2: tell it where your package lives and to parse Markdown docstrings
 autodoc2_packages = [
-    {"path": "../../src/diskmint", "module": "diskmint", "auto_mode": True},
+    {"path": PKG_PATH, "module": "diskmint", "auto_mode": True},
 ]
 
 # Put the generated API pages under docs/apidocs/
