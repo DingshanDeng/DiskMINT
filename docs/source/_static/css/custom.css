@@ -21,7 +21,7 @@
 
 /* Shrink the logo */
 .wy-side-nav-search a img.logo {
-  max-height: 110px;   /* tweak size */
+  max-height: 150px;   /* tweak size */
   width: auto;
 }
 
@@ -30,7 +30,7 @@
 
 
 /* ===== sphinx_rtd_theme v2 (new layout) — keep for future-proofing ===== */
-.sidebar-logo img { max-height: 110px; width: auto; }
+.sidebar-logo img { max-height: 150px; width: auto; }
 .sidebar-logo::before {
   content: "DiskMINT";
   display: block;
