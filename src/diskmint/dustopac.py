@@ -1027,55 +1027,55 @@ class radmc3dDustOpac(object):
 
     #     return
 
-    # @staticmethod
-    # def readMasterOpac():
-    #     """Reads the master opacity file 'dustopac.inp'.
-    #     It reads the dustkappa filename extensions (dustkappa_ext.inp) corresponding to dust species indices
+    @staticmethod
+    def readMasterOpac():
+        """Reads the master opacity file 'dustopac.inp'.
+        It reads the dustkappa filename extensions (dustkappa_ext.inp) corresponding to dust species indices
 
-    #     Returns
-    #     -------
+        Returns
+        -------
 
-    #     Returns a dictionary with the following keys:
+        Returns a dictionary with the following keys:
 
-    #         *ext   : list of dustkappa file name extensions
+            *ext   : list of dustkappa file name extensions
 
-    #         *therm : a list of integers specifying whether the dust grain is thermal or quantum heated
-    #         (0 - thermal, 1 - quantum heated)
-    #     """
+            *therm : a list of integers specifying whether the dust grain is thermal or quantum heated
+            (0 - thermal, 1 - quantum heated)
+        """
 
-    #     with open('dustopac.inp', 'r') as rfile:
+        with open('dustopac.inp', 'r') as rfile:
 
-    #         # file format
-    #         dum = rfile.readline()
-    #         # nr of dust species
-    #         ndust = int(rfile.readline().split()[0])
-    #         # Comment line
-    #         dum = rfile.readline()
+            # file format
+            dum = rfile.readline()
+            # nr of dust species
+            ndust = int(rfile.readline().split()[0])
+            # Comment line
+            dum = rfile.readline()
 
-    #         ext = []
-    #         therm = []
-    #         scatmat = []
-    #         for idust in range(ndust):
-    #             # Check if we have dust opacities also for the full scattering matrix
-    #             dum = rfile.readline().split()
-    #             if int(dum[0]) == 1:
-    #                 scatmat.append(False)
-    #             elif int(dum[0]) == 10:
-    #                 scatmat.append(True)
+            ext = []
+            therm = []
+            scatmat = []
+            for idust in range(ndust):
+                # Check if we have dust opacities also for the full scattering matrix
+                dum = rfile.readline().split()
+                if int(dum[0]) == 1:
+                    scatmat.append(False)
+                elif int(dum[0]) == 10:
+                    scatmat.append(True)
 
-    #             # Check if the dust grain is thermal or quantum heated
-    #             dum = int(rfile.readline().split()[0])
-    #             if dum == 0:
-    #                 therm.append(True)
-    #             else:
-    #                 therm.append(False)
-    #             # Dustkappa filename extension
-    #             dum = rfile.readline().split()[0]
-    #             ext.append(dum)
-    #             # Comment line
-    #             dum = rfile.readline()
+                # Check if the dust grain is thermal or quantum heated
+                dum = int(rfile.readline().split()[0])
+                if dum == 0:
+                    therm.append(True)
+                else:
+                    therm.append(False)
+                # Dustkappa filename extension
+                dum = rfile.readline().split()[0]
+                ext.append(dum)
+                # Comment line
+                dum = rfile.readline()
 
-    #     return {'ext': ext, 'therm': therm, 'scatmat': scatmat}
+        return {'ext': ext, 'therm': therm, 'scatmat': scatmat}
 
     # @staticmethod
     # def writeMasterOpac(ext=None, therm=None, scattering_mode_max=1, old=False):

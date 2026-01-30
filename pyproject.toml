@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "diskmint"
-version = "1.6.0"
+version = "1.6.1"
 description = "Self-consistent thermochemical disk model for individual targets."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -26,4 +26,4 @@ package-dir = {"" = "src"}
 
 # Include non-python data files if you have any inside src/diskmint
 [tool.setuptools.package-data]
-diskmint = ["*.dat", "data/*"]
+diskmint = [ "data/*", "data/chem/**/*", "*.dat", "*.inp"]
