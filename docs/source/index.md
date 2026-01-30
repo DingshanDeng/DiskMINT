@@ -75,6 +75,25 @@ We recommend using [`optool`](https://github.com/cdominik/optool) or [`dsharp_op
 If you use `DiskMINT` as part of your research, please cite 
 
 ```
+@ARTICLE{2025ApJ...995...98D,
+       author = {{Deng}, Dingshan and {Gorti}, Uma and {Pascucci}, Ilaria and {Ruaud}, Maxime},
+        title = "{DiskMINT: Self-consistent Thermochemical Disk Models with Radially Varying Gas and Dust{\textemdash}Application to the Massive, CO-Rich Disk of IM Lup}",
+      journal = {\apj},
+     keywords = {Protoplanetary disks, Astrochemistry, Chemical abundances, CO line emission, Planet formation, 1300, 75, 224, 262, 1241, Earth and Planetary Astrophysics},
+         year = 2025,
+        month = dec,
+       volume = {995},
+       number = {1},
+          eid = {98},
+        pages = {98},
+          doi = {10.3847/1538-4357/ae0e66},
+archivePrefix = {arXiv},
+       eprint = {2509.15487},
+ primaryClass = {astro-ph.EP},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
 @ARTICLE{2023ApJ...954..165D,
        author = {{Deng}, Dingshan and {Ruaud}, Maxime and {Gorti}, Uma and {Pascucci}, Ilaria},
         title = "{DiskMINT: A Tool to Estimate Disk Masses with CO Isotopologues}",
