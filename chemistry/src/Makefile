@@ -1,6 +1,19 @@
 #============================================================================#
 #                                  GFORTRAN                                  #
 #============================================================================#
+
+# this is needed for macOS compilation to find the correct SDK
+# Auto-detect macOS SDK path if on a Mac
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+    # If SDKROOT is not set, try to find it
+    ifndef SDKROOT
+        SDKROOT := $(shell xcrun --show-sdk-path)
+    endif
+    # Append the sysroot flag to the compiler options
+    FFLAGS += -isysroot $(SDKROOT)
+endif
+
 # use the gfortran version >= 10. and put the complier you want to use here
   FC = gfortran
 
