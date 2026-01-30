@@ -20,8 +20,8 @@ import numpy as np
 #  sys.path.append(radmc3dPy_position)
 #
 # If the diskmint python package is not installed through pip
-package_position = "/home/dingshandeng/github/DiskMINT/"
-sys.path.append(os.path.join(package_position, 'src'))
+# package_position = "/home/dingshandeng/github/DiskMINT/"
+# sys.path.append(os.path.join(package_position, 'src'))
 import diskmint.constants as const
 import diskmint.model as model
 import diskmint.disk_density as dd
@@ -31,8 +31,9 @@ import diskmint.execute as exe
 # I. Set up the directories and the names
 #
 # (0) Working Direcotry: this is the place that you want to keep every files together
-working_dir = os.path.join(package_position, 'examples', 'example_RULup')
-#  working_dir = "/home/dingshandeng/github/DiskModeling/0-DiskMINT/examples/example_RULup/"
+# working_dir = os.path.join(package_position, 'examples', 'example_RULup')
+# working_dir = "/home/dingshandeng/github/DiskModeling/0-DiskMINT/examples/example_RULup/"
+working_dir = current_dir = os.getcwd()
 #
 # (1) Data directory:
 # where you want to save all of the model input and output files?
@@ -58,7 +59,9 @@ file_parameters = os.path.join(working_dir, 'example_RULup_parameters')
 #
 # (5) (Optional) Chemistry code directory:
 # where is the checmial network, only needed if you want to use the chemical network we provide
-chem_code_dir = os.path.join(package_position, 'chemistry', 'reducedRGH22')
+# chem_code_dir = os.path.join(package_position, 'chemistry', 'reducedRGH22')
+# Just use the name of the template. The code now finds it automatically.
+chem_code_dir = 'reducedRGH22'
 #  chem_code_dir = '/home/dingshandeng/github/DiskModeling/0-DiskMINT/chemistry/reducedRGH22/'
 #  print('chem_code_dir = ', chem_code_dir)
 

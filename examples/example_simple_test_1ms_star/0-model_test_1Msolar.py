@@ -19,8 +19,8 @@ time0 = time.time()
 # If it is already added to your Python path, then you can ignore this line
 #
 # package_position = "/home/dingshandeng/github/DiskModeling/0-DiskMINT/"
-package_position = "/home/dingshandeng/github/DiskMINT/"
-sys.path.append(os.path.join(package_position, 'src'))
+# package_position = "/home/dingshandeng/github/DiskMINT/"
+# sys.path.append(os.path.join(package_position, 'src'))
 import diskmint.constants as const
 import diskmint.model as model
 import diskmint.disk_density as dd
@@ -59,11 +59,13 @@ Name will be defined later in this model
 #
 # (4) The parameter file:
 # The code takes a parameter file to set up the model parameters
-file_parameters = 'model_parameters_1msolar'
+file_parameters = 'model_1msolar_parameters'
 #
 # (5) (Optional) Chemistry code directory:
 # where is the checmial network, only needed if you want to use the chemical network we provide
-chem_code_dir = os.path.join(package_position, 'chemistry', 'reducedRGH22')
+# chem_code_dir = os.path.join(package_position, 'chemistry', 'reducedRGH22')
+# Just use the name of the template. The code now finds it automatically.
+chem_code_dir = 'reducedRGH22'
 
 #
 # II. The Options of the Model
@@ -162,28 +164,46 @@ for file_pattern in files_input_list:
 
 i_model = 0
 
-model_date_input = '2025901'
+model_date_input = '20250130'
 model_mark_input = 'grid1msolar'
+mstar_msun = para.mstar / const.ms
 
 i_start = 0
 i_model = i_start-1
 
 # This is an example of building up a few models in one scripts
+# for ratio_mdisk_to_star, \
+#     ratio_g2d_t, \
+#     in zip([0.01, 0.01, 0.01],
+#            [10.0, 100.0, 1000.0], 
+#            ):
 for ratio_mdisk_to_star, \
     ratio_g2d_t, \
-    in zip([0.01, 0.01, 0.01],
-           [10.0, 100.0, 1000.0], 
+    in zip([0.01],
+           [100.0], 
            ):
- 
+    
     # record the model number
     i_model = int(i_model + 1)
+    
+    """
+    change the dust mass
+    """
+    mdisk_gas_t = ratio_mdisk_to_star * mstar_msun
+    mdisk_dust_t = mdisk_gas_t / ratio_g2d_t
+    para.edit_parameter("mdiskd", new_value = mdisk_dust_t)
+    
+    """ 
+    change the g2d
+    """
+    para.edit_parameter("ratio_g2d_global", new_value=ratio_g2d_t) # the global gas-to-dust mass ratio for the model
     
     # change some variables here    
     rtap_set = 100
     para.edit_parameter("Rtap", new_value = rtap_set)
     
-    model_date = model_date_input.copy()
-    model_mark = model_mark_input.copy()
+    model_date = copy.deepcopy(model_date_input)
+    model_mark = copy.deepcopy(model_mark_input)
     
     if 'DSHARP' in para.dustopacname_1:
         model_mark = model_mark + '_DSHARPdust'

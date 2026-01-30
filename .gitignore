@@ -9,6 +9,9 @@ chemistry/bin/disk_main
 diskmint/.ipynb_checkpoints
 examples/example_RULup/.ipynb_checkpoints
 
+# Ignore some output from the examples
+examples/example_simple_test_1ms_star/data/
+
 # Ignore DSstore
 .DS_Store
 
