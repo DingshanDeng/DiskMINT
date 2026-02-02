@@ -1,4 +1,5 @@
 # DiskMINT
+
 **Disk Model For INdividual Targets**
 
 <p align="center">
@@ -31,7 +32,7 @@ Finally, we express our gratitude to the many people in our community whose feed
 ## About DiskMINT
 
 `DiskMINT` (Disk Model for INdividual Targets) is a tool for modeling individual disks and deriving more robust disk mass estimates.
-`DiskMINT` is a `Python3`-`Fortran` code built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0) for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract) to determine the C18O emission.
+`DiskMINT` is a `Python3`-`Fortran` code built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0) for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract) to determine the $\mathrm{C^{18}O}$ emission.
 For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract) and [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D).
 
 For more details about `DiskMINT`, see [Documentation](https://diskmint.readthedocs.io/en/latest/).
@@ -42,7 +43,7 @@ The code contains two parts:
 
 (A) a `Python3` module (located in `DiskMINT/diskmint/src/`) that is capable of generating a self-consistent 2D disk structure that satisfies VHSE (Vertical Hydrostatic Equilibrium).
 
-(B) a `Fortran` code (located in `DiskMINT/chemistry/`) of the reduced chemical network focusing on modeling $\mathrm{C^{18}O}$ in the disk, and it contains the main chemical processes that are necessary for the $\mathrm{C^{18}O}$ modeling: a. the isotopologue-selective photodissociation; b. the grain-surface chemistry where the CO converting to $\mathrm{CO_{2}}$ ice is the main reaction.
+(B) a `Fortran` code (located in `DiskMINT/chemistry/`) of the reduced chemical network focusing on modeling $\mathrm{C^{18}O}$ in the disk, and it contains the main chemical processes that are necessary for the $\mathrm{C^{18}O}$ modeling: a. the isotopologue-selective photodissociation; b. the grain-surface chemistry where the $\mathrm{CO}$ converting to $\mathrm{CO_{2}}$ ice is the main reaction.
 
 `DiskMINT` is still a developing tool, and we aim to build it as an easy-to-update and easy-to-use tool. 
 Feel free to put any questions, suggestions, and/or comments on the `GitHub` page or directly email the author (dingshandeng@arizona.edu).
@@ -54,7 +55,7 @@ Feel free to put any questions, suggestions, and/or comments on the `GitHub` pag
 ## REQUIREMENTS:
 
 **RADMC-3D.** `DiskMINT` relies on `RADMC-3D` (currently built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0)) to do radiative transfer and generate the thermal distributions.
-So please make sure the `RADMC-3D` is properly installed.
+So please make sure the `RADMC-3D` is properly installed according to the instructions on their website [their website](https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/index.html).
 
 **Python Module.** The `Python3` module of `DiskMINT` relies on several auxiliary but widely used `Python3` packages:
 
