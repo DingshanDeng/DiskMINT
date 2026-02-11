@@ -1,7 +1,8 @@
 # Ignore compiled binaries for chemistry code
 chemistry/src/*.o
 chemistry/src/*.mod
-chemistry/bin
+chemistry/bin/disk_extract
+chemistry/bin/disk_main
 
 # Ignore the .ipynb_checkpoints
 .ipynb_checkpoints
