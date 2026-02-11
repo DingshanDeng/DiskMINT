@@ -61,6 +61,7 @@ ALL: $(PROGS) install
 	echo "Compilation finished"
 	
 install: $(PROGS)
+	mkdir -p $(PROG_PATH)
 	mv $(PROGS) $(PROG_PATH)
 	
 global_variables.o: global_variables.f90
