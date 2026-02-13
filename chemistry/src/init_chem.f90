@@ -842,9 +842,14 @@ MODULE init_chem
    DO k=1,nelem
       IF(elem(k)%ab.gt.1.0e-35_dp) THEN
       IF (abs(elem(k)%ab - el_ab(k)) / elem(k)%ab .ge. 1.0e-3_dp) THEN
-         WRITE(*,'(a22,a6,a17,6es10.3)') '** WARNING ** Element ', elem(k)%name, ' is not conserved', &
-         elem(k)%ab,el_ab(k), abs(elem(k)%ab - el_ab(k)) / elem(k)%ab, rdisk(ir)/au,zdisk(ir,iz)/au,&
-         zdisk(ir,iz)/rdisk(ir)
+         !WRITE(*,'(a22,a6,a17,6es10.3)') '** WARNING ** Element ', elem(k)%name, ' is not conserved', &
+         !elem(k)%ab,el_ab(k), abs(elem(k)%ab - el_ab(k)) / elem(k)%ab, rdisk(ir)/au,zdisk(ir,iz)/au,&
+         !zdisk(ir,iz)/rdisk(ir)
+         if(iz<nztmp(ir)) then
+            tmp_ab(1:nspe) = abdisk(1:nspe,ir,iz+1)
+         else  
+            tmp_ab(1:nspe) = abdisk(1:nspe,ir,iz-1)
+         end if
       ENDIF
       ENDIF
    ENDDO
