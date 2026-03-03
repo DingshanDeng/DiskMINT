@@ -1,4 +1,4 @@
-# Example: Disk Around a 0.5 $M_{\odot}$ Star
+# Example: Disk Around a 0.5 Msun Star
 
 This example demonstrates a complete DiskMINT workflow for modeling a protoplanetary disk around a 0.5 solar-mass star, using physical parameters inspired by HH30. It covers the full pipeline: parameter setup, model execution, and post-processing analysis using Jupyter notebooks.
 
