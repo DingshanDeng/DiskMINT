@@ -6,6 +6,18 @@
   <img src="docs/source/_static/assets/images/card-software-transparent.png" alt="" style="width:38.2%; height:auto;">
 </p>
 
+`DiskMINT` (Disk Model for INdividual Targets) is a tool for modeling individual disks and deriving more robust disk mass estimates.
+`DiskMINT` is a `Python3`-`Fortran` code built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0) for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract) to determine the $\mathrm{C^{18}O}$ emission.
+For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract) and [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D).
+
+---
+---
+
+**The Quick Start and Full User Guide of `DiskMINT` are provided in our [Documentation](https://diskmint.readthedocs.io/en/latest/).**
+
+---
+---
+
 **Contributors:**
 
 Dingshan Deng (dingshandeng@arizona.edu),
@@ -28,16 +40,6 @@ Acknowledgement
 
 We also thank the anonymous referee, science editors, and data editors at AAS Journals for their helpful suggestions and comments, which significantly improved this work. 
 Finally, we express our gratitude to the many people in our community whose feedback and support have been instrumental to the growth of this project.
-
-## About DiskMINT
-
-`DiskMINT` (Disk Model for INdividual Targets) is a tool for modeling individual disks and deriving more robust disk mass estimates.
-`DiskMINT` is a `Python3`-`Fortran` code built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0) for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract) to determine the $\mathrm{C^{18}O}$ emission.
-For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract) and [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D).
-
----
-
-**The Quick Start and Full User Guide of `DiskMINT` are provided in our [Documentation](https://diskmint.readthedocs.io/en/latest/).**
 
 ---
 
