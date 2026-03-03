@@ -1,9 +1,9 @@
 # DiskMINT
 
-**Disk Model for INdividual Targets**
+**Disk Model For INdividual Targets**
 
 <p align="center">
-  <img src="_static/assets/images/card-software-transparent.png" alt="" style="width:38.2%; height:auto;">
+  <img src="docs/source/_static/assets/images/card-software-transparent.png" alt="" style="width:38.2%; height:auto;">
 </p>
 
 **Contributors:**
@@ -24,7 +24,7 @@ The University of Arizona
 
 Acknowledgement
 
-`DiskMINT` now includes standalone functions for handling RADMC-3D input and output files. These functions are based on the original `radmc3dPy` scripts developed by Dr. Attila Juhasz and maintained by Prof. Dr. Cornelis P. Dullemond.
+`DiskMINT` now includes standalone functions for handling RADMC-3D input and output files. These functions are based on the original radmc3dPy scripts developed by Dr. Attila Juhasz and maintained by Prof. Dr. Cornelis P. Dullemond.
 
 We also thank the anonymous referee, science editors, and data editors at AAS Journals for their helpful suggestions and comments, which significantly improved this work. 
 Finally, we express our gratitude to the many people in our community whose feedback and support have been instrumental to the growth of this project.
@@ -35,7 +35,12 @@ Finally, we express our gratitude to the many people in our community whose feed
 `DiskMINT` is a `Python3`-`Fortran` code built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0) for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract) to determine the $\mathrm{C^{18}O}$ emission.
 For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract) and [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D).
 
-For more details about `DiskMINT`, see [Documentation](https://diskmint.readthedocs.io/en/latest/).
+---
+
+**The Quick Start and Full User Guide of `DiskMINT` are provided in our [Documentation](https://diskmint.readthedocs.io/en/latest/).**
+
+
+---
 
 ### The Code
 
@@ -86,11 +91,12 @@ We recommend using [`optool`](https://github.com/cdominik/optool) or [`dsharp_op
 
 ## Quick INSTALLATION
 
-1. Download the code use the `git clone` or download this repo as zip into your local directory `Yourpath/DiskMINT/`.
+1. Download the code use the `git clone` or download this repo as zip from the latest [releases](https://github.com/DingshanDeng/DiskMINT/releases) into your local directory `Yourpath/DiskMINT/`.
 2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `Make install`. This should install both the `Python` and `Fortran` modules into your machine. 
 3. Start Using! 
 
-For more information, please check our {doc}`Quick Start Guide </Quick Start/quick_start_index>`.
+For more information, please check our [Quick Start Guide](https://diskmint.readthedocs.io/en/latest/quickstart.html) in our [Documentation](https://diskmint.readthedocs.io/en/latest/index.html).
+
 
 ---
 
@@ -139,14 +145,3 @@ archivePrefix = {arXiv},
 
 ## Community Guidelines
 We welcome contributions, issue reports, and questions about `DiskMINT`! If you encounter a bug or issue, check out the [Issues page](https://github.com/DingshanDeng/DiskMINT/issues) and provide a report with details about the problem and steps to reproduce it. For general support, usage questions and suggestions, you can start a discussion in [Discussions page](https://github.com/DingshanDeng/DiskMINT/discussions), and of course feel free to send emails directly to us. If you want to contribute, feel free to fork the repository and create pull requests here. `DiskMINT` is licensed under MIT license, so feel free to make use of the source code in any part of your own work/software.
-
-```{toctree}
-:hidden:
-:titlesonly:
-:maxdepth: 2
-
-About DiskMINT <self>
-Quick Start <Quick Start/quick_start_index>
-User Guide <User Guide/user_guide_index>
-Examples <Examples/example_index>
-API Reference <api>
