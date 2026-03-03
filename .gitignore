@@ -4,13 +4,18 @@ chemistry/src/*.mod
 chemistry/bin/disk_extract
 chemistry/bin/disk_main
 
+# Ignore the output from the examples
+examples/example_diskmint_models/*/data/
+examples/example_diskmint_models/*/output/
+examples/example_diskmint_models/*/model_outputs/
+
 # Ignore the .ipynb_checkpoints
 .ipynb_checkpoints
 diskmint/.ipynb_checkpoints
-examples/example_RULup/.ipynb_checkpoints
+examples/example_diskmint_models/example_RULup/.ipynb_checkpoints
 
 # Ignore some output from the examples
-examples/example_simple_test_1ms_star/data/
+examples/example_diskmint_models/example_simple_test_1ms_star/data/
 
 # Ignore DSstore
 .DS_Store
