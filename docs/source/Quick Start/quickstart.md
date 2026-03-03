@@ -43,6 +43,21 @@ Also, remember to change the script you have (not provided here) for doing line 
 
 ## Build Your Own Model and Check Other Examples
 
-Learn how to build your own model in the {doc}`User Guide <../User Guide/user_guide_index>`.
+::::{grid} 2
+:gap: 3
 
-You can check other model examples in the {doc}`Examples section <../examples/example_index>`.
+:::{grid-item-card} Build Your Own Model
+:link: ../User\ Guide/user_guide_index
+:link-type: doc
+
+Learn how to build your own DiskMINT model step by step in the User Guide.
+:::
+
+:::{grid-item-card} Browse Other Examples
+:link: ../examples/example_index
+:link-type: doc
+
+Explore additional model examples and ready-to-run pipelines in the Examples section.
+:::
+
+::::
