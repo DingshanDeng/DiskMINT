@@ -18,7 +18,7 @@ The University of Arizona
 
 ---
 
-Acknowlegement
+Acknowledgement
 
 `DiskMINT` now includes standalone functions for handling RADMC-3D input and output files. These functions are based on the original radmc3dPy scripts developed by Dr. Attila Juhasz and maintained by Prof. Dr. Cornelis P. Dullemond.
 
@@ -144,4 +144,5 @@ We welcome contributions, issue reports, and questions about `DiskMINT`! If you 
 About DiskMINT <self>
 Quick Start <quickstart>
 Advanced Usage <advanced>
+Examples <examples/example_index>
 API Reference <api>

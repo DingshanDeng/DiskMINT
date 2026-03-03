@@ -9,6 +9,9 @@ examples/example_diskmint_models/*/data/
 examples/example_diskmint_models/*/output/
 examples/example_diskmint_models/*/model_outputs/
 
+# Ignore the claude output
+.claude/
+
 # Ignore the .ipynb_checkpoints
 .ipynb_checkpoints
 diskmint/.ipynb_checkpoints

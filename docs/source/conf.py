@@ -25,7 +25,7 @@ PKG_PATH = os.path.abspath(os.path.join(__file__, "..", "..", "..", "diskmint", 
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'DiskMINT'
-copyright = '2023-2025, Dingshan Deng'
+copyright = '2023-2026, Dingshan Deng'
 author = 'Dingshan Deng'
 # release = ''
 
@@ -127,7 +127,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints', 
 #     import sphinx_rtd_theme
 #     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
+html_theme = 'pydata_sphinx_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -137,8 +138,29 @@ html_css_files = ["css/custom.css"]   # make this file in docs/_static/css/custo
 
 # html_logo = '_static/logo_mini.png'
 html_logo = '_static/assets/images/card-software-transparent.png'
+
+# the options below is for the sphinx rtd theme
+# html_theme_options = {
+#     "logo_only": True,       # either is fine; does not block the ::before/::after text
+#     "display_version": False, # we’re adding our own caption via CSS anyway
+#     # "navigation_depth": 3, # make the sidebar expand more levels
+# }
+
+# the options for the new pydata theme
 html_theme_options = {
-    "logo_only": True,       # either is fine; does not block the ::before/::after text
-    "display_version": False, # we’re adding our own caption via CSS anyway
-    # "navigation_depth": 3, # make the sidebar expand more levels
+    "logo": {
+        "image_light": "_static/assets/images/card-software-transparent.png",
+        "image_dark":  "_static/assets/images/card-software-transparent.png",
+        "text": "DiskMINT",
+    },
+    "navbar_end": ["navbar-icon-links"],
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/DingshanDeng/DiskMINT",
+            "icon": "fa-brands fa-github",
+        },
+    ],
+    "footer_start": ["copyright"],
+    "footer_end": ["sphinx-version"],
 }
