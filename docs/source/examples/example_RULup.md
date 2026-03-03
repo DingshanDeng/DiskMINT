@@ -2,7 +2,7 @@
 
 This example reproduces the best-fit DiskMINT model for RU Lup, a classical T Tauri star in the Lupus star-forming region, as presented in [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D). It demonstrates the full pipeline including VHSE, the chemical network, and line radiative transfer with LIME.
 
-The example files are located at:
+<!-- The example files are located at:
 
 ```
 examples/example_diskmint_models/example_RULup/
@@ -139,4 +139,4 @@ Synthetic channel maps will be saved to `data/images/`. These can then be convol
 | `fracs_numb.inp`	| Dust number fraction for each size bin |
 | `ndsd.inp`	| Normalized dust size distribution |
 | `colimemodel.c`	| LIME model source code for interpolating DiskMINT output |
-| `molecule_c18o.inp`	| C¹⁸O molecular data for LIME |
+| `molecule_c18o.inp`	| C¹⁸O molecular data for LIME | -->
