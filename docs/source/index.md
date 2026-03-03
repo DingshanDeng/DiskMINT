@@ -148,5 +148,6 @@ We welcome contributions, issue reports, and questions about `DiskMINT`! If you 
 About DiskMINT <self>
 Quick Start <Quick Start/quick_start_index>
 User Guide <User Guide/user_guide_index>
-Examples <Examples/example_index>
+Examples <examples/example_index>
 API Reference <api>
+```

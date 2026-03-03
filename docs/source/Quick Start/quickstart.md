@@ -2,7 +2,7 @@
 
 ## Try the examples of RU Lup
 
-> For the full example description including all input files and the LIME workflow, see the {doc}`RU Lup example page <../Examples/example_RULup>`.
+> For the full example description including all input files and the LIME workflow, see the {doc}`RU Lup example page <../examples/example_RULup>`.
 
 There are a few examples we provided to carry out disk modeling with DiskMINT in `Yourpath/DiskMINT/examples/` directory. For example, you can start running the example of the disk around RU Lup by following the steps below
 
@@ -45,4 +45,4 @@ Also, remember to change the script you have (not provided here) for doing line 
 
 Learn how to build your own model in the {doc}`User Guide <../User Guide/user_guide_index>`.
 
-You can check other model examples in the {doc}`Examples section <../Examples/example_index>`.
+You can check other model examples in the {doc}`Examples section <../examples/example_index>`.
