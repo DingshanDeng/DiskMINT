@@ -4951,6 +4951,70 @@ def write_chem_output(mint, chem_code_exe_dir, chem_network_name='reducedRGH22',
     return 1
 
 
+def get_chemistry_paths(chem_code_name_or_path):
+    """
+    Resolves the location of:
+    1. The chemistry data directory (source_dir)
+    2. The binary executables (disk_main, disk_extract)
+    """
+    
+    # --- 1. Resolve Data Directory (chem_code_dir) ---
+    # Current package directory (where this file is)
+    current_pkg_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # A: Check if it's a full path provided by the user
+    if os.path.isdir(chem_code_name_or_path):
+        chem_dir = chem_code_name_or_path
+        print(f"Using custom chemistry path: {chem_dir}")
+        
+    # B: Check if it's a named internal template (e.g. 'reducedRGH22')
+    # Look in src/diskmint/data/chem/
+    else:
+        internal_path = os.path.join(current_pkg_dir, 'data', 'chem', chem_code_name_or_path)
+        if os.path.isdir(internal_path):
+            chem_dir = internal_path
+            print(f"Using internal chemistry template: {chem_code_name_or_path}")
+        else:
+            raise FileNotFoundError(f"Chemistry setup '{chem_code_name_or_path}' not found.\n"
+                                    f"Checked: {chem_code_name_or_path} (custom) AND {internal_path} (internal)")
+
+    # --- 2. Resolve Binaries (disk_main, disk_extract) ---
+    # Search Order:
+    # 1. System PATH (Best for users who added bin to PATH)
+    # 2. 'bin' folder relative to the chem_dir (Legacy Dev Mode: chem/reducedRGH22/../../bin)
+    # 3. 'chemistry/bin' relative to the package root (Fallback)
+
+    def find_binary(binary_name):
+        # A: Check System PATH
+        path_in_env = shutil.which(binary_name)
+        if path_in_env:
+            return path_in_env
+            
+        # Define Fallback Locations
+        fallbacks = [
+            # Legacy: If chem_dir is '.../chemistry/reducedRGH22', look in '.../chemistry/bin'
+            os.path.abspath(os.path.join(chem_dir, '..', '..', 'bin', binary_name)),
+            # Internal: If running from source, maybe in root/chemistry/bin
+            os.path.abspath(os.path.join(current_pkg_dir, '..', '..', 'chemistry', 'bin', binary_name))
+        ]
+        
+        for p in fallbacks:
+            if os.path.isfile(p):
+                return p
+        return None
+
+    bin_main = find_binary('disk_main')
+    bin_extract = find_binary('disk_extract')
+
+    if not bin_main or not bin_extract:
+        print("[DiskMINT Error] Could not find Fortran binaries 'disk_main' or 'disk_extract'.")
+        print("Please ensure they are compiled and added to your PATH.")
+        print("Example: export PATH=$PATH:/path/to/diskmint/chemistry/bin")
+        raise FileNotFoundError("Missing Fortran Binaries")
+
+    return chem_dir, bin_main, bin_extract
+
+
 def runchemistry(mint, chem_code_dir, G0Hab_set=0.0, bool_save_allab=False, verbose=True):
     """
     Run the chemical network of the DiskMINT model.
@@ -4962,7 +5026,7 @@ def runchemistry(mint, chem_code_dir, G0Hab_set=0.0, bool_save_allab=False, verb
         bool_save_allab (bool): Whether to save all abundance outputs to the chemistry data directory.
         verbose (bool): If true, printout some texts for debuggin and monitoring
     """
-
+    
     # Absolute paths and working directories
     target_dir = radmc_data_dir = mint.file_dir
     os.chdir(target_dir)
@@ -4978,12 +5042,45 @@ def runchemistry(mint, chem_code_dir, G0Hab_set=0.0, bool_save_allab=False, verb
     """NOTE: now all the chemistry will be running inside the local folder"""
     chem_code_exe_dir = os.path.join(mint.file_dir, 'chemistry')
     
-    fortran_executable_disk_main = os.path.abspath(os.path.join(chem_code_dir, '..', 'bin', 'disk_main'))
-    fortran_executable_disk_extract = os.path.abspath(os.path.join(chem_code_dir, '..', 'bin', 'disk_extract'))
+    # ---------------------------------------------------------
+    # OLD: Hardcoded Binary Paths (before 1/30/2026; v1.6.1)
+    # ---------------------------------------------------------
+    
+    # fortran_executable_disk_main = os.path.abspath(os.path.join(chem_code_dir, '..', 'bin', 'disk_main'))
+    # fortran_executable_disk_extract = os.path.abspath(os.path.join(chem_code_dir, '..', 'bin', 'disk_extract'))
+    
+    # ---------------------------------------------------------
+    # NEW: Flexible Binary Discovery (1/30/2026; v1.6.1)
+    # ---------------------------------------------------------
+    
+    # 1. Get all paths using the new helper
+    # Defaults to 'reducedRGH22' if user passes nothing
+    real_chem_dir, bin_main, bin_extract = get_chemistry_paths(chem_code_dir)
+    
+    # 2. Update source_dir logic
+    # (Previously you joined 'data/chem', make sure this matches your new structure)
+    # If you moved the files to src/diskmint/data/chem/reducedRGH22/data/chem/, keep this:
+    source_dir = os.path.join(real_chem_dir, 'data', 'chem')
+    
+    if not os.path.isdir(source_dir):
+        # Fallback if the folder structure is slightly shallower
+        source_dir = real_chem_dir 
+        
+    print(f"Reading chemistry input files from: {source_dir}")
+    print(f"Using binaries: {bin_main}, {bin_extract}")
 
+    # fortran_executable_disk_main = bin_main
+    # fortran_executable_disk_extract = bin_extract
+    
+    # ---------------------------------------------------------
+    # End of Update
+    # ---------------------------------------------------------
+    
     # Write input files for the chemical network
-    write_chem_input(mint, chem_code_dir, G0Hab_set=G0Hab_set)
-
+    # write_chem_input(mint, chem_code_dir, G0Hab_set=G0Hab_set)
+    # UPDATE: Pass 'real_chem_dir' (the full path), not 'chem_code_dir' (the name)
+    write_chem_input(mint, real_chem_dir, G0Hab_set=G0Hab_set)
+    
     # Print initial directory info again to make sure
     current_dir = os.getcwd()
     if verbose:
@@ -5011,8 +5108,10 @@ def runchemistry(mint, chem_code_dir, G0Hab_set=0.0, bool_save_allab=False, verb
         print('--------------------')
 
     # Run Fortran chemistry code
-    subprocess.run([fortran_executable_disk_main])
-    subprocess.run([fortran_executable_disk_extract])
+    # subprocess.run([fortran_executable_disk_main])
+    # subprocess.run([fortran_executable_disk_extract])
+    subprocess.run([bin_main])
+    subprocess.run([bin_extract])
 
     # Output timing info
     if verbose:

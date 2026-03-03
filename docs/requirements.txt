@@ -6,4 +6,5 @@ nbsphinx
 ipython
 ipykernel
 linkify-it-py          # for myst 'linkify'
-sphinx-rtd-theme>=2.0,<4     # <-- add this
+# sphinx-rtd-theme>=2.0,<4     # <-- add this
+pydata-sphinx-theme>=0.15

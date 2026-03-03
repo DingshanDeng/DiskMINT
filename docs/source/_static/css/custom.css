@@ -1,48 +1,40 @@
-/* ===== sphinx_rtd_theme v1 (classic) ===== */
 
-/* Put caption directly under the logo image */
-.wy-side-nav-search a::after {
-  content: ""; /* Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background */
-  display: block;
-  margin-top: 8px;
-  font-style: italic;
-  opacity: 0.9;
-  line-height: 1.3;
-  font-size: 0.3rem;   /* adjust as needed */
+/* ============================================================
+   DiskMINT – Mint Green Color Scheme for PyData Sphinx Theme
+   ============================================================ */
+
+/* --- Light mode ------------------------------------------- */
+html[data-theme="light"] {
+    --pst-color-primary:        #1a7a5c;   /* dark mint — enough contrast on white */
+    --pst-color-primary-text:   #ffffff;   /* text rendered on top of primary bg   */
+    --pst-color-secondary:      #5bbf95;   /* medium mint for accents               */
+    --pst-color-link:           #1a7a5c;
+    --pst-color-link-hover:     #0f5c43;   /* deeper mint on hover                  */
+    --pst-color-target:         #e8f8f2;   /* subtle mint flash when jumping anchors*/
 }
 
-/* Optional: title above logo (if you want it) */
-.wy-side-nav-search::before {
-  content: "DiskMINT";
-  display: block;
-  font-weight: 700;
-  margin-bottom: 8px;
+/* --- Dark mode -------------------------------------------- */
+html[data-theme="dark"] {
+    --pst-color-primary:        #6fcfaa;   /* light mint — readable on dark bg      */
+    --pst-color-primary-text:   #0d1f17;   /* dark text on light-mint buttons       */
+    --pst-color-secondary:      #3d9e76;   /* medium mint                           */
+    --pst-color-link:           #6fcfaa;
+    --pst-color-link-hover:     #8dd9bc;   /* lighter mint on hover                 */
+    --pst-color-target:         #1a3d2e;   /* dark mint flash for anchors           */
 }
 
-/* Shrink the logo */
-.wy-side-nav-search a img.logo {
-  max-height: 150px;   /* tweak size */
-  width: auto;
+/* --- Navbar: thin mint accent border on the bottom -------- */
+.bd-header {
+    border-bottom: 2px solid var(--pst-color-primary);
 }
 
-/* If the built-in version string gets in the way, hide it: */
-.wy-side-nav-search .version { display: none; }
-
-
-/* ===== sphinx_rtd_theme v2 (new layout) — keep for future-proofing ===== */
-.sidebar-logo img { max-height: 150px; width: auto; }
-.sidebar-logo::before {
-  content: "DiskMINT";
-  display: block;
-  font-weight: 700;
-  margin-bottom: 8px;
+/* --- Logo ------------------------------------------------- */
+.navbar-brand img {
+    max-height: 50px;
+    width: auto;
 }
-.sidebar-logo::after {
-  content: ""; /* Mint leaves growing on a protoplanetary disk — inspired by the ALMA CO channel map in the background */
-  display: block;
-  margin-top: 8px;
-  font-style: italic;
-  opacity: 0.9;
-  line-height: 1.3;
-  font-size: 0.3rem;
+
+/* --- Back-to-top button ----------------------------------- */
+.pst-back-to-top i::before {
+    content: "\f135";   /* fa-rocket — thematic for an astronomy project */
 }

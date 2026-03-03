@@ -1165,8 +1165,33 @@ class Mint:
         self.bool_chemistry     = True
         #
         # where is the executable code for chemical network
-        """**TODO** put the chemical network to a bin file"""
-        self.chem_code_dir      = '/home/dingshandeng/github/DiskModeling/0-wrapper/chemistry/with_CO2_ice/'
+        # """**TODO** put the chemical network to a bin file"""
+        # self.chem_code_dir      = '/home/dingshandeng/github/DiskMINT/chemistry/reducedRGH22/'
+        #
+        # -------------------------------------------------------------
+        # Find Executables (Dynamic Discovery)
+        # -------------------------------------------------------------
+        # Priority 1: Environment Variable (Best for users)
+        if "DISKMINT_BIN_DIR" in os.environ:
+            self.chem_code_dir = os.environ["DISKMINT_BIN_DIR"]
+        
+        # Priority 2: Local Development Fallback
+        # Finds binaries relative to THIS file (model.py)
+        # Structure: root/src/diskmint/model.py -> root/chemistry/bin
+        else:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            # Navigate: model.py -> diskmint -> src -> root -> chemistry -> bin
+            dev_bin_path = os.path.abspath(os.path.join(current_dir, '../../chemistry/bin'))
+            self.chem_code_dir = dev_bin_path
+
+        # Debug check
+        if not os.path.exists(self.chem_code_dir):
+            print(f"[DiskMINT Warning] Binary directory not found at: {self.chem_code_dir}")
+            print("Please set: export DISKMINT_BIN_DIR='/path/to/diskmint/chemistry/bin'")
+            print("Or ensure the development directory structure is intact: so that")
+            print(f"the chemistry binaries can be found at: {self.chem_code_dir}.")
+            print("or the chemistry part is located at `../../chemistry/bin` relative to this model.py file.")
+        
         #
         # whether to save the radmc3d model results in another folder
         self.bool_savemodel     = True
