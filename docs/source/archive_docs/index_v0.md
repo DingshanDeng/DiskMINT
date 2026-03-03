@@ -20,7 +20,7 @@ The University of Arizona
 
 Acknowledgement
 
-`DiskMINT` now includes standalone functions for handling RADMC-3D input and output files. These functions are based on the original `radmc3dPy` scripts developed by Dr. Attila Juhasz and maintained by Prof. Dr. Cornelis P. Dullemond.
+`DiskMINT` now includes standalone functions for handling RADMC-3D input and output files. These functions are based on the original radmc3dPy scripts developed by Dr. Attila Juhasz and maintained by Prof. Dr. Cornelis P. Dullemond.
 
 We also thank the anonymous referee, science editors, and data editors at AAS Journals for their helpful suggestions and comments, which significantly improved this work. 
 Finally, we express our gratitude to the many people in our community whose feedback and support have been instrumental to the growth of this project.
@@ -86,7 +86,7 @@ We recommend using [`optool`](https://github.com/cdominik/optool) or [`dsharp_op
 2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `Make install`. This should install both the `Python` and `Fortran` modules into your machine. 
 3. Start Using! 
 
-For more information, please check our {doc}`Quick Start Guide </Quick Start/quick_start_index>`.
+For more information, please check our [Quick Start Guide](https://diskmint.readthedocs.io/en/latest/quickstart.html) in our [Documentation](https://diskmint.readthedocs.io/en/latest/index.html).
 
 ---
 
@@ -143,6 +143,6 @@ We welcome contributions, issue reports, and questions about `DiskMINT`! If you 
 
 About DiskMINT <self>
 Quick Start <Quick Start/quick_start_index>
-User Guide <User Guide/user_guide_index>
-Examples <Examples/example_index>
+User Guide <User Guide/user_guide_index.md>
+Examples <examples/example_index>
 API Reference <api>

@@ -13,6 +13,14 @@ The examples are located in the `examples/example_diskmint_models/` directory of
 ## Available Examples
 
 ::::{grid} 1
+
+:::{grid-item-card} Disk Around RU Lup
+:link: example_RULup
+:link-type: doc
+
+The best-fit model for RU Lup, a classical T Tauri star in Lupus, as presented in Deng et al. (2023). Demonstrates VHSE, the chemical network, and line radiative transfer with LIME.
+:::
+
 :::{grid-item-card} Disk Around a 0.5 Msun Star
 :link: example_0p5ms_star
 :link-type: doc
@@ -25,4 +33,5 @@ A complete end-to-end example modeling a protoplanetary disk around a 0.5 solar-
 :hidden:
 :maxdepth: 1
 
+example_RULup
 example_0p5ms_star

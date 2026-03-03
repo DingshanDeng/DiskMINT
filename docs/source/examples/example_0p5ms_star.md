@@ -52,8 +52,8 @@ The stellar spectrum is taken from the BT-Settl model grid. The `input/` directo
 The main script is `0-model_0p5ms_star_example.py`. It is recommended to run it inside a `screen` session so it can continue if your connection drops:
 
 ```bash
-screen -S my_session
-conda activate diskmint_env
+# screen -S my_session
+# conda activate diskmint_env
 python -u 0-model_0p5ms_star_example.py 2>&1 | tee -a output.log
 ```
 

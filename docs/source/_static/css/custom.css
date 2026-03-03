@@ -1,12 +1,40 @@
 
-/* Optional: brand/accent color to match DiskMINT identity */
-:root {
-    --pst-color-primary: #2e7d32;       /* e.g. a mint/green tone */
-    --pst-color-secondary: #66bb6a;
+/* ============================================================
+   DiskMINT – Mint Green Color Scheme for PyData Sphinx Theme
+   ============================================================ */
+
+/* --- Light mode ------------------------------------------- */
+html[data-theme="light"] {
+    --pst-color-primary:        #1a7a5c;   /* dark mint — enough contrast on white */
+    --pst-color-primary-text:   #ffffff;   /* text rendered on top of primary bg   */
+    --pst-color-secondary:      #5bbf95;   /* medium mint for accents               */
+    --pst-color-link:           #1a7a5c;
+    --pst-color-link-hover:     #0f5c43;   /* deeper mint on hover                  */
+    --pst-color-target:         #e8f8f2;   /* subtle mint flash when jumping anchors*/
 }
 
-/* Optional: constrain logo image size */
+/* --- Dark mode -------------------------------------------- */
+html[data-theme="dark"] {
+    --pst-color-primary:        #6fcfaa;   /* light mint — readable on dark bg      */
+    --pst-color-primary-text:   #0d1f17;   /* dark text on light-mint buttons       */
+    --pst-color-secondary:      #3d9e76;   /* medium mint                           */
+    --pst-color-link:           #6fcfaa;
+    --pst-color-link-hover:     #8dd9bc;   /* lighter mint on hover                 */
+    --pst-color-target:         #1a3d2e;   /* dark mint flash for anchors           */
+}
+
+/* --- Navbar: thin mint accent border on the bottom -------- */
+.bd-header {
+    border-bottom: 2px solid var(--pst-color-primary);
+}
+
+/* --- Logo ------------------------------------------------- */
 .navbar-brand img {
     max-height: 50px;
     width: auto;
+}
+
+/* --- Back-to-top button ----------------------------------- */
+.pst-back-to-top i::before {
+    content: "\f135";   /* fa-rocket — thematic for an astronomy project */
 }
