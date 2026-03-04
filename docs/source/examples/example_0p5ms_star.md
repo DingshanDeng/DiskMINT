@@ -47,7 +47,7 @@ The model represents a disk around a star with the following properties:
 
 The stellar spectrum is taken from the BT-Settl model grid. The `input/` directory also provides BT-Settl spectra for other stellar masses (0.1, 0.3, 0.7, 1.0, and 2.0 M☉) that can be substituted by editing `fmodel_filename` in the parameter file.
 
-## Step 0: Running the Model
+## Running the Model
 
 The main script is `0-model_0p5ms_star_example.py`. It is recommended to run it inside a `screen` session so it can continue if your connection drops:
 
