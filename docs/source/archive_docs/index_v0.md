@@ -83,7 +83,7 @@ We recommend using [`optool`](https://github.com/cdominik/optool) or [`dsharp_op
 ## Quick INSTALLATION
 
 1. Download the code use the `git clone` or download this repo as zip into your local directory `Yourpath/DiskMINT/`.
-2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `Make install`. This should install both the `Python` and `Fortran` modules into your machine. 
+2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `make install`. This should install both the `Python` and `Fortran` modules into your machine. 
 3. Start Using! 
 
 For more information, please check our [Quick Start Guide](https://diskmint.readthedocs.io/en/latest/quickstart.html) in our [Documentation](https://diskmint.readthedocs.io/en/latest/index.html).
