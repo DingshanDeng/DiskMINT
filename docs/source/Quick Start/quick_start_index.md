@@ -12,7 +12,7 @@ So please make sure the `RADMC-3D` is properly installed according to the instru
 As of v1.6.0+, DiskMINT can be installed in three steps:
 
 1. Download the code use the `git clone` or download this repo as zip from the latest [releases](https://github.com/DingshanDeng/DiskMINT/releases) into your local directory `Yourpath/DiskMINT/`.
-2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `Make install`. This should install both the `Python` and `Fortran` modules into your machine. 
+2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `make install`. This should install both the `Python` and `Fortran` modules into your machine. 
 3. Start Using! 
 
 ::::{grid} 1
