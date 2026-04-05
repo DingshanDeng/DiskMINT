@@ -15,12 +15,18 @@ As of v1.6.0+, DiskMINT can be installed in three steps:
 2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `make install`. This should install both the `Python` and `Fortran` modules into your machine. 
 3. Start Using! 
 
-::::{grid} 1
+::::{grid} 1 1 2 2
 :::{grid-item-card} Full Installation Guide
 :link: Installation
 :link-type: doc
 
 Detailed instructions for both quick and manual installation, including Fortran compilation and platform-specific notes.
+:::
+:::{grid-item-card} External Requirements
+:link: requirements
+:link-type: doc
+
+What external tools are needed (RADMC-3D, dust opacities, line RT code) and how to install each one.
 :::
 ::::
 
@@ -44,5 +50,6 @@ Run the RU Lup example, understand the key model options, and learn how to set u
 :maxdepth: 1
 
 Installation
+requirements
 quickstart
 ```
