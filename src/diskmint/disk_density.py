@@ -4684,8 +4684,10 @@ def write_chem_input(mint, chem_code_dir, G0Hab_set=0.0):
     # 1. Compute 0th, 1st and 2nd moment of the dust distribution
     #
     def dust_fun(nn):
-        return (para.amax_all ** (nn - para.pla_dustsize) - para.amin_all ** (nn - para.pla_dustsize)) / \
-               (nn - para.pla_dustsize)
+        exp = nn - para.pla_dustsize
+        if abs(exp) < 1e-10:
+            return np.log(para.amax_all / para.amin_all)
+        return (para.amax_all ** exp - para.amin_all ** exp) / exp
 
     eta = 1.4 * const.mp / para.rhobulk / para.ratio_g2d_global
     nd = 3.0 * eta * dust_fun(1) / 4.0 / np.pi / dust_fun(4)
