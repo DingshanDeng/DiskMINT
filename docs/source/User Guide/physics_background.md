@@ -1,4 +1,4 @@
-# Physics Background
+# Physics and Chemistry Background
 
 A brief summary of the physical models underlying DiskMINT. Each section points to the relevant parameters and the primary literature for depth.
 
@@ -82,7 +82,7 @@ DiskMINT can also use directly specified radial surface density profiles, includ
 
 In that workflow, $\Sigma_\mathrm{dust}(r)$ is iteratively adjusted to reproduce the observed dust continuum radial profile, while $\Sigma_\mathrm{gas}(r)$ is iteratively adjusted to reproduce the observed $\mathrm{C^{18}O}$ radial profile. The synthetic and observed radial profiles are measured in elliptical annuli using the observed disk geometry, and the next surface-density estimate is updated from the ratio of observation to model at each radius.
 
-This observation-driven mode is useful when high-quality resolved continuum and line data are available and the gas and dust are radially decoupled. In practice, the analytic and direct-fitting approaches are complementary: the analytic profile is a natural starting point for general modeling, while direct fitting is the more flexible option for well-resolved disks. A worked example of this fitting workflow will be added to the documentation in a future update.
+This observation-driven mode is useful when high-quality resolved continuum and line data are available and the gas and dust are radially decoupled. In practice, the analytic and direct-fitting approaches are complementary: the analytic profile is a natural starting point for general modeling, while direct fitting is the more flexible option for well-resolved disks. A worked example of this fitting workflow is described in {doc}`surface_density_fitting`.
 
 **Relevant parameters:** `pl_sufdens`, `pl_tapoff`, `Rtap`, `mdiskd`, `ratio_g2d_global`
 
@@ -97,8 +97,9 @@ The chemical network is a reduced version of the full CO chemistry framework dev
 
 The network is solved on a cylindrical grid (`nr_cyl_LIME x nz_cyl_LIME`) after VHSE convergence. 
 
-There are two ways of setting of the UV field. If the UV spectra is included in the input stellar spectra, the UV filed is solved from the input, and in that case, the stellar UV field strength at 1 au is set by `G0Hab_set` (in Habing units at the stellar surface) with `G0Hab_set = None`. 
-If the input UV spectra is not available, you may set up the `G0Hab_set` value to the value you prefer.
+There are two ways of setting of the UV field. 
+- If the UV spectra is included in the input stellar spectra, the UV filed is solved from the input.
+- Otherwise, you can change `G0Hab_set` (in Habing units at the stellar surface). 
 
 **Relevant parameters:** `G0Hab_set`, `nr_cyl_LIME`, `nz_cyl_LIME`, `chemical_save_name`
 

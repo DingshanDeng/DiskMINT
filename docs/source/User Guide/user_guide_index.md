@@ -30,17 +30,17 @@ Start from the example workflow, prepare a parameter CSV for a new target, and u
 
 Use the example SLURM workflow to generate and submit large model grids efficiently on a cluster.
 :::
-:::{grid-item-card} Physics Background
-:link: physics_background
-:link-type: doc
-
-Review the physical ingredients behind DiskMINT, including VHSE, dust settling, grain sizes, and surface density structure.
-:::
 :::{grid-item-card} Thermochemical Processes
 :link: thermochemical_processes
 :link-type: doc
 
 See how vertical structure, isotope-selective photodissociation, and grain-surface chemistry work together to shape $\mathrm{C^{18}O}$ emission.
+:::
+:::{grid-item-card} Physics & Chemistry Background
+:link: physics_background
+:link-type: doc
+
+Review the physics and chemistry ingredients behind DiskMINT, including VHSE, dust settling, grain sizes, and surface density structure.
 :::
 :::{grid-item-card} Surface Density Fitting
 :link: surface_density_fitting
