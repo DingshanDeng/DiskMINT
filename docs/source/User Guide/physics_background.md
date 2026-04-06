@@ -21,7 +21,7 @@ The loop runs until the relative change in gas density between iterations falls 
 
 **Relevant parameters:** `n_vhse_loop`, `nphot`, `nthreads`, `nr`, `ntheta`
 
-**Primary reference:** [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D)
+**Primary reference:** [Deng et al. (2023), ApJ 954, 165](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D)
 
 ---
 
@@ -46,7 +46,7 @@ In the IM Lup application of Deng et al. (2025), this treatment improves the mat
 
 **Relevant parameters:** `visc_alpha`, `nr_dust_1`, `amin_1`, `amax_1`, `pla_dustsize`
 
-**Reference:** [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D); Dubrulle et al. (1995), A&A 309, 209; see also [Estrada et al. (2016)](https://ui.adsabs.harvard.edu/abs/2016ApJ...818..200E)
+**Reference:** [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D); see also [Estrada et al. (2016)](https://ui.adsabs.harvard.edu/abs/2016ApJ...818..200E)
 
 ---
 
@@ -110,9 +110,10 @@ If the input UV spectra is not available, you may set up the `G0Hab_set` value t
 
 | Paper | What it covers |
 |---|---|
+| [Mathis, Rumpl & Nordsieck (1977), ApJ 217, 425](https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M) | MRN grain size distribution |
 | [Visser, van Dishoeck & Black (2009), A&A 503, 323](https://www.aanda.org/10.1051/0004-6361/200912129) | Original isotope-selective CO photodissociation model |
+| [Estrada et al. (2016)](https://ui.adsabs.harvard.edu/abs/2016ApJ...818..200E) | Find the self-consistent disk veritcal structure |
 | [Ruaud & Gorti (2019), ApJ 885, 146](https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R) | Original CO chemistry model underlying the reduced $\mathrm{C^{18}O}$ network |
+| [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R) | Reduced chemical network used for $\mathrm{C^{18}O}$ |
 | [Deng et al. (2023), ApJ 954, 165](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D) | Original DiskMINT method: VHSE + chemistry for CO isotopologue masses |
 | [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D) | Application to IM Lup; radially varying g2d ratio |
-| [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R) | Reduced chemical network used for $\mathrm{C^{18}O}$ |
-| [Mathis, Rumpl & Nordsieck (1977), ApJ 217, 425](https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M) | MRN grain size distribution |
