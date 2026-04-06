@@ -108,4 +108,24 @@ import subprocess # (for chemical network): used for executing Fortran code
 
 For external tool requirements (RADMC-3D, dust opacities, line radiative transfer code) and their installation instructions, see {doc}`requirements`.
 
+---
+
+## AI-Assisted Installation (Experimental)
+
+> **Note:** DiskMINT-Nursery is experimental. Install it from its own repository:
+> https://github.com/DingshanDeng/DiskMINT-Nursery
+> More information is described in {doc}`AI Features <../AI Features/ai_ref_index>`
+
+If you prefer to have an AI coding assistant walk you through the installation interactively,
+you can use [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) — an
+experimental AI agent skill for [Claude Code](https://claude.ai/code),
+[OpenAI Codex CLI](https://github.com/openai/codex), and compatible assistants.
+
+Once the skill is installed, open your AI assistant in any directory and say:
+
+> "Help me install DiskMINT from scratch."
+
+The assistant will check each required tool in order (conda, DiskMINT Python package,
+Fortran chemistry network, RADMC-3D, gfortran), install what it can automatically, and
+print exact copy-paste commands for anything that requires elevated permissions.
 

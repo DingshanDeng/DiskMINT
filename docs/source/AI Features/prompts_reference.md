@@ -1,7 +1,7 @@
 # Prepared Prompts
 
-A set of ready-to-use prompts for each DiskMINT-Nursery feature is maintained in the [`DiskMINT-Nursery` repository](https://github.com/DingshanDeng/DiskMINT-Nursery/tree/main/prompts).
-Copy a prompt into a supported AI assistant, for example Claude Code or OpenAI Codex, to get guided help for that task.
+A set of prompt templates for each DiskMINT-Nursery feature is maintained in the [`DiskMINT-Nursery` repository](https://github.com/DingshanDeng/DiskMINT-Nursery/tree/main/prompts).
+Copy a prompt into a supported AI assistant, for example Claude Code or OpenAI Codex, to get guided help for that task once the prompt library is filled in.
 
 *Prompts are under development and will be added in an upcoming release.*
 

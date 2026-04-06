@@ -41,3 +41,12 @@ Explore additional model examples and ready-to-run pipelines in the Examples sec
 :::
 
 ::::
+
+---
+
+## Try the AI Assistant (Experimental)
+
+[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an experimental
+AI agent skill that can guide you through installation, model setup, and output
+interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants.
+See the {doc}`AI Features <../AI Features/ai_ref_index>` section for details.

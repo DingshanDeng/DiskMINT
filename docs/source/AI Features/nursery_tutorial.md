@@ -34,7 +34,7 @@ cd DiskMINT-Nursery
 make install
 ```
 
-This installs the skill for the supported local assistants configured by the Makefile. By default that includes Claude Code and Codex, copying the skill to `~/.claude/skills/diskmint-nursery/` and `~/.codex/skills/diskmint-nursery/`. To install for one platform only:
+This installs the skill for the supported local assistants. By default that includes Claude Code and Codex, copying the skill to `~/.claude/skills/diskmint-nursery/` and `~/.codex/skills/diskmint-nursery/`. To install for one platform only:
 
 ```bash
 make install-claude   # Claude Code only
@@ -43,7 +43,7 @@ make install-codex    # Codex CLI only
 
 **Step 3.** Restart your AI assistant to load the skill.
 
-To verify the install:
+To verify the install, here are example checks for the currently supported assistants:
 
 ```bash
 ls ~/.claude/skills/diskmint-nursery/SKILL.md    # Claude Code
