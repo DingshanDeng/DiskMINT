@@ -56,13 +56,14 @@ If `DISKMINT_BIN_DIR` is not set, DiskMINT will attempt to locate the binaries r
 
 **Python dependencies.** The `Python3` module of `DiskMINT` relies on several auxiliary but widely used `Python3` packages:
 
-```
-    numpy, scipy: used for array operations and calculations
-
-    # Python 3 standard library
-    os, sys, copy, shutil: used for handling files and paths
-    subprocess (for chemical network): used for executing Fortran code 
-    if you want to use the chemical network we provided
+```python
+# all packages described here are either standard Python 3 library or commonly used
+# and they are installed together when you are installing DiskMINT package using 
+# pip install or using the Make file we provided
+import numpy, scipy # used for array operations and calculations
+import os, sys, copy, shutil # used for handling files and paths
+import subprocess # (for chemical network): used for executing Fortran code 
+                  # if you want to use the chemical network we provided
 ```
 
 *The code was originally built with `Python 3.8`, and later tested on `Python 3.9-3.13`.*

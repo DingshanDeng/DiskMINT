@@ -2,6 +2,8 @@
 
 A brief summary of the physical models underlying DiskMINT. Each section points to the relevant parameters and the primary literature for depth.
 
+For a dedicated overview of the three core thermochemical ingredients behind DiskMINT, see {doc}`thermochemical_processes`.
+
 ---
 
 ## Vertical Hydrostatic Equilibrium (VHSE)
@@ -25,17 +27,26 @@ The loop runs until the relative change in gas density between iterations falls 
 
 ## Dust Settling
 
-When `bool_dust_settling = True`, DiskMINT applies the Dubrulle prescription for turbulent dust settling within each VHSE iteration. The dust scale height $h_d$ for a grain of size $a$ is smaller than the gas scale height $h_g$ by:
+When `bool_dust_settling = True`, DiskMINT computes dust settling by balancing gravitational settling toward the midplane against upward turbulent diffusion. In the current framework, this is not implemented as a simple post-processing scale-height correction. Instead, as descrbied in [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D) (Section 3.2.1, Figure 4), DiskMINT solves the steady-state vertical diffusion equation for the dust-to-gas density ratio:
 
-$$\frac{h_d}{h_g} = \left(1 + \frac{\mathrm{St}}{\alpha_v}\right)^{-1/2}$$
+$$\frac{\partial}{\partial z}\left(\ln{\frac{\rho_{\rm dust}}{\rho_{\rm gas}}}\right) = -\frac{\Omega^2 \tau_{\rm s}}{D}z$$
 
-where St is the Stokes number and $\alpha_v$ is the turbulence parameter (`visc_alpha`). Larger grains settle closer to the midplane; smaller grains remain well-mixed with the gas.
+where $\Omega$ is the Keplerian angular frequency, $\tau_{\rm s}$ is the dust stopping time, and $D$ is the turbulent diffusion coefficient. The stopping time depends on the local grain size, gas density, and sound speed, so the settling strength is coupled to the local thermodynamic structure of the disk rather than being set by radius alone.
 
-This produces a multi-species density structure where each size bin has its own vertical profile — important for correctly computing the dust temperature in an optically thick midplane.
+DiskMINT solves this dust diffusion equation inside the same iterative loop used to converge the vertical disk structure. Starting from an initially well-mixed gas and dust distribution, the code iterates through:
+
+1. radiative transfer to estimate the dust temperature,
+2. thermal balance to estimate the gas temperature,
+3. vertical hydrostatic equilibrium to update the gas density,
+4. vertical dust diffusion to update the density distribution of each grain size bin.
+
+The vertically integrated dust surface density at each radius and grain size is kept fixed during this step; settling only redistributes dust vertically. The result is a self-consistent stratified structure in which larger grains become concentrated toward the midplane while smaller grains remain more vertically extended in the disk surface layers.
+
+In the IM Lup application of Deng et al. (2025), this treatment improves the match to the observed SED, especially near the far-infrared, while having little effect on the inferred total gas mass. Figure 4 of that paper gives a useful flow chart of the settling workflow implemented in DiskMINT.
 
 **Relevant parameters:** `visc_alpha`, `nr_dust_1`, `amin_1`, `amax_1`, `pla_dustsize`
 
-**Reference:** Dubrulle et al. (1995), A&A 309, 209; see also [Estrada et al. (2016)](https://ui.adsabs.harvard.edu/abs/2016ApJ...818..200E)
+**Reference:** [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D); Dubrulle et al. (1995), A&A 309, 209; see also [Estrada et al. (2016)](https://ui.adsabs.harvard.edu/abs/2016ApJ...818..200E)
 
 ---
 
@@ -55,11 +66,23 @@ The code computes cross-section-weighted averages (`ndsd.inp`), mass fractions (
 
 ## Surface Density Profile
 
-DiskMINT uses a tapered power law for the surface density:
+DiskMINT supports more than one way of defining the radial surface density structure for gas and dust.
+
+### Analytic surface density
+
+The simplest option is an analytic parameterization. A commonly used choice is the tapered power-law profile:
 
 $$\Sigma(r) \propto \left(\frac{r}{R_\mathrm{tap}}\right)^{\gamma} \exp\!\left[-\left(\frac{r}{R_\mathrm{tap}}\right)^{\xi}\right]$$
 
-where $\gamma =$ `pl_sufdens` and $\xi =$ `pl_tapoff`. This is the self-similar solution from viscous disk evolution (Lynden-Bell & Pringle 1974), which gives $\xi = 2 + \gamma$ (i.e., `pl_tapoff = 2 + pl_sufdens` for a physically motivated model). The parameter `Rtap` is the characteristic radius — roughly the outer edge of the main disk body.
+where $\gamma =$ `pl_sufdens` and $\xi =$ `pl_tapoff`. This is the self-similar solution from viscous disk evolution (Lynden-Bell & Pringle 1974), which gives $\xi = 2 + \gamma$ (i.e., `pl_tapoff = 2 + pl_sufdens` for a physically motivated viscous disk). The parameter `Rtap` is the characteristic radius (often written as $R_\mathrm{c}$) and sets the scale where the profile begins to taper. This analytic form is useful for forward modeling, parameter studies, and cases where no spatially resolved constraints are available.
+
+### Observation-driven surface density fitting
+
+DiskMINT can also use directly specified radial surface density profiles, including profiles derived from resolved observations. In the structured IM Lup model of [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D), the dust and gas surface densities are treated separately as $\Sigma_\mathrm{dust}(r)$ and $\Sigma_\mathrm{gas}(r)$, so the dust-to-gas ratio becomes a function of radius rather than a single global constant.
+
+In that workflow, $\Sigma_\mathrm{dust}(r)$ is iteratively adjusted to reproduce the observed dust continuum radial profile, while $\Sigma_\mathrm{gas}(r)$ is iteratively adjusted to reproduce the observed C$^{18}$O radial profile. The synthetic and observed radial profiles are measured in elliptical annuli using the observed disk geometry, and the next surface-density estimate is updated from the ratio of observation to model at each radius.
+
+This observation-driven mode is useful when high-quality resolved continuum and line data are available and the gas and dust are radially decoupled. In practice, the analytic and direct-fitting approaches are complementary: the analytic profile is a natural starting point for general modeling, while direct fitting is the more flexible option for well-resolved disks. A worked example of this fitting workflow will be added to the documentation in a future update.
 
 **Relevant parameters:** `pl_sufdens`, `pl_tapoff`, `Rtap`, `mdiskd`, `ratio_g2d_global`
 
@@ -73,32 +96,14 @@ The chemical network is a reduced version of the full network of [Ruaud, Gorti &
 2. **Grain-surface chemistry** — CO freezes onto grain surfaces at $T < 20$–30 K and converts to CO₂ ice via grain-surface reactions. This depletes gas-phase CO in the cold midplane.
 3. **Photodesorption** — UV photons desorb CO ice back to the gas phase, creating a warm molecular layer between the hot surface and cold midplane.
 
-The network is solved on a cylindrical grid (`nr_cyl_LIME × nz_cyl_LIME`) after VHSE convergence. The stellar UV field strength at 1 au is set by `G0Hab_set` (in Habing units at the stellar surface).
+The network is solved on a cylindrical grid (`nr_cyl_LIME x nz_cyl_LIME`) after VHSE convergence. 
 
-**Reliability:** C¹⁸O emission from the warm molecular layer (intermediate heights, $r \sim 50$–300 au) is well-reproduced. The cold midplane CO abundance is more uncertain; it depends sensitively on the assumed ice binding energy and grain surface area.
+There are two ways of setting of the UV field. If the UV spectra is included in the input stellar spectra, the UV filed is solved from the input, and in that case, the stellar UV field strength at 1 au is set by `G0Hab_set` (in Habing units at the stellar surface) with `G0Hab_set = None`. 
+If the input UV spectra is not available, you may set up the `G0Hab_set` value to the value you prefer.
 
 **Relevant parameters:** `G0Hab_set`, `nr_cyl_LIME`, `nz_cyl_LIME`, `chemical_save_name`
 
 **Primary reference:** [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R)
-
----
-
-## UV Propagation and the `chi` / `G0Hab` Parameter
-
-The UV radiation field drives photodissociation. DiskMINT parameterises the stellar UV with `G0Hab_set` — the flux at the stellar surface in Habing units ($G_0 = 1.6 \times 10^{-3}$ erg cm⁻² s⁻¹). The field then scales as $r^{-2}$ outward from the star.
-
-Representative values by stellar mass (from the BT-Settl models used in the HPC example):
-
-| Stellar mass (M☉) | `G0Hab_set` |
-|---|---|
-| 0.1 | 2.1 × 10⁹ |
-| 0.3 | 7.4 × 10⁹ |
-| 0.5 | 1.8 × 10¹⁰ |
-| 0.7 | 3.5 × 10¹⁰ |
-| 1.0 | 6.3 × 10¹⁰ |
-| 2.0 | 2.1 × 10¹¹ |
-
-For targets with UV excess (e.g., T Tauri stars with accretion), the UV contribution from accretion shocks should be added to the photospheric value. Setting `G0Hab_set` an order of magnitude higher than the photospheric value is a reasonable first estimate for actively accreting sources.
 
 ---
 
@@ -109,5 +114,4 @@ For targets with UV excess (e.g., T Tauri stars with accretion), the UV contribu
 | [Deng et al. (2023), ApJ 954, 165](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D) | Original DiskMINT method: VHSE + chemistry for CO isotopologue masses |
 | [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D) | Application to IM Lup; radially varying g2d ratio |
 | [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R) | Reduced chemical network used for C¹⁸O |
-| [Dubrulle et al. (1995), A&A 309, 209](https://ui.adsabs.harvard.edu/abs/1995A%26A...309..209D) | Turbulent dust settling prescription |
 | [Mathis, Rumpl & Nordsieck (1977), ApJ 217, 425](https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M) | MRN grain size distribution |

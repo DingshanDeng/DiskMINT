@@ -223,7 +223,12 @@ cat logs/diskmint_<JOB_ID>_<ARRAY_INDEX>.err
 ```
 
 **VHSE not converging**
-Reduce `n_vhse_loop` to 10 for a first pass. For physically extreme models (very large or very small disks), the iteration may need `thetaup` or `rout` adjustments — see {doc}`build_your_own_model`.
+
+Reduce `n_vhse_loop` to 20 for a first pass. 
+Typically the VHSE takes about 10 iterations to converge, if it does not converge beyond 20 iterations.
+You may need to check the grid set up.
+For physically extreme models (very large or very small disks), the iteration may need `thetaup` or `rout` adjustments — see {doc}`build_your_own_model`.
+
 
 **Jobs pending for a long time**
 ```bash
