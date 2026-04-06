@@ -6,4 +6,8 @@ Here we will cover the advanced usage of DiskMINT — for both individual target
 :maxdepth: 1
 
 build_your_own_model
+hpc_guide
+physics_background
+surface_density_fitting
+ml_ai_inference
 

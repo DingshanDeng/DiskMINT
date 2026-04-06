@@ -15,6 +15,39 @@
 
 ---
 
+## Setting `DISKMINT_BIN_DIR`
+
+After compiling the Fortran chemistry network (step 3 above), you need to tell DiskMINT where to find the compiled binaries by setting the `DISKMINT_BIN_DIR` environment variable:
+
+```bash
+export DISKMINT_BIN_DIR="Yourpath/DiskMINT/chemistry/bin"
+```
+
+To make this permanent, add it to your shell profile:
+
+```bash
+# For zsh (default on macOS):
+echo 'export DISKMINT_BIN_DIR="Yourpath/DiskMINT/chemistry/bin"' >> ~/.zshrc
+source ~/.zshrc
+
+# For bash:
+echo 'export DISKMINT_BIN_DIR="Yourpath/DiskMINT/chemistry/bin"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Verify:**
+
+```bash
+echo $DISKMINT_BIN_DIR          # should print the path you set
+ls $DISKMINT_BIN_DIR/disk_main  # compiled binary should exist
+```
+
+If `DISKMINT_BIN_DIR` is not set, DiskMINT will attempt to locate the binaries relative to the package installation directory. This fallback works for most cases after `make install`, but setting the variable explicitly is recommended to avoid path issues.
+
+> **Note:** If you used `make install` (Quicker Installation), the `Makefile` also runs `make link_bin`, which symlinks `disk_main` and `disk_extract` into `~/.local/bin`. You still need to set `DISKMINT_BIN_DIR` pointing to `Yourpath/DiskMINT/chemistry/bin` for the Python package to locate the binaries correctly.
+
+---
+
 ## Requirements
 
 *The code is built on a `Linux` machine with `Intel` CPU and tested on both `Intel-Mac` and `ARM-Mac`, and we note that to run `gfortran` on your ARM Mac, be sure to install `gcc` and not use the native `Darwin Mac` Version.*
