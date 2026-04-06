@@ -181,7 +181,7 @@ After a successful run, the `data_dir` contains standard RADMC-3D input/output f
 | `gas_temperature.inp` | Gas temperature (= dust temperature or decoupled near star) |
 | `COinitgrid-*.dat` | Initial CO abundance grid (input to chemistry) |
 | `COinitgrid-GSinit_*.dat` | Same with Gaussian vertical prior (pre-VHSE) |
-| `COendgrid-*.chem` | Final C18O abundance grid after chemistry network |
+| `COendgrid-*.chem` | Final $\mathrm{C^{18}O}$ abundance grid after chemistry network |
 
 If `bool_savemodel = True`, a copy of the named model directory is written to `chemical_save_dir`.
 
@@ -206,7 +206,7 @@ The final CO abundance grid is written to `COendgrid-{model_name}.chem`. It is a
 | `r` | cm | Cylindrical radius |
 | `z` | cm | Height above midplane |
 | `log10(n_H2 / n_H)` | — | log₁₀ H₂ abundance relative to H nuclei |
-| `log10(n_C18O / n_H)` | — | log₁₀ C18O abundance relative to H nuclei |
+| `log10(n_$\mathrm{C^{18}O}$ / n_H)` | — | log₁₀ $\mathrm{C^{18}O}$ abundance relative to H nuclei |
 
 Reading in Python:
 

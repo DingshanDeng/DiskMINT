@@ -50,7 +50,7 @@ python -c "import diskmint.model; print('DiskMINT OK')"
 
 ## 2. Fortran Chemistry Network
 
-**What it is:** Reduced chemical network (Ruaud, Gorti & Hollenbach 2022) for C¹⁸O modeling. Compiled separately from the Python package.
+**What it is:** Reduced chemical network (Ruaud, Gorti & Hollenbach 2022) for $\mathrm{C^{18}O}$ modeling. Compiled separately from the Python package.
 
 **Requires:** `gfortran` version **10 or higher**.
 

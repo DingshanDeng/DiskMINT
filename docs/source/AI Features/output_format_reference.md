@@ -31,7 +31,7 @@ model_name/
 ├── gas_temperature_mdust_VHSE_{i}.inp       Gas temperature snapshot after iteration i
 ├── COinitgrid-{name}.dat                    Initial CO chemistry grid
 ├── COinitgrid-GSinit_{name}.dat             Same, with Gaussian vertical prior
-├── COendgrid-{name}.chem                    Final C18O abundance grid ← main science output
+├── COendgrid-{name}.chem                    Final $\mathrm{C^{18}O}$ abundance grid ← main science output
 ├── chemistry-reducedRGH22/                  Chemistry network binary outputs
 └── {name}_parameters.csv                    Copy of the input parameter CSV
 ```
@@ -49,7 +49,7 @@ Plain-text file; one row per grid point on the cylindrical chemistry grid (`nr_c
 | `r` | cm | Cylindrical radius |
 | `z` | cm | Height above midplane |
 | `log10(n_H2 / n_H)` | — | log₁₀ H₂ abundance relative to H nuclei |
-| `log10(n_C18O / n_H)` | — | log₁₀ C18O abundance relative to H nuclei |
+| `log10(n_{\mathrm{C^{18}O}} / n_H)` | — | log₁₀ $\mathrm{C^{18}O}$ abundance relative to H nuclei |
 
 **Loading in Python:**
 

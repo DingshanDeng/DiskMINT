@@ -80,7 +80,7 @@ where $\gamma =$ `pl_sufdens` and $\xi =$ `pl_tapoff`. This is the self-similar 
 
 DiskMINT can also use directly specified radial surface density profiles, including profiles derived from resolved observations. In the structured IM Lup model of [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D), the dust and gas surface densities are treated separately as $\Sigma_\mathrm{dust}(r)$ and $\Sigma_\mathrm{gas}(r)$, so the dust-to-gas ratio becomes a function of radius rather than a single global constant.
 
-In that workflow, $\Sigma_\mathrm{dust}(r)$ is iteratively adjusted to reproduce the observed dust continuum radial profile, while $\Sigma_\mathrm{gas}(r)$ is iteratively adjusted to reproduce the observed C$^{18}$O radial profile. The synthetic and observed radial profiles are measured in elliptical annuli using the observed disk geometry, and the next surface-density estimate is updated from the ratio of observation to model at each radius.
+In that workflow, $\Sigma_\mathrm{dust}(r)$ is iteratively adjusted to reproduce the observed dust continuum radial profile, while $\Sigma_\mathrm{gas}(r)$ is iteratively adjusted to reproduce the observed $\mathrm{C^{18}O}$ radial profile. The synthetic and observed radial profiles are measured in elliptical annuli using the observed disk geometry, and the next surface-density estimate is updated from the ratio of observation to model at each radius.
 
 This observation-driven mode is useful when high-quality resolved continuum and line data are available and the gas and dust are radially decoupled. In practice, the analytic and direct-fitting approaches are complementary: the analytic profile is a natural starting point for general modeling, while direct fitting is the more flexible option for well-resolved disks. A worked example of this fitting workflow will be added to the documentation in a future update.
 
@@ -90,11 +90,10 @@ This observation-driven mode is useful when high-quality resolved continuum and 
 
 ## Chemical Network
 
-The chemical network is a reduced version of the full network of [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract), focusing on the processes that control C¹⁸O abundance:
+The chemical network is a reduced version of the full CO chemistry framework developed in [Ruaud & Gorti (2019)](https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R/abstract) and later adapted for $\mathrm{C^{18}O}$ modeling in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract). It focuses on the processes that control $\mathrm{C^{18}O}$ abundance:
 
-1. **Isotopologue-selective photodissociation** — UV photons from the star preferentially dissociate ¹²CO and ¹³CO over C¹⁸O due to self-shielding differences. This is the dominant mechanism depleting CO in the upper disk layers.
-2. **Grain-surface chemistry** — CO freezes onto grain surfaces at $T < 20$–30 K and converts to CO₂ ice via grain-surface reactions. This depletes gas-phase CO in the cold midplane.
-3. **Photodesorption** — UV photons desorb CO ice back to the gas phase, creating a warm molecular layer between the hot surface and cold midplane.
+- **Isotope-selective photodissociation** — UV photons from the star preferentially dissociate $\mathrm{{}^{12}CO}$ and $\mathrm{{}^{13}CO}$ over $\mathrm{C^{18}O}$ due to self-shielding differences. This is the dominant mechanism depleting CO in the upper disk layers, following [Visser, van Dishoeck & Black (2009)](https://www.aanda.org/10.1051/0004-6361/200912129).
+- **Grain-surface chemistry** — CO freezes onto grain surfaces at $T < 20$–30 K and converts to CO₂ ice via grain-surface reactions. This depletes gas-phase CO in the cold midplane. Then it is balanced with **Photodesorption** — UV photons desorb CO ice back to the gas phase, creating a warm molecular layer between the hot surface and cold midplane.
 
 The network is solved on a cylindrical grid (`nr_cyl_LIME x nz_cyl_LIME`) after VHSE convergence. 
 
@@ -103,7 +102,7 @@ If the input UV spectra is not available, you may set up the `G0Hab_set` value t
 
 **Relevant parameters:** `G0Hab_set`, `nr_cyl_LIME`, `nz_cyl_LIME`, `chemical_save_name`
 
-**Primary reference:** [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R)
+**Primary references:** [Visser, van Dishoeck & Black (2009), A&A 503, 323](https://www.aanda.org/10.1051/0004-6361/200912129); [Ruaud & Gorti (2019), ApJ 885, 146](https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R); [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R)
 
 ---
 
@@ -111,7 +110,9 @@ If the input UV spectra is not available, you may set up the `G0Hab_set` value t
 
 | Paper | What it covers |
 |---|---|
+| [Visser, van Dishoeck & Black (2009), A&A 503, 323](https://www.aanda.org/10.1051/0004-6361/200912129) | Original isotope-selective CO photodissociation model |
+| [Ruaud & Gorti (2019), ApJ 885, 146](https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R) | Original CO chemistry model underlying the reduced $\mathrm{C^{18}O}$ network |
 | [Deng et al. (2023), ApJ 954, 165](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D) | Original DiskMINT method: VHSE + chemistry for CO isotopologue masses |
 | [Deng et al. (2025), ApJ 995, 98](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D) | Application to IM Lup; radially varying g2d ratio |
-| [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R) | Reduced chemical network used for C¹⁸O |
+| [Ruaud, Gorti & Hollenbach (2022), ApJ 925, 49](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R) | Reduced chemical network used for $\mathrm{C^{18}O}$ |
 | [Mathis, Rumpl & Nordsieck (1977), ApJ 217, 425](https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M) | MRN grain size distribution |

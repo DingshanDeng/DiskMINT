@@ -43,7 +43,7 @@ The code contains two parts:
 
 (A) a `Python3` module (located in `DiskMINT/diskmint/src/`) that is capable of generating a self-consistent 2D disk structure that satisfies VHSE (Vertical Hydrostatic Equilibrium).
 
-(B) a `Fortran` code (located in `DiskMINT/chemistry/`) of the reduced chemical network focusing on modeling $\mathrm{C^{18}O}$ in the disk, and it contains the main chemical processes that are necessary for the $\mathrm{C^{18}O}$ modeling: a. the isotopologue-selective photodissociation; b. the grain-surface chemistry where the $\mathrm{CO}$ converting to $\mathrm{CO_{2}}$ ice is the main reaction.
+(B) a `Fortran` code (located in `DiskMINT/chemistry/`) of the reduced chemical network focusing on modeling $\mathrm{C^{18}O}$ in the disk, and it contains the main chemical processes that are necessary for the $\mathrm{C^{18}O}$ modeling: a. the isotope-selective photodissociation; b. the grain-surface chemistry where the CO converting to $\mathrm{CO_2}$ ice is the main reaction.
 
 `DiskMINT` is still a developing tool, and we aim to build it as an easy-to-update and easy-to-use tool. 
 Feel free to put any questions, suggestions, and/or comments on the `GitHub` page or directly email the author (dingshandeng@arizona.edu).

@@ -77,7 +77,7 @@ Example opacity files generated with both tools are provided in the `/examples/`
 
 ## Line Radiative Transfer Code (Required for Synthetic Line Emission)
 
-`DiskMINT` outputs the density and temperature structure of the disk. To produce synthetic line emission images (e.g., CO, C¹⁸O), you need a separate line radiative transfer code.
+`DiskMINT` outputs the density and temperature structure of the disk. To produce synthetic line emission images (e.g., CO, $\mathrm{C^{18}O}$), you need a separate line radiative transfer code.
 Two options are tested and supported:
 
 ### Option 1: `RADMC-3D` (LTE only)

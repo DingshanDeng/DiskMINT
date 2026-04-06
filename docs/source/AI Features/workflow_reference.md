@@ -101,7 +101,7 @@ All stages are orchestrated by `exe.runmodel(mint)` in `diskmint.execute`.
 
 **Function:** `disk_density.runchemistry(mint, chem_code_dir=..., G0Hab_set=...)`
 
-**What it does:** Calls the compiled Fortran binary `disk_main` from `chem_code_dir` (resolved from `DISKMINT_BIN_DIR` or auto-detected). The reduced chemical network (Ruaud et al. 2022) evolves H₂, CO, C18O, and associated species on the cylindrical grid.
+**What it does:** Calls the compiled Fortran binary `disk_main` from `chem_code_dir` (resolved from `DISKMINT_BIN_DIR` or auto-detected). The reduced chemical network (Ruaud et al. 2022) evolves H₂, CO, $\mathrm{C^{18}O}$, and associated species on the cylindrical grid.
 
 **Key input parameter:** `G0Hab_set` — UV flux at stellar surface in Habing units. Scales the photodissociation rates.
 
