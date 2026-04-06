@@ -58,15 +58,19 @@ Explore the developing AI and machine-learning tools around DiskMINT, including 
 
 ---
 
-## Suggested Reading Order
+## Suggested Reading
 
-If you are modeling a single target, start with {doc}`build_your_own_model`, then use {doc}`physics_background` and {doc}`thermochemical_processes` as reference pages while tuning the model.
+### If you are modeling a single target or are new to DiskMINT
+start with {doc}`build_your_own_model`, then use {doc}`physics_background` and {doc}`thermochemical_processes` as reference pages while tuning the model.
 
-If you are preparing large parameter studies, read {doc}`hpc_guide` after the build-your-own-model page.
+### If you are preparing large parameter studies
+read {doc}`hpc_guide` after the build-your-own-model page.
 
-If your goal is interpretation rather than setup, {doc}`surface_density_fitting` and {doc}`ml_ai_inference` summarize the broader analysis directions that build on the core DiskMINT workflow.
+### If your goal is interpretation rather than setup
+read {doc}`surface_density_fitting` and {doc}`ml_ai_inference` summarize the broader analysis directions that build on the core DiskMINT workflow.
 
 ```{toctree}
+:hidden:
 :maxdepth: 1
 
 build_your_own_model

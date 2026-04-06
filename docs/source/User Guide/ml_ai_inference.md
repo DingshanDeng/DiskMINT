@@ -20,7 +20,7 @@ DiskMINT is being extended with machine-learning and AI tools to accelerate disk
 
 ## DiskMINT-GARDEN & XGBoost Inference
 
-**Status: In development**
+**Status: In development, will be available soon**
 
 DiskMINT-GARDEN is a grid of DiskMINT models covering a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will provide:
 
