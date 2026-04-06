@@ -22,7 +22,7 @@ DiskMINT is being extended with machine-learning and AI tools to accelerate disk
 
 **Status: In development, will be available soon**
 
-DiskMINT-GARDEN is a grid of DiskMINT models covering a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will provide:
+DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is a grid of DiskMINT models covering a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will provide:
 
 - **Forward inference:** fast prediction of disk observables (millimeter continuum flux, $\mathrm{C^{18}O}$ line flux) from input disk parameters
 - **Inverse inference:** estimates of physical disk properties — gas mass, gas-to-dust ratio, and characteristic radius $R_c$ — from observed fluxes
@@ -30,7 +30,7 @@ DiskMINT-GARDEN is a grid of DiskMINT models covering a range of stellar masses,
 Once published alongside the DiskMINT grid paper, users will be able to run inference with a single call:
 
 ```python
-import diskmint.infer as infer
+import diskmint.garden.infer as infer
 
 result = infer.from_observations(
     flux_mm=...,       # millimeter continuum flux [Jy]
