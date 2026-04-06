@@ -147,10 +147,10 @@ Reads the chemical network output files (`COinitgrid-*.dat` and `COendgrid-reduc
 
 - **Total hydrogen number density** (n_H) in 2D
 - **Gas temperature** (T_gas) in 2D
-- **C¹⁸O abundance** after the chemical network
-- **C¹⁸O J=2–1 emitting layer** (line luminosity per grid cell)
+- **$\mathrm{C^{18}O}$ abundance** after the chemical network
+- **$\mathrm{C^{18}O}$ J=2–1 emitting layer** (line luminosity per grid cell)
 
-The C¹⁸O integrated line luminosities for the J=2–1 and J=3–2 transitions are also printed to the terminal.
+The $\mathrm{C^{18}O}$ integrated line luminosities for the J=2–1 and J=3–2 transitions are also printed to the terminal.
 
 ## Input Files Reference
 

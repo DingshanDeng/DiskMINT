@@ -28,7 +28,7 @@ example_RULup/
 │   ├── ratio_g2d_grid.dat                                     # Gas-to-dust ratio on the model grid
 │   ├── colimemodel.c                                          # LIME model file (C source)
 │   ├── wrapper_LIME_example.py                                # Python wrapper for running LIME
-│   ├── molecule_c18o.inp                                      # C¹⁸O molecular data for LIME
+│   ├── molecule_c18o.inp                                      # $\mathrm{C^{18}O}$ molecular data for LIME
 │   ├── limegrid.dat                                           # LIME grid file
 │   ├── example_model_RULup_VHSE_bestfit_reducedRGH22/          # Chemical network output
 │   └── images/                                                # LIME synthetic images output
@@ -37,7 +37,7 @@ example_RULup/
 
 ## Model Description
 
-RU Lup is a well-known classical T Tauri star with a massive, CO-rich disk. The DiskMINT best-fit model derives a self-consistent thermochemical disk structure and estimates the disk gas mass from C¹⁸O line emission.
+RU Lup is a well-known classical T Tauri star with a massive, CO-rich disk. The DiskMINT best-fit model derives a self-consistent thermochemical disk structure and estimates the disk gas mass from $\mathrm{C^{18}O}$ line emission.
 
 | Parameter | Value |
 |---|---|
@@ -116,9 +116,9 @@ para.edit_parameter("parameter_name", new_value=...)
 
 After the DiskMINT model completes, the chemical output (CO abundances on a cylindrical grid) can be passed to LIME for non-LTE line radiative transfer. The `data/` directory contains the necessary LIME input files:
 
-- `colimemodel.c`: The LIME model file written in C. It reads the DiskMINT output grid (`limegrid.dat`) and interpolates the gas density, temperature, and C¹⁸O abundance at arbitrary positions requested by LIME.
+- `colimemodel.c`: The LIME model file written in C. It reads the DiskMINT output grid (`limegrid.dat`) and interpolates the gas density, temperature, and $\mathrm{C^{18}O}$ abundance at arbitrary positions requested by LIME.
 - `wrapper_LIME_example.py`: A Python wrapper script that calls LIME with the correct settings (transitions, resolution, velocity range).
-- `molecule_c18o.inp`: The C¹⁸O molecular data file (energy levels, Einstein coefficients) required by LIME.
+- `molecule_c18o.inp`: The $\mathrm{C^{18}O}$ molecular data file (energy levels, Einstein coefficients) required by LIME.
 
 To run LIME, ensure it is installed and then execute the wrapper:
 
@@ -139,4 +139,4 @@ Synthetic channel maps will be saved to `data/images/`. These can then be convol
 | `fracs_numb.inp` | Dust number fraction for each size bin |
 | `ndsd.inp` | Normalized dust size distribution |
 | `colimemodel.c` | LIME model source code for interpolating DiskMINT output |
-| `molecule_c18o.inp` | C¹⁸O molecular data for LIME |
+| `molecule_c18o.inp` | $\mathrm{C^{18}O}$ molecular data for LIME |
