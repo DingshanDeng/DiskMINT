@@ -1,15 +1,43 @@
 # ML / AI-Assisted Inference
 
-*This section is a placeholder. Full content will be added once the machine-learning inference tools are released alongside DiskMINT.*
+DiskMINT is being extended with machine-learning and AI tools to accelerate disk modeling and assist users throughout the workflow. Two tools are currently available or in development.
 
 ---
 
-DiskMINT is being extended with machine-learning tools to accelerate disk modeling:
+## DiskMINT-Nursery — AI Assistant Skill
 
-Including DiskMINT-GARDEN -- a grid of DiskMINT models cover all different stellar and disk parameters, enabling first-order estiamtes on the the disk parameters and structure.
+**Status: Available (experimental)**
 
-**XGBoost surrogate model (coming in a future release):** An XGBoost regressor trained on the DiskMINT-GARDEN model grid provides fast inference of disk observables from input parameters — and, conversely, allows estimating physical disk properties (mass, gas-to-dust ratio, characteristic radius) directly from observed fluxes. Once published, users will be able to run inference with a single call to `diskmint.infer()` and reproduce the paper figures from [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D).
+[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is a companion skill for [Claude Code](https://claude.ai/code) and [OpenAI Codex CLI](https://developers.openai.com/codex/cli) that guides you through the full DiskMINT workflow — from installation to scientific results. It provides three features:
 
-**AI agent skill (available now):** The [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) skill for Claude Code can assist with installation, model setup, and result interpretation. See the {doc}`../AI Features/ai_ref_index` section for details.
+- Guided installation and environment verification
+- Runtime assistance for model setup, parameter selection, and output interpretation
+- Error diagnosis and support escalation
 
-This page will be expanded with tutorials, API documentation, and example notebooks after the ML tools are released.
+**See {doc}`../AI Features/nursery_tutorial` for a complete tutorial.**
+
+---
+
+## DiskMINT-GARDEN & XGBoost Inference
+
+**Status: In development**
+
+DiskMINT-GARDEN is a grid of DiskMINT models covering a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will provide:
+
+- **Forward inference:** fast prediction of disk observables (millimeter continuum flux, $\mathrm{C^{18}O}$ line flux) from input disk parameters
+- **Inverse inference:** estimates of physical disk properties — gas mass, gas-to-dust ratio, and characteristic radius $R_c$ — from observed fluxes
+
+Once published alongside the DiskMINT grid paper, users will be able to run inference with a single call:
+
+```python
+import diskmint.infer as infer
+
+result = infer.from_observations(
+    flux_mm=...,       # millimeter continuum flux [Jy]
+    flux_c18o=...,     # C18O line flux [Jy km/s]
+    mstar=...,         # stellar mass [M_sun]
+    distance=...,      # distance [pc]
+)
+```
+
+Full documentation, API reference, and example notebooks reproducing the paper figures will be added to the {doc}`../AI Features/ai_ref_index` section at that time.

@@ -92,8 +92,8 @@ This observation-driven mode is useful when high-quality resolved continuum and 
 
 The chemical network is a reduced version of the full CO chemistry framework developed in [Ruaud & Gorti (2019)](https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R/abstract) and later adapted for $\mathrm{C^{18}O}$ modeling in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract). It focuses on the processes that control $\mathrm{C^{18}O}$ abundance:
 
-- **Isotope-selective photodissociation** — UV photons from the star preferentially dissociate $\mathrm{{}^{12}CO}$ and $\mathrm{{}^{13}CO}$ over $\mathrm{C^{18}O}$ due to self-shielding differences. This is the dominant mechanism depleting CO in the upper disk layers, following [Visser, van Dishoeck & Black (2009)](https://www.aanda.org/10.1051/0004-6361/200912129).
-- **Grain-surface chemistry** — CO freezes onto grain surfaces at $T < 20$–30 K and converts to CO₂ ice via grain-surface reactions. This depletes gas-phase CO in the cold midplane. Then it is balanced with **Photodesorption** — UV photons desorb CO ice back to the gas phase, creating a warm molecular layer between the hot surface and cold midplane.
+- **Isotope-selective photodissociation** — UV photons from the star preferentially dissociate $\mathrm{C^{18}O}$ and $\mathrm{{}^{13}CO}$ over $\mathrm{{}^{12}CO}$ due to self-shielding differences. This is the dominant mechanism depleting $\mathrm{C^{18}O}$ in the upper disk layers, following [Visser, van Dishoeck & Black (2009)](https://www.aanda.org/10.1051/0004-6361/200912129).
+- **Grain-surface chemistry** — CO freezes onto grain surfaces at $T < 20$–30 K and converts to $\mathrm{CO_2}$ ice via grain-surface reactions. This depletes gas-phase CO in the cold midplane. Then it is balanced with **Photodesorption** — UV photons desorb CO ice back to the gas phase, creating a warm molecular layer between the hot surface and cold midplane.
 
 The network is solved on a cylindrical grid (`nr_cyl_LIME x nz_cyl_LIME`) after VHSE convergence. 
 

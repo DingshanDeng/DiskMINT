@@ -1,15 +1,49 @@
 # AI Features
 
-*This section is under construction.*
-
-This section provides compact, structured reference material for `DiskMINT`.
-It is written to be machine-scannable and is used by [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) — the AI assistant skill for `DiskMINT` — to quickly locate information and help users.
-
-All users will also find these pages useful as quick-lookup references. For narrative explanations and step-by-step tutorials, see the {doc}`../User Guide/user_guide_index`.
+DiskMINT supports two categories of ML and AI tools: an **AI assistant skill** for guided installation, modeling, and support (available now), and a **machine-learning inference API** for fast disk parameter estimation (in development). This section covers both, and provides the structured reference files used by the AI assistant.
 
 ---
 
+## DiskMINT-Nursery — AI Assistant Skill
+
+[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is a companion skill for supported AI coding agents, for example [Claude Code](https://claude.ai/code) and [OpenAI Codex CLI](https://developers.openai.com/codex/cli). Once installed, it activates when you explicitly mention DiskMINT or `import diskmint` in your conversation — intentionally narrow, so it does not interfere with users of other thermochemical codes (DALI, ProDiMo, etc.). Some assistants may also support direct skill invocation. It provides three capabilities:
+
+**Feature 1 — Installation & Onboarding**
+Check and configure your full DiskMINT environment: Python package, Fortran chemistry network, RADMC-3D, gfortran version, and `DISKMINT_BIN_DIR`. Handles platform-specific issues (ARM Mac, legacy gfortran) and prints copy-paste commands for anything that needs `sudo`.
+
+**Feature 2 — Runtime Assistant**
+Answer questions about DiskMINT, help set up and run models, and interpret outputs. The skill reads the structured reference files below to ground its answers in your actual installation — parameters, file formats, pipeline steps, and known failure modes.
+
+**Feature 3 — Support Escalation**
+Diagnose unresolved errors against a known error reference, collect environment details, and draft a support email or GitHub issue report when a problem cannot be fixed automatically.
+
+See {doc}`nursery_tutorial` for full installation and usage instructions.
+
+---
+
+## ML Inference — XGBoost Surrogate (In Development)
+
+DiskMINT-GARDEN is a grid of DiskMINT models spanning a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will enable:
+
+- **Forward inference:** fast prediction of disk observables (millimeter flux, $\mathrm{C^{18}O}$ flux) from input parameters
+- **Inverse inference:** estimates of physical disk properties (gas mass, gas-to-dust ratio, characteristic radius) from observed fluxes
+
+Once released alongside the grid paper, inference will be available via `diskmint.infer()`. See {doc}`../User Guide/ml_ai_inference` for context and to be notified when this feature is published.
+
+---
+
+## AI Agent Reference
+
+The pages below are compact, structured reference files used by DiskMINT-Nursery to look up information during a session. They are also useful as quick-lookup pages for human readers — covering every parameter, the full pipeline, output file formats, and known errors.
+
 ::::{grid} 1 1 2 2
+
+:::{grid-item-card} DiskMINT-Nursery Tutorial
+:link: nursery_tutorial
+:link-type: doc
+
+Step-by-step guide to installing and using the DiskMINT-Nursery AI assistant skill with supported agents, including example workflows for Claude Code and Codex — covering installation & onboarding, runtime assistance, and support escalation.
+:::
 
 :::{grid-item-card} Installation Reference
 :link: install_reference
@@ -59,6 +93,7 @@ Ready-to-use prompts for each DiskMINT-Nursery feature — copy into your AI ass
 :hidden:
 :maxdepth: 1
 
+nursery_tutorial
 install_reference
 parameters_reference
 workflow_reference
