@@ -1650,11 +1650,18 @@ class Mint:
         # but we also keep the option of calculating them here
         """
 
+        def _pow_integral(x, y, exp):
+            # Computes (x**exp - y**exp) / exp, with the correct limiting form
+            # ln(x/y) when exp -> 0 (i.e. when pla = k+1 for integer k).
+            if abs(exp) < 1e-10:
+                return np.log(x / y)
+            return (x**exp - y**exp) / exp
+
         def massdust_i(amax, amin, rhobulk = 2.5, pla = 3.5):
             # rhobulk = 2.5 # assume in the unit of [g cm^-3]
             # pla     = 3.x # fitted from long wavelengths SED
 
-            md = 4*np.pi/3*rhobulk*(amax**(4-pla) - amin**(4-pla))/(4-pla)
+            md = 4*np.pi/3*rhobulk * _pow_integral(amax, amin, 4-pla)
 
             return md
 
@@ -1662,7 +1669,7 @@ class Mint:
             # rhobulk = 2.5 # assume in the unit of [g cm^-3]
             # pla     = 3.x # fitted from long wavelengths SED
 
-            nd   = (amax**(1-pla) - amin**(1-pla))/(1-pla)
+            nd   = _pow_integral(amax, amin, 1-pla)
 
             return nd
 
@@ -1672,7 +1679,7 @@ class Mint:
             # ndsd = nd * a**2 = a**(-pla) * a**2 = a**(2-pla)
             # ndsd_i = int ndsd = a**(3-pla)/(3-pla)
 
-            ndsd = (amax**(3-pla) - amin**(3-pla))/(3-pla) # I don't need nd, we just need ndsd here.
+            ndsd = _pow_integral(amax, amin, 3-pla) # I don't need nd, we just need ndsd here.
 
             return ndsd
 
@@ -1680,7 +1687,7 @@ class Mint:
             # pla = 3.5 for MRN
             # pla = 3.x fitted from long wavelengths SED
 
-            a_ave = (amax**(2-pla) - amin**(2-pla))/(2-pla) / ((amax**(1-pla) - amin**(1-pla))/(1-pla))
+            a_ave = _pow_integral(amax, amin, 2-pla) / _pow_integral(amax, amin, 1-pla)
 
             return a_ave
 
