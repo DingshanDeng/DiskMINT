@@ -1,5 +1,41 @@
 # Installation
 
+## Python Environment (Recommended: conda)
+
+We recommend managing your Python environment with [Anaconda](https://docs.anaconda.com/anaconda/) or [Miniconda](https://docs.anaconda.com/miniconda/). This avoids dependency conflicts and makes it straightforward to reproduce your setup on a new machine or HPC cluster.
+
+**Step 1.** Install Miniconda (lightweight) or Anaconda if you do not already have conda:
+
+- Miniconda (recommended): https://docs.anaconda.com/miniconda/
+- Anaconda (full distribution): https://docs.anaconda.com/anaconda/install/
+
+**Step 2.** Create a dedicated environment and activate it:
+
+```bash
+conda create -n diskmint_stable python=3.11
+conda activate diskmint_stable
+```
+
+You can use any name you like; `diskmint_stable` is the name used throughout the DiskMINT documentation. Python 3.9–3.13 are all supported.
+
+**Step 3.** Optionally pre-install common scientific packages via conda before installing DiskMINT:
+
+```bash
+conda install numpy scipy astropy matplotlib
+```
+
+This step is optional — `make install` (below) installs all required dependencies automatically via `pip`. The conda packages above are useful extras for data analysis and visualization.
+
+**Remember** to activate the environment at the start of every session:
+
+```bash
+conda activate diskmint_stable
+```
+
+---
+
+## Installing DiskMINT
+
 **Quicker Installation (as of v1.6.0+)** 
 
 1. Download the code use the `git clone` or download this repo as zip from the latest [releases](https://github.com/DingshanDeng/DiskMINT/releases) into your local directory `Yourpath/DiskMINT/`.

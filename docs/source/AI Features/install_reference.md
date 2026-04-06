@@ -10,6 +10,8 @@ For a narrative walkthrough, see {doc}`../Quick Start/Installation` and {doc}`..
 Run these to check what is already installed before doing anything else:
 
 ```bash
+conda info --envs                                          # list conda environments
+echo $CONDA_DEFAULT_ENV                                    # check active env (empty or 'base' = no dedicated env)
 python -c "import diskmint.model; print('DiskMINT OK')"   # DiskMINT Python package
 echo $DISKMINT_BIN_DIR                                     # chemistry binary pointer (must be non-empty)
 $DISKMINT_BIN_DIR/disk_main --version 2>/dev/null || echo "chemistry binary not found"
@@ -17,6 +19,30 @@ radmc3d info                                               # RADMC-3D binary
 which optool && optool --version                          # optool (optional but recommended)
 gfortran --version | head -1                              # gfortran (need 10+)
 ```
+
+---
+
+## 0. Python Environment (conda)
+
+**What it is:** A dedicated conda environment keeps DiskMINT dependencies isolated and reproducible.
+
+**Install conda** (if not already available):
+- Miniconda (recommended): https://docs.anaconda.com/miniconda/
+- Anaconda (full distribution): https://docs.anaconda.com/anaconda/install/
+
+**Create and activate the environment** (choose any name you like; `diskmint_stable` is used in the DiskMINT documentation as an example):
+
+```bash
+conda create -n <your_env_name> python=3.11
+conda activate <your_env_name>
+```
+
+**Verify:**
+```bash
+echo $CONDA_DEFAULT_ENV   # should print your environment name (not empty, not 'base')
+```
+
+All subsequent installation steps assume a dedicated conda environment is active. If `import diskmint` fails, the most common cause is that the base environment or the wrong environment is active — run `conda activate <your_env_name>` and try again.
 
 ---
 

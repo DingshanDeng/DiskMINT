@@ -96,6 +96,8 @@ Describe what you need in natural language:
 
 | Component | Verification |
 |---|---|
+| conda | `conda --version` |
+| conda environment active | `conda info \| grep "active environment"` |
 | DiskMINT Python package | `python -c "import diskmint; print('OK')"` |
 | Fortran chemistry network | `$DISKMINT_BIN_DIR/disk_main` exists and runs |
 | `DISKMINT_BIN_DIR` | variable is set and points to `chemistry/bin/` |
