@@ -4,6 +4,17 @@ DiskMINT supports two categories of ML and AI tools: an **AI assistant skill** f
 
 ---
 
+## DiskMINT-GARDEN -- ML Inference
+
+DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is a grid of DiskMINT models spanning a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will enable:
+
+- **Forward inference:** fast prediction of disk observables (millimeter flux, $\mathrm{C^{18}O}$ flux) from input parameters
+- **Inverse inference:** estimates of physical disk properties (gas mass, gas-to-dust ratio, characteristic radius) from observed fluxes
+
+Once released alongside the grid paper, inference will be available via `diskmint.infer()`. See {doc}`../User Guide/ml_ai_inference` for context and to be notified when this feature is published.
+
+---
+
 ## DiskMINT-Nursery — AI Assistant Skill
 
 [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is a companion skill for supported AI coding agents, for example [Claude Code](https://claude.ai/code) and [OpenAI Codex CLI](https://developers.openai.com/codex/cli). Once installed, it activates when you explicitly mention DiskMINT or `import diskmint` in your conversation — intentionally narrow, so it does not interfere with users of other thermochemical codes (DALI, ProDiMo, etc.). Some assistants may also support direct skill invocation. It provides three capabilities:
@@ -18,17 +29,6 @@ Answer questions about DiskMINT, help set up and run models, and interpret outpu
 Diagnose unresolved errors against a known error reference, collect environment details, and draft a support email or GitHub issue report when a problem cannot be fixed automatically.
 
 See {doc}`nursery_tutorial` for full installation and usage instructions.
-
----
-
-## ML Inference — XGBoost Surrogate (In Development)
-
-DiskMINT-GARDEN is a grid of DiskMINT models spanning a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will enable:
-
-- **Forward inference:** fast prediction of disk observables (millimeter flux, $\mathrm{C^{18}O}$ flux) from input parameters
-- **Inverse inference:** estimates of physical disk properties (gas mass, gas-to-dust ratio, characteristic radius) from observed fluxes
-
-Once released alongside the grid paper, inference will be available via `diskmint.infer()`. See {doc}`../User Guide/ml_ai_inference` for context and to be notified when this feature is published.
 
 ---
 

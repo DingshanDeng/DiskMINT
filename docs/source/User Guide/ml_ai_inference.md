@@ -18,7 +18,7 @@ DiskMINT is being extended with machine-learning and AI tools to accelerate disk
 
 ---
 
-## DiskMINT-GARDEN & XGBoost Inference
+## DiskMINT-GARDEN
 
 **Status: In development, will be available soon**
 
