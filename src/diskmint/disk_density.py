@@ -40,6 +40,10 @@ except ImportError:
     print(' To use this python module, you need to install Numpy, Scipy')
     print(traceback.format_exc())
 
+# np.trapz was removed in NumPy 2.0; np.trapezoid is the replacement.
+# This shim keeps compatibility with NumPy < 2.0 (Python 3.8 environments).
+_trapz = np.trapezoid if (np is not None and hasattr(np, 'trapezoid')) else (getattr(np, 'trapz', None) if np is not None else None)
+
 # try:
 #     import radmc3dPy
 # except ImportError:
@@ -2853,9 +2857,9 @@ def get_new_dust_density(mint, bool_smoothing_Tgas=True,
                 #
                 """NOTE: changed rr_cyl**2 - zz_cyl**2 to rr_cyl**2 + zz_cyl**2"""
                 rad3 = (rr_cyl[i,j+1,0]**2 + zz_cyl[i,j+1,0]**2.0)**1.5 # cyl r^3
-                facjp1 = const.gg*para.mstar*const.mu*zz_cyl[i,j+1,0]/(rad3*const.kk*Tgas_cyl_old[i,j+1]) # j+1
+                facjp1 = const.gg*para.mstar*const.mu*zz_cyl[i,j+1,0]/(rad3*const.kk*Tgas_cyl_old[i,j+1,0]) # j+1
                 rad3 = (rr_cyl[i,j,0]**2 + zz_cyl[i,j,0]**2.0)**1.5 # cyl r^3
-                facj = const.gg*para.mstar*const.mu*zz_cyl[i,j,0]/(rad3*const.kk*Tgas_cyl_old[i,j]) # j
+                facj = const.gg*para.mstar*const.mu*zz_cyl[i,j,0]/(rad3*const.kk*Tgas_cyl_old[i,j,0]) # j
                 fac = 0.5*(facj + facjp1) # average of [ z/h^2 over cells]
                 dz = abs(zz_cyl[i,j+1,0] - zz_cyl[i,j,0])
                 rhogas_cyl_new[i,j,0] = rhogas_cyl_new[i,j+1,0]*\
@@ -2869,7 +2873,7 @@ def get_new_dust_density(mint, bool_smoothing_Tgas=True,
         rhogas_cyl_new[rhogas_cyl_new <= const.mu] = const.mu
         
         # do renormalization in cylindrical coordinate to capture the real surface density
-        tmpnew = np.trapz(-rhogas_cyl_setup, zz_cyl, axis=1) / np.trapz(-rhogas_cyl_new, zz_cyl, axis=1)
+        tmpnew = _trapz(-rhogas_cyl_setup, zz_cyl, axis=1) / _trapz(-rhogas_cyl_new, zz_cyl, axis=1)
 
         rhogas_cyl_new_norm = np.zeros([mint.nr_cyl_insitu, mint.ntheta_cyl_insitu, nphi])
         for j in range(mint.nr_cyl_insitu):
@@ -2949,7 +2953,7 @@ def get_new_dust_density(mint, bool_smoothing_Tgas=True,
         #     for i_dust in range(nrspec):
                 
         #         # do renormalization in cylindrical coordinate to capture the real surface density
-        #         tmpnew = np.trapz(-rhodust[:, :, :, i_dust], zz, axis=1) / np.trapz(-rhodust_sphr_settled_norm[:, :, :, i_dust], zz, axis=1)
+        #         tmpnew = _trapz(-rhodust[:, :, :, i_dust], zz, axis=1) / _trapz(-rhodust_sphr_settled_norm[:, :, :, i_dust], zz, axis=1)
                 
         #         # Apply renormalization factor
         #         rhodust_sphr_settled_norm[:, :, :, i_dust] *= tmpnew[:, np.newaxis]
@@ -3129,8 +3133,8 @@ def get_new_dust_density(mint, bool_smoothing_Tgas=True,
         # #
         # # Do the renormalization according to the original rhogas to avoid potential mass loss
         # #
-        # tmpnew = np.trapz(-rhogas_sph_setup,zz,axis=1)/np.trapz(-rhogas_sphr_new,zz,axis=1)
-        # # tmpnew = np.trapz(-rhogas_orig,zz,axis=1)/np.trapz(-rhogas_sphr_new,zz,axis=1)
+        # tmpnew = _trapz(-rhogas_sph_setup,zz,axis=1)/_trapz(-rhogas_sphr_new,zz,axis=1)
+        # # tmpnew = _trapz(-rhogas_orig,zz,axis=1)/_trapz(-rhogas_sphr_new,zz,axis=1)
         # for j in range(nr):
         #     rhogas_sphr_new_norm[j,:,0] = rhogas_sphr_new[j,:,0]*tmpnew[j,0] # rho_scal = rho_prime * sigma_0 / sigma_prime
         # rhodust_all_sphr_new_norm = rhogas_sphr_new_norm.copy() / ratio_g2d # From gas to dust
@@ -3470,7 +3474,7 @@ def set_dust_settling_cyl_vert_isothermal(mint, qq_cyl, visc_alpha, nrspec, rr_c
     else:
         rhodust_cyl = rhodust_cyl_input
     
-    fac_rhogas_int = np.trapz(-rhogas_cyl_new_norm[:, :, 0], zz_cyl[:, :, 0], axis=1)
+    fac_rhogas_int = _trapz(-rhogas_cyl_new_norm[:, :, 0], zz_cyl[:, :, 0], axis=1)
     
     stokes = np.zeros(rhodust_cyl.shape)
     zmax_all = np.zeros(rhodust_cyl.shape)
@@ -3584,7 +3588,7 @@ def set_dust_settling_cyl_vert_isothermal(mint, qq_cyl, visc_alpha, nrspec, rr_c
         #                                * ((hp/zmax_all[:, :, :, i_dust])**2.0 - 1.0))
 
         """the new version"""
-        fac_rhodust_int = np.trapz(-rhodust_cyl_non_settled[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
+        fac_rhodust_int = _trapz(-rhodust_cyl_non_settled[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
         f = fac_rhodust_int/fac_rhogas_int # sigmadust[i_dust] / sigmagas
         # for i_r in range(d2g_settled.shape[0]):
         #     d2g_settled[i_r, :, 0, i_dust] = f[i_r] * (( 1.0 - hp/zmax_all[i_r, :, 0, i_dust])**2.0)
@@ -3611,7 +3615,7 @@ def set_dust_settling_cyl_vert_isothermal(mint, qq_cyl, visc_alpha, nrspec, rr_c
     # for i_dust in range(nrspec):
     
         # do renormalization in cylindrical coordinate to capture the real surface density
-        # tmpnew = np.trapz(-rhogas_cyl_setup, zz_cyl, axis=1) / np.trapz(-rhogas_cyl_new, zz_cyl, axis=1)
+        # tmpnew = _trapz(-rhogas_cyl_setup, zz_cyl, axis=1) / _trapz(-rhogas_cyl_new, zz_cyl, axis=1)
         
         # Clean up the NaNs
         rhodust_cyl_non_settled_clean = clean_rhodust_array(mint, rhodust_cyl_non_settled_clean)
@@ -3619,10 +3623,10 @@ def set_dust_settling_cyl_vert_isothermal(mint, qq_cyl, visc_alpha, nrspec, rr_c
         
         # do the integral to normalize the data
         if rhodust_cyl_probset is None:
-            fac1 = np.trapz(-rhodust_cyl_non_settled_clean[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
+            fac1 = _trapz(-rhodust_cyl_non_settled_clean[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
         else:
-            fac1 = np.trapz(-rhodust_cyl_probset[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
-        fac2 = np.trapz(-rhodust_cyl_settled_clean[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
+            fac1 = _trapz(-rhodust_cyl_probset[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
+        fac2 = _trapz(-rhodust_cyl_settled_clean[:, :, 0, i_dust], zz_cyl[:, :, 0], axis=1)
         tmpnew_dust = fac1 / fac2
         tmpnew_dust[np.isinf(tmpnew_dust)] = 1.0
         
@@ -3794,9 +3798,9 @@ def set_dust_settling(mint, verbose=False):
     # the mass in rhodust_sph simply from the cyl is not conserved from the problem setup
     for i_dust in range(nrspec):
         rhodust_probset_idust_t = rhodust_probset[:, :, :, i_dust]
-        fac1 = np.array([np.trapz(rhodust_probset_idust_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in range(nr)])
+        fac1 = np.array([_trapz(rhodust_probset_idust_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in range(nr)])
         rhodust_settled_idust_t = rhodust_sphr_settled_norm[:, :, :, i_dust]
-        fac2 = np.array([np.trapz(rhodust_settled_idust_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in range(nr)])
+        fac2 = np.array([_trapz(rhodust_settled_idust_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in range(nr)])
         norm_factor = fac1/fac2
         rhodust_sphr_settled_norm[:, :, 0, i_dust] = rhodust_sphr_settled_norm[:, :, 0, i_dust] * norm_factor[:, np.newaxis]
         
@@ -4018,10 +4022,10 @@ def add_dust_rim(mint, verbose=False):
     for i_dust in range(int(rhodust.shape[-1])):
         # rho_t = rhodust[:, :, :, i_dust]
         rho_t = rhodust_all0 * mint.fracs[i_dust]
-        integral_rho_origin = np.array([np.trapz(rho_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in select_r_index])
+        integral_rho_origin = np.array([_trapz(rho_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in select_r_index])
         
         rhodust_addwall_t = rhodust_addwall[:, :, :, i_dust]
-        integral_rho_output = np.array([np.trapz(rhodust_addwall_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in select_r_index])
+        integral_rho_output = np.array([_trapz(rhodust_addwall_t[i_r, :, 0], -zz[i_r, :, 0]) for i_r in select_r_index])
         
         for i_r in select_r_index:
             rhodust_addwall[i_r, :, :, i_dust] = rhodust_addwall[i_r, :, :, i_dust] * integral_rho_origin[i_r]/integral_rho_output[i_r]
@@ -4711,7 +4715,7 @@ def write_chem_input(mint, chem_code_dir, G0Hab_set=0.0):
         wlu = const.hh * const.clum / 6.0 / const.eV / 1.0e-4
         Fnu[wl < wll] = 0.0
         Fnu[wl > wlu] = 0.0
-        G0Hab = np.trapz(Fnu[::-1], nu[::-1]) / 1.6e-3
+        G0Hab = _trapz(Fnu[::-1], nu[::-1]) / 1.6e-3
     else:
         G0Hab = G0Hab_set
         
