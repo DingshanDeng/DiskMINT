@@ -2853,9 +2853,9 @@ def get_new_dust_density(mint, bool_smoothing_Tgas=True,
                 #
                 """NOTE: changed rr_cyl**2 - zz_cyl**2 to rr_cyl**2 + zz_cyl**2"""
                 rad3 = (rr_cyl[i,j+1,0]**2 + zz_cyl[i,j+1,0]**2.0)**1.5 # cyl r^3
-                facjp1 = const.gg*para.mstar*const.mu*zz_cyl[i,j+1,0]/(rad3*const.kk*Tgas_cyl_old[i,j+1]) # j+1
+                facjp1 = const.gg*para.mstar*const.mu*zz_cyl[i,j+1,0]/(rad3*const.kk*Tgas_cyl_old[i,j+1,0]) # j+1
                 rad3 = (rr_cyl[i,j,0]**2 + zz_cyl[i,j,0]**2.0)**1.5 # cyl r^3
-                facj = const.gg*para.mstar*const.mu*zz_cyl[i,j,0]/(rad3*const.kk*Tgas_cyl_old[i,j]) # j
+                facj = const.gg*para.mstar*const.mu*zz_cyl[i,j,0]/(rad3*const.kk*Tgas_cyl_old[i,j,0]) # j
                 fac = 0.5*(facj + facjp1) # average of [ z/h^2 over cells]
                 dz = abs(zz_cyl[i,j+1,0] - zz_cyl[i,j,0])
                 rhogas_cyl_new[i,j,0] = rhogas_cyl_new[i,j+1,0]*\
