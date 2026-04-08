@@ -17,16 +17,16 @@ The examples are located in the `examples/example_diskmint_models/` directory of
 :link: example_RULup
 :link-type: doc
 
-The best-fit model for RU Lup, a classical T Tauri star in Lupus, as presented in Deng et al. (2023). Demonstrates VHSE, the chemical network, and line radiative transfer with LIME.
+The best-fit DiskMINT model for RU Lup as published in [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D). Demonstrates VHSE, the chemical network, and line radiative transfer with LIME.
 :::
 ::::
 
 ::::{grid} 1
-:::{grid-item-card} Disk Around a 0.5 M☉ Star
+:::{grid-item-card} Disk Around a 0.5 M☉ Star — Most Comprehensive Example
 :link: example_0p5ms_star
 :link-type: doc
 
-A complete end-to-end example modeling a protoplanetary disk around a 0.5 solar-mass T Tauri star, with parameters inspired by HH30. Covers vertical hydrostatic equilibrium, dust settling, SED, and the chemical network.
+The most complete worked example available. Models a protoplanetary disk around a 0.5 M☉ T Tauri star (parameters inspired by HH30), covering the full pipeline: VHSE, dust settling, SED, and the chemical network. Includes three annotated Jupyter notebooks for post-run analysis (density/thermal structure, SED, and chemical output).
 :::
 ::::
 

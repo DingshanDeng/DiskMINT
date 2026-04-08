@@ -1,7 +1,13 @@
 # Example: Disk Around RU Lup
 
-This example reproduces the best-fit DiskMINT model for RU Lup, a classical T Tauri star in the Lupus star-forming region, as presented in [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D). 
+This example reproduces the best-fit DiskMINT model for RU Lup, a classical T Tauri star in the Lupus star-forming region, as published in [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D).
+Running this example will reproduce the model described in that paper.
 It demonstrates the full pipeline including Vertical Hydrostatic Equilibrium (VHSE), the chemical network, and line radiative transfer with LIME.
+
+```{note}
+This is the published model from **Deng et al. (2023)**, *The Astrophysical Journal*, 954, 165.
+If you are reproducing or citing the RU Lup result, please refer to that paper.
+```
 
 The example files are located at:
 
