@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workflow Reference &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AI Features/workflow_reference';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Output Format Reference" href="output_format_reference.html" />
+    <link rel="prev" title="Parameters Reference" href="parameters_reference.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nursery_tutorial.html">DiskMINT-Nursery Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_reference.html">Installation Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters_reference.html">Parameters Reference</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workflow Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output_format_reference.html">Output Format Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error_reference.html">Error Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prompts_reference.html">Prepared Prompts</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="ai_ref_index.html" class="nav-link">AI Features</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Workflow Reference</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="workflow-reference">
+<h1>Workflow Reference<a class="headerlink" href="#workflow-reference" title="Link to this heading">#</a></h1>
+<p>Step-by-step description of the DiskMINT pipeline: what each stage does, which files it reads and writes, and how stages connect. Intended as a quick lookup for the AI assistant and as a human-readable pipeline overview.</p>
+<p>For the full narrative walkthrough see <a class="reference internal" href="../Quick%20Start/quickstart.html"><span class="doc">Running Your First Model</span></a>. For parameter details see <a class="reference internal" href="parameters_reference.html"><span class="doc">Parameters Reference</span></a>.</p>
+<hr class="docutils" />
+<section id="pipeline-overview">
+<h2>Pipeline Overview<a class="headerlink" href="#pipeline-overview" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Parameter CSV
+    │
+    ▼
+[Stage 1] problem_setup()           ← writes RADMC-3D input files to data_dir
+    │
+    ▼
+[Stage 2] radmc3d mctherm           ← computes initial dust temperature
+    │
+    ▼
+[Stage 3] VHSE iteration loop       ← alternates density update ↔ temperature update
+    │       (n_vhse_loop iterations, exits on convergence)
+    │
+    ▼
+[Stage 4] chemistry_setup()         ← interpolates density/temperature onto chemistry grid
+    │
+    ▼
+[Stage 5] runchemistry()            ← calls disk_main binary (Fortran chemistry network)
+    │
+    ▼
+[Stage 6] savemodel()               ← copies final files to chemical_save_dir/chemical_save_name/
+</pre></div>
+</div>
+<p>All stages are orchestrated by <code class="docutils literal notranslate"><span class="pre">exe.runmodel(mint)</span></code> in <code class="docutils literal notranslate"><span class="pre">diskmint.execute</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="stage-1-problem-setup">
+<h2>Stage 1 — Problem Setup<a class="headerlink" href="#stage-1-problem-setup" title="Link to this heading">#</a></h2>
+<p><strong>Function:</strong> <code class="docutils literal notranslate"><span class="pre">disk_density.problem_setup(mint)</span></code></p>
+<p><strong>What it does:</strong></p>
+<ul class="simple">
+<li><p>Writes the RADMC-3D grid (<code class="docutils literal notranslate"><span class="pre">amr_grid.inp</span></code>)</p></li>
+<li><p>Computes the initial Gaussian dust density (<code class="docutils literal notranslate"><span class="pre">dust_density.inp</span></code>)</p></li>
+<li><p>Computes the initial gas density (<code class="docutils literal notranslate"><span class="pre">gas_density.inp</span></code>) from dust × <code class="docutils literal notranslate"><span class="pre">ratio_g2d_global</span></code></p></li>
+<li><p>Writes the gas temperature file (= dust temperature, or decoupled near star if <code class="docutils literal notranslate"><span class="pre">R_temp_trans</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>)</p></li>
+<li><p>Writes the stellar spectrum (<code class="docutils literal notranslate"><span class="pre">stars.inp</span></code>) and opacity index (<code class="docutils literal notranslate"><span class="pre">dustopac.inp</span></code>)</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">bool_MakeDustKappa</span> <span class="pre">=</span> <span class="pre">True</span></code>: computes <code class="docutils literal notranslate"><span class="pre">aave.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">ndsd.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">fracs.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">fracs_numb.inp</span></code> from grain size parameters</p></li>
+</ul>
+<p><strong>Files written to <code class="docutils literal notranslate"><span class="pre">data_dir</span></code>:</strong>
+<code class="docutils literal notranslate"><span class="pre">amr_grid.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">dust_density.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">gas_density.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">gas_temperature.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">stars.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">dustopac.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">wavelength_micron.inp</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="stage-2-initial-thermal-calculation">
+<h2>Stage 2 — Initial Thermal Calculation<a class="headerlink" href="#stage-2-initial-thermal-calculation" title="Link to this heading">#</a></h2>
+<p><strong>Command:</strong> <code class="docutils literal notranslate"><span class="pre">radmc3d</span> <span class="pre">mctherm</span></code> (called via <code class="docutils literal notranslate"><span class="pre">os.system</span></code>)</p>
+<p><strong>What it does:</strong> Monte Carlo radiative transfer to compute dust temperature from the stellar radiation field.</p>
+<p><strong>Files written:</strong> <code class="docutils literal notranslate"><span class="pre">dust_temperature.dat</span></code></p>
+<p><strong>Convergence check:</strong> If <code class="docutils literal notranslate"><span class="pre">dust_temperature.dat</span></code> is not produced on the first attempt, DiskMINT retries up to 3 times.</p>
+</section>
+<hr class="docutils" />
+<section id="stage-3-vhse-iteration-loop">
+<h2>Stage 3 — VHSE Iteration Loop<a class="headerlink" href="#stage-3-vhse-iteration-loop" title="Link to this heading">#</a></h2>
+<p><strong>Condition:</strong> only runs if <code class="docutils literal notranslate"><span class="pre">bool_VHSE</span> <span class="pre">=</span> <span class="pre">True</span></code></p>
+<p><strong>Each iteration (<code class="docutils literal notranslate"><span class="pre">i_iter</span></code>) does:</strong></p>
+<ol class="arabic simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">bool_dust_settling</span> <span class="pre">=</span> <span class="pre">True</span></code>: call <code class="docutils literal notranslate"><span class="pre">set_dust_settling()</span></code> → writes <code class="docutils literal notranslate"><span class="pre">dust_density_settled.new</span></code>, renamed to <code class="docutils literal notranslate"><span class="pre">dust_density.inp</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">radmc3d</span> <span class="pre">mctherm</span></code> again → updates <code class="docutils literal notranslate"><span class="pre">dust_temperature.dat</span></code></p></li>
+<li><p>Solve vertical hydrostatic equilibrium → writes <code class="docutils literal notranslate"><span class="pre">dust_density.new</span></code>, renamed to <code class="docutils literal notranslate"><span class="pre">dust_density.inp</span></code>; also writes <code class="docutils literal notranslate"><span class="pre">ratio_g2d_grid.new</span></code> → <code class="docutils literal notranslate"><span class="pre">ratio_g2d_grid.dat</span></code></p></li>
+</ol>
+<p><strong>Per-iteration snapshots saved:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dust_density_mdust_VHSE_{i}.dat</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dust_temperature_mdust_VHSE_{i}.dat</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gas_temperature_mdust_VHSE_{i}.inp</span></code></p></li>
+</ul>
+<p><strong>Convergence criterion:</strong> max(|Δρ_gas / ρ_gas|) &lt; 0.05 across the grid. The loop also exits if differences start increasing (divergence detected) or if <code class="docutils literal notranslate"><span class="pre">n_vhse_loop</span></code> is reached.</p>
+<p><strong>If <code class="docutils literal notranslate"><span class="pre">bool_VHSE</span> <span class="pre">=</span> <span class="pre">False</span></code> but <code class="docutils literal notranslate"><span class="pre">bool_dust_settling</span> <span class="pre">=</span> <span class="pre">True</span></code>:</strong> one dust settling pass is applied to the initial Gaussian model, followed by a single thermal calculation.</p>
+</section>
+<hr class="docutils" />
+<section id="stage-4-chemistry-grid-setup">
+<h2>Stage 4 — Chemistry Grid Setup<a class="headerlink" href="#stage-4-chemistry-grid-setup" title="Link to this heading">#</a></h2>
+<p><strong>Function:</strong> <code class="docutils literal notranslate"><span class="pre">disk_density.chemistry_setup(mint,</span> <span class="pre">save_name=...)</span></code></p>
+<p><strong>What it does:</strong> Interpolates the converged density and temperature structure onto the cylindrical chemistry grid (<code class="docutils literal notranslate"><span class="pre">nr_cyl_LIME</span> <span class="pre">×</span> <span class="pre">nz_cyl_LIME</span></code>) and writes the initial abundance file.</p>
+<p><strong>Files written:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">COinitgrid-{save_name}.dat</span></code> — initial CO abundance grid (input to chemistry)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COinitgrid-GSinit_{save_name}.dat</span></code> — same with Gaussian vertical prior (written before VHSE; used for comparison)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="stage-5-chemistry-network">
+<h2>Stage 5 — Chemistry Network<a class="headerlink" href="#stage-5-chemistry-network" title="Link to this heading">#</a></h2>
+<p><strong>Function:</strong> <code class="docutils literal notranslate"><span class="pre">disk_density.runchemistry(mint,</span> <span class="pre">chem_code_dir=...,</span> <span class="pre">G0Hab_set=...)</span></code></p>
+<p><strong>What it does:</strong> Calls the compiled Fortran binary <code class="docutils literal notranslate"><span class="pre">disk_main</span></code> from <code class="docutils literal notranslate"><span class="pre">chem_code_dir</span></code> (resolved from <code class="docutils literal notranslate"><span class="pre">DISKMINT_BIN_DIR</span></code> or auto-detected). The reduced chemical network (Ruaud et al. 2022) evolves H₂, CO, <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span>, and associated species on the cylindrical grid.</p>
+<p><strong>Key input parameter:</strong> <code class="docutils literal notranslate"><span class="pre">G0Hab_set</span></code> — UV flux at stellar surface in Habing units. Scales the photodissociation rates.</p>
+<p><strong>Files written:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">COendgrid-{save_name}.chem</span></code> — final abundance grid (see <a class="reference internal" href="output_format_reference.html"><span class="doc">Output Format Reference</span></a>)</p></li>
+</ul>
+<p><strong>Chemistry binary location:</strong> <code class="docutils literal notranslate"><span class="pre">$DISKMINT_BIN_DIR/disk_main</span></code> (or <code class="docutils literal notranslate"><span class="pre">chemistry/bin/disk_main</span></code> relative to the DiskMINT package).</p>
+</section>
+<hr class="docutils" />
+<section id="stage-6-save-model">
+<h2>Stage 6 — Save Model<a class="headerlink" href="#stage-6-save-model" title="Link to this heading">#</a></h2>
+<p><strong>Function:</strong> <code class="docutils literal notranslate"><span class="pre">disk_density.savemodel(mint,</span> <span class="pre">save_dir=...,</span> <span class="pre">model_dir=...)</span></code></p>
+<p><strong>Condition:</strong> only runs if <code class="docutils literal notranslate"><span class="pre">bool_savemodel</span> <span class="pre">=</span> <span class="pre">True</span></code></p>
+<p><strong>What it does:</strong> Copies all files from <code class="docutils literal notranslate"><span class="pre">data_dir</span></code> to <code class="docutils literal notranslate"><span class="pre">chemical_save_dir/chemical_save_name/</span></code>. If chemistry was run, also moves <code class="docutils literal notranslate"><span class="pre">COinitgrid-*.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">COendgrid-*.chem</span></code> there, and renames the chemistry output directory to <code class="docutils literal notranslate"><span class="pre">chemistry-{network_name}</span></code>.</p>
+<p><strong>Final output location:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{chemical_save_dir}/{chemical_save_name}/
+├── amr_grid.inp
+├── dust_density.inp
+├── dust_temperature.dat
+├── gas_density.inp
+├── gas_temperature.inp
+├── dust_density_mdust_VHSE_*.dat       (per-iteration snapshots)
+├── dust_temperature_mdust_VHSE_*.dat
+├── COinitgrid-*.dat
+├── COendgrid-*.chem
+└── chemistry-reducedRGH22/             (chemistry network outputs)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="key-entry-points-in-the-code">
+<h2>Key Entry Points in the Code<a class="headerlink" href="#key-entry-points-in-the-code" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Module</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exe.runmodel(mint)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diskmint.execute</span></code></p></td>
+<td><p>Top-level pipeline orchestrator</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.Parameters()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diskmint.model</span></code></p></td>
+<td><p>Parameter container; read from CSV with <code class="docutils literal notranslate"><span class="pre">.read_parameters_from_csv()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.Mint(para,</span> <span class="pre">file_dir=...)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diskmint.model</span></code></p></td>
+<td><p>Model object; holds parameters + runtime flags</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dd.problem_setup(mint)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></p></td>
+<td><p>Stage 1: writes RADMC-3D inputs</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dd.chemistry_setup(mint,</span> <span class="pre">...)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></p></td>
+<td><p>Stage 4: writes chemistry grid</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dd.runchemistry(mint,</span> <span class="pre">...)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></p></td>
+<td><p>Stage 5: calls Fortran binary</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dd.savemodel(mint,</span> <span class="pre">...)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></p></td>
+<td><p>Stage 6: copies outputs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="runtime-flags-stable-vs-experimental">
+<h2>Runtime Flags — Stable vs. Experimental<a class="headerlink" href="#runtime-flags-stable-vs-experimental" title="Link to this heading">#</a></h2>
+<p><strong>When generating or suggesting a run script, use only the stable flags below. Never include experimental flags in generated code.</strong></p>
+<section id="stable-flags-safe-to-use">
+<h3>Stable flags (safe to use)<a class="headerlink" href="#stable-flags-safe-to-use" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mint.bool_MakeDustKappa</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Compute dust opacities from grain parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mint.bool_SED</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Compute SED</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mint.bool_VHSE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Solve vertical hydrostatic equilibrium</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mint.n_vhse_loop</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
+<td><p>Max VHSE iterations (exits early on convergence)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mint.bool_dust_settling</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Enable dust settling</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mint.bool_chemistry</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Run Fortran chemistry network</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mint.bool_savemodel</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Copy outputs to <code class="docutils literal notranslate"><span class="pre">chemical_save_dir</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mint.chem_code_dir</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'reducedRGH22'</span></code></p></td>
+<td><p>Chemistry network subdirectory name</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="experimental-flags-do-not-include-in-generated-scripts">
+<h3>Experimental flags (do NOT include in generated scripts)<a class="headerlink" href="#experimental-flags-do-not-include-in-generated-scripts" title="Link to this heading">#</a></h3>
+<p>The following flags are under active development and may produce unexpected or incorrect results. <strong>Never include them in any generated or suggested script</strong> unless the user explicitly asks about them by name:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mint.bool_temp_decouple</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mint.bool_dust_fragmentation</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mint.bool_dust_radial_drifting</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mint.bool_dust_inner_rim</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mint.bool_same_rc_as_radmc3d</span></code></p></li>
+</ul>
+<p>If the user asks about these flags, explain that they are experimental features not yet ready for general use and advise leaving them at their defaults (<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="minimal-run-script">
+<h2>Minimal Run Script<a class="headerlink" href="#minimal-run-script" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">diskmint.model</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">diskmint.execute</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">exe</span>
+
+<span class="n">para</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Parameters</span><span class="p">()</span>
+<span class="n">para</span><span class="o">.</span><span class="n">read_parameters_from_csv</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;my_parameters.csv&quot;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">para</span><span class="o">.</span><span class="n">edit_parameter</span><span class="p">(</span><span class="s2">&quot;nthreads&quot;</span><span class="p">,</span> <span class="n">new_value</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">mint</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Mint</span><span class="p">(</span><span class="n">para</span><span class="p">,</span> <span class="n">file_dir</span><span class="o">=</span><span class="s2">&quot;data/&quot;</span><span class="p">)</span>
+<span class="n">mint</span><span class="o">.</span><span class="n">bool_MakeDustKappa</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">mint</span><span class="o">.</span><span class="n">bool_VHSE</span>          <span class="o">=</span> <span class="kc">True</span>
+<span class="n">mint</span><span class="o">.</span><span class="n">n_vhse_loop</span>        <span class="o">=</span> <span class="mi">10</span>
+<span class="n">mint</span><span class="o">.</span><span class="n">bool_chemistry</span>     <span class="o">=</span> <span class="kc">True</span>
+<span class="n">mint</span><span class="o">.</span><span class="n">bool_savemodel</span>     <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">exe</span><span class="o">.</span><span class="n">runmodel</span><span class="p">(</span><span class="n">mint</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="parameters_reference.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Parameters Reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="output_format_reference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Output Format Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-overview">Pipeline Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-1-problem-setup">Stage 1 — Problem Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-2-initial-thermal-calculation">Stage 2 — Initial Thermal Calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-3-vhse-iteration-loop">Stage 3 — VHSE Iteration Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-4-chemistry-grid-setup">Stage 4 — Chemistry Grid Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-5-chemistry-network">Stage 5 — Chemistry Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stage-6-save-model">Stage 6 — Save Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-entry-points-in-the-code">Key Entry Points in the Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-flags-stable-vs-experimental">Runtime Flags — Stable vs. Experimental</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stable-flags-safe-to-use">Stable flags (safe to use)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-flags-do-not-include-in-generated-scripts">Experimental flags (do NOT include in generated scripts)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-run-script">Minimal Run Script</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/AI Features/workflow_reference.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

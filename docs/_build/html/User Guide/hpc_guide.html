@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Running DiskMINT on an HPC Cluster &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'User Guide/hpc_guide';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Physics and Chemistry Background" href="physics_background.html" />
+    <link rel="prev" title="Build Your DiskMINT Model" href="build_your_own_model.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="build_your_own_model.html">Build Your DiskMINT Model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Running DiskMINT on an HPC Cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="physics_background.html">Physics and Chemistry Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermochemical_processes.html">Thermochemical Processes in DiskMINT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surface_density_fitting.html">Surface Density Fitting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml_ai_inference.html">ML / AI-Assisted Inference</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="user_guide_index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Running DiskMINT on an HPC Cluster</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="running-diskmint-on-an-hpc-cluster">
+<h1>Running DiskMINT on an HPC Cluster<a class="headerlink" href="#running-diskmint-on-an-hpc-cluster" title="Link to this heading">#</a></h1>
+<p>This guide explains how to run DiskMINT model grids on a SLURM-based HPC cluster using the example workflow in <code class="docutils literal notranslate"><span class="pre">examples/example_diskmint_hpc/</span></code>. The same pattern scales from a handful of test models to several hundred production runs.</p>
+<p>A complete, ready-to-run example is in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DiskMINT</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">example_diskmint_hpc</span><span class="o">/</span><span class="n">hpc_diskmint_radmc3d_models</span><span class="o">/</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>The workflow has three components:</p>
+<ol class="arabic simple">
+<li><p><strong>Generate</strong> — create a CSV describing the model grid (on your local machine)</p></li>
+<li><p><strong>Submit</strong> — submit a SLURM array job; each array element runs one model</p></li>
+<li><p><strong>Monitor</strong> — track job status and check logs</p></li>
+</ol>
+<p>Each model runs as an independent SLURM job, so all models in a grid run simultaneously. A 60-model grid takes approximately the same wall time as a single model (~24 h).</p>
+</section>
+<hr class="docutils" />
+<section id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>project/
+├── generate_grid.py            # Step 1: generate parameter grid
+├── run_model.py                # Called by each SLURM array element
+├── run_single_model.slurm      # SLURM job script
+├── submit_all_grids.sh         # Master submission script
+├── check_status.sh             # Job monitoring helper
+├── model_parameters_Xmsolar.csv  # Base parameter file per stellar mass
+├── input/                      # Dust opacity + stellar spectrum files
+├── grids/                      # Generated parameter grid CSVs
+└── logs/                       # Per-job SLURM output/error logs
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="step-1-prepare-input-files">
+<h2>Step 1 — Prepare Input Files<a class="headerlink" href="#step-1-prepare-input-files" title="Link to this heading">#</a></h2>
+<p>Before running on the cluster, gather the files that every model will share:</p>
+<ul class="simple">
+<li><p><strong>Stellar spectrum</strong> (<code class="docutils literal notranslate"><span class="pre">BTSettl_Xmsolar_*.inp</span></code>) — BT-Settl spectra for 0.1–2.0 M☉ are in <code class="docutils literal notranslate"><span class="pre">input/</span></code></p></li>
+<li><p><strong>Dust opacity tables</strong> (<code class="docutils literal notranslate"><span class="pre">dustkappa_*.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">aave.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">fracs.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">fracs_numb.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">ndsd.inp</span></code>) — the included optool tables are in <code class="docutils literal notranslate"><span class="pre">input/</span></code></p></li>
+<li><p><strong>Base parameter CSV</strong> (<code class="docutils literal notranslate"><span class="pre">model_parameters_Xmsolar.csv</span></code>) — one file per stellar mass; grid-variable parameters (<code class="docutils literal notranslate"><span class="pre">mdiskd</span></code>, <code class="docutils literal notranslate"><span class="pre">ratio_g2d_global</span></code>, <code class="docutils literal notranslate"><span class="pre">Rtap</span></code>) are overridden at runtime</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-2-generate-the-parameter-grid-local">
+<h2>Step 2 — Generate the Parameter Grid (Local)<a class="headerlink" href="#step-2-generate-the-parameter-grid-local" title="Link to this heading">#</a></h2>
+<p>Run <code class="docutils literal notranslate"><span class="pre">generate_grid.py</span></code> on your local machine before uploading to the cluster. It produces a CSV where each row is one model.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Default grid: 8 models (2 Mdisk/Mstar × 4 g2d, Rtap = 100 au)</span>
+python<span class="w"> </span>generate_grid.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>grids/grid_1p0ms_default.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--grid<span class="w"> </span>default<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--mstar<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--model_dir<span class="w"> </span>/cluster/path/to/models/
+
+<span class="c1"># Extended grid: 80 models (5 masses × 4 g2d × 4 Rtap)</span>
+python<span class="w"> </span>generate_grid.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>grids/grid_1p0ms_extended.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--grid<span class="w"> </span>extended<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--mstar<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--model_dir<span class="w"> </span>/cluster/path/to/models/
+
+<span class="c1"># Test grid: 2 models for quick verification</span>
+python<span class="w"> </span>generate_grid.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>grids/test_grid.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--grid<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--mstar<span class="w"> </span><span class="m">1</span>.0
+</pre></div>
+</div>
+<p>The CSV columns are <code class="docutils literal notranslate"><span class="pre">ratio_mdisk,</span> <span class="pre">ratio_g2d,</span> <span class="pre">rtap,</span> <span class="pre">model_mark_short,</span> <span class="pre">model_directory</span></code>. The <code class="docutils literal notranslate"><span class="pre">model_directory</span></code> column gives the absolute path where that model will write its <code class="docutils literal notranslate"><span class="pre">data/</span></code> and <code class="docutils literal notranslate"><span class="pre">output/</span></code> subdirectories.</p>
+<section id="custom-grids">
+<h3>Custom grids<a class="headerlink" href="#custom-grids" title="Link to this heading">#</a></h3>
+<p>To define your own parameter ranges, edit <code class="docutils literal notranslate"><span class="pre">generate_grid.py</span></code> and add a new <code class="docutils literal notranslate"><span class="pre">grid_type</span></code> block:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">elif</span> <span class="n">grid_type</span> <span class="o">==</span> <span class="s1">&#39;my_survey&#39;</span><span class="p">:</span>
+    <span class="n">ratio_mdisk_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mf">3e-4</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">3e-3</span><span class="p">]</span>
+    <span class="n">ratio_g2d_values</span>   <span class="o">=</span> <span class="p">[</span><span class="mf">30.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mf">300.</span><span class="p">]</span>
+    <span class="n">rtap_values</span>        <span class="o">=</span> <span class="p">[</span><span class="mf">50.</span><span class="p">,</span> <span class="mf">150.</span><span class="p">,</span> <span class="mf">300.</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Or create a CSV manually with those three columns and use it directly with the SLURM script.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-3-configure-the-slurm-script">
+<h2>Step 3 — Configure the SLURM Script<a class="headerlink" href="#step-3-configure-the-slurm-script" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">run_single_model.slurm</span></code> and adjust the resource directives for your cluster:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --time=24:00:00          # Wall time per model (increase for VHSE-heavy runs)</span>
+<span class="c1">#SBATCH --cpus-per-task=94       # Match to your node size; set nthreads= same value in run_model.py</span>
+<span class="c1">#SBATCH --mem=128G               # Typical memory requirement; reduce nr/ntheta if too much</span>
+<span class="c1">#SBATCH --partition=standard     # Your cluster partition name</span>
+<span class="c1">#SBATCH --account=your_account   # Your allocation account</span>
+</pre></div>
+</div>
+<p>Also update the module load line (or conda activation) at the top of the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>anaconda/2024.06<span class="w">     </span><span class="c1"># Replace with your cluster&#39;s module name</span>
+<span class="c1"># or:</span>
+<span class="c1"># source ~/.bashrc &amp;&amp; conda activate diskmint_env</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="step-4-submit-jobs">
+<h2>Step 4 — Submit Jobs<a class="headerlink" href="#step-4-submit-jobs" title="Link to this heading">#</a></h2>
+<section id="single-grid">
+<h3>Single grid<a class="headerlink" href="#single-grid" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">N</span><span class="o">=</span><span class="k">$((</span><span class="w"> </span><span class="k">$(</span>wc<span class="w"> </span>-l<span class="w"> </span>&lt;<span class="w"> </span>grids/grid_1p0ms_default.csv<span class="k">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">))</span>
+sbatch<span class="w"> </span>--array<span class="o">=</span><span class="m">0</span>-<span class="k">$((</span><span class="nv">N</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>run_single_model.slurm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>grids/grid_1p0ms_default.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="m">1</span>.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>20260405_0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>hpc_grid1p0msolar<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>model_parameters_1p0Msolar.csv
+</pre></div>
+</div>
+<p>Arguments to <code class="docutils literal notranslate"><span class="pre">run_single_model.slurm</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Grid CSV path</p></li>
+<li><p>Stellar mass (M☉)</p></li>
+<li><p>Model date identifier (used in output names)</p></li>
+<li><p>Model mark / label</p></li>
+<li><p>Base parameter CSV file</p></li>
+</ol>
+</section>
+<section id="multiple-grids-with-the-master-script">
+<h3>Multiple grids with the master script<a class="headerlink" href="#multiple-grids-with-the-master-script" title="Link to this heading">#</a></h3>
+<p>Edit the bottom section of <code class="docutils literal notranslate"><span class="pre">submit_all_grids.sh</span></code> to list your grids:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>submit_grid<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"> </span><span class="s2">&quot;grid0p5msolar&quot;</span><span class="w"> </span><span class="s2">&quot;model_parameters_0p5Msolar.csv&quot;</span>
+submit_grid<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span><span class="s2">&quot;extended&quot;</span><span class="w"> </span><span class="s2">&quot;grid1p0msolar&quot;</span><span class="w"> </span><span class="s2">&quot;model_parameters_1p0Msolar.csv&quot;</span>
+submit_grid<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"> </span><span class="s2">&quot;grid2p0msolar&quot;</span><span class="w"> </span><span class="s2">&quot;model_parameters_2p0Msolar.csv&quot;</span>
+</pre></div>
+</div>
+<p>Then run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>submit_all_grids.sh
+</pre></div>
+</div>
+<p>Each call to <code class="docutils literal notranslate"><span class="pre">submit_grid</span></code> launches a separate SLURM array. All arrays run in parallel across stellar masses; within each array, all models run in parallel. Job IDs are logged to <code class="docutils literal notranslate"><span class="pre">job_submissions.log</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="step-5-monitor-jobs">
+<h2>Step 5 — Monitor Jobs<a class="headerlink" href="#step-5-monitor-jobs" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Overall status</span>
+squeue<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+
+<span class="c1"># Compact summary with elapsed time</span>
+sacct<span class="w"> </span>-j<span class="w"> </span>&lt;JOB_ID&gt;<span class="w"> </span>--format<span class="o">=</span>JobID,JobName,State,Elapsed,CPUTime
+
+<span class="c1"># Per-model log (running)</span>
+tail<span class="w"> </span>-f<span class="w"> </span>logs/diskmint_&lt;JOB_ID&gt;_&lt;ARRAY_INDEX&gt;.out
+
+<span class="c1"># Quick check across all logs</span>
+bash<span class="w"> </span>check_status.sh
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="output-layout">
+<h2>Output Layout<a class="headerlink" href="#output-layout" title="Link to this heading">#</a></h2>
+<p>Models are written to the <code class="docutils literal notranslate"><span class="pre">model_directory</span></code> column of the grid CSV:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>model_directory/
+├── output/
+│   └── diskmintmodel{DATE}_t{ID}_{MARK}_mgas{Mgas}ms_mdust{Mdust}ms_gtd{G2D}_rc{Rtap}_alphav{alpha}/
+│       ├── COinitgrid-*.dat
+│       └── COendgrid-*.chem
+└── data/              ← emptied after each job completes (saves disk space)
+</pre></div>
+</div>
+<p>Model names follow the convention:
+<code class="docutils literal notranslate"><span class="pre">diskmintmodel{DATE}_t{ID}_{MARK}_mgas{Mgas}ms_mdust{Mdust}ms_gtd{G2D}_rc{Rtap}_alphav{alpha}</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="resource-guidelines">
+<h2>Resource Guidelines<a class="headerlink" href="#resource-guidelines" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Grid size</p></th>
+<th class="head"><p>Typical resources per model</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Test (2–4 models)</p></td>
+<td><p>4 cores, 32 GB, 2 h</p></td>
+</tr>
+<tr class="row-odd"><td><p>Standard (10–60 models)</p></td>
+<td><p>32–48 cores, 64 GB, 24 h</p></td>
+</tr>
+<tr class="row-even"><td><p>Production (100+ models)</p></td>
+<td><p>48–96 cores, 128 GB, 24–48 h</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To limit how many jobs run at once (e.g., on shared partitions):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>--array<span class="o">=</span><span class="m">0</span>-59%10<span class="w"> </span>run_single_model.slurm<span class="w"> </span>...<span class="w">  </span><span class="c1"># at most 10 simultaneous</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<p><strong>Job fails immediately</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>logs/diskmint_&lt;JOB_ID&gt;_&lt;ARRAY_INDEX&gt;.err
+<span class="c1"># Common causes: missing input files, wrong conda env name, bad module load line</span>
+</pre></div>
+</div>
+<p><strong>Out of memory</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Increase in SLURM script:</span>
+<span class="c1">#SBATCH --mem=256G</span>
+<span class="c1"># Or reduce in parameter CSV: nphot = 1e6, nr = 20, ntheta = 60</span>
+</pre></div>
+</div>
+<p><strong>VHSE not converging</strong></p>
+<p>Reduce <code class="docutils literal notranslate"><span class="pre">n_vhse_loop</span></code> to 20 for a first pass.
+Typically the VHSE takes about 10 iterations to converge, if it does not converge beyond 20 iterations.
+You may need to check the grid set up.
+For physically extreme models (very large or very small disks), the iteration may need <code class="docutils literal notranslate"><span class="pre">thetaup</span></code> or <code class="docutils literal notranslate"><span class="pre">rout</span></code> adjustments — see <a class="reference internal" href="build_your_own_model.html"><span class="doc">Build Your DiskMINT Model</span></a>.</p>
+<p><strong>Jobs pending for a long time</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scontrol<span class="w"> </span>show<span class="w"> </span>partition<span class="w"> </span>&lt;partition&gt;<span class="w">   </span><span class="c1"># check queue limits</span>
+<span class="c1"># Or submit smaller batches: --array=0-19 then 20-39 etc.</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="build_your_own_model.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Build Your DiskMINT Model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="physics_background.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Physics and Chemistry Background</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-structure">Directory Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-prepare-input-files">Step 1 — Prepare Input Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-generate-the-parameter-grid-local">Step 2 — Generate the Parameter Grid (Local)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-grids">Custom grids</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-configure-the-slurm-script">Step 3 — Configure the SLURM Script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-submit-jobs">Step 4 — Submit Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-grid">Single grid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-grids-with-the-master-script">Multiple grids with the master script</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-monitor-jobs">Step 5 — Monitor Jobs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-layout">Output Layout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-guidelines">Resource Guidelines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/User Guide/hpc_guide.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

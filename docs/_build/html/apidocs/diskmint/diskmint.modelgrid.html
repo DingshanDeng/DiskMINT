@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>diskmint.modelgrid &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'apidocs/diskmint/diskmint.modelgrid';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="diskmint.disk_density" href="diskmint.disk_density.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="diskmint.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="diskmint.execute.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.execute</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.constants.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.constants</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.model.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.dustopac.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.dustopac</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.disk_density.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.modelgrid</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../api.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="diskmint.html" class="nav-link"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint</span></code></a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.modelgrid</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="module-diskmint.modelgrid">
+<span id="diskmint-modelgrid"></span><h1><a class="reference internal" href="#module-diskmint.modelgrid" title="diskmint.modelgrid"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.modelgrid</span></code></a><a class="headerlink" href="#module-diskmint.modelgrid" title="Link to this heading">#</a></h1>
+<p>Many of the following functions
+are based on the radmc3dPy v2.0.0
+by Attila Juhasz,
+maintained by Cornelis Dullemond</p>
+<p>manully took out the radmc3dOctree support below</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table table-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.modelgrid.radmc3dGrid" title="diskmint.modelgrid.radmc3dGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radmc3dGrid</span></code></a></p></td>
+<td><p>Class for spatial and frequency grid used by RADMC-3D.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.modelgrid.radmc3dData" title="diskmint.modelgrid.radmc3dData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radmc3dData</span></code></a></p></td>
+<td><p>RADMC-3D data class.
+Reading and writing dust density/temperature, gas density/temperature/velocity,
+generating a legacy vtk file for visualization.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table table-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.modelgrid.readGrid" title="diskmint.modelgrid.readGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readGrid</span></code></a></p></td>
+<td><p>Reads the spatial and frequency grid.
+This function is an interface to radmc3dGrid.readGrid() or radmc3dOctree.readGrid().
+It will automatically determine which.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.modelgrid.readData" title="diskmint.modelgrid.readData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">readData</span></code></a></p></td>
+<td><p>Reads the physical variables of the model (e.g. density, velocity, temperature).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diskmint.modelgrid.</span></span><span class="sig-name descname"><span class="pre">radmc3dGrid</span></span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for spatial and frequency grid used by RADMC-3D.</p>
+<p class="rubric" id="id3">Attributes</p>
+<p>act_dim    : ndarray
+A three element vector the i-th element is 1 if the i-th dimension is active,
+otherwize the i-th element is zero</p>
+<p>crd_sys    : {‘sph’, ‘cyl’, ‘car’}
+coordinate system of the spatial grid</p>
+<p>nx         : int
+Number of grid points in the x (cartesian) / r (cylindrical) / r (spherical) dimension</p>
+<p>ny         : int
+Number of grid points in the y (cartesian) / theta (cylindrical) / theta (spherical) dimension</p>
+<p>nz         : int
+Number of grid points in the z (cartesian) / z (cylindrical) / phi (spherical) dimension</p>
+<p>nxi        : int
+Number of cell interfaces in the x (cartesian) / r (cylindrical) / r (spherical) dimension</p>
+<p>nyi        : int
+Number of cell interfaces in the y (cartesian) / theta (cylindrical) / theta (spherical) dimension</p>
+<p>nzi        : int
+Number of cell interfaces in the z (cartesian) / z (cylindrical) / phi (spherical) dimension</p>
+<p>nwav       : int
+Number of wavelengths in the wavelength grid</p>
+<p>nfreq      : int
+Number of frequencies in the grid (equal to nwav)</p>
+<p>x          : ndarray
+Cell centered x (cartesian) / r (cylindrical) / r (spherical)  grid points</p>
+<p>y          : ndarray
+Cell centered y (cartesian) / theta (cylindrical) / theta (spherical)  grid points</p>
+<p>z          : ndarray
+Cell centered z (cartesian) / z (cylindrical) / phi (spherical)  grid points</p>
+<p>xi         : ndarray
+Cell interfaces in the x (cartesian) / r (cylindrical) / r (spherical)  dimension</p>
+<p>yi         : ndarray
+Cell interfaces in the y (cartesian) / theta (cylindrical) / theta (spherical)  dimension</p>
+<p>zi         : ndarray
+Cell interfaces in the z (cartesian) / z (cylindrical) / phi (spherical)  dimension</p>
+<p>wav        : ndarray
+Wavelengh  grid</p>
+<p>freq       : ndarray
+Frequency  grid</p>
+<p class="rubric">Initialization</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.makeWavelengthGrid">
+<span class="sig-name descname"><span class="pre">makeWavelengthGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wbound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.makeWavelengthGrid" title="Link to this definition">#</a></dt>
+<dd><p>Creates the wavelength/frequency grid.</p>
+<p class="rubric" id="id4">Parameters</p>
+<p>wbound : list
+Contains the wavelength boundaries of the wavelength grid (should contain at least two elements)</p>
+<p>nw     : list
+Contains len(wbound)-1 elements containing the number of wavelengths between the bounds
+set by wbound</p>
+<p>ppar   : dictionary, optional
+Contains all input parameters with the parameter names as keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.writeWavelengthGrid">
+<span class="sig-name descname"><span class="pre">writeWavelengthGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.writeWavelengthGrid" title="Link to this definition">#</a></dt>
+<dd><p>Wriites the wavelength grid to a file (e.g. wavelength_micron.inp).</p>
+<p class="rubric" id="id5">Parameters</p>
+<p>fname  : str, optional
+File name into which the wavelength grid should be written. If omitted ‘wavelength_micron.inp’
+will be used</p>
+<p>old    : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.makeSpatialGrid">
+<span class="sig-name descname"><span class="pre">makeSpatialGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crd_sys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xbound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ybound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zbound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nxi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nyi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nzi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.makeSpatialGrid" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the spatial grid.</p>
+<p class="rubric" id="id6">Parameters</p>
+<p>crd_sys : {‘sph’,‘car’}
+Coordinate system of the spatial grid</p>
+<p>xbound  : list
+(with at least two elements) of boundaries for the grid along the first dimension</p>
+<p>ybound  : list
+(with at least two elements) of boundaries for the grid along the second dimension</p>
+<p>zbound  : list
+(with at least two elements) of boundaries for the grid along the third dimension</p>
+<p>nxi     : int
+Number of grid points along the first dimension. List with len(xbound)-1 elements with
+nxi[i] being the number of grid points between xbound[i] and xbound[i+1]</p>
+<p>nyi     : int
+Same as nxi but for the second dimension</p>
+<p>nzi     : int
+Same as nxi but for the third dimension</p>
+<p>ppar    : Dictionary containing all input parameters of the model (from the problem_params.inp file)
+if ppar is set all keyword arguments that are not set will be taken from this dictionary</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.writeSpatialGrid">
+<span class="sig-name descname"><span class="pre">writeSpatialGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.writeSpatialGrid" title="Link to this definition">#</a></dt>
+<dd><p>Writes the wavelength grid to a file (e.g. amr_grid.inp).</p>
+<p class="rubric" id="id7">Parameters</p>
+<p>fname : str, optional
+File name into which the spatial grid should be written. If omitted ‘amr_grid.inp’ will be used.</p>
+<p>old   : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.readWavelengthGrid">
+<span class="sig-name descname"><span class="pre">readWavelengthGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.readWavelengthGrid" title="Link to this definition">#</a></dt>
+<dd><p>Reads the wavelength grid</p>
+<p class="rubric" id="id8">Parameters</p>
+<p>fname : str, optional
+File name from which the spatial grid should be read. If omitted ‘wavelength_micron.inp’ will be used.</p>
+<p>old   : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.readSpatialGrid">
+<span class="sig-name descname"><span class="pre">readSpatialGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.readSpatialGrid" title="Link to this definition">#</a></dt>
+<dd><p>Reads the spatial grid</p>
+<p class="rubric" id="id9">Parameters</p>
+<p>fname : str, optional
+File name from which the spatial grid should be read. If omitted ‘amr_grid.inp’ will be used.</p>
+<p>old   : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.readGrid">
+<span class="sig-name descname"><span class="pre">readGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.readGrid" title="Link to this definition">#</a></dt>
+<dd><p>Reads the spatial (amr_grid.inp) and frequency grid (wavelength_micron.inp).</p>
+<p class="rubric" id="id10">Parameters</p>
+<p>old   : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dGrid.getCellVolume">
+<span class="sig-name descname"><span class="pre">getCellVolume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dGrid.getCellVolume" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the volume of grid cells.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.modelgrid.readGrid">
+<span class="sig-prename descclassname"><span class="pre">diskmint.modelgrid.</span></span><span class="sig-name descname"><span class="pre">readGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sgrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wgrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sgrid_fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wgrid_fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.readGrid" title="Link to this definition">#</a></dt>
+<dd><p>Reads the spatial and frequency grid.
+This function is an interface to radmc3dGrid.readGrid() or radmc3dOctree.readGrid().
+It will automatically determine which.</p>
+<p class="rubric" id="id11">Parameters</p>
+<p>sgrid       : bool
+If True the spatial grid will be read</p>
+<p>wgrid       : bool
+If True the wavelength grid will be read</p>
+<p>sgrid_fname : str
+File containing the spatial grid (default: amr_grid.inp)</p>
+<p>wgrid_fname : str
+File containing the wavelength grid (default: wavelength_micron.inp)</p>
+<p class="rubric" id="id12">old         : bool
+If True the format of the old 2D version of radmc3d (radmc) will be used
+Returns</p>
+<p>Returns an instance of the radmc3dGrid (for regular grid) or radmc3dOctree (for octree AMR) class</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diskmint.modelgrid.</span></span><span class="sig-name descname"><span class="pre">radmc3dData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>RADMC-3D data class.
+Reading and writing dust density/temperature, gas density/temperature/velocity,
+generating a legacy vtk file for visualization.</p>
+<p class="rubric" id="id13">Attributes</p>
+<p>grid      : radmc3dGrid, radmc3dOctree
+Instance of the radmc3dGrid class, contains the spatial and frequency grids</p>
+<p>rhodust   : ndarray
+Dust density in g/cm^3</p>
+<p>dusttemp  : ndarray
+Dust temperature in K</p>
+<p>rhogas    : ndarray
+Gas density in g/cm^3</p>
+<p>ndens_mol : ndarray
+Number density of the molecule [molecule/cm^3]</p>
+<p>ndens_cp  : ndarray
+Number density of the collisional partner [molecule/cm^3]</p>
+<p>gasvel    : ndarray
+Gas velocity in cm/s</p>
+<p>gastemp   : ndarray
+Gas temperature in K</p>
+<p>vturb     : ndarray
+Mictroturbulence in cm/s</p>
+<p>taux      : ndarray
+Optical depth along the x (cartesian) / r (cylindrical) / r (spherical) dimension</p>
+<p>tauy      : ndarray
+Optical depth along the y (cartesian) / theta (cylindrical) / theta (spherical) dimension</p>
+<p>tauz      : ndarray
+Optical depth along the z (cartesian) / z (cylindrical) / phi (spherical) dimension</p>
+<p>sigmadust : ndarray
+Dust surface density in g/cm^2</p>
+<p>sigmagas  : ndarray
+Gas surface density in molecule/cm^2 (or g/cm^2 depending on the dimension of rhogas)</p>
+<p class="rubric">Initialization</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.getTauOneDust">
+<span class="sig-name descname"><span class="pre">getTauOneDust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.getTauOneDust" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the optical depth of a single dust species along any given combination of the axes.</p>
+<p class="rubric" id="id14">Parameters</p>
+<p>idust : int
+Index of the dust species whose optical depth should be calculated</p>
+<p>axis  : str
+Name of the axis/axes along which the optical depth should be calculated
+(e.g. ‘x’ for the first dimension or ‘xyz’ for all three dimensions)</p>
+<p>kappa : float
+Mass extinction coefficients of the dust species at the desired wavelength</p>
+<p class="rubric" id="id15">Returns</p>
+<p>Returns a dictionary with the following keys</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>taux  : ndarray
+        optical depth along the first dimension
+tauy  : ndarray
+        optical depth along the second dimension
+
+(tauz is not yet implemented)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.getTau">
+<span class="sig-name descname"><span class="pre">getTau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.getTau" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the optical depth along any given combination of the axes.</p>
+<p class="rubric" id="id16">Parameters</p>
+<p>idust : list
+List of dust component indices whose optical depth should be calculated
+If multiple indices are set the total optical depth is calculated summing
+over all dust species in idust</p>
+<p>axis  : str
+Name of the axis/axes along which the optical depth should be calculated
+(e.g. ‘x’ for the first dimension or ‘xyz’ for all three dimensions)</p>
+<p>wav   : float
+Wavelength at which the optical depth should be calculated</p>
+<p>kappa : list, tuple
+If set it should be a list of mass extinction coefficients at the desired wavelength
+The number of elements in the list should be equal to that in the idust keyword</p>
+<p>old   : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.readDustDens">
+<span class="sig-name descname"><span class="pre">readDustDens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.readDustDens" title="Link to this definition">#</a></dt>
+<dd><p>Reads the dust density.</p>
+<p class="rubric" id="id17">Parameters</p>
+<p>fname   : str, optional
+Name of the file that contains the dust density. If omitted ‘dust_density.inp’
+or ‘dust_density.binp’ is used.</p>
+<p>old     : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.readDustTemp">
+<span class="sig-name descname"><span class="pre">readDustTemp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.readDustTemp" title="Link to this definition">#</a></dt>
+<dd><p>Reads the dust temperature.</p>
+<p class="rubric" id="id18">Parameters</p>
+<p>fname   : str, optional
+Name of the file that contains the dust temperature. If omitted ‘dust_temperature.dat’
+or ‘dust_temperature.bdat’ is used.</p>
+<p>old     : bool, optional
+If True dust temperature will be written in the old RADMC format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.readGasVel">
+<span class="sig-name descname"><span class="pre">readGasVel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.readGasVel" title="Link to this definition">#</a></dt>
+<dd><p>Reads the gas velocity.</p>
+<p class="rubric" id="id19">Parameters</p>
+<p>fname : str, optional
+Name of the file that contains the gas velocity
+If omitted ‘gas_velocity.inp’ or ‘gas_velocity.binp’ is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.readVTurb">
+<span class="sig-name descname"><span class="pre">readVTurb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.readVTurb" title="Link to this definition">#</a></dt>
+<dd><p>Reads the turbulent velocity field.</p>
+<p class="rubric" id="id20">Parameters</p>
+<p>fname   : str, optional
+Name of the file that contains the turbulent velocity field
+If omitted ‘microturbulence.inp’ or ‘microturbulence.binp’ is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.readGasDens">
+<span class="sig-name descname"><span class="pre">readGasDens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ispec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.readGasDens" title="Link to this definition">#</a></dt>
+<dd><p>Reads the gas density.</p>
+<p class="rubric" id="id21">Parameters</p>
+<p>fname   : str,optional
+Name of the file that contains the gas temperature. If omitted ‘numberdens_<ispec>.inp’
+or ‘numberdens_<ispec>.binp’ is used.</p>
+<p>ispec   : str
+File name extension of the ‘numberdens_ispec.*’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.readGasTemp">
+<span class="sig-name descname"><span class="pre">readGasTemp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.readGasTemp" title="Link to this definition">#</a></dt>
+<dd><p>Reads the gas temperature.</p>
+<p class="rubric" id="id22">Parameters</p>
+<p>fname   : str,optional
+Name of the file that contains the gas temperature. If omitted ‘gas_temperature.inp’
+or ‘gas_tempearture.binp’ is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.writeDustDens">
+<span class="sig-name descname"><span class="pre">writeDustDens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.writeDustDens" title="Link to this definition">#</a></dt>
+<dd><p>Writes the dust density.</p>
+<p class="rubric" id="id23">Parameters</p>
+<p>fname   : str, optional
+Name of the file into which the dust density should be written. If omitted ‘dust_density.inp’ is used.</p>
+<p>binary  : bool
+If true the data will be written in binary format, otherwise the file format is ascii</p>
+<p>old     : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.writeDustTemp">
+<span class="sig-name descname"><span class="pre">writeDustTemp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.writeDustTemp" title="Link to this definition">#</a></dt>
+<dd><p>Writes the dust density.</p>
+<p class="rubric" id="id24">Parameters</p>
+<p>fname   : str, optional
+Name of the file into which the dust density should be written. If omitted ‘dust_density.inp’ is used.</p>
+<p>binary  : bool
+If true the data will be written in binary format, otherwise the file format is ascii</p>
+<p>octree  : bool, optional
+If the data is defined on an octree-like AMR</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.writeGasDens">
+<span class="sig-name descname"><span class="pre">writeGasDens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ispec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.writeGasDens" title="Link to this definition">#</a></dt>
+<dd><p>Writes the gas density.</p>
+<p class="rubric" id="id25">Parameters</p>
+<p>fname   : str, optional
+Name of the file into which the data will be written. If omitted “numberdens_xxx.inp” and
+“numberdens_xxx.binp” will be used for ascii and binary format, respectively
+(xxx is the name of the molecule).</p>
+<p>ispec   : str
+File name extension of the ‘numberdens_ispec.inp’ (if binary=True ‘numberdens_ispec.binp’)
+file into which the gas density should be written</p>
+<p>binary  : bool
+If true the data will be written in binary format, otherwise the file format is ascii</p>
+<p>octree  : bool, optional
+If the data is defined on an octree-like AMR</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.writeGasTemp">
+<span class="sig-name descname"><span class="pre">writeGasTemp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.writeGasTemp" title="Link to this definition">#</a></dt>
+<dd><p>Writes the gas temperature.</p>
+<p class="rubric" id="id26">Parameters</p>
+<p>fname : str, optional
+Name of the file into which the gas temperature should be written. If omitted
+‘gas_temperature.inp’ (if binary=True ‘gas_tempearture.binp’) is used.</p>
+<p>binary : bool
+If true the data will be written in binary format, otherwise the file format is ascii</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.writeGasVel">
+<span class="sig-name descname"><span class="pre">writeGasVel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.writeGasVel" title="Link to this definition">#</a></dt>
+<dd><p>Writes the gas velocity.</p>
+<p class="rubric" id="id27">Parameters</p>
+<p>fname  : str, optional
+Name of the file into which the gas temperature should be written.
+If omitted ‘gas_velocity.inp’ (if binary=True ‘gas_velocity.binp’) is used.</p>
+<p>binary : bool
+If true the data will be written in binary format, otherwise the file format is ascii</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.writeVTurb">
+<span class="sig-name descname"><span class="pre">writeVTurb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.writeVTurb" title="Link to this definition">#</a></dt>
+<dd><p>Writes the microturbulence file.</p>
+<p class="rubric" id="id28">Parameters</p>
+<p>fname   : str, optional
+Name of the file into which the turubulent velocity field should be written.
+If omitted ‘microturbulence.inp’ (if binary=True ‘microturbuulence.binp’) is used.</p>
+<p>binary  : bool
+If true the data will be written in binary format, otherwise the file format is ascii</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.getSigmaDust">
+<span class="sig-name descname"><span class="pre">getSigmaDust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.getSigmaDust" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the dust surface density.</p>
+<p class="rubric" id="id29">Parameters</p>
+<p>idust : int, optional
+Index of the dust species for which the surface density should be calculated
+if omitted the calculated surface density will be the sum over all dust species</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.modelgrid.radmc3dData.getSigmaGas">
+<span class="sig-name descname"><span class="pre">getSigmaGas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.radmc3dData.getSigmaGas" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the gas surface density.
+This method uses radmc3dData.rhogas to calculate the surface density, thus the
+unit of surface density depends on the unit of radmc3dData.rhogas (g/cm^2 or molecule/cm^2)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.modelgrid.readData">
+<span class="sig-prename descclassname"><span class="pre">diskmint.modelgrid.</span></span><span class="sig-name descname"><span class="pre">readData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ddens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtemp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gdens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtemp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gvel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ispec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vturb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.modelgrid.readData" title="Link to this definition">#</a></dt>
+<dd><p>Reads the physical variables of the model (e.g. density, velocity, temperature).</p>
+<p class="rubric" id="id30">Parameters</p>
+<p>ddens : bool
+If True dust density will be read (all dust species and grain sizes)</p>
+<p>dtemp : bool
+If True dust temperature will be read (all dust species and grain sizes)</p>
+<p>gdens : bool
+If True gas density will be read (NOTE: the gas density will be number density in 1/cm^3)</p>
+<p>gtemp : bool
+If True gas temperature will be read (all dust species and grain sizes)</p>
+<p>gvel  : bool
+If True the velocity field will be read</p>
+<p>ispec : str
+Name of the molecule in the ‘molecule_ispec.inp’ filename</p>
+<p>vturb : bool
+If True the microturbulent velocity field will be read</p>
+<p>grid  : radmc3dGrid
+An instance of radmc3dGrid containing the spatial and frequency grid of the model. If the grid
+is passed to the function it will not be read again from file. This can be useful for octree
+models to save time.</p>
+<p>old   : bool, optional
+If set to True the file format of the previous, 2D version of radmc will be used</p>
+<p class="rubric" id="id31">Returns</p>
+<p>Returns an instance of the radmc3dData class</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="diskmint.disk_density.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.makeWavelengthGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.makeWavelengthGrid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.writeWavelengthGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.writeWavelengthGrid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.makeSpatialGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.makeSpatialGrid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.writeSpatialGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.writeSpatialGrid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.readWavelengthGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.readWavelengthGrid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.readSpatialGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.readSpatialGrid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.readGrid"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.readGrid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dGrid.getCellVolume"><code class="docutils literal notranslate"><span class="pre">radmc3dGrid.getCellVolume()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.readGrid"><code class="docutils literal notranslate"><span class="pre">readGrid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData"><code class="docutils literal notranslate"><span class="pre">radmc3dData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.getTauOneDust"><code class="docutils literal notranslate"><span class="pre">radmc3dData.getTauOneDust()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.getTau"><code class="docutils literal notranslate"><span class="pre">radmc3dData.getTau()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.readDustDens"><code class="docutils literal notranslate"><span class="pre">radmc3dData.readDustDens()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.readDustTemp"><code class="docutils literal notranslate"><span class="pre">radmc3dData.readDustTemp()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.readGasVel"><code class="docutils literal notranslate"><span class="pre">radmc3dData.readGasVel()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.readVTurb"><code class="docutils literal notranslate"><span class="pre">radmc3dData.readVTurb()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.readGasDens"><code class="docutils literal notranslate"><span class="pre">radmc3dData.readGasDens()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.readGasTemp"><code class="docutils literal notranslate"><span class="pre">radmc3dData.readGasTemp()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.writeDustDens"><code class="docutils literal notranslate"><span class="pre">radmc3dData.writeDustDens()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.writeDustTemp"><code class="docutils literal notranslate"><span class="pre">radmc3dData.writeDustTemp()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.writeGasDens"><code class="docutils literal notranslate"><span class="pre">radmc3dData.writeGasDens()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.writeGasTemp"><code class="docutils literal notranslate"><span class="pre">radmc3dData.writeGasTemp()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.writeGasVel"><code class="docutils literal notranslate"><span class="pre">radmc3dData.writeGasVel()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.writeVTurb"><code class="docutils literal notranslate"><span class="pre">radmc3dData.writeVTurb()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.getSigmaDust"><code class="docutils literal notranslate"><span class="pre">radmc3dData.getSigmaDust()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.radmc3dData.getSigmaGas"><code class="docutils literal notranslate"><span class="pre">radmc3dData.getSigmaGas()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.modelgrid.readData"><code class="docutils literal notranslate"><span class="pre">readData()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/apidocs/diskmint/diskmint.modelgrid.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

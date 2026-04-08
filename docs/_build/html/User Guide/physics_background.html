@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Physics and Chemistry Background &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'User Guide/physics_background';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Thermochemical Processes in DiskMINT" href="thermochemical_processes.html" />
+    <link rel="prev" title="Running DiskMINT on an HPC Cluster" href="hpc_guide.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="build_your_own_model.html">Build Your DiskMINT Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpc_guide.html">Running DiskMINT on an HPC Cluster</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Physics and Chemistry Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermochemical_processes.html">Thermochemical Processes in DiskMINT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="surface_density_fitting.html">Surface Density Fitting Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml_ai_inference.html">ML / AI-Assisted Inference</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="user_guide_index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Physics and Chemistry Background</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="physics-and-chemistry-background">
+<h1>Physics and Chemistry Background<a class="headerlink" href="#physics-and-chemistry-background" title="Link to this heading">#</a></h1>
+<p>A brief summary of the physical models underlying DiskMINT. Each section points to the relevant parameters and the primary literature for depth.</p>
+<p>For a dedicated overview of the three core thermochemical ingredients behind DiskMINT, see <a class="reference internal" href="thermochemical_processes.html"><span class="doc">Thermochemical Processes in DiskMINT</span></a>.</p>
+<hr class="docutils" />
+<section id="vertical-hydrostatic-equilibrium-vhse">
+<h2>Vertical Hydrostatic Equilibrium (VHSE)<a class="headerlink" href="#vertical-hydrostatic-equilibrium-vhse" title="Link to this heading">#</a></h2>
+<p>DiskMINT solves for a self-consistent 2D disk structure by iterating between two steps:</p>
+<ol class="arabic">
+<li><p><strong>Radiative transfer</strong> — RADMC-3D computes the dust (and gas) temperature by propagating stellar photons through the density structure via Monte Carlo (controlled by <code class="docutils literal notranslate"><span class="pre">nphot</span></code>, <code class="docutils literal notranslate"><span class="pre">nthreads</span></code>).</p></li>
+<li><p><strong>Vertical hydrostatic equilibrium</strong> — given the temperature, the vertical pressure gradient is balanced against gravity to update the density structure:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial P}{\partial z} = -\rho_\mathrm{gas} \frac{GM_\star z}{(r^2 + z^2)^{3/2}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P = \rho_\mathrm{gas} c_s^2\)</span> with the local isothermal sound speed <span class="math notranslate nohighlight">\(c_s = \sqrt{k_B T / \mu m_H}\)</span>.</p>
+</li>
+</ol>
+<p>The loop runs until the relative change in gas density between iterations falls below 5 % (<code class="docutils literal notranslate"><span class="pre">delta_rho/rho_max</span> <span class="pre">&lt;</span> <span class="pre">0.05</span></code>), or until <code class="docutils literal notranslate"><span class="pre">n_vhse_loop</span></code> iterations are reached. Roughly 10–20 iterations are required to converge from a Gaussian initial condition.</p>
+<p><strong>Relevant parameters:</strong> <code class="docutils literal notranslate"><span class="pre">n_vhse_loop</span></code>, <code class="docutils literal notranslate"><span class="pre">nphot</span></code>, <code class="docutils literal notranslate"><span class="pre">nthreads</span></code>, <code class="docutils literal notranslate"><span class="pre">nr</span></code>, <code class="docutils literal notranslate"><span class="pre">ntheta</span></code></p>
+<p><strong>Primary reference:</strong> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023), ApJ 954, 165</a></p>
+</section>
+<hr class="docutils" />
+<section id="dust-settling">
+<h2>Dust Settling<a class="headerlink" href="#dust-settling" title="Link to this heading">#</a></h2>
+<p>When <code class="docutils literal notranslate"><span class="pre">bool_dust_settling</span> <span class="pre">=</span> <span class="pre">True</span></code>, DiskMINT computes dust settling by balancing gravitational settling toward the midplane against upward turbulent diffusion. In the current framework, this is not implemented as a simple post-processing scale-height correction. Instead, as descrbied in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025)</a> (Section 3.2.1, Figure 4), DiskMINT solves the steady-state vertical diffusion equation for the dust-to-gas density ratio:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial z}\left(\ln{\frac{\rho_{\rm dust}}{\rho_{\rm gas}}}\right) = -\frac{\Omega^2 \tau_{\rm s}}{D}z\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Omega\)</span> is the Keplerian angular frequency, <span class="math notranslate nohighlight">\(\tau_{\rm s}\)</span> is the dust stopping time, and <span class="math notranslate nohighlight">\(D\)</span> is the turbulent diffusion coefficient. The stopping time depends on the local grain size, gas density, and sound speed, so the settling strength is coupled to the local thermodynamic structure of the disk rather than being set by radius alone.</p>
+<p>DiskMINT solves this dust diffusion equation inside the same iterative loop used to converge the vertical disk structure. Starting from an initially well-mixed gas and dust distribution, the code iterates through:</p>
+<ol class="arabic simple">
+<li><p>radiative transfer to estimate the dust temperature,</p></li>
+<li><p>thermal balance to estimate the gas temperature,</p></li>
+<li><p>vertical hydrostatic equilibrium to update the gas density,</p></li>
+<li><p>vertical dust diffusion to update the density distribution of each grain size bin.</p></li>
+</ol>
+<p>The vertically integrated dust surface density at each radius and grain size is kept fixed during this step; settling only redistributes dust vertically. The result is a self-consistent stratified structure in which larger grains become concentrated toward the midplane while smaller grains remain more vertically extended in the disk surface layers.</p>
+<p>In the IM Lup application of Deng et al. (2025), this treatment improves the match to the observed SED, especially near the far-infrared, while having little effect on the inferred total gas mass. Figure 4 of that paper gives a useful flow chart of the settling workflow implemented in DiskMINT.</p>
+<p><strong>Relevant parameters:</strong> <code class="docutils literal notranslate"><span class="pre">visc_alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">nr_dust_1</span></code>, <code class="docutils literal notranslate"><span class="pre">amin_1</span></code>, <code class="docutils literal notranslate"><span class="pre">amax_1</span></code>, <code class="docutils literal notranslate"><span class="pre">pla_dustsize</span></code></p>
+<p><strong>Reference:</strong> <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a>; see also <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016ApJ...818..200E">Estrada et al. (2016)</a></p>
+</section>
+<hr class="docutils" />
+<section id="grain-size-distribution">
+<h2>Grain Size Distribution<a class="headerlink" href="#grain-size-distribution" title="Link to this heading">#</a></h2>
+<p>DiskMINT models the grain population as a power law in grain radius <span class="math notranslate nohighlight">\(a\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[n(a) \propto a^{-p}\]</div>
+<p>for <span class="math notranslate nohighlight">\(a_\mathrm{min} \le a \le a_\mathrm{max}\)</span>, discretised into <code class="docutils literal notranslate"><span class="pre">nr_dust_1</span></code> logarithmically spaced size bins. The MRN distribution (Mathis, Rumpl &amp; Nordsieck 1977) uses <span class="math notranslate nohighlight">\(p = 3.5\)</span> (<code class="docutils literal notranslate"><span class="pre">pla_dustsize</span></code>). Each bin has its own opacity table (<code class="docutils literal notranslate"><span class="pre">dustkappa_{name}_{i}.inp</span></code>).</p>
+<p>The code computes cross-section-weighted averages (<code class="docutils literal notranslate"><span class="pre">ndsd.inp</span></code>), mass fractions (<code class="docutils literal notranslate"><span class="pre">fracs.inp</span></code>), and number fractions (<code class="docutils literal notranslate"><span class="pre">fracs_numb.inp</span></code>) automatically when <code class="docutils literal notranslate"><span class="pre">bool_MakeDustKappa</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
+<p><strong>Relevant parameters:</strong> <code class="docutils literal notranslate"><span class="pre">amin_1</span></code>, <code class="docutils literal notranslate"><span class="pre">amax_1</span></code>, <code class="docutils literal notranslate"><span class="pre">nr_dust_1</span></code>, <code class="docutils literal notranslate"><span class="pre">pla_dustsize</span></code>, <code class="docutils literal notranslate"><span class="pre">rhobulk</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="surface-density-profile">
+<h2>Surface Density Profile<a class="headerlink" href="#surface-density-profile" title="Link to this heading">#</a></h2>
+<p>DiskMINT supports more than one way of defining the radial surface density structure for gas and dust.</p>
+<section id="analytic-surface-density">
+<h3>Analytic surface density<a class="headerlink" href="#analytic-surface-density" title="Link to this heading">#</a></h3>
+<p>The simplest option is an analytic parameterization. A commonly used choice is the tapered power-law profile:</p>
+<div class="math notranslate nohighlight">
+\[\Sigma(r) \propto \left(\frac{r}{R_\mathrm{tap}}\right)^{\gamma} \exp\!\left[-\left(\frac{r}{R_\mathrm{tap}}\right)^{\xi}\right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(\gamma =\)</span> <code class="docutils literal notranslate"><span class="pre">pl_sufdens</span></code> and <span class="math notranslate nohighlight">\(\xi =\)</span> <code class="docutils literal notranslate"><span class="pre">pl_tapoff</span></code>. This is the self-similar solution from viscous disk evolution (Lynden-Bell &amp; Pringle 1974), which gives <span class="math notranslate nohighlight">\(\xi = 2 + \gamma\)</span> (i.e., <code class="docutils literal notranslate"><span class="pre">pl_tapoff</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">pl_sufdens</span></code> for a physically motivated viscous disk). The parameter <code class="docutils literal notranslate"><span class="pre">Rtap</span></code> is the characteristic radius (often written as <span class="math notranslate nohighlight">\(R_\mathrm{c}\)</span>) and sets the scale where the profile begins to taper. This analytic form is useful for forward modeling, parameter studies, and cases where no spatially resolved constraints are available.</p>
+</section>
+<section id="observation-driven-surface-density-fitting">
+<h3>Observation-driven surface density fitting<a class="headerlink" href="#observation-driven-surface-density-fitting" title="Link to this heading">#</a></h3>
+<p>DiskMINT can also use directly specified radial surface density profiles, including profiles derived from resolved observations. In the structured IM Lup model of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a>, the dust and gas surface densities are treated separately as <span class="math notranslate nohighlight">\(\Sigma_\mathrm{dust}(r)\)</span> and <span class="math notranslate nohighlight">\(\Sigma_\mathrm{gas}(r)\)</span>, so the dust-to-gas ratio becomes a function of radius rather than a single global constant.</p>
+<p>In that workflow, <span class="math notranslate nohighlight">\(\Sigma_\mathrm{dust}(r)\)</span> is iteratively adjusted to reproduce the observed dust continuum radial profile, while <span class="math notranslate nohighlight">\(\Sigma_\mathrm{gas}(r)\)</span> is iteratively adjusted to reproduce the observed <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> radial profile. The synthetic and observed radial profiles are measured in elliptical annuli using the observed disk geometry, and the next surface-density estimate is updated from the ratio of observation to model at each radius.</p>
+<p>This observation-driven mode is useful when high-quality resolved continuum and line data are available and the gas and dust are radially decoupled. In practice, the analytic and direct-fitting approaches are complementary: the analytic profile is a natural starting point for general modeling, while direct fitting is the more flexible option for well-resolved disks. A worked example of this fitting workflow is described in <a class="reference internal" href="surface_density_fitting.html"><span class="doc">Surface Density Fitting Guide</span></a>.</p>
+<p><strong>Relevant parameters:</strong> <code class="docutils literal notranslate"><span class="pre">pl_sufdens</span></code>, <code class="docutils literal notranslate"><span class="pre">pl_tapoff</span></code>, <code class="docutils literal notranslate"><span class="pre">Rtap</span></code>, <code class="docutils literal notranslate"><span class="pre">mdiskd</span></code>, <code class="docutils literal notranslate"><span class="pre">ratio_g2d_global</span></code></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="chemical-network">
+<h2>Chemical Network<a class="headerlink" href="#chemical-network" title="Link to this heading">#</a></h2>
+<p>The chemical network is a reduced version of the full CO chemistry framework developed in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R/abstract">Ruaud &amp; Gorti (2019)</a> and later adapted for <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> modeling in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract">Ruaud, Gorti &amp; Hollenbach (2022)</a>. It focuses on the processes that control <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> abundance:</p>
+<ul class="simple">
+<li><p><strong>Isotope-selective photodissociation</strong> — UV photons from the star preferentially dissociate <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{{}^{13}CO}\)</span> over <span class="math notranslate nohighlight">\(\mathrm{{}^{12}CO}\)</span> due to self-shielding differences. This is the dominant mechanism depleting <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> in the upper disk layers, following <a class="reference external" href="https://www.aanda.org/10.1051/0004-6361/200912129">Visser, van Dishoeck &amp; Black (2009)</a>.</p></li>
+<li><p><strong>Grain-surface chemistry</strong> — CO freezes onto grain surfaces at <span class="math notranslate nohighlight">\(T &lt; 20\)</span>–30 K and converts to <span class="math notranslate nohighlight">\(\mathrm{CO_2}\)</span> ice via grain-surface reactions. This depletes gas-phase CO in the cold midplane. Then it is balanced with <strong>Photodesorption</strong> — UV photons desorb CO ice back to the gas phase, creating a warm molecular layer between the hot surface and cold midplane.</p></li>
+</ul>
+<p>The network is solved on a cylindrical grid (<code class="docutils literal notranslate"><span class="pre">nr_cyl_LIME</span> <span class="pre">x</span> <span class="pre">nz_cyl_LIME</span></code>) after VHSE convergence.</p>
+<p>There are two ways of setting of the UV field.</p>
+<ul class="simple">
+<li><p>If the UV spectra is included in the input stellar spectra, the UV filed is solved from the input.</p></li>
+<li><p>Otherwise, you can change <code class="docutils literal notranslate"><span class="pre">G0Hab_set</span></code> (in Habing units at the stellar surface).</p></li>
+</ul>
+<p><strong>Relevant parameters:</strong> <code class="docutils literal notranslate"><span class="pre">G0Hab_set</span></code>, <code class="docutils literal notranslate"><span class="pre">nr_cyl_LIME</span></code>, <code class="docutils literal notranslate"><span class="pre">nz_cyl_LIME</span></code>, <code class="docutils literal notranslate"><span class="pre">chemical_save_name</span></code></p>
+<p><strong>Primary references:</strong> <a class="reference external" href="https://www.aanda.org/10.1051/0004-6361/200912129">Visser, van Dishoeck &amp; Black (2009), A&amp;A 503, 323</a>; <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R">Ruaud &amp; Gorti (2019), ApJ 885, 146</a>; <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a></p>
+</section>
+<hr class="docutils" />
+<section id="key-papers">
+<h2>Key Papers<a class="headerlink" href="#key-papers" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Paper</p></th>
+<th class="head"><p>What it covers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1977ApJ...217..425M">Mathis, Rumpl &amp; Nordsieck (1977), ApJ 217, 425</a></p></td>
+<td><p>MRN grain size distribution</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.aanda.org/10.1051/0004-6361/200912129">Visser, van Dishoeck &amp; Black (2009), A&amp;A 503, 323</a></p></td>
+<td><p>Original isotope-selective CO photodissociation model</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2016ApJ...818..200E">Estrada et al. (2016)</a></p></td>
+<td><p>Find the self-consistent disk veritcal structure</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R">Ruaud &amp; Gorti (2019), ApJ 885, 146</a></p></td>
+<td><p>Original CO chemistry model underlying the reduced <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> network</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a></p></td>
+<td><p>Reduced chemical network used for <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023), ApJ 954, 165</a></p></td>
+<td><p>Original DiskMINT method: VHSE + chemistry for CO isotopologue masses</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a></p></td>
+<td><p>Application to IM Lup; radially varying g2d ratio</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hpc_guide.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Running DiskMINT on an HPC Cluster</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="thermochemical_processes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Thermochemical Processes in DiskMINT</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-hydrostatic-equilibrium-vhse">Vertical Hydrostatic Equilibrium (VHSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dust-settling">Dust Settling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grain-size-distribution">Grain Size Distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-density-profile">Surface Density Profile</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytic-surface-density">Analytic surface density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-driven-surface-density-fitting">Observation-driven surface density fitting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-network">Chemical Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-papers">Key Papers</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/User Guide/physics_background.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

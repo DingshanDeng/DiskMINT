@@ -56,8 +56,13 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.mathjax',        # prefer MathJax over imgmath on RTD
     'nbsphinx',
+    'nbsphinx_link',             # allows .nblink stubs pointing outside docs/source/
     'IPython.sphinxext.ipython_console_highlighting',
 ]
+
+# Never re-execute notebooks on build; render pre-saved cell outputs instead.
+# (RTD does not have RADMC-3D or a completed model run available.)
+nbsphinx_execute = 'never'
 
 master_doc = 'index'
 

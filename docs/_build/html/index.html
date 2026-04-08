@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DiskMINT &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Start" href="Quick%20Start/quick_start_index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="#">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="#">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="diskmint">
+<h1>DiskMINT<a class="headerlink" href="#diskmint" title="Link to this heading">#</a></h1>
+<p><strong>Disk Model for INdividual Targets</strong></p>
+<p align="center">
+  <img src="_static/assets/images/card-software-transparent.png" alt="" style="width:38.2%; height:auto;">
+</p>
+<p><strong>Contributors:</strong></p>
+<p>Dingshan Deng (<a class="reference external" href="mailto:dingshandeng&#37;&#52;&#48;arizona&#46;edu">dingshandeng<span>&#64;</span>arizona<span>&#46;</span>edu</a>),
+The University of Arizona</p>
+<p>Maxime Ruaud,
+SETI Institute</p>
+<p>Uma Gorti,
+SETI Institute</p>
+<p>Ilaria Pascucci,
+The University of Arizona</p>
+<hr class="docutils" />
+<p>Acknowledgement</p>
+<p><code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code> now includes standalone functions for handling RADMC-3D input and output files. These functions are based on the original <code class="docutils literal notranslate"><span class="pre">radmc3dPy</span></code> scripts developed by Dr. Attila Juhasz and maintained by Prof. Dr. Cornelis P. Dullemond.</p>
+<p>We also thank the anonymous referee, science editors, and data editors at AAS Journals for their helpful suggestions and comments, which significantly improved this work.
+Finally, we express our gratitude to the many people in our community whose feedback and support have been instrumental to the growth of this project.</p>
+<section id="about-diskmint">
+<h2>About DiskMINT<a class="headerlink" href="#about-diskmint" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code> (Disk Model for INdividual Targets) is a tool for modeling individual disks and deriving more robust disk mass estimates.
+<code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code> is a <code class="docutils literal notranslate"><span class="pre">Python3</span></code>-<code class="docutils literal notranslate"><span class="pre">Fortran</span></code> code built on <a class="reference external" href="https://github.com/dullemond/radmc3d-2.0"><code class="docutils literal notranslate"><span class="pre">RADMC-3D</span></code> v2.0</a> for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract">Ruaud, Gorti &amp; Hollenbach (2022)</a> to determine the <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> emission.
+For more information, see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract">Deng et al. (2023)</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025)</a>.</p>
+<p>For more details about <code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code>, see <a class="reference external" href="https://diskmint.readthedocs.io/en/latest/">Documentation</a>.</p>
+<section id="the-code">
+<h3>The Code<a class="headerlink" href="#the-code" title="Link to this heading">#</a></h3>
+<p>The code contains two parts:</p>
+<p>(A) a <code class="docutils literal notranslate"><span class="pre">Python3</span></code> module (located in <code class="docutils literal notranslate"><span class="pre">DiskMINT/diskmint/src/</span></code>) that is capable of generating a self-consistent 2D disk structure that satisfies VHSE (Vertical Hydrostatic Equilibrium).</p>
+<p>(B) a <code class="docutils literal notranslate"><span class="pre">Fortran</span></code> code (located in <code class="docutils literal notranslate"><span class="pre">DiskMINT/chemistry/</span></code>) of the reduced chemical network focusing on modeling <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> in the disk, and it contains the main chemical processes that are necessary for the <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> modeling: a. the isotope-selective photodissociation; b. the grain-surface chemistry where the CO converting to <span class="math notranslate nohighlight">\(\mathrm{CO_2}\)</span> ice is the main reaction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code> is still a developing tool, and we aim to build it as an easy-to-update and easy-to-use tool.
+Feel free to put any questions, suggestions, and/or comments on the <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> page or directly email the author (<a class="reference external" href="mailto:dingshandeng&#37;&#52;&#48;arizona&#46;edu">dingshandeng<span>&#64;</span>arizona<span>&#46;</span>edu</a>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code> is open source and released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT License</a>. You are free to use, modify, and distribute this codebase in accordance with the terms and conditions of the license.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quick-start">
+<h2>Quick START<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Download the code use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> or download this repo as zip into your local directory <code class="docutils literal notranslate"><span class="pre">Yourpath/DiskMINT/</span></code>.</p></li>
+<li><p>Open terminal, go inside your path <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Yourpath/DiskMINT/</span></code>, type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code>. This should install both the <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">Fortran</span></code> modules into your machine.</p></li>
+<li><p>Start Using!</p></li>
+</ol>
+<p>For more information, please check our <a class="reference internal" href="Quick%20Start/quick_start_index.html"><span class="doc">Quick Start Guide</span></a>.</p>
+</section>
+<hr class="docutils" />
+<section id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h2>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code> as part of your research, please cite</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@ARTICLE</span><span class="p">{</span><span class="mi">2025</span><span class="n">ApJ</span><span class="o">..</span><span class="mf">.995</span><span class="o">..</span><span class="mf">.98</span><span class="n">D</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Deng</span><span class="p">},</span> <span class="n">Dingshan</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Gorti</span><span class="p">},</span> <span class="n">Uma</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Pascucci</span><span class="p">},</span> <span class="n">Ilaria</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Ruaud</span><span class="p">},</span> <span class="n">Maxime</span><span class="p">},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;{DiskMINT: Self-consistent Thermochemical Disk Models with Radially Varying Gas and Dust{</span><span class="se">\t</span><span class="s2">extemdash}Application to the Massive, CO-Rich Disk of IM Lup}&quot;</span><span class="p">,</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span>\<span class="n">apj</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">Protoplanetary</span> <span class="n">disks</span><span class="p">,</span> <span class="n">Astrochemistry</span><span class="p">,</span> <span class="n">Chemical</span> <span class="n">abundances</span><span class="p">,</span> <span class="n">CO</span> <span class="n">line</span> <span class="n">emission</span><span class="p">,</span> <span class="n">Planet</span> <span class="n">formation</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">262</span><span class="p">,</span> <span class="mi">1241</span><span class="p">,</span> <span class="n">Earth</span> <span class="ow">and</span> <span class="n">Planetary</span> <span class="n">Astrophysics</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2025</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">dec</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">995</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+          <span class="n">eid</span> <span class="o">=</span> <span class="p">{</span><span class="mi">98</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">98</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.3847</span><span class="o">/</span><span class="mi">1538</span><span class="o">-</span><span class="mi">4357</span><span class="o">/</span><span class="n">ae0e66</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">2509.15487</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">astro</span><span class="o">-</span><span class="n">ph</span><span class="o">.</span><span class="n">EP</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2025</span><span class="n">ApJ</span><span class="o">..</span><span class="mf">.995</span><span class="o">..</span><span class="mf">.98</span><span class="n">D</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@ARTICLE</span><span class="p">{</span><span class="mi">2023</span><span class="n">ApJ</span><span class="o">..</span><span class="mf">.954</span><span class="o">.</span><span class="mf">.165</span><span class="n">D</span><span class="p">,</span>
+       <span class="n">author</span> <span class="o">=</span> <span class="p">{{</span><span class="n">Deng</span><span class="p">},</span> <span class="n">Dingshan</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Ruaud</span><span class="p">},</span> <span class="n">Maxime</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Gorti</span><span class="p">},</span> <span class="n">Uma</span> <span class="ow">and</span> <span class="p">{</span><span class="n">Pascucci</span><span class="p">},</span> <span class="n">Ilaria</span><span class="p">},</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;{DiskMINT: A Tool to Estimate Disk Masses with CO Isotopologues}&quot;</span><span class="p">,</span>
+      <span class="n">journal</span> <span class="o">=</span> <span class="p">{</span>\<span class="n">apj</span><span class="p">},</span>
+     <span class="n">keywords</span> <span class="o">=</span> <span class="p">{</span><span class="n">Protoplanetary</span> <span class="n">disks</span><span class="p">,</span> <span class="n">Astrochemistry</span><span class="p">,</span> <span class="n">Chemical</span> <span class="n">abundances</span><span class="p">,</span> <span class="n">CO</span> <span class="n">line</span> <span class="n">emission</span><span class="p">,</span> <span class="n">Planet</span> <span class="n">formation</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">262</span><span class="p">,</span> <span class="mi">1241</span><span class="p">,</span> <span class="n">Astrophysics</span> <span class="o">-</span> <span class="n">Earth</span> <span class="ow">and</span> <span class="n">Planetary</span> <span class="n">Astrophysics</span><span class="p">,</span> <span class="n">Astrophysics</span> <span class="o">-</span> <span class="n">Instrumentation</span> <span class="ow">and</span> <span class="n">Methods</span> <span class="k">for</span> <span class="n">Astrophysics</span><span class="p">,</span> <span class="n">Astrophysics</span> <span class="o">-</span> <span class="n">Solar</span> <span class="ow">and</span> <span class="n">Stellar</span> <span class="n">Astrophysics</span><span class="p">},</span>
+         <span class="n">year</span> <span class="o">=</span> <span class="mi">2023</span><span class="p">,</span>
+        <span class="n">month</span> <span class="o">=</span> <span class="n">sep</span><span class="p">,</span>
+       <span class="n">volume</span> <span class="o">=</span> <span class="p">{</span><span class="mi">954</span><span class="p">},</span>
+       <span class="n">number</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+          <span class="n">eid</span> <span class="o">=</span> <span class="p">{</span><span class="mi">165</span><span class="p">},</span>
+        <span class="n">pages</span> <span class="o">=</span> <span class="p">{</span><span class="mi">165</span><span class="p">},</span>
+          <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.3847</span><span class="o">/</span><span class="mi">1538</span><span class="o">-</span><span class="mi">4357</span><span class="o">/</span><span class="n">acdfcc</span><span class="p">},</span>
+<span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+       <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">2307.02657</span><span class="p">},</span>
+ <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">astro</span><span class="o">-</span><span class="n">ph</span><span class="o">.</span><span class="n">EP</span><span class="p">},</span>
+       <span class="n">adsurl</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ui</span><span class="o">.</span><span class="n">adsabs</span><span class="o">.</span><span class="n">harvard</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mi">2023</span><span class="n">ApJ</span><span class="o">..</span><span class="mf">.954</span><span class="o">.</span><span class="mf">.165</span><span class="n">D</span><span class="p">},</span>
+      <span class="n">adsnote</span> <span class="o">=</span> <span class="p">{</span><span class="n">Provided</span> <span class="n">by</span> <span class="n">the</span> <span class="n">SAO</span><span class="o">/</span><span class="n">NASA</span> <span class="n">Astrophysics</span> <span class="n">Data</span> <span class="n">System</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="community-guidelines">
+<h2>Community Guidelines<a class="headerlink" href="#community-guidelines" title="Link to this heading">#</a></h2>
+<p>We welcome contributions, issue reports, and questions about <code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code>! If you encounter a bug or issue, check out the <a class="reference external" href="https://github.com/DingshanDeng/DiskMINT/issues">Issues page</a> and provide a report with details about the problem and steps to reproduce it. For general support, usage questions and suggestions, you can start a discussion in <a class="reference external" href="https://github.com/DingshanDeng/DiskMINT/discussions">Discussions page</a>, and of course feel free to send emails directly to us. If you want to contribute, feel free to fork the repository and create pull requests here. <code class="docutils literal notranslate"><span class="pre">DiskMINT</span></code> is licensed under MIT license, so feel free to make use of the source code in any part of your own work/software.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="Quick%20Start/quick_start_index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quick Start</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-diskmint">About DiskMINT</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code">The Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick START</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#community-guidelines">Community Guidelines</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/index.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
