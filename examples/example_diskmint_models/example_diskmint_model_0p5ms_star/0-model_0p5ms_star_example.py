@@ -98,7 +98,7 @@ bool_VHSE                    = True
 # the number of loops it tries to go through to solve the VHSE
 # the iteration will automatically stop if it converges (normally <10 iterations)
 # but you still would like to set a maximum limit here
-n_vhse_loop                  = int(20) # int(10)
+n_vhse_loop                  = int(20)
 # 
 # whether to enalble dust settling
 #
@@ -161,9 +161,7 @@ for mdisk_dust_t, \
               [3.5], 
               [0.1]
            ):
- 
-    bool_same_rc_as_radmc3d = True
-    
+  
     # record the model number
     i_model = int(i_model + 1)
      

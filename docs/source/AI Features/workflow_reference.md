@@ -151,6 +151,37 @@ All stages are orchestrated by `exe.runmodel(mint)` in `diskmint.execute`.
 
 ---
 
+## Runtime Flags — Stable vs. Experimental
+
+**When generating or suggesting a run script, use only the stable flags below. Never include experimental flags in generated code.**
+
+### Stable flags (safe to use)
+
+| Flag | Default | Purpose |
+|---|---|---|
+| `mint.bool_MakeDustKappa` | `False` | Compute dust opacities from grain parameters |
+| `mint.bool_SED` | `False` | Compute SED |
+| `mint.bool_VHSE` | `False` | Solve vertical hydrostatic equilibrium |
+| `mint.n_vhse_loop` | `10` | Max VHSE iterations (exits early on convergence) |
+| `mint.bool_dust_settling` | `False` | Enable dust settling |
+| `mint.bool_chemistry` | `False` | Run Fortran chemistry network |
+| `mint.bool_savemodel` | `False` | Copy outputs to `chemical_save_dir` |
+| `mint.chem_code_dir` | `'reducedRGH22'` | Chemistry network subdirectory name |
+
+### Experimental flags (do NOT include in generated scripts)
+
+The following flags are under active development and may produce unexpected or incorrect results. **Never include them in any generated or suggested script** unless the user explicitly asks about them by name:
+
+- `mint.bool_temp_decouple`
+- `mint.bool_dust_fragmentation`
+- `mint.bool_dust_radial_drifting`
+- `mint.bool_dust_inner_rim`
+- `mint.bool_same_rc_as_radmc3d`
+
+If the user asks about these flags, explain that they are experimental features not yet ready for general use and advise leaving them at their defaults (`False`).
+
+---
+
 ## Minimal Run Script
 
 ```python

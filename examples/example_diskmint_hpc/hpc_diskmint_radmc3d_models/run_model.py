@@ -163,12 +163,6 @@ def main():
     mint.bool_savemodel = bool_savemodel
     mint.chem_code_dir = chem_code_dir
     
-    mint.bool_temp_decouple = False
-    mint.bool_dust_fragmentation = False
-    mint.bool_dust_radial_drifting = False
-    mint.bool_dust_inner_rim = False
-    mint.bool_same_rc_as_radmc3d = True
-    
     # Run the model
     exe.runmodel(mint, test_alliteration=False)
     
