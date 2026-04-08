@@ -77,6 +77,52 @@ abundance_c18o = 10**log_c18o
 | `COinitgrid-{name}.dat` | Same 4-column format; initial (pre-network) CO abundance |
 | `COinitgrid-GSinit_{name}.dat` | Same, using Gaussian vertical prior before VHSE |
 
+### Chemical Output Analysis Workflow
+
+The `.chem` raw columns are typically accessed through helper functions in `examples/example_utils/diskmint_utils.py`. This file lives in the DiskMINT git repository, not in the pip-installed package. Add its directory to `sys.path` before importing:
+
+```python
+import sys
+sys.path.append("/your/path/to/DiskMINT/examples/example_utils")  # replace with your DISKMINT_REPO path
+import diskmint_utils as utils
+
+# Step 1 — load init + end grids together
+df = utils.read_model(
+    chem_save_name    = "mymodel_name",
+    data_dir_init     = "output/mymodel_name/",
+    data_dir_chemical = "output/mymodel_name/",
+    have_CO2          = 'reducedRGH22'
+)
+
+# Step 2 — extract 2D arrays on the chemistry cylindrical grid
+(rr_2D, zrr_2D), (rr_grid, zrr_grid), (tauv_star_2D, tauv_zup_2D), \
+nH_2D, Tgas_2D, nH2_2D, nC18O_2D = utils.name_modelpara(df, nr_LIME=215, nz_LIME=200)
+# rr_grid, zrr_grid  : 2D radius [au] and z/r
+# nH_2D              : H nuclei number density [cm⁻³]  (from COinitgrid)
+# Tgas_2D            : gas temperature [K]
+# tauv_star_2D       : UV optical depth from the star
+# nC18O_2D           : log₁₀(n_C18O / n_H)  (from COendgrid)
+
+# Step 3 — compute C¹⁸O line luminosities and emitting layer
+whole_data = utils.compute_emittinglayer(df, dv_set=0.0, nr=215, nz=200)
+# prints C¹⁸O J=2-1 and J=3-2 luminosities in L☉
+
+r_au_2D, z_au_2D, dlum21_2D, dlum32_2D, tauup_CO_2D = \
+    utils.read_emittinglayer(wholedata=whole_data, nr=215, nz=200)
+# dlum21_2D    : differential C¹⁸O J=2-1 luminosity per cell [L☉/cell]
+# dlum32_2D    : differential C¹⁸O J=3-2 luminosity per cell [L☉/cell]
+# tauup_CO_2D  : C¹⁸O vertical optical depth from above
+
+# Step 4 — 4-panel diagnostic plot (nH, Tgas, τ_UV, nC18O + emitting layer)
+import matplotlib.pyplot as plt
+fig, axes = plt.subplots(1, 4, figsize=(16, 3))
+utils.plot_density_emitting_layer(
+    fig, axes,
+    rr_grid, zrr_grid,
+    nH_2D, Tgas_2D, tauv_star_2D, nC18O_2D, dlum21_2D
+)
+```
+
 ---
 
 ## RADMC-3D Density Files
@@ -93,7 +139,7 @@ d = modelgrid.readData(dtemp=False, ddens=True, gtemp=False)
 # d.rhogas   not available directly; compute as sum(rhodust) × ratio_g2d
 ```
 
-Or via radmc3dPy (if installed):
+Or via radmc3dPy (see install notes — required for SED):
 
 ```python
 import radmc3dPy.analyze as ra
@@ -117,6 +163,81 @@ d = modelgrid.readData(dtemp=True, ddens=False, gtemp=False)
 ```python
 d = modelgrid.readData(dtemp=False, ddens=False, gtemp=True)
 # d.gastemp  shape: (nr, ntheta, nphi, 1)
+```
+
+---
+
+## Gas Density Reconstruction
+
+Gas density is not stored directly — reconstruct it from dust density and the spatially-varying gas-to-dust ratio:
+
+```python
+import numpy as np
+import diskmint.constants as const
+import diskmint.modelgrid as modelgrid
+
+d = modelgrid.readData(dtemp=True, ddens=True, gtemp=True)
+rhodust     = d.rhodust                        # shape: (nr, ntheta, nphi, n_dust)
+rhodust_all = rhodust.sum(axis=3)              # sum over dust species
+
+ratio_g2d_grid = np.loadtxt("ratio_g2d_grid.dat").reshape(rhodust_all.shape)
+ratio_g2d_grid[ratio_g2d_grid == np.inf] = np.nan
+
+rhogas = rhodust_all * ratio_g2d_grid
+rhogas[rhogas <= const.mu] = const.mu          # floor at mean molecular weight
+```
+
+---
+
+## Coordinate System
+
+RADMC-3D uses spherical coordinates (r, θ, φ). θ is co-latitude, measured from the z-axis (θ = 0 at the pole, θ = π/2 at the midplane). The opening angle z/r is:
+
+```python
+rc     = d.grid.x   # radii [cm]
+thetac = d.grid.y   # co-latitude
+
+rc_2D, theta_2D, _ = np.meshgrid(rc, thetac, d.grid.z, indexing='ij')
+zr_2D = np.pi/2 - theta_2D   # opening angle z/r above midplane (dimensionless)
+```
+
+For 2D structure plots: x-axis = `rc / au` (radius in au), y-axis = `zr_2D` (z/r).
+
+---
+
+## Surface Density
+
+Integrate the gas density vertically to get surface density Σ(r):
+
+```python
+au = 1.496e13  # cm per au
+trapz = np.trapezoid if hasattr(np, "trapezoid") else np.trapz
+
+zz_2D = np.sin(zr_2D) * rc_2D             # z [cm]
+# Integrate along θ axis (index 1); factor of 4π accounts for both hemispheres and azimuth
+sigma_gas = 4.0 * np.pi * trapz(rhogas[:, :, 0], x=-zz_2D[:, :, 0], axis=1)
+# sigma_gas  shape: (nr,)  units: g/cm²
+```
+
+---
+
+## SED Output
+
+**`spectrum.out`** — produced when `bool_SED = True`. Load with radmc3dPy (see install notes — required for SED):
+
+```python
+import radmc3dPy.analyze as ra
+import numpy as np
+
+s   = ra.readSpectrum("spectrum.out")
+lam = s[:, 0]   # wavelength [μm]
+fnu = s[:, 1]   # flux density [Jy] at 1 pc
+
+distance_pc = 150.0
+fnu_scaled = fnu / distance_pc**2           # scale to source distance [Jy]
+
+nu   = 3e14 / lam                           # frequency [Hz]  (c in μm/s)
+nufnu = nu * fnu_scaled                     # νFν [Jy·Hz = erg/s/cm²]
 ```
 
 ---

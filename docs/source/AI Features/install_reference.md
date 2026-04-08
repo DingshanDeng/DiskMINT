@@ -155,6 +155,24 @@ radmc3d info
 
 **Full documentation:** https://www.ita.uni-heidelberg.de/~dullemond/software/radmc-3d/manual_radmc3d/index.html
 
+### 3b. radmc3dPy (Python interface — required for SED analysis)
+
+**What it is:** Python package for reading RADMC-3D output files. Required for loading `spectrum.out` (SED). The package is included in the RADMC-3D repository — no separate download needed.
+
+**Install into the active conda environment** (run after cloning RADMC-3D above):
+```bash
+pip install -e /your/path/to/radmc3d-2.0/python/radmc3dPy
+```
+
+Replace `/your/path/to/` with the actual path where you cloned `radmc3d-2.0`.
+
+**Note:** radmc3dPy may print a warning about a missing Fortran Mie-scattering module on import — this is harmless; the pure-Python fallback is used automatically.
+
+**Verify:**
+```bash
+python -c "import radmc3dPy; print('radmc3dPy OK')"
+```
+
 ---
 
 ## 4. optool
@@ -217,6 +235,7 @@ python -c "import diskmint.model; print('DiskMINT OK')"
 echo "DISKMINT_BIN_DIR = $DISKMINT_BIN_DIR"
 ls $DISKMINT_BIN_DIR/disk_main
 radmc3d info
+python -c "import radmc3dPy; print('radmc3dPy OK')"
 which optool && optool --version
 gfortran --version | head -1
 ```
