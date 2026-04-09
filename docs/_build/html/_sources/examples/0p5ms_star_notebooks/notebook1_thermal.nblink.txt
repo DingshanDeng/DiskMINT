@@ -1,0 +1,3 @@
+{
+    "path": "../../../../examples/example_diskmint_models/example_diskmint_model_0p5ms_star/1-check_density_distribution_thermal.ipynb"
+}

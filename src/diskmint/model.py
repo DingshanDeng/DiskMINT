@@ -1213,19 +1213,26 @@ class Mint:
         # whether to clean up the noise of dust temperature at midplane
         #
         self.bool_clean_dusttemp_midplane = True
-        
+        #
+        # whether to have the same rc grid for LIME and chemistry
+        # This feature is now functional
+        # it is important when we want to match with the radial profile
+        # so set default to False but it needs to be turned on if matching the 
+        # radial profiles
+        #
+        self.bool_same_rc_as_radmc3d = False
         #
         # whether to relocate the dust (apply dust dynamics)
-        # (Developing)
         # we have two options: fragmentation and drifting
+        #
         self.bool_dust_fragmentation = False
         self.bool_dust_radial_drifting = False
+        
+        #
+        # (Developing)
         #
         # whether to add a disk inner rim
         self.bool_dust_inner_rim = False
-        #
-        # whether to have the same rc grid for LIME and chemistry
-        self.bool_same_rc_as_radmc3d = False
         
         """END (DEV)"""
         

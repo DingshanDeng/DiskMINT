@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>diskmint.model &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'apidocs/diskmint/diskmint.model';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="diskmint.dustopac" href="diskmint.dustopac.html" />
+    <link rel="prev" title="diskmint.constants" href="diskmint.constants.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="diskmint.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="diskmint.execute.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.execute</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.constants.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.constants</span></code></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.dustopac.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.dustopac</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.disk_density.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.modelgrid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.modelgrid</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../api.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="diskmint.html" class="nav-link"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint</span></code></a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.model</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="module-diskmint.model">
+<span id="diskmint-model"></span><h1><a class="reference internal" href="#module-diskmint.model" title="diskmint.model"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.model</span></code></a><a class="headerlink" href="#module-diskmint.model" title="Link to this heading">#</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table table-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.model.Parameters" title="diskmint.model.Parameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Parameters</span></code></a></p></td>
+<td><p>diskmint.parameters is the object for DiskMINT model
+to keep all the parameters that are needed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.model.Mint" title="diskmint.model.Mint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mint</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="diskmint.model.Parameters">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diskmint.model.</span></span><span class="sig-name descname"><span class="pre">Parameters</span></span><a class="headerlink" href="#diskmint.model.Parameters" title="Link to this definition">#</a></dt>
+<dd><p>diskmint.parameters is the object for DiskMINT model
+to keep all the parameters that are needed.</p>
+<p>Here we have two modes to set up the parameters</p>
+<ol class="arabic simple">
+<li><p>directly set up the parameters in Python code as changing the attributes</p></li>
+<li><p>read in a csv file to set up the parameters.</p></li>
+</ol>
+<p class="rubric">Initialization</p>
+<p>Initialize an instance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.set_parameter">
+<span class="sig-name descname"><span class="pre">set_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valuetype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float64'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Parameters.set_parameter" title="Link to this definition">#</a></dt>
+<dd><p>Set the value of a parameter.</p>
+<p>Args:
+name (str): The name of the parameter.
+value (float): The value of the parameter.
+units (str): The units of the parameter.
+valuetype (str): The value type of the parameter, unless specified as
+It can be set as ‘str’, ‘list’, ‘int’, ‘float’
+default (and any other specified name) to be ‘float64’.
+Currently ‘int’ is also stroed as ‘float64’.
+description (str): The description of the parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.edit_parameter">
+<span class="sig-name descname"><span class="pre">edit_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_valuetype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Parameters.edit_parameter" title="Link to this definition">#</a></dt>
+<dd><p>Edit the value, units, or description of a parameter.</p>
+<p>Args:
+name (str): The name of the parameter to edit.
+new_value (float, optional): The new value for the parameter.
+new_units (str, optional): The new units for the parameter.
+new_description (str, optional): The new description for the parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.get_parameter_info">
+<span class="sig-name descname"><span class="pre">get_parameter_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Parameters.get_parameter_info" title="Link to this definition">#</a></dt>
+<dd><p>Get the information of a parameter.</p>
+<p>Args:
+name (str): The name of the parameter.</p>
+<p>Returns:
+dict: A dictionary containing the value, units, and description of the parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.get_parameter_value">
+<span class="sig-name descname"><span class="pre">get_parameter_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Parameters.get_parameter_value" title="Link to this definition">#</a></dt>
+<dd><p>Get the value of a parameter.</p>
+<p>Args:
+name (str): The name of the parameter.</p>
+<p>Returns:
+float: the value of the parameter</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.read_parameters_from_csv">
+<span class="sig-name descname"><span class="pre">read_parameters_from_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Parameters.read_parameters_from_csv" title="Link to this definition">#</a></dt>
+<dd><p>return self.parameters[name][‘value’]
+Read parameter information from a CSV file.</p>
+<p>Args:
+directory (str): The directory where to save this CSV file.
+filename (str): The name of the CSV file.
+extension (str): The file extension, recommand using ‘.csv’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.write_parameters_to_csv">
+<span class="sig-name descname"><span class="pre">write_parameters_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Parameters.write_parameters_to_csv" title="Link to this definition">#</a></dt>
+<dd><p>Write parameter information to a CSV file.</p>
+<p>Args:
+filename (str): The name of the CSV file.
+directory (str): The directory where to save this CSV file.
+extension (str): The file extension, recommand using ‘.csv’.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nphot">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nphot</span></span><a class="headerlink" href="#diskmint.model.Parameters.nphot" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nthreads">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nthreads</span></span><a class="headerlink" href="#diskmint.model.Parameters.nthreads" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.scattering_mode">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scattering_mode</span></span><a class="headerlink" href="#diskmint.model.Parameters.scattering_mode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nr">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nr</span></span><a class="headerlink" href="#diskmint.model.Parameters.nr" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.ntheta">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ntheta</span></span><a class="headerlink" href="#diskmint.model.Parameters.ntheta" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nphi">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nphi</span></span><a class="headerlink" href="#diskmint.model.Parameters.nphi" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.rin">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rin</span></span><a class="headerlink" href="#diskmint.model.Parameters.rin" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.rout">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rout</span></span><a class="headerlink" href="#diskmint.model.Parameters.rout" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.thetaup">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thetaup</span></span><a class="headerlink" href="#diskmint.model.Parameters.thetaup" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.r_step_max">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">r_step_max</span></span><a class="headerlink" href="#diskmint.model.Parameters.r_step_max" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.fmodel_filename">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fmodel_filename</span></span><a class="headerlink" href="#diskmint.model.Parameters.fmodel_filename" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.tstar">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tstar</span></span><a class="headerlink" href="#diskmint.model.Parameters.tstar" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.mstar">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mstar</span></span><a class="headerlink" href="#diskmint.model.Parameters.mstar" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.rstar">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rstar</span></span><a class="headerlink" href="#diskmint.model.Parameters.rstar" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.incl">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">incl</span></span><a class="headerlink" href="#diskmint.model.Parameters.incl" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.phi">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">phi</span></span><a class="headerlink" href="#diskmint.model.Parameters.phi" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.mdotacc">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mdotacc</span></span><a class="headerlink" href="#diskmint.model.Parameters.mdotacc" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.mdiskd">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mdiskd</span></span><a class="headerlink" href="#diskmint.model.Parameters.mdiskd" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.mdiskd_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mdiskd_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.mdiskd_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.ratio_g2d_global">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ratio_g2d_global</span></span><a class="headerlink" href="#diskmint.model.Parameters.ratio_g2d_global" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.ratio_g2d">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ratio_g2d</span></span><a class="headerlink" href="#diskmint.model.Parameters.ratio_g2d" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.sigmad_ref">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sigmad_ref</span></span><a class="headerlink" href="#diskmint.model.Parameters.sigmad_ref" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.pl_sufdens">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pl_sufdens</span></span><a class="headerlink" href="#diskmint.model.Parameters.pl_sufdens" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.pl_sufdens_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pl_sufdens_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.pl_sufdens_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.pl_tapoff">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pl_tapoff</span></span><a class="headerlink" href="#diskmint.model.Parameters.pl_tapoff" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.rdisk_in">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rdisk_in</span></span><a class="headerlink" href="#diskmint.model.Parameters.rdisk_in" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.Rtap">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Rtap</span></span><a class="headerlink" href="#diskmint.model.Parameters.Rtap" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.rdisk_out_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rdisk_out_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.rdisk_out_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.scaleheight_index">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scaleheight_index</span></span><a class="headerlink" href="#diskmint.model.Parameters.scaleheight_index" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.scaleheight_index_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scaleheight_index_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.scaleheight_index_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.hp100">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hp100</span></span><a class="headerlink" href="#diskmint.model.Parameters.hp100" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.hp100_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hp100_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.hp100_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.hprcr">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hprcr</span></span><a class="headerlink" href="#diskmint.model.Parameters.hprcr" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.plh">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plh</span></span><a class="headerlink" href="#diskmint.model.Parameters.plh" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.plh_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plh_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.plh_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.dustopacname_1">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dustopacname_1</span></span><a class="headerlink" href="#diskmint.model.Parameters.dustopacname_1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.dustopacname_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dustopacname_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.dustopacname_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nr_dust_1">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nr_dust_1</span></span><a class="headerlink" href="#diskmint.model.Parameters.nr_dust_1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nr_dust_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nr_dust_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.nr_dust_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.dust_spec_nr">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dust_spec_nr</span></span><a class="headerlink" href="#diskmint.model.Parameters.dust_spec_nr" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.amin_1">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amin_1</span></span><a class="headerlink" href="#diskmint.model.Parameters.amin_1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.amin_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amin_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.amin_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.amax_1">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amax_1</span></span><a class="headerlink" href="#diskmint.model.Parameters.amax_1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.amax_2">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amax_2</span></span><a class="headerlink" href="#diskmint.model.Parameters.amax_2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.amin_all">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amin_all</span></span><a class="headerlink" href="#diskmint.model.Parameters.amin_all" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.amax_all">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">amax_all</span></span><a class="headerlink" href="#diskmint.model.Parameters.amax_all" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.pla_dustsize">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pla_dustsize</span></span><a class="headerlink" href="#diskmint.model.Parameters.pla_dustsize" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.rhobulk">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rhobulk</span></span><a class="headerlink" href="#diskmint.model.Parameters.rhobulk" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.visc_alpha">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">visc_alpha</span></span><a class="headerlink" href="#diskmint.model.Parameters.visc_alpha" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.vel_frag">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vel_frag</span></span><a class="headerlink" href="#diskmint.model.Parameters.vel_frag" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.radius_drift">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">radius_drift</span></span><a class="headerlink" href="#diskmint.model.Parameters.radius_drift" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.a_drift">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">a_drift</span></span><a class="headerlink" href="#diskmint.model.Parameters.a_drift" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.r_wall_surf">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">r_wall_surf</span></span><a class="headerlink" href="#diskmint.model.Parameters.r_wall_surf" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.factor_wall_height">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">factor_wall_height</span></span><a class="headerlink" href="#diskmint.model.Parameters.factor_wall_height" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.chemical_save_dir">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">chemical_save_dir</span></span><a class="headerlink" href="#diskmint.model.Parameters.chemical_save_dir" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.chemical_save_name">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">chemical_save_name</span></span><a class="headerlink" href="#diskmint.model.Parameters.chemical_save_name" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nr_cyl_LIME">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nr_cyl_LIME</span></span><a class="headerlink" href="#diskmint.model.Parameters.nr_cyl_LIME" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.nz_cyl_LIME">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nz_cyl_LIME</span></span><a class="headerlink" href="#diskmint.model.Parameters.nz_cyl_LIME" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.R_temp_trans">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">R_temp_trans</span></span><a class="headerlink" href="#diskmint.model.Parameters.R_temp_trans" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.fact_Tgas_2_Tdust">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fact_Tgas_2_Tdust</span></span><a class="headerlink" href="#diskmint.model.Parameters.fact_Tgas_2_Tdust" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.G0Hab_set">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">G0Hab_set</span></span><a class="headerlink" href="#diskmint.model.Parameters.G0Hab_set" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Parameters.set_default_parameters">
+<span class="sig-name descname"><span class="pre">set_default_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Parameters.set_default_parameters" title="Link to this definition">#</a></dt>
+<dd><p>##########################################</p>
+<p class="rubric" id="set-up-the-default-required-parameters">set up the default required parameters</p>
+<p>##########################################</p>
+<p>This function sets default values for a wide range of parameters used in the DiskMINT model. These parameters cover various aspects of the model, including DiskMINT model settings, RADMC3D setup, stellar parameters, disk parameters, dust kappa setup, and chemistry setup. The settings include numerical values, file paths, booleans, and array data. This function essentially acts as a comprehensive initializer for a DiskMINT model.</p>
+<p>The initial parameters we set up is for modeling RU Lup with a constant gas-to-dust mass ratio of 100 everywhere in the disk.
+We note that this is not the best-fit model on RU Lup but just set up here as an example.</p>
+<p>Remember that any parameter value set by set_default_parameters can be overridden by reading a parameter value from an external source, such as a CSV file, by the function of read_parameters_from_csv. Or it can be directly changed by changing the model class attributes before running the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="diskmint.model.Mint">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diskmint.model.</span></span><span class="sig-name descname"><span class="pre">Mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.getcwd()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint" title="Link to this definition">#</a></dt>
+<dd><p class="rubric">Initialization</p>
+<p class="rubric" id="diskmint-model-settings">DiskMINT Model Settings</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diskmint.model.Mint.bool_savemodel">
+<span class="sig-name descname"><span class="pre">bool_savemodel</span></span><a class="headerlink" href="#diskmint.model.Mint.bool_savemodel" title="Link to this definition">#</a></dt>
+<dd><p>True</p>
+<p><strong>NOTE</strong>
+below are the bools that are still under development</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diskmint.model.Mint.bool_dust_inner_rim">
+<span class="sig-name descname"><span class="pre">bool_dust_inner_rim</span></span><a class="headerlink" href="#diskmint.model.Mint.bool_dust_inner_rim" title="Link to this definition">#</a></dt>
+<dd><p>False</p>
+<p>END (DEV)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.setup_radmc3d_grid">
+<span class="sig-name descname"><span class="pre">setup_radmc3d_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">para</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.setup_radmc3d_grid" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.calculate_volume">
+<span class="sig-name descname"><span class="pre">calculate_volume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.calculate_volume" title="Link to this definition">#</a></dt>
+<dd><p class="rubric" id="calculate-the-volume">Calculate the volume</p>
+<p class="rubric" id="calculate-the-volume-for-each-cell-in-spherical-coordinate">calculate the volume for each cell in spherical coordinate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.setup_dust_density_initial_gaussian">
+<span class="sig-name descname"><span class="pre">setup_dust_density_initial_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">para</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_initial_setup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.setup_dust_density_initial_gaussian" title="Link to this definition">#</a></dt>
+<dd><p>set up the initial gaussian vertical distribution</p>
+<p>Args:
+bool_initial_setup (bool): if true, put the sigmad_setup to the class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.setup_secondary_dust_density_initial_gaussian">
+<span class="sig-name descname"><span class="pre">setup_secondary_dust_density_initial_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">para</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_initial_setup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.setup_secondary_dust_density_initial_gaussian" title="Link to this definition">#</a></dt>
+<dd><p><strong>Devloping</strong>
+set up the initial gaussian vertical distribution
+for Secondary dust disk Zone
+this is ideal for modeling transition disks and build Two-Zone model</p>
+<p>the secondary dust disk is normally the disk with smaller disk mass, thus the inner disk of a transit disk.</p>
+<p>Args:
+bool_initial_setup (bool): if true, put the sigmad_setup to the class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.setup_g2d_grid">
+<span class="sig-name descname"><span class="pre">setup_g2d_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">para</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_initial_setup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.setup_g2d_grid" title="Link to this definition">#</a></dt>
+<dd><p class="rubric" id="set-up-a-grid-of-g2d-in-the-shape-of-the-model-grid">set up a grid of g2d in the shape of the model grid</p>
+<p>Args:
+bool_initial_setup (bool): if true, put the ratio_g2d_setup to the class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.setup_gas_density">
+<span class="sig-name descname"><span class="pre">setup_gas_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">para</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_initial_setup</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.setup_gas_density" title="Link to this definition">#</a></dt>
+<dd><p class="rubric" id="set-up-the-gas-density-accordingly-to-the-dust-disk">set up the gas density accordingly to the dust disk</p>
+<p>Args:
+bool_initial_setup (bool): if true, put the rhogas_setup (not used now) and the mdiskg_setup to the code</p>
+<p>Returns:
+add rhogas
+and mdiskg_setup to the mint class</p>
+<p>Description:
+TBA</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.setup_wavelengths">
+<span class="sig-name descname"><span class="pre">setup_wavelengths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">para</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.setup_wavelengths" title="Link to this definition">#</a></dt>
+<dd><p>set up the wavelengths range for computation in RADMC3D SED</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.setup_dust_info">
+<span class="sig-name descname"><span class="pre">setup_dust_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">para</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_savefile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.setup_dust_info" title="Link to this definition">#</a></dt>
+<dd><p class="rubric" id="calculate-the-neccessary-dust-information-here">calculate the neccessary dust information here</p>
+<p class="rubric" id="it-can-also-be-setup-by-directly-reading-dust-parameters-file">it can also be setup by directly reading dust parameters file</p>
+<p class="rubric" id="the-info-that-is-needed-including">the info that is needed including</p>
+<p class="rubric" id="fracs-mass-fractions-of-dust-species">fracs: mass fractions of dust species</p>
+<p class="rubric" id="a-ave-average-dust-radius-of-dust-dpecies">a_ave: average dust radius of dust dpecies</p>
+<p class="rubric" id="fracs-nb-the-number-fractions-of-dust-species">fracs_nb: the number fractions of dust species</p>
+<p class="rubric" id="ndsd-nd-a-pi-a-2">ndsd: nd(a) * pi * a**2</p>
+<p class="rubric" id="all-these-parameters-should-be-setup-when-generating-the-dust">all these parameters should be setup when generating the dust</p>
+<p class="rubric" id="opacity-files-to-prevent-any-mistakes-which-we-recommand-to-do">opacity files to prevent any mistakes, which we recommand to do</p>
+<p class="rubric" id="but-we-also-keep-the-option-of-calculating-them-here">but we also keep the option of calculating them here</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diskmint.model.Mint.readin_dust_info">
+<span class="sig-name descname"><span class="pre">readin_dust_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_aave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'aave.inp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_fracs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fracs.inp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_fracs_numb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fracs_numb.inp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_ndsd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ndsd.inp'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.model.Mint.readin_dust_info" title="Link to this definition">#</a></dt>
+<dd><p class="rubric" id="readin-the-neccessary-dust-information-here">readin the neccessary dust information here</p>
+<p class="rubric" id="id1">it can also be setup by directly reading dust parameters file</p>
+<p class="rubric" id="id2">the info that is needed including</p>
+<p class="rubric" id="id3">fracs: mass fractions of dust species</p>
+<p class="rubric" id="id4">a_ave: average dust radius of dust dpecies</p>
+<p class="rubric" id="id5">fracs_nb: the number fractions of dust species</p>
+<p class="rubric" id="id6">ndsd: nd(a) * pi * a**2</p>
+<p class="rubric" id="id7">all these parameters should be setup when generating the dust</p>
+<p class="rubric" id="id8">opacity files to prevent any mistakes, which we recommand to do</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="diskmint.constants.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.constants</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="diskmint.dustopac.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.dustopac</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters"><code class="docutils literal notranslate"><span class="pre">Parameters</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.set_parameter"><code class="docutils literal notranslate"><span class="pre">Parameters.set_parameter()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.edit_parameter"><code class="docutils literal notranslate"><span class="pre">Parameters.edit_parameter()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.get_parameter_info"><code class="docutils literal notranslate"><span class="pre">Parameters.get_parameter_info()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.get_parameter_value"><code class="docutils literal notranslate"><span class="pre">Parameters.get_parameter_value()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.read_parameters_from_csv"><code class="docutils literal notranslate"><span class="pre">Parameters.read_parameters_from_csv()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.write_parameters_to_csv"><code class="docutils literal notranslate"><span class="pre">Parameters.write_parameters_to_csv()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nphot"><code class="docutils literal notranslate"><span class="pre">Parameters.nphot</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nthreads"><code class="docutils literal notranslate"><span class="pre">Parameters.nthreads</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.scattering_mode"><code class="docutils literal notranslate"><span class="pre">Parameters.scattering_mode</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nr"><code class="docutils literal notranslate"><span class="pre">Parameters.nr</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.ntheta"><code class="docutils literal notranslate"><span class="pre">Parameters.ntheta</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nphi"><code class="docutils literal notranslate"><span class="pre">Parameters.nphi</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.rin"><code class="docutils literal notranslate"><span class="pre">Parameters.rin</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.rout"><code class="docutils literal notranslate"><span class="pre">Parameters.rout</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.thetaup"><code class="docutils literal notranslate"><span class="pre">Parameters.thetaup</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.r_step_max"><code class="docutils literal notranslate"><span class="pre">Parameters.r_step_max</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.fmodel_filename"><code class="docutils literal notranslate"><span class="pre">Parameters.fmodel_filename</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.tstar"><code class="docutils literal notranslate"><span class="pre">Parameters.tstar</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.mstar"><code class="docutils literal notranslate"><span class="pre">Parameters.mstar</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.rstar"><code class="docutils literal notranslate"><span class="pre">Parameters.rstar</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.incl"><code class="docutils literal notranslate"><span class="pre">Parameters.incl</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.phi"><code class="docutils literal notranslate"><span class="pre">Parameters.phi</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.mdotacc"><code class="docutils literal notranslate"><span class="pre">Parameters.mdotacc</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.mdiskd"><code class="docutils literal notranslate"><span class="pre">Parameters.mdiskd</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.mdiskd_2"><code class="docutils literal notranslate"><span class="pre">Parameters.mdiskd_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.ratio_g2d_global"><code class="docutils literal notranslate"><span class="pre">Parameters.ratio_g2d_global</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.ratio_g2d"><code class="docutils literal notranslate"><span class="pre">Parameters.ratio_g2d</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.sigmad_ref"><code class="docutils literal notranslate"><span class="pre">Parameters.sigmad_ref</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.pl_sufdens"><code class="docutils literal notranslate"><span class="pre">Parameters.pl_sufdens</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.pl_sufdens_2"><code class="docutils literal notranslate"><span class="pre">Parameters.pl_sufdens_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.pl_tapoff"><code class="docutils literal notranslate"><span class="pre">Parameters.pl_tapoff</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.rdisk_in"><code class="docutils literal notranslate"><span class="pre">Parameters.rdisk_in</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.Rtap"><code class="docutils literal notranslate"><span class="pre">Parameters.Rtap</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.rdisk_out_2"><code class="docutils literal notranslate"><span class="pre">Parameters.rdisk_out_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.scaleheight_index"><code class="docutils literal notranslate"><span class="pre">Parameters.scaleheight_index</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.scaleheight_index_2"><code class="docutils literal notranslate"><span class="pre">Parameters.scaleheight_index_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.hp100"><code class="docutils literal notranslate"><span class="pre">Parameters.hp100</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.hp100_2"><code class="docutils literal notranslate"><span class="pre">Parameters.hp100_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.hprcr"><code class="docutils literal notranslate"><span class="pre">Parameters.hprcr</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.plh"><code class="docutils literal notranslate"><span class="pre">Parameters.plh</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.plh_2"><code class="docutils literal notranslate"><span class="pre">Parameters.plh_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.dustopacname_1"><code class="docutils literal notranslate"><span class="pre">Parameters.dustopacname_1</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.dustopacname_2"><code class="docutils literal notranslate"><span class="pre">Parameters.dustopacname_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nr_dust_1"><code class="docutils literal notranslate"><span class="pre">Parameters.nr_dust_1</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nr_dust_2"><code class="docutils literal notranslate"><span class="pre">Parameters.nr_dust_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.dust_spec_nr"><code class="docutils literal notranslate"><span class="pre">Parameters.dust_spec_nr</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.amin_1"><code class="docutils literal notranslate"><span class="pre">Parameters.amin_1</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.amin_2"><code class="docutils literal notranslate"><span class="pre">Parameters.amin_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.amax_1"><code class="docutils literal notranslate"><span class="pre">Parameters.amax_1</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.amax_2"><code class="docutils literal notranslate"><span class="pre">Parameters.amax_2</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.amin_all"><code class="docutils literal notranslate"><span class="pre">Parameters.amin_all</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.amax_all"><code class="docutils literal notranslate"><span class="pre">Parameters.amax_all</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.pla_dustsize"><code class="docutils literal notranslate"><span class="pre">Parameters.pla_dustsize</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.rhobulk"><code class="docutils literal notranslate"><span class="pre">Parameters.rhobulk</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.visc_alpha"><code class="docutils literal notranslate"><span class="pre">Parameters.visc_alpha</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.vel_frag"><code class="docutils literal notranslate"><span class="pre">Parameters.vel_frag</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.radius_drift"><code class="docutils literal notranslate"><span class="pre">Parameters.radius_drift</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.a_drift"><code class="docutils literal notranslate"><span class="pre">Parameters.a_drift</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.r_wall_surf"><code class="docutils literal notranslate"><span class="pre">Parameters.r_wall_surf</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.factor_wall_height"><code class="docutils literal notranslate"><span class="pre">Parameters.factor_wall_height</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.chemical_save_dir"><code class="docutils literal notranslate"><span class="pre">Parameters.chemical_save_dir</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.chemical_save_name"><code class="docutils literal notranslate"><span class="pre">Parameters.chemical_save_name</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nr_cyl_LIME"><code class="docutils literal notranslate"><span class="pre">Parameters.nr_cyl_LIME</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.nz_cyl_LIME"><code class="docutils literal notranslate"><span class="pre">Parameters.nz_cyl_LIME</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.R_temp_trans"><code class="docutils literal notranslate"><span class="pre">Parameters.R_temp_trans</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.fact_Tgas_2_Tdust"><code class="docutils literal notranslate"><span class="pre">Parameters.fact_Tgas_2_Tdust</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.G0Hab_set"><code class="docutils literal notranslate"><span class="pre">Parameters.G0Hab_set</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Parameters.set_default_parameters"><code class="docutils literal notranslate"><span class="pre">Parameters.set_default_parameters()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint"><code class="docutils literal notranslate"><span class="pre">Mint</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.bool_savemodel"><code class="docutils literal notranslate"><span class="pre">Mint.bool_savemodel</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.bool_dust_inner_rim"><code class="docutils literal notranslate"><span class="pre">Mint.bool_dust_inner_rim</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.setup_radmc3d_grid"><code class="docutils literal notranslate"><span class="pre">Mint.setup_radmc3d_grid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.calculate_volume"><code class="docutils literal notranslate"><span class="pre">Mint.calculate_volume()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.setup_dust_density_initial_gaussian"><code class="docutils literal notranslate"><span class="pre">Mint.setup_dust_density_initial_gaussian()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.setup_secondary_dust_density_initial_gaussian"><code class="docutils literal notranslate"><span class="pre">Mint.setup_secondary_dust_density_initial_gaussian()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.setup_g2d_grid"><code class="docutils literal notranslate"><span class="pre">Mint.setup_g2d_grid()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.setup_gas_density"><code class="docutils literal notranslate"><span class="pre">Mint.setup_gas_density()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.setup_wavelengths"><code class="docutils literal notranslate"><span class="pre">Mint.setup_wavelengths()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.setup_dust_info"><code class="docutils literal notranslate"><span class="pre">Mint.setup_dust_info()</span></code></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.model.Mint.readin_dust_info"><code class="docutils literal notranslate"><span class="pre">Mint.readin_dust_info()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/apidocs/diskmint/diskmint.model.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

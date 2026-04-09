@@ -249,13 +249,6 @@ for ratio_mdisk_to_star, \
     mint.chem_code_dir                = chem_code_dir
     print(mint.chem_code_dir)
     
-    # (new features under development) 
-    mint.bool_temp_decouple           = bool_temp_decouple = False
-    mint.bool_dust_fragmentation      = bool_dust_fragmentation = False
-    mint.bool_dust_radial_drifting    = bool_dust_radial_drifting = False
-    mint.bool_dust_inner_rim          = bool_dust_inner_rim = False
-    mint.bool_same_rc_as_radmc3d      = bool_same_rc_as_radmc3d = True
-
     """
     #
     # Run model

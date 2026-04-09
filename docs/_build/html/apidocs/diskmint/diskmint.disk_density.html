@@ -1,0 +1,1531 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>diskmint.disk_density &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'apidocs/diskmint/diskmint.disk_density';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="diskmint.modelgrid" href="diskmint.modelgrid.html" />
+    <link rel="prev" title="diskmint.dustopac" href="diskmint.dustopac.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="../../_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">API Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="diskmint.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint</span></code></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="diskmint.execute.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.execute</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.constants.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.constants</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.model.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.dustopac.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.dustopac</span></code></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="diskmint.modelgrid.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.modelgrid</span></code></a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../api.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="diskmint.html" class="nav-link"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint</span></code></a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="module-diskmint.disk_density">
+<span id="diskmint-disk-density"></span><h1><a class="reference internal" href="#module-diskmint.disk_density" title="diskmint.disk_density"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.disk_density</span></code></a><a class="headerlink" href="#module-diskmint.disk_density" title="Link to this heading">#</a></h1>
+<p>Here I will define the key functions to calculate the disk density
+in VHSE and also set up the initial inputs for chemical network</p>
+<p>This will be based on the disk density file in v3.1alpha
+as well as the initial setups that was called as
+wrapper_model_parameters.py</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table table-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.save_3dgrid_to_dat" title="diskmint.disk_density.save_3dgrid_to_dat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_3dgrid_to_dat</span></code></a></p></td>
+<td><p>Saves a 3D NumPy array to a .dat file, including the shape as the first line.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.load_3dgrid_from_dat" title="diskmint.disk_density.load_3dgrid_from_dat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_3dgrid_from_dat</span></code></a></p></td>
+<td><p>Loads a 3D NumPy array from a .dat file, assuming the first line contains the shape.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.grid_refine_inner_edge" title="diskmint.disk_density.grid_refine_inner_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_refine_inner_edge</span></code></a></p></td>
+<td><p>Refines the grid by adding points to the inner edges of a given grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.grid_radial_profile" title="diskmint.disk_density.grid_radial_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_radial_profile</span></code></a></p></td>
+<td><p>Generates a radial grid based on the desired surface density profile.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.grid_vertical_layer" title="diskmint.disk_density.grid_vertical_layer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_vertical_layer</span></code></a></p></td>
+<td><p>Set up the grid in a vertical layer to correctly trace the temperature
+for the molecular vertical emitting layers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.place_ratio_g2d" title="diskmint.disk_density.place_ratio_g2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">place_ratio_g2d</span></code></a></p></td>
+<td><p><strong>NOTE</strong> (Developing)
+Places the g2d ratio values based on the provided input.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.clean_rhodust_array" title="diskmint.disk_density.clean_rhodust_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clean_rhodust_array</span></code></a></p></td>
+<td><p>Cleans a 4D dust density array by replacing non-finite values with 0.0 and
+applying a minimum threshold for each dust species.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.place_rhodust_all" title="diskmint.disk_density.place_rhodust_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">place_rhodust_all</span></code></a></p></td>
+<td><p><strong>NOTE</strong> (Developing)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.place_surface_density" title="diskmint.disk_density.place_surface_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">place_surface_density</span></code></a></p></td>
+<td><p><strong>NOTE</strong> (Developing)
+Places the surface density values based on the provided input.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.problem_setup" title="diskmint.disk_density.problem_setup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">problem_setup</span></code></a></p></td>
+<td><p>Sets up the initial dust density distribution and the required files for running radmc3d.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.func_Tgas" title="diskmint.disk_density.func_Tgas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func_Tgas</span></code></a></p></td>
+<td><p>The function that would be used to calculate gas temperature from collisional thermal equilibrium
+based on the given gas temperature, dust temperature, and dust surface area distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.func_Tgas_visc" title="diskmint.disk_density.func_Tgas_visc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func_Tgas_visc</span></code></a></p></td>
+<td><p><strong>NOTE</strong> This function is currently not used. Put here for reference.
+The function that would be used to calculate gas temperature from collisional thermal equilibrium
+this is the function that considers the viscous heating term</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.func_ext" title="diskmint.disk_density.func_ext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">func_ext</span></code></a></p></td>
+<td><p>A simple linear function based on the given parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.extend_insphr" title="diskmint.disk_density.extend_insphr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extend_insphr</span></code></a></p></td>
+<td><p>Extends the inner and outer grids to avoid potential issues in spherical and cylindrical coordinate conversion.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.sph2cyl" title="diskmint.disk_density.sph2cyl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sph2cyl</span></code></a></p></td>
+<td><p>Performs the conversion from spherical coordinates to cylindrical coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.cyl2sph" title="diskmint.disk_density.cyl2sph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cyl2sph</span></code></a></p></td>
+<td><p>Performs the conversion from cylindrical coordinates back to spherical coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.extend_insphr_dust" title="diskmint.disk_density.extend_insphr_dust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extend_insphr_dust</span></code></a></p></td>
+<td><p>Extends the inner and outer grids to avoid potential issues in spherical and cylindrical coordinate conversion.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.sph2cyl_dust" title="diskmint.disk_density.sph2cyl_dust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sph2cyl_dust</span></code></a></p></td>
+<td><p>Performs the conversion from spherical coordinates to cylindrical coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.cyl2sph_dust" title="diskmint.disk_density.cyl2sph_dust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cyl2sph_dust</span></code></a></p></td>
+<td><p>Performs the conversion from cylindrical coordinates back to spherical coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.calc_tau_new" title="diskmint.disk_density.calc_tau_new"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_tau_new</span></code></a></p></td>
+<td><p><strong>NOTE</strong> currently the scattering coefficients are ignored, because they are neglegible compared to the absorption coeffcients in most cases.
+Calculates the optical depth in cylindrical coordinates. The function calculates the optical depth in three different directions: R direction (taux), upward z direction (tauz_up), and downward z direction (tauz_dn). The calculations are done in cylindrical coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.set_dusttemp_at_midplane" title="diskmint.disk_density.set_dusttemp_at_midplane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dusttemp_at_midplane</span></code></a></p></td>
+<td><p>Sets the dust temperature at the midplane based on the optical depth criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.get_new_dust_temperature" title="diskmint.disk_density.get_new_dust_temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_new_dust_temperature</span></code></a></p></td>
+<td><p>Calculates and updates the dust temperature by running RADMC-3D’s Monte Carlo thermal simulation and optionally cleans up noise in the midplane.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.smooth_gas_temp" title="diskmint.disk_density.smooth_gas_temp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smooth_gas_temp</span></code></a></p></td>
+<td><p>Smooths the gas temperature distribution to obtain a noise-free result.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.solve_gastemp" title="diskmint.disk_density.solve_gastemp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solve_gastemp</span></code></a></p></td>
+<td><p>calculate the gas temperature based on the dust-gas thermal equilibrium together with the viscous heating</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.get_new_dust_density" title="diskmint.disk_density.get_new_dust_density"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_new_dust_density</span></code></a></p></td>
+<td><p>Calculates the new density distribution by solving the VHSE (Vertical Hydrostatic Equilibrium).
+This is just a single interation of solving VHSE, the stable/final VHSE solution requires multiple iterations.
+This function requires the radmc3dPy module.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.fill_nan_in_2d_array_inlog" title="diskmint.disk_density.fill_nan_in_2d_array_inlog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_nan_in_2d_array_inlog</span></code></a></p></td>
+<td><p>developing</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.set_dust_settling_cyl" title="diskmint.disk_density.set_dust_settling_cyl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dust_settling_cyl</span></code></a></p></td>
+<td><p><strong>NOTE</strong> (Developing)
+Solve the dust settling in the cylindrical coordinate
+This will be a subroutine in the get new dust density since it
+needs to be done in the cylindrical coordinate</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.set_dust_settling_cyl_vert_isothermal" title="diskmint.disk_density.set_dust_settling_cyl_vert_isothermal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dust_settling_cyl_vert_isothermal</span></code></a></p></td>
+<td><p><strong>NOTE</strong> (Developing)
+Solve the dust settling in the cylindrical coordinate
+This will be a subroutine in the get new dust density since it
+needs to be done in the cylindrical coordinate</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.read_in_rhodust" title="diskmint.disk_density.read_in_rhodust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_in_rhodust</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.set_dust_settling" title="diskmint.disk_density.set_dust_settling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_dust_settling</span></code></a></p></td>
+<td><p><strong>NOTE</strong> (Developing)
+Aims to have a function that could settle the dust
+from reading the radmc3dPy datafile and then output
+as a stand-alone package</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.add_dust_rim" title="diskmint.disk_density.add_dust_rim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_dust_rim</span></code></a></p></td>
+<td><p><strong>NOTE</strong> (Developing)
+Aims to have a function that could add the dust rim
+from reading the radmc3dPy datafile and then output
+as a stand-alone package</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.chemistry_setup" title="diskmint.disk_density.chemistry_setup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chemistry_setup</span></code></a></p></td>
+<td><p>setting up the initial grids and density for chemical network
+for now, we assume dust-gas are well coupled, so that
+the gas is simply get from dust no matter dust settled or not.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.copy_files_with_extension" title="diskmint.disk_density.copy_files_with_extension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_files_with_extension</span></code></a></p></td>
+<td><p>The copy_files_with_extension function copies files with a specified extension from a source directory to a destination directory. It takes the following arguments:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.savemodel" title="diskmint.disk_density.savemodel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savemodel</span></code></a></p></td>
+<td><p>The savemodel function saves a model by copying specific files with given extensions from a source directory to a destination directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.write_chem_input" title="diskmint.disk_density.write_chem_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_chem_input</span></code></a></p></td>
+<td><p>write the input files for the DiskMINT Fortran chemical network module</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.write_chem_output" title="diskmint.disk_density.write_chem_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_chem_output</span></code></a></p></td>
+<td><p>write the chemical output (Fortran style) in the Python style back to the model directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.get_chemistry_paths" title="diskmint.disk_density.get_chemistry_paths"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_chemistry_paths</span></code></a></p></td>
+<td><p>Resolves the location of:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#diskmint.disk_density.runchemistry" title="diskmint.disk_density.runchemistry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">runchemistry</span></code></a></p></td>
+<td><p>Run the chemical network of the DiskMINT model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#diskmint.disk_density.runchemistry_prev" title="diskmint.disk_density.runchemistry_prev"><code class="xref py py-obj docutils literal notranslate"><span class="pre">runchemistry_prev</span></code></a></p></td>
+<td><p>run the chemical network of DiskMINT model
+This is the previous version that the code is executed in the diskmint package location</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Link to this heading">#</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.save_3dgrid_to_dat">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">save_3dgrid_to_dat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.save_3dgrid_to_dat" title="Link to this definition">#</a></dt>
+<dd><p>Saves a 3D NumPy array to a .dat file, including the shape as the first line.</p>
+<p>Args:
+array (numpy.ndarray): The 3D NumPy array to save.
+filename (str): The name of the .dat file to save the array in.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.load_3dgrid_from_dat">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">load_3dgrid_from_dat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.load_3dgrid_from_dat" title="Link to this definition">#</a></dt>
+<dd><p>Loads a 3D NumPy array from a .dat file, assuming the first line contains the shape.</p>
+<p>Args:
+filename (str): The name of the .dat file to load the array from.</p>
+<p>Returns:
+numpy.ndarray: The loaded 3D NumPy array.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.grid_refine_inner_edge">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">grid_refine_inner_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nlev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nspan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.grid_refine_inner_edge" title="Link to this definition">#</a></dt>
+<dd><p>Refines the grid by adding points to the inner edges of a given grid.</p>
+<p>Args:
+x_orig (ndarray): Original grid points as a 1D numpy array.
+nlev (int): Number of refinement levels.
+nspan (int): Number of spans or intervals to refine.</p>
+<p>Returns:
+ndarray: Refined grid points as a 1D numpy array.</p>
+<p>Description:
+This function takes an original grid, specified by the <code class="docutils literal notranslate"><span class="pre">x_orig</span></code> array, and refines it by adding
+points to the inner edges of the grid. The refinement is performed <code class="docutils literal notranslate"><span class="pre">nlev</span></code> times, with <code class="docutils literal notranslate"><span class="pre">nspan</span></code>
+specifying the number of spans or intervals to refine. The function uses a midpoint interpolation
+scheme to calculate the new refined points.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function modifies the <code class="docutils literal notranslate"><span class="pre">x_orig</span></code> array internally but returns a new array with the refined grid points.</p></li>
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+</ul>
+<p>Example:
+x = np.array([0.0, 1.0, 2.0, 3.0])
+refined_x = grid_refine_inner_edge(x, 3, 2)
+print(refined_x)
+Output: [0.    0.125 0.25  0.375 0.5   0.75  1.    1.5   2.    3.   ]</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.grid_radial_profile">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">grid_radial_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_step_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.grid_radial_profile" title="Link to this definition">#</a></dt>
+<dd><p>Generates a radial grid based on the desired surface density profile.</p>
+<p>Args:
+rin (float): Inner radius of the radial grid.
+rout (float): Outer radius of the radial grid.
+nr (int): Number of grid points in the radial direction.
+r_step_max (float): The maximum step lengths for r grid,
+if the step lengths is larger in the logspace,
+it will change to linear space to fullfill this
+requirement.</p>
+<p>Returns:
+ndarray: The radial grid points.</p>
+<p>Description:
+This function generates a radial grid based on the desired surface density profile. The grid points are computed
+using logarithmically spaced values to capture the range of radial column densities. The grid is defined from the
+inner radius (<code class="docutils literal notranslate"><span class="pre">rin</span></code>) to the outer radius (<code class="docutils literal notranslate"><span class="pre">rout</span></code>) with <code class="docutils literal notranslate"><span class="pre">nr</span></code> number of grid points.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.grid_vertical_layer">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">grid_vertical_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thetaup</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntheta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncoarse</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.grid_vertical_layer" title="Link to this definition">#</a></dt>
+<dd><p>Set up the grid in a vertical layer to correctly trace the temperature
+for the molecular vertical emitting layers.</p>
+<p>Args:
+thetaup(float): The upper limit of the refined layer in theta coordinates.
+ntheta(int): The number of cells in total
+ncoarse(int): The number of cells in the coarse regions.</p>
+<p>Returns:
+ndarray: The refined grid points in theta coordinates.</p>
+<p>Description:
+This function refines the grid in a vertical layer by generating a set of grid points in theta coordinates.
+The vertical layer is divided into three regions: coarse regions at the top and bottom, and a fine region in between.
+The number of cells in the coarse regions is specified by the <code class="docutils literal notranslate"><span class="pre">ncoarse</span></code> argument, and the grid points are generated
+accordingly using linearly spaced values.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.place_ratio_g2d">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">place_ratio_g2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ratio_g2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zrc_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntheta_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc_cyl_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cyl'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio_g2d_outgrid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.place_ratio_g2d" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> (Developing)
+Places the g2d ratio values based on the provided input.</p>
+<p>Args:
+ratio_g2d (float or ndarray): The g2d ratio values to be placed.
+it can be either constant (float or int)
+or an array contains ratio_g2d[:, 0] as the radial grid (in cm)
+and the ratio_g2d[:, 1] as the corresponding gtd value at each radii.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>shape (list): the shape of the target coordinate.
+
+**NOTE**(Developing)
+rc_cyl_set (ndarry, optional): the cylindrical coordinate we want, this is used for sph coordinate, where we also need to do the conversion.
+
+TBA
+</pre></div>
+</div>
+<p>Returns:
+ndarray: The placed g2d ratio values.</p>
+<p>Description:
+This function places the g2d ratio values based on the provided input. The placement can be a constant value
+(float or int) or a function of radius. The function checks the type and shape of the input to determine the
+appropriate placement approach.</p>
+<p>If the g2d ratio is a constant value, the function prints a message indicating that the ratio is set up as a
+constant. If the g2d ratio is a function of radius, the function checks if the shape of the input matches the
+desired shape. If it matches, the function prints a message indicating that the pre-set function will be used.
+Otherwise, if the shape does not match or is not 2D, the function treats the input as a reference value and
+performs interpolation to generate the estimated ratio_g2d.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.clean_rhodust_array">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">clean_rhodust_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.clean_rhodust_array" title="Link to this definition">#</a></dt>
+<dd><p>Cleans a 4D dust density array by replacing non-finite values with 0.0 and
+applying a minimum threshold for each dust species.</p>
+<p>Args:
+rhodust (ndarray): A 4D array of dust density values with shape (dim1, dim2, dim3, nrspec).
+mint (object): An object containing simulation parameters. Must have an attribute <code class="docutils literal notranslate"><span class="pre">fracs</span></code>
+that provides the dust fractions for each species.</p>
+<p>Returns:
+ndarray: The cleaned 4D dust density array with the same shape as the input.</p>
+<p>Description:
+This function performs the following steps:
+1. Replaces any NaN or infinite values in the input array with 0.0.
+2. Computes the minimum dust density threshold for each dust species using the formula:
+rhodust_min = <a class="reference external" href="http://const.mu">const.mu</a> * 0.01 * mint.fracs
+3. Reshapes the computed thresholds for broadcasting across the first three dimensions.
+4. Applies the threshold across all dust species simultaneously using element-wise maximum.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.place_rhodust_all">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">place_rhodust_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhod_total_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust_a_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_dust_fragmentation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_dust_radial_drifting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tgas_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.place_rhodust_all" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> (Developing)</p>
+<p>Place the dust densities for each sub species.</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the parameters and data.
+rhod_total_input (ndarray): the input rhodust for all.
+rhod_total = rhogas / ratio_g2d.
+rhodust_a_input (ndarray): the input rhodust for each size.
+Default is none, and the rhodust_a will be set according to
+the rhod_total_input.
+bool_dust_fragmentation (bool): if true, the rhodust will be distributed according to
+the size of each grains for each size bins.
+the fragmentation is based on the surface density of the gas,
+and depends on the fragmentation threshold (ufrag),
+viscous alpha (alphat), and the grain material density (rhogr).
+bool_dust_radial_drifting (bool): if true, the rhodust will be drifted in. We move all the grains that need to drift (a &gt; a_drift) inside the radius_drift (in the unit of au), and keep the total masses for each grains be exactly the same.
+tgas_input (ndarray): the gas temperature, used to relocate the dust grains per sizes
+verbose (bool): whether to print on screen for debugging</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TBA
+</pre></div>
+</div>
+<p>Returns:
+rhodust_a: The placed rhodust for each species.</p>
+<p>Descriptions:
+Currently we can set up two different dust surface density profiles,
+and each has a sigma_i.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Here we set up not only the sigma_i for each dust components, but also
+the subspecies (distribut to each dust size bins) rho_i_j.
+</pre></div>
+</div>
+<p><strong>NOTE</strong>
+What is new:
+Adding the function of distributing the grains with different sizes to different sigmad,
+so now the sigmad would also be a function of size (a).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.place_surface_density">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">place_surface_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigmad_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zrc_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntheta_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cyl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.place_surface_density" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> (Developing)
+Places the surface density values based on the provided input.</p>
+<p><strong>NOTE</strong> call the sigma to sigmad to avoid confusion.</p>
+<p>Args:
+sigmad_input (ndarray): The sigmad_input. It needs to be in the format of 2d array where the first col is radius, and the 2nd col is sigmad.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>shape (list): the shape of the target coordinate.
+
+TBA
+</pre></div>
+</div>
+<p>Returns:
+ndarray: The placed surface density ratio values.</p>
+<p>Description:
+This function places the surface density distributions ratio values based on the provided input.
+The placement needs to be a function of radius. It first checks the type and shape of the input to determine the appropriate placement approach. The function checks if the shape of the input matches the desired shape. If it matches, the function prints a message indicating that the pre-set function will be used. Otherwise, if the shape does not match or is not 2D, the function treats the input as a reference value and performs interpolation to generate the estimated surface density distribution (sigmad_output).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.problem_setup">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">problem_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.problem_setup" title="Link to this definition">#</a></dt>
+<dd><p>Sets up the initial dust density distribution and the required files for running radmc3d.</p>
+<p>Args:
+mint: The DiskMINT model object containing the necessary parameters and data.</p>
+<p>Description:
+This function performs the initial setup for running radmc3d. It creates the necessary files and directories, including files for dust density, stars, grid, dust opacity, and the radmc3d control file. The function saves the gas density, writes the wavelength file, writes the stars.inp file with information about the central star, writes the grid file with the coordinates, writes the dust mass density file, and writes the dust opacity control file. Finally, it writes the radmc3d.inp control file with various simulation parameters.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function assumes the presence of the <code class="docutils literal notranslate"><span class="pre">os</span></code> module and the <code class="docutils literal notranslate"><span class="pre">np</span></code> module from numpy.</p></li>
+<li><p>The function modifies the <code class="docutils literal notranslate"><span class="pre">model</span></code> object internally to set up the required files and directories.</p></li>
+<li><p>The function utilizes the parameters and data stored in the <code class="docutils literal notranslate"><span class="pre">model</span></code> object.</p></li>
+<li><p>The function saves all files to the mint.file_dir.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.func_Tgas">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">func_Tgas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Tgas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tdust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndsd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.func_Tgas" title="Link to this definition">#</a></dt>
+<dd><p>The function that would be used to calculate gas temperature from collisional thermal equilibrium
+based on the given gas temperature, dust temperature, and dust surface area distribution.</p>
+<p>Args:
+Tgas (float): Gas temperature.
+nbin (int): Number of bins in the dust size distribution.
+Tdust (ndarray): Array of dust temperatures as a 1D numpy array.
+ndsd (ndarray): Array of dust surface area distribution (n_d(a) pi a^2) values as a 1D numpy array.</p>
+<p>Returns:
+float: Average gas temperature.</p>
+<p>Description:
+This function describes the gas-dust thermal equilibrium.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.func_Tgas_visc">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">func_Tgas_visc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Tgas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tdust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndsd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Omega</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.func_Tgas_visc" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> This function is currently not used. Put here for reference.
+The function that would be used to calculate gas temperature from collisional thermal equilibrium
+this is the function that considers the viscous heating term</p>
+<p>Args:
+Tgas (float): Gas temperature.
+nbin (int): Number of bins in the dust size distribution.
+Tdust (ndarray): Array of dust temperatures as a 1D numpy array.
+ndsd (ndarray): Array of dust surface area distribution (n_d(a) pi a^2) values as a 1D numpy array.
+Omega (float): Angular velocity.
+alpha_h (float, optional): Viscosity parameter. Defaults to 0.01.</p>
+<p>Returns:
+float: gas temperature with viscous heating.</p>
+<p>Description:
+This function describes the gas-dust thermal equilibrium including considering viscous heating.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The default value of <code class="docutils literal notranslate"><span class="pre">alpha_h</span></code> is set to 0.01.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.func_ext">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">func_ext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.func_ext" title="Link to this definition">#</a></dt>
+<dd><p>A simple linear function based on the given parameters.</p>
+<p>Args:
+r (float): Input value.
+a (float): Coefficient for the linear term.
+b (float): Coefficient for the constant term.</p>
+<p>Returns:
+float: Result of the linear function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.extend_insphr">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">extend_insphr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhogas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tgas</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.extend_insphr" title="Link to this definition">#</a></dt>
+<dd><p>Extends the inner and outer grids to avoid potential issues in spherical and cylindrical coordinate conversion.</p>
+<p>Args:
+rc (ndarray): Original radial grid points as a 1D numpy array.
+thetac (ndarray): Original polar angle grid points as a 1D numpy array.
+phic (ndarray): Original azimuthal angle grid points as a 1D numpy array.
+rhogas (ndarray): Original gas density distribution as a 3D numpy array.
+Tgas (ndarray): Original gas temperature distribution as a 3D numpy array.</p>
+<p>Returns:
+tuple: Tuple containing the extended gas density distribution as a 2D numpy array, the extended gas temperature distribution as a 2D numpy array, and the extended meshgrid.</p>
+<p>Description:
+This function extends the inner and outer grids of the original radial grid points (<code class="docutils literal notranslate"><span class="pre">rc</span></code>) to avoid potential issues during spherical and cylindrical coordinate conversion. It creates a meshgrid using the input grid points and then extends the <code class="docutils literal notranslate"><span class="pre">rc</span></code> grid by adding 10 inner and 10 outer grid points. The gas density distribution (<code class="docutils literal notranslate"><span class="pre">rhogas</span></code>) and gas temperature distribution (<code class="docutils literal notranslate"><span class="pre">Tgas</span></code>) are extended by linearly extrapolating the values from the original grid to the extended grid. The extended grid and the extrapolated gas density and temperature distributions are returned as a tuple.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the scipy.optimize module is available.</p></li>
+<li><p>The function depends on the <code class="docutils literal notranslate"><span class="pre">func_ext</span></code> function, func_ext(r, a, b) = a*r + b.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.sph2cyl">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">sph2cyl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhogas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tgas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nz_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntheta_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc_cyl_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.sph2cyl" title="Link to this definition">#</a></dt>
+<dd><p>Performs the conversion from spherical coordinates to cylindrical coordinates.</p>
+<p>Args:
+rc (ndarray): Original radial grid points as a 1D numpy array.
+thetac (ndarray): Original polar angle grid points as a 1D numpy array.
+phic (ndarray): Original azimuthal angle grid points as a 1D numpy array.
+rhogas (ndarray): Original gas density distribution as a 3D numpy array.
+Tgas (ndarray): Original gas temperature distribution as a 3D numpy array.
+nr_cyl (int, optional): Number of radial grid points in the cylindrical coordinate. Defaults to 500.
+nz_cyl (int, optional): Number of axial grid points in the cylindrical coordinate. Defaults to 500.
+nr_dense (int, optional): Number of radial grid points in the dense spherical coordinate. Defaults to 500.
+ntheta_dense (int, optional): Number of polar angle grid points in the dense spherical coordinate. Defaults to 500.
+method_polate1 (str, optional): Interpolation method for extending the grid in spherical coordinates. Defaults to ‘linear’.
+method_polate2 (str, optional): Interpolation method for regridding in cylindrical coordinates. Defaults to ‘nearest’. (changed to linear on 01/28)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**NOTE**(Developing)
+rc_cyl_set (ndarry, optional): the cylindrical coordinate we want
+</pre></div>
+</div>
+<p>Returns:
+tuple: Tuple containing the new radial grid points in cylindrical coordinates as a 1D numpy array, the new axial grid points in cylindrical coordinates as a 1D numpy array, the new meshgrid in cylindrical coordinates, the extended and regridded gas density distribution as a 3D numpy array, and the extended and regridded gas temperature distribution as a 3D numpy array.</p>
+<p>Description:
+This function converts the input gas density distribution (<code class="docutils literal notranslate"><span class="pre">rhogas</span></code>) and gas temperature distribution (<code class="docutils literal notranslate"><span class="pre">Tgas</span></code>) from spherical coordinates to cylindrical coordinates. First, it extends and samples the grids in the spherical coordinates by performing interpolation based on the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate1</span></code> default <code class="docutils literal notranslate"><span class="pre">linear</span></code>). This step samples the grid from a COARSE spherical to a DENSE spherical coordinate. Then, it converts the DENSE grids to cylindrical coordinates, and it regrids the gas density and temperature distributions from the DENSE spherical grids to the new cylindrical grids using the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate2</span></code>).</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">extend_insphr</span></code> function and the <code class="docutils literal notranslate"><span class="pre">interpolate.griddata</span></code> function from the scipy.interpolate module are available.</p></li>
+<li><p>The constants (for example <code class="docutils literal notranslate"><span class="pre">const.au</span></code>) need to be defined before calling this function.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.cyl2sph">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">cyl2sph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zrr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhogas_cyl_new</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tgas_cyl_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntheta_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.cyl2sph" title="Link to this definition">#</a></dt>
+<dd><p>Performs the conversion from cylindrical coordinates back to spherical coordinates.</p>
+<p>Args:
+rc (ndarray): Original radial grid points as a 1D numpy array.
+thetac (ndarray): Original polar angle grid points as a 1D numpy array.
+phic (ndarray): Original azimuthal angle grid points as a 1D numpy array.
+rr_cyl (ndarray): Radial grid points in the cylindrical coordinate as a 3D numpy array.
+zrr_cyl (ndarray): Vertical grid points (z/r ratio) in the cylindrical coordinate as a 3D numpy array.
+rhogas_cyl_new (ndarray): Gas density distribution in the cylindrical coordinate as a 3D numpy array.
+Tgas_cyl_old (ndarray): Gas temperature distribution in the cylindrical coordinate as a 3D numpy array.
+nr_dense (int, optional): Number of radial grid points in the dense spherical coordinate. Defaults to 500.
+ntheta_dense (int, optional): Number of polar angle grid points in the dense spherical coordinate. Defaults to 500.
+method_polate1 (str, optional): Interpolation method for sampling back to the dense spherical coordinate. Defaults to ‘nearest’. (changed to linear on 01/28)
+method_polate2 (str, optional): Interpolation method for regridding to the original spherical coordinate. Defaults to ‘linear’.</p>
+<p>Returns:
+tuple: Tuple containing the regridded gas density distribution in the spherical coordinate as a 3D numpy array and the regridded gas temperature distribution in the spherical coordinate as a 3D numpy array.</p>
+<p>Description:
+This function converts the input gas density distribution (<code class="docutils literal notranslate"><span class="pre">rhogas_cyl_new</span></code>) and gas temperature distribution (<code class="docutils literal notranslate"><span class="pre">Tgas_cyl_old</span></code>) from cylindrical coordinates back to spherical coordinates. It first samples the input distributions to a DENSE spherical coordinate using the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate1</span></code>). Then, it regrids the DENSE spherical grids to the original (COARSE) spherical grids using the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate2</span></code>).</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">interpolate.griddata</span></code> function from the scipy.interpolate module is available.</p></li>
+<li><p>The constants (for example <code class="docutils literal notranslate"><span class="pre">const.au</span></code>) need to be defined before calling this function.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.extend_insphr_dust">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">extend_insphr_dust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.extend_insphr_dust" title="Link to this definition">#</a></dt>
+<dd><p>Extends the inner and outer grids to avoid potential issues in spherical and cylindrical coordinate conversion.</p>
+<p>Args:
+rc (ndarray): Original radial grid points as a 1D numpy array.
+thetac (ndarray): Original polar angle grid points as a 1D numpy array.
+phic (ndarray): Original azimuthal angle grid points as a 1D numpy array.
+rhodust (ndarray): Original gas density distribution as a 3D numpy array.
+Tgas (ndarray): Original gas temperature distribution as a 3D numpy array.</p>
+<p>Returns:
+tuple: Tuple containing the extended gas density distribution as a 2D numpy array, the extended gas temperature distribution as a 2D numpy array, and the extended meshgrid.</p>
+<p>Description:
+This function extends the inner and outer grids of the original radial grid points (<code class="docutils literal notranslate"><span class="pre">rc</span></code>) to avoid potential issues during spherical and cylindrical coordinate conversion. It creates a meshgrid using the input grid points and then extends the <code class="docutils literal notranslate"><span class="pre">rc</span></code> grid by adding 10 inner and 10 outer grid points. The dust density distribution (<code class="docutils literal notranslate"><span class="pre">rhodust</span></code>) are extended by linearly extrapolating the values from the original grid to the extended grid. The extended grid and the extrapolated gas density and temperature distributions are returned as a tuple.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the scipy.optimize module is available.</p></li>
+<li><p>The function depends on the <code class="docutils literal notranslate"><span class="pre">func_ext</span></code> function, func_ext(r, a, b) = a*r + b.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.sph2cyl_dust">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">sph2cyl_dust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nz_cyl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntheta_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc_cyl_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.sph2cyl_dust" title="Link to this definition">#</a></dt>
+<dd><p>Performs the conversion from spherical coordinates to cylindrical coordinates.</p>
+<p>Args:
+rc (ndarray): Original radial grid points as a 1D numpy array.
+thetac (ndarray): Original polar angle grid points as a 1D numpy array.
+phic (ndarray): Original azimuthal angle grid points as a 1D numpy array.
+rhodust (ndarray): Original dust density distribution as a 3D+1 numpy array.
+nr_cyl (int, optional): Number of radial grid points in the cylindrical coordinate. Defaults to 500.
+nz_cyl (int, optional): Number of axial grid points in the cylindrical coordinate. Defaults to 500.
+nr_dense (int, optional): Number of radial grid points in the dense spherical coordinate. Defaults to 500.
+ntheta_dense (int, optional): Number of polar angle grid points in the dense spherical coordinate. Defaults to 500.
+method_polate1 (str, optional): Interpolation method for extending the grid in spherical coordinates. Defaults to ‘linear’.
+method_polate2 (str, optional): Interpolation method for regridding in cylindrical coordinates. Defaults to ‘nearest’. (changed to linear on 01/28)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**NOTE**(Developing)
+rc_cyl_set (ndarry, optional): the cylindrical coordinate we want
+</pre></div>
+</div>
+<p>Returns:
+tuple: Tuple containing the new radial grid points in cylindrical coordinates as a 1D numpy array, the new axial grid points in cylindrical coordinates as a 1D numpy array, the new meshgrid in cylindrical coordinates, the extended and regridded gas density distribution as a 3D numpy array, and the extended and regridded gas temperature distribution as a 3D numpy array.</p>
+<p>Description:
+This function converts the input dust density distribution (<code class="docutils literal notranslate"><span class="pre">rhodust</span></code>) from spherical coordinates to cylindrical coordinates. First, it extends and samples the grids in the spherical coordinates by performing interpolation based on the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate1</span></code> default <code class="docutils literal notranslate"><span class="pre">linear</span></code>). This step samples the grid from a COARSE spherical to a DENSE spherical coordinate. Then, it converts the DENSE grids to cylindrical coordinates, and it regrids the gas density and temperature distributions from the DENSE spherical grids to the new cylindrical grids using the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate2</span></code>).</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">extend_insphr_dust</span></code> function and the <code class="docutils literal notranslate"><span class="pre">interpolate.griddata</span></code> function from the scipy.interpolate module are available.</p></li>
+<li><p>The constants (for example <code class="docutils literal notranslate"><span class="pre">const.au</span></code>) need to be defined before calling this function.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.cyl2sph_dust">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">cyl2sph_dust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zrr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust_cyl_new</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntheta_dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_polate2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.cyl2sph_dust" title="Link to this definition">#</a></dt>
+<dd><p>Performs the conversion from cylindrical coordinates back to spherical coordinates.</p>
+<p>Args:
+rc (ndarray): Original radial grid points as a 1D numpy array.
+thetac (ndarray): Original polar angle grid points as a 1D numpy array.
+phic (ndarray): Original azimuthal angle grid points as a 1D numpy array.
+rr_cyl (ndarray): Radial grid points in the cylindrical coordinate as a 3D numpy array.
+zrr_cyl (ndarray): Vertical grid points (z/r ratio) in the cylindrical coordinate as a 3D numpy array.
+rhodust_cyl_new (ndarray): Dust density distribution in the cylindrical coordinate as a 3D+1D numpy array.
+nr_dense (int, optional): Number of radial grid points in the dense spherical coordinate. Defaults to 500.
+ntheta_dense (int, optional): Number of polar angle grid points in the dense spherical coordinate. Defaults to 500.
+method_polate1 (str, optional): Interpolation method for sampling back to the dense spherical coordinate. Defaults to ‘nearest’. (changed to linear on 01/28)
+method_polate2 (str, optional): Interpolation method for regridding to the original spherical coordinate. Defaults to ‘linear’.</p>
+<p>Returns:
+tuple: Tuple containing the regridded gas density distribution in the spherical coordinate as a 3D numpy array and the regridded gas temperature distribution in the spherical coordinate as a 3D numpy array.</p>
+<p>Description:
+This function converts the input dust density distribution (<code class="docutils literal notranslate"><span class="pre">rhodust_cyl_new</span></code>) from cylindrical coordinates back to spherical coordinates. It first samples the input distributions to a DENSE spherical coordinate using the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate1</span></code>). Then, it regrids the DENSE spherical grids to the original (COARSE) spherical grids using the specified interpolation method (<code class="docutils literal notranslate"><span class="pre">method_polate2</span></code>).</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">interpolate.griddata</span></code> function from the scipy.interpolate module is available.</p></li>
+<li><p>The constants (for example <code class="docutils literal notranslate"><span class="pre">const.au</span></code>) need to be defined before calling this function.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.calc_tau_new">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">calc_tau_new</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dust_spec_nr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.55</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savenames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['taux.dat',</span> <span class="pre">'tauz_up.dat',</span> <span class="pre">'tauz_dn.dat',</span> <span class="pre">'dtauz.dat']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.calc_tau_new" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> currently the scattering coefficients are ignored, because they are neglegible compared to the absorption coeffcients in most cases.
+Calculates the optical depth in cylindrical coordinates. The function calculates the optical depth in three different directions: R direction (taux), upward z direction (tauz_up), and downward z direction (tauz_dn). The calculations are done in cylindrical coordinates.</p>
+<p>Args:
+dataT: The data file read in by radmc3dPy.
+rr_cyl (ndarray): Radial grid points in cylindrical coordinates.
+zr_cyl (ndarray): Vertical grid points (z/r) in cylindrical coordinates.
+rhodust_cyl (ndarray): Dust density distribution in cylindrical coordinates.
+dust_spec_nr (int): Number of dust species.
+wavelength (float, optional): Wavelength of the observation in micrometers (um). Defaults to 0.55.
+savenames (list, optional): List of filenames to save the calculated optical depth values. Defaults to [‘taux.dat’, ‘tauz_up.dat’, ‘tauz_dn.dat’, ‘dtauz.dat’].</p>
+<p>Returns:
+tuple: Tuple containing the calculated optical depth values in cylindrical coordinates: taux, tauz_up, tauz_dn, and dtauz.</p>
+<p>Description:
+This function calculates the optical depth in cylindrical coordinates based on the input data. It first calculates the optical depth in the R direction (taux) using the <code class="docutils literal notranslate"><span class="pre">getTau</span></code> function from the <code class="docutils literal notranslate"><span class="pre">dataT</span></code> object by radmc3dPy. Then, it calculates the optical depth in the upward z direction (tauz_up) and downward z direction (tauz_dn) in cylindrical coordinates. Finally, it saves the calculated optical depth values to the specified filenames.</p>
+<p>In short,
+The New way to calculate Tau is done by following:</p>
+<ol class="arabic simple">
+<li><p>taux (used radmc3dPy methods) – which is the tau in the R direction to the star, in spherical coordinate</p></li>
+<li><p>tauz up and down – tau in z direction is now calculated in cylindrical coordinate</p></li>
+</ol>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">radmc3dPy</span></code> module is available and that the <code class="docutils literal notranslate"><span class="pre">radmc3dDustOpac</span></code> class from this module is imported.</p></li>
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The constant <code class="docutils literal notranslate"><span class="pre">const.au</span></code> needs to be defined before calling this function.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.set_dusttemp_at_midplane">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">set_dusttemp_at_midplane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dustdens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tdust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wav</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1330</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.set_dusttemp_at_midplane" title="Link to this definition">#</a></dt>
+<dd><p>Sets the dust temperature at the midplane based on the optical depth criteria.</p>
+<p>Args:
+mint (object): An object containing simulation parameters, including the number of dust species.
+dustdens (object): the radmc3dPy object that handles dust density and optical depth calculations. Must have a <code class="docutils literal notranslate"><span class="pre">getTau</span></code> method and a <code class="docutils literal notranslate"><span class="pre">taux</span></code> attribute.
+Tdust (ndarray): 4D array of dust temperatures with shape (nr, ntheta, nz, dust_spec_nr).
+wav (float, optional): Wavelength of the observation in micrometers (um). Defaults to 1330 (for mm C18O wavelength); updated to optical wavelength (0.55) now.
+tau_threshold (float, optional): The optical depth threshold to determine the dust temperature edge. Defaults to 10 (updated to 100 (then 1000) with optical wave).</p>
+<p>Returns:
+ndarray: Updated 4D array of dust temperatures with the same shape as <code class="docutils literal notranslate"><span class="pre">Tdust</span></code>.</p>
+<p>Description:
+This function updates the dust temperature (<code class="docutils literal notranslate"><span class="pre">Tdust</span></code>) at the midplane based on the optical depth (<code class="docutils literal notranslate"><span class="pre">taux_mm</span></code>). For each dust species, it identifies regions where the optical depth is below a specified threshold (<code class="docutils literal notranslate"><span class="pre">tau_threshold</span></code>). In these regions, the dust temperature is retained; otherwise, it is set to the last valid temperature value where the optical depth was below the threshold. This effectively propagates the temperature from the edge of the optical depth threshold inward.</p>
+<p>Raises:
+AttributeError: If <code class="docutils literal notranslate"><span class="pre">dustdens</span></code> does not have the required <code class="docutils literal notranslate"><span class="pre">getTau</span></code> method or <code class="docutils literal notranslate"><span class="pre">taux</span></code> attribute.
+ValueError: If the shapes of input arrays do not match expected dimensions.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.get_new_dust_temperature">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">get_new_dust_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_clean_dusttemp_midplane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'radmc3d</span> <span class="pre">mctherm'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.get_new_dust_temperature" title="Link to this definition">#</a></dt>
+<dd><p>Calculates and updates the dust temperature by running RADMC-3D’s Monte Carlo thermal simulation and optionally cleans up noise in the midplane.</p>
+<p>Args:
+mint (object): An object containing simulation parameters, including dust species information and fractions.
+bool_clean_dusttemp_midplane (bool, optional): Flag to determine whether to clean noise in the midplane of the dust temperature. Defaults to True.
+command (str, optional): Shell command to execute RADMC-3D’s Monte Carlo thermal simulation. Defaults to ‘radmc3d mctherm’.</p>
+<p>Returns:
+int: Returns 1 upon successful completion.</p>
+<p>Description:
+This function performs the following steps:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. **Run RADMC-3D Monte Carlo Thermal Simulation**:
+    - Executes the provided shell command (`command`) to run RADMC-3D&#39;s `mctherm` mode, which calculates the dust temperature distribution.
+
+2. **Optional Midplane Noise Cleanup**:
+    - If `bool_clean_dusttemp_midplane` is set to `True`, the function proceeds to clean up noise in the midplane of the dust temperature distribution.
+    - **Steps for Cleaning Midplane Noise**:
+        a. **Read Dust Density and Temperature Data**:
+            - Utilizes `radmc3dPy.analyze.readData` to read the dust density (`ddens`) and dust temperature (`dtemp`) data from RADMC-3D output files.
+        
+        b. **Update Dust Temperature at Midplane**:
+            - Copies the original dust temperature data and passes it to the `set_dusttemp_at_midplane` function along with the `mint` and `dustdens` objects to obtain a cleaned version of the dust temperature (`Tdust_new`).
+        
+        c. **Backup Original Dust Temperature File**:
+            - Renames the original `dust_temperature.dat` to `dust_temperature_originalmidplane.dat` to preserve the uncleaned data.
+        
+        d. **Write Cleaned Dust Temperature Data**:
+            - Opens a new `dust_temperature.dat` file and writes the cleaned dust temperature data in the required format for RADMC-3D.
+            - The data is written in Fortran-style (column-major order) to ensure compatibility with RADMC-3D&#39;s expectations.
+
+**Note**: Ensure that the `set_dusttemp_at_midplane` function is defined and accessible within the scope where this function is used.
+</pre></div>
+</div>
+<p>Raises:
+FileNotFoundError: If the RADMC-3D output files (<code class="docutils literal notranslate"><span class="pre">dust_density.inp</span></code>, <code class="docutils literal notranslate"><span class="pre">dust_temperature.dat</span></code>) are not found.
+RuntimeError: If the RADMC-3D command execution fails.
+AttributeError: If the <code class="docutils literal notranslate"><span class="pre">mint</span></code> object lacks required attributes such as <code class="docutils literal notranslate"><span class="pre">dust_spec_nr</span></code> or <code class="docutils literal notranslate"><span class="pre">fracs</span></code>.
+ValueError: If the shapes of the temperature arrays do not match expected dimensions.</p>
+<p>Example:
+<code class="docutils literal notranslate"><span class="pre">python</span>&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Assuming</span> <span class="pre">`mint`</span> <span class="pre">and</span> <span class="pre">`dustdens`</span> <span class="pre">objects</span> <span class="pre">are</span> <span class="pre">properly</span> <span class="pre">initialized</span>&#160;&#160;&#160;&#160; <span class="pre">result</span> <span class="pre">=</span> <span class="pre">get_new_dust_temperature(mint)</span>&#160;&#160;&#160;&#160; <span class="pre">if</span> <span class="pre">result</span> <span class="pre">==</span> <span class="pre">1:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">print(&quot;Dust</span> <span class="pre">temperature</span> <span class="pre">updated</span> <span class="pre">successfully.&quot;)</span>&#160;&#160;&#160;&#160; <span class="pre">else:</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">print(&quot;An</span> <span class="pre">error</span> <span class="pre">occurred</span> <span class="pre">while</span> <span class="pre">updating</span> <span class="pre">dust</span> <span class="pre">temperature.&quot;)</span>&#160;&#160;&#160;&#160; </code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.smooth_gas_temp">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">smooth_gas_temp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thetac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tg_init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_regridr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.smooth_gas_temp" title="Link to this definition">#</a></dt>
+<dd><p>Smooths the gas temperature distribution to obtain a noise-free result.</p>
+<p><strong>IMPORTANT</strong>
+Becarefull using the smooth_gas_temp function!
+This will only be usefull when we are using in-sufficient nphot number so that there are some noise in mid-plane.
+We always need to compare the temperature smoothed inner disk with the case setting up large enough nphot.
+In the final result, if sufficient nphot is setup, then we don’t need to do smooth.</p>
+<p>Args:
+rc (ndarray): Radial grid points.
+thetac (ndarray): Polar grid points.
+Tg_init (ndarray): Initial gas temperature distribution (2D array).
+nr_regridr (float, optional): Number specifying the regridding factor for the radial grid. Defaults to 0.2.
+verbose (bool): whether to print on screen for debugging</p>
+<p>Returns:
+ndarray: Smoothed gas temperature distribution.</p>
+<p>Description:
+This function is used to smooth the gas temperature distribution to remove noise. It takes as input the initial gas temperature distribution (Tg_init) and the radial (rc) and polar (thetac) grid points. The gas temperature distribution is first regridded to a new grid with a higher resolution in the radial direction (specified by nr_regridr). The regridded temperature distribution is then smoothed using linear interpolation. Finally, the smoothed temperature distribution is regridded back to the original grid.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function requires the numpy module to be imported as <code class="docutils literal notranslate"><span class="pre">np</span></code>.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">interpolate.griddata</span></code> function from the scipy module is available.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.solve_gastemp">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">solve_gastemp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dustdens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tdust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_smoothing_Tgas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_visc_heating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_output_gastemp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_temp_decouple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.solve_gastemp" title="Link to this definition">#</a></dt>
+<dd><p>calculate the gas temperature based on the dust-gas thermal equilibrium together with the viscous heating</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the parameters and data.
+Tdust: (3D array) dust thermal structure
+dustdens: the rdmc3dPy dust density object that read by <code class="docutils literal notranslate"><span class="pre">radmc3dPy.analyze.readData()</span></code>
+bool_smoothing_Tgas (bool): whether to smooth the gas temperature so that we can get a more noise-free Tgas
+structure especially in the inner disk close to the mid-plane. Default True.
+bool_visc_heating (bool): whether to add viscous heating
+bool_output_gastemp (bool): whether to directly output gas temperature, the saved file would be named as <code class="docutils literal notranslate"><span class="pre">gas_temperature_direct_output.inp</span></code>
+bool_temp_decouple (bool): whether to increase the Tgas with certain amount from the ave(Tdust)
+the way we make it is to have a Transiaction radius R_temp_trans (in the unit of au),
+and the factor to which the gas temperature is larger than the dust temperature fact_Tgas_2_Tdust
+verbose (bool): if true, output the prints to screen for debugging</p>
+<p>Return:
+Tgas: (3D array) the solved gas temperature structure</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.get_new_dust_density">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">get_new_dust_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_smoothing_Tgas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_dust_vhse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_dust_fragmentation_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_dust_radial_drifting_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_dust_settling_in_iteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.get_new_dust_density" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the new density distribution by solving the VHSE (Vertical Hydrostatic Equilibrium).
+This is just a single interation of solving VHSE, the stable/final VHSE solution requires multiple iterations.
+This function requires the radmc3dPy module.</p>
+<p>Args:
+model (object): The DiskMINT model object containing the parameters and data.
+bool_smoothing_Tgas (bool): whether to smooth the gas temperature so that we can get a more noise-free Tgas structure especially in the inner disk close to the mid-plane. Default True.
+bool_dust_vhse (bool): whether to solve the vertical hydrastatic equilibrium (VHSE). Default True.
+bool_dust_fragmentation_set (bool): whether to turn on the dust fragmentation feature. Default False.
+bool_dust_radial_drifting_set (bool): whether to turn on the dust radial drift feature. Default False.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**NOTE: Developing**
+bool_dust_settling_in_iteration (bool): whether to solve the dust settling in each iteration when solving the VHSE.
+verbose (bool): whether to output the prints.
+</pre></div>
+</div>
+<p>Returns:
+None.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The new density distribution in RADMC3D format will be saved to the file_dir.
+</pre></div>
+</div>
+<p>Description:
+This function calculates the new density distribution by solving the VHSE equation, following the steps:</p>
+<ol class="arabic simple" start="0">
+<li><p>setting up: It reads the density and temperature data from the dust_density.inp and dust_temperature.inp files, respectively. It then computes the gas temperature (Tgas). (optional) It smooths Tgas using the <code class="docutils literal notranslate"><span class="pre">smooth_gas_temp</span></code> function. It also computes the viscous heating term and adds it to the gas temperature.</p></li>
+<li><p>converting from spherical coordinate to cylindrical: The density distribution is then transformed to cylindrical coordinates using the <code class="docutils literal notranslate"><span class="pre">sph2cyl</span></code> function.</p></li>
+<li><p>solving VHSE: The new density distribution is solved in VHSE, and the density structure is updated based on the gas temperature. Then the new density structure is re-normalized in each vertical column to ensure the surface density distribution is not changed.</p></li>
+<li><p>converting from cylindrical coordinate to spherical: The new density distribution is converted back to spherical coordinates.</p></li>
+<li><p>saving files: The new density distribution saved to the dust_density.new and gas_temperature.new files.</p></li>
+</ol>
+<p>Note:</p>
+<ul class="simple">
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">interpolate.griddata</span></code> function from the scipy module is available.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">scipy.optimize.bisect</span></code> function is available.</p></li>
+<li><p>The function assumes that the constants <code class="docutils literal notranslate"><span class="pre">const.gg</span></code>, <code class="docutils literal notranslate"><span class="pre">const.mu</span></code>, <code class="docutils literal notranslate"><span class="pre">const.kk</span></code>, <code class="docutils literal notranslate"><span class="pre">const.sigma_SB</span></code>, and <code class="docutils literal notranslate"><span class="pre">const.au</span></code> are defined and imported.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">smooth_gas_temp</span></code>, <code class="docutils literal notranslate"><span class="pre">sph2cyl</span></code>, <code class="docutils literal notranslate"><span class="pre">cyl2sph</span></code>, and <code class="docutils literal notranslate"><span class="pre">func_Tgas</span></code> functions are defined and imported.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">np</span></code> module is imported.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">os</span></code> module is imported.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is imported.</p></li>
+<li><p>The function assumes that the <code class="docutils literal notranslate"><span class="pre">radmc3dPy.analyze.readData</span></code> function is available.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.fill_nan_in_2d_array_inlog">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">fill_nan_in_2d_array_inlog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1D'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_interpolate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.fill_nan_in_2d_array_inlog" title="Link to this definition">#</a></dt>
+<dd><p>developing</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.set_dust_settling_cyl">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">set_dust_settling_cyl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qq_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visc_alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zrr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhogas_cyl_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tgas_cyl_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust_cyl_old</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust_cyl_probset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.set_dust_settling_cyl" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> (Developing)
+Solve the dust settling in the cylindrical coordinate
+This will be a subroutine in the get new dust density since it
+needs to be done in the cylindrical coordinate</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the parameters and data.
+qq_cyl: 2d meshgrid consisting with information of radius ® and height/radius (z/r) in cylindrical coordinates
+visc_alpha: the parameter describing the efficiency of the dust settling
+verbose (bool): whether to print out for debugging</p>
+<p>Returns:
+rhodust_cyl_new_settled_norm: the array with the shape of (nr, nz, ndust), describes the rhodust in cylindrical coordinate of how much dust is settled</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.set_dust_settling_cyl_vert_isothermal">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">set_dust_settling_cyl_vert_isothermal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qq_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visc_alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nrspec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zrr_cyl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhogas_cyl_new_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tgas_cyl_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust_cyl_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhodust_cyl_probset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.set_dust_settling_cyl_vert_isothermal" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> (Developing)
+Solve the dust settling in the cylindrical coordinate
+This will be a subroutine in the get new dust density since it
+needs to be done in the cylindrical coordinate</p>
+<p>This method assume that the disk is vertically isothermal</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the parameters and data.
+qq_cyl: 2d meshgrid consisting with information of radius ® and height/radius (z/r) in cylindrical coordinates
+visc_alpha: the parameter describing the efficiency of the dust settling
+verbose (bool): whether to print out for debugging</p>
+<p>Returns:
+rhodust_cyl_new_settled_norm: the array with the shape of (nr, nz, ndust), describes the rhodust in cylindrical coordinate of how much dust is settled</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.read_in_rhodust">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">read_in_rhodust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rhodust_probset.inp'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.read_in_rhodust" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.set_dust_settling">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">set_dust_settling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.set_dust_settling" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> (Developing)
+Aims to have a function that could settle the dust
+from reading the radmc3dPy datafile and then output
+as a stand-alone package</p>
+<p>setting the dust settling. Introducing the setlling to the dust species.</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the parameters and data.
+verbose (bool): set true to print out texts for debugging</p>
+<p>Returns:
+None.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.add_dust_rim">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">add_dust_rim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.add_dust_rim" title="Link to this definition">#</a></dt>
+<dd><p><strong>NOTE</strong> (Developing)
+Aims to have a function that could add the dust rim
+from reading the radmc3dPy datafile and then output
+as a stand-alone package</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the parameters and data.
+verbose (bool): set true to print out texts for debugging</p>
+<p>Returns:
+None.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.chemistry_setup">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">chemistry_setup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_same_rc_as_radmc3d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.chemistry_setup" title="Link to this definition">#</a></dt>
+<dd><p>setting up the initial grids and density for chemical network
+for now, we assume dust-gas are well coupled, so that
+the gas is simply get from dust no matter dust settled or not.</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the parameters and data.
+save_name (str): The model name to be used for saving the output file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bool_same_rc_as_radmc3d (bool, optional): Whether to use the same rc grid as from the radmc3d files
+</pre></div>
+</div>
+<p>Returns:
+None.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The files needed to run the chemical network is saved to current dir (where the code is running)
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.copy_files_with_extension">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">copy_files_with_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.copy_files_with_extension" title="Link to this definition">#</a></dt>
+<dd><p>The copy_files_with_extension function copies files with a specified extension from a source directory to a destination directory. It takes the following arguments:</p>
+<p>Args:
+source_dir (str): The path to the source directory where the files are located.
+destination_dir (str): The path to the destination directory where the files will be copied.
+extension (str): The extension of the files to be copied (e.g., “.txt”, “.jpg”).
+verbose (bool, optional): If set to True, the function will print the source and destination file paths for each copied file. Default is False.</p>
+<p>Returns:
+None.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>It copies files from source_dir to destination_dir
+</pre></div>
+</div>
+<p>Note:
+The function uses <code class="docutils literal notranslate"><span class="pre">shutil</span></code> to copy the files.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.savemodel">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">savemodel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.savemodel" title="Link to this definition">#</a></dt>
+<dd><p>The savemodel function saves a model by copying specific files with given extensions from a source directory to a destination directory.</p>
+<p>Args:
+model (object): The DiskMINT model object containing the data and parameters to be saved.
+save_dir (str): The path to the destination directory where the model files will be saved.
+model_dir (str, optional): The path to the source directory where the model files are located. Default is ‘.’ (current directory).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.write_chem_input">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">write_chem_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chem_code_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G0Hab_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.write_chem_input" title="Link to this definition">#</a></dt>
+<dd><p>write the input files for the DiskMINT Fortran chemical network module</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the data and parameters to be saved.
+chem_code_dir (str): where the chemistry code is put
+G0Hab_set (0.0 or other float &gt; 0.0): the G0 at stellar surface in Hab units</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.write_chem_output">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">write_chem_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chem_code_exe_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chem_network_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reducedRGH22'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_save_allab</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.write_chem_output" title="Link to this definition">#</a></dt>
+<dd><p>write the chemical output (Fortran style) in the Python style back to the model directory</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the data and parameters to be saved.
+chem_code_exe_dir (str): where the chemistry code is executed
+chem_network_name (str): the name of the chemical network (just for recording)
+bool_save_allab (bool): if true, then save all of the abundance files from the chemistry output to the main data folder</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.get_chemistry_paths">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">get_chemistry_paths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chem_code_name_or_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.get_chemistry_paths" title="Link to this definition">#</a></dt>
+<dd><p>Resolves the location of:</p>
+<ol class="arabic simple">
+<li><p>The chemistry data directory (source_dir)</p></li>
+<li><p>The binary executables (disk_main, disk_extract)</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.runchemistry">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">runchemistry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chem_code_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G0Hab_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_save_allab</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.runchemistry" title="Link to this definition">#</a></dt>
+<dd><p>Run the chemical network of the DiskMINT model.</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the data and parameters to be saved.
+chem_code_dir (str): where the chemistry code is put
+G0Hab_set (float): The G0 at the stellar surface in Habing units (optional).
+bool_save_allab (bool): Whether to save all abundance outputs to the chemistry data directory.
+verbose (bool): If true, printout some texts for debuggin and monitoring</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diskmint.disk_density.runchemistry_prev">
+<span class="sig-prename descclassname"><span class="pre">diskmint.disk_density.</span></span><span class="sig-name descname"><span class="pre">runchemistry_prev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chem_code_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G0Hab_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bool_save_allab</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diskmint.disk_density.runchemistry_prev" title="Link to this definition">#</a></dt>
+<dd><p>run the chemical network of DiskMINT model
+This is the previous version that the code is executed in the diskmint package location</p>
+<p>Args:
+mint (object): The DiskMINT model object containing the data and parameters to be saved.
+chem_code_dir (str): where the chemistry code is put
+G0Hab_set (None or float): the G0 at stellar surface in Hab units
+bool_save_allab (bool): if true, save all the ab output to the data/chem dir</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="diskmint.dustopac.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.dustopac</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="diskmint.modelgrid.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">diskmint.modelgrid</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module Contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api">API</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.save_3dgrid_to_dat"><code class="docutils literal notranslate"><span class="pre">save_3dgrid_to_dat()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.load_3dgrid_from_dat"><code class="docutils literal notranslate"><span class="pre">load_3dgrid_from_dat()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.grid_refine_inner_edge"><code class="docutils literal notranslate"><span class="pre">grid_refine_inner_edge()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.grid_radial_profile"><code class="docutils literal notranslate"><span class="pre">grid_radial_profile()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.grid_vertical_layer"><code class="docutils literal notranslate"><span class="pre">grid_vertical_layer()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.place_ratio_g2d"><code class="docutils literal notranslate"><span class="pre">place_ratio_g2d()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.clean_rhodust_array"><code class="docutils literal notranslate"><span class="pre">clean_rhodust_array()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.place_rhodust_all"><code class="docutils literal notranslate"><span class="pre">place_rhodust_all()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.place_surface_density"><code class="docutils literal notranslate"><span class="pre">place_surface_density()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.problem_setup"><code class="docutils literal notranslate"><span class="pre">problem_setup()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.func_Tgas"><code class="docutils literal notranslate"><span class="pre">func_Tgas()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.func_Tgas_visc"><code class="docutils literal notranslate"><span class="pre">func_Tgas_visc()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.func_ext"><code class="docutils literal notranslate"><span class="pre">func_ext()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.extend_insphr"><code class="docutils literal notranslate"><span class="pre">extend_insphr()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.sph2cyl"><code class="docutils literal notranslate"><span class="pre">sph2cyl()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.cyl2sph"><code class="docutils literal notranslate"><span class="pre">cyl2sph()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.extend_insphr_dust"><code class="docutils literal notranslate"><span class="pre">extend_insphr_dust()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.sph2cyl_dust"><code class="docutils literal notranslate"><span class="pre">sph2cyl_dust()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.cyl2sph_dust"><code class="docutils literal notranslate"><span class="pre">cyl2sph_dust()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.calc_tau_new"><code class="docutils literal notranslate"><span class="pre">calc_tau_new()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.set_dusttemp_at_midplane"><code class="docutils literal notranslate"><span class="pre">set_dusttemp_at_midplane()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.get_new_dust_temperature"><code class="docutils literal notranslate"><span class="pre">get_new_dust_temperature()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.smooth_gas_temp"><code class="docutils literal notranslate"><span class="pre">smooth_gas_temp()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.solve_gastemp"><code class="docutils literal notranslate"><span class="pre">solve_gastemp()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.get_new_dust_density"><code class="docutils literal notranslate"><span class="pre">get_new_dust_density()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.fill_nan_in_2d_array_inlog"><code class="docutils literal notranslate"><span class="pre">fill_nan_in_2d_array_inlog()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.set_dust_settling_cyl"><code class="docutils literal notranslate"><span class="pre">set_dust_settling_cyl()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.set_dust_settling_cyl_vert_isothermal"><code class="docutils literal notranslate"><span class="pre">set_dust_settling_cyl_vert_isothermal()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.read_in_rhodust"><code class="docutils literal notranslate"><span class="pre">read_in_rhodust()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.set_dust_settling"><code class="docutils literal notranslate"><span class="pre">set_dust_settling()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.add_dust_rim"><code class="docutils literal notranslate"><span class="pre">add_dust_rim()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.chemistry_setup"><code class="docutils literal notranslate"><span class="pre">chemistry_setup()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.copy_files_with_extension"><code class="docutils literal notranslate"><span class="pre">copy_files_with_extension()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.savemodel"><code class="docutils literal notranslate"><span class="pre">savemodel()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.write_chem_input"><code class="docutils literal notranslate"><span class="pre">write_chem_input()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.write_chem_output"><code class="docutils literal notranslate"><span class="pre">write_chem_output()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.get_chemistry_paths"><code class="docutils literal notranslate"><span class="pre">get_chemistry_paths()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.runchemistry"><code class="docutils literal notranslate"><span class="pre">runchemistry()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diskmint.disk_density.runchemistry_prev"><code class="docutils literal notranslate"><span class="pre">runchemistry_prev()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/apidocs/diskmint/diskmint.disk_density.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

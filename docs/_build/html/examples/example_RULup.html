@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Example: Disk Around RU Lup &#8212; DiskMINT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=db540163" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/example_RULup';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AI Features" href="../AI%20Features/ai_ref_index.html" />
+    <link rel="prev" title="Check the Chemical Network Output of DiskMINT models" href="0p5ms_star_notebooks/notebook3_chemical.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/card-software-transparent.png" class="logo__image only-light" alt=""/>
+    <img src="../_static/card-software-transparent.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">DiskMINT</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About DiskMINT
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Quick%20Start/quick_start_index.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../User%20Guide/user_guide_index.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="example_index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../AI%20Features/ai_ref_index.html">
+    AI Features
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/DingshanDeng/DiskMINT" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="example_0p5ms_star.html">Example: Disk Around a 0.5 Msun Star</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="0p5ms_star_notebooks/setup_walkthrough.html">Setup Script Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0p5ms_star_notebooks/notebook1_thermal.html">Check the Thermal-Density Output for DiskMINT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0p5ms_star_notebooks/notebook2_sed.html">Check the SED Output for DiskMINT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0p5ms_star_notebooks/notebook3_chemical.html">Check the Chemical Network Output of DiskMINT models</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Example: Disk Around RU Lup</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="example_index.html" class="nav-link">Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Example: Disk Around RU Lup</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="example-disk-around-ru-lup">
+<h1>Example: Disk Around RU Lup<a class="headerlink" href="#example-disk-around-ru-lup" title="Link to this heading">#</a></h1>
+<p>This example reproduces the best-fit DiskMINT model for RU Lup, a classical T Tauri star in the Lupus star-forming region, as published in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023)</a>.
+Running this example will reproduce the model described in that paper.
+It demonstrates the full pipeline including Vertical Hydrostatic Equilibrium (VHSE), the chemical network, and line radiative transfer with LIME.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the published model from <strong>Deng et al. (2023)</strong>, <em>The Astrophysical Journal</em>, 954, 165.
+If you are reproducing or citing the RU Lup result, please refer to that paper.</p>
+</div>
+<p>The example files are located at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="o">/</span><span class="n">example_diskmint_models</span><span class="o">/</span><span class="n">example_RULup</span><span class="o">/</span>
+</pre></div>
+</div>
+<section id="directory-structure">
+<h2>Directory Structure<a class="headerlink" href="#directory-structure" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>example_RULup/
+├── example_model_RULup.py                                     # Main model script
+├── example_RULup_parameters.csv                               # Parameter file
+├── example_model_RULup_VHSE_bestfit_parameters.csv            # Written-out best-fit parameters
+├── example_model_RULup_VHSE_bestfit_parameters_sigmad_ref.dat  # Reference surface density
+├── data/                                                      # RADMC-3D working directory
+│   ├── RULupSpecModel_wuv.inp                                 # Stellar + UV spectrum
+│   ├── dustkappa_WD01_amax0p3cm_*.inp                         # Dust opacity files (20 size bins)
+│   ├── aave.inp                                               # Average grain sizes
+│   ├── fracs.inp                                              # Dust mass fractions
+│   ├── fracs_numb.inp                                         # Dust number fractions
+│   ├── ndsd.inp                                               # Normalized dust size distribution
+│   ├── spectrum.out                                           # RADMC-3D SED output
+│   ├── ratio_g2d_grid.dat                                     # Gas-to-dust ratio on the model grid
+│   ├── colimemodel.c                                          # LIME model file (C source)
+│   ├── wrapper_LIME_example.py                                # Python wrapper for running LIME
+│   ├── molecule_c18o.inp                                      # $\mathrm{C^{18}O}$ molecular data for LIME
+│   ├── limegrid.dat                                           # LIME grid file
+│   ├── example_model_RULup_VHSE_bestfit_reducedRGH22/          # Chemical network output
+│   └── images/                                                # LIME synthetic images output
+└── LIME_example_RULup/                                        # LIME line radiative transfer example
+</pre></div>
+</div>
+</section>
+<section id="model-description">
+<h2>Model Description<a class="headerlink" href="#model-description" title="Link to this heading">#</a></h2>
+<p>RU Lup is a well-known classical T Tauri star with a massive, CO-rich disk. The DiskMINT best-fit model derives a self-consistent thermochemical disk structure and estimates the disk gas mass from <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> line emission.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Stellar mass</p></td>
+<td><p>0.7 M☉</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stellar effective temperature</p></td>
+<td><p>4060 K</p></td>
+</tr>
+<tr class="row-even"><td><p>Stellar radius</p></td>
+<td><p>2.5 R☉</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mass accretion rate</p></td>
+<td><p>1 × 10⁻⁷ M☉/yr</p></td>
+</tr>
+<tr class="row-even"><td><p>Disk dust mass</p></td>
+<td><p>4.0 × 10⁻⁴ M☉</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gas-to-dust mass ratio</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>Tapering-off radius</p></td>
+<td><p>63 au</p></td>
+</tr>
+<tr class="row-odd"><td><p>Disk inclination</p></td>
+<td><p>18.8°</p></td>
+</tr>
+<tr class="row-even"><td><p>Disk outer grid edge</p></td>
+<td><p>500 au</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dust grain size (a_min to a_max)</p></td>
+<td><p>1 × 10⁻⁶ to 0.3 cm</p></td>
+</tr>
+<tr class="row-even"><td><p>Dust size distribution slope</p></td>
+<td><p>3.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dust bulk density</p></td>
+<td><p>3.224 g cm⁻³</p></td>
+</tr>
+<tr class="row-even"><td><p>Dust composition</p></td>
+<td><p>WD01 (Weingartner &amp; Draine 2001)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For the full best-fit parameters and context, see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023)</a>.</p>
+</section>
+<section id="running-the-model">
+<h2>Running the Model<a class="headerlink" href="#running-the-model" title="Link to this heading">#</a></h2>
+<p>Run the main script from inside the <code class="docutils literal notranslate"><span class="pre">example_RULup/</span></code> directory. (It is recommended to run it inside a <code class="docutils literal notranslate"><span class="pre">screen</span></code> session so it can continue if your connection drops.)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># screen -S my_session</span>
+<span class="c1"># conda activate diskmint_env</span>
+python<span class="w"> </span>-u<span class="w"> </span>example_model_RULup.py<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>output.log
+</pre></div>
+</div>
+<p>The script performs the following steps in order:</p>
+<ol class="arabic simple">
+<li><p><strong>Reads parameters</strong> from <code class="docutils literal notranslate"><span class="pre">example_RULup_parameters.csv</span></code>.</p></li>
+<li><p><strong>Copies input files</strong> (stellar spectrum, dust opacities) to the <code class="docutils literal notranslate"><span class="pre">data/</span></code> working directory.</p></li>
+<li><p><strong>Sets up the <code class="docutils literal notranslate"><span class="pre">Mint</span></code> model object</strong> and configures the run options.</p></li>
+<li><p><strong>Executes the full model</strong> via <code class="docutils literal notranslate"><span class="pre">exe.runmodel()</span></code>, which internally runs:</p>
+<ul class="simple">
+<li><p>Vertical hydrostatic equilibrium (VHSE) iteration (up to 20 loops until convergence)</p></li>
+<li><p>RADMC-3D thermal Monte Carlo and SED calculation</p></li>
+<li><p>Chemical network (reducedRGH22)</p></li>
+</ul>
+</li>
+<li><p>Saves a copy of the model output to <code class="docutils literal notranslate"><span class="pre">save_dir</span></code> (set in the script).</p></li>
+</ol>
+<section id="key-model-options">
+<h3>Key Model Options<a class="headerlink" href="#key-model-options" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bool_MakeDustKappa</span>  <span class="o">=</span> <span class="kc">True</span>    <span class="c1"># Compute dust size fractions from the opacity files</span>
+<span class="n">bool_SED</span>            <span class="o">=</span> <span class="kc">True</span>    <span class="c1"># Compute the SED with RADMC-3D</span>
+<span class="n">bool_VHSE</span>           <span class="o">=</span> <span class="kc">True</span>    <span class="c1"># Solve vertical hydrostatic equilibrium iteratively</span>
+<span class="n">bool_dust_settling</span>  <span class="o">=</span> <span class="kc">False</span>   <span class="c1"># Dust settling is OFF — gas and dust are well-coupled</span>
+<span class="n">bool_chemistry</span>      <span class="o">=</span> <span class="kc">True</span>    <span class="c1"># Run the chemical network</span>
+<span class="n">bool_savemodel</span>      <span class="o">=</span> <span class="kc">True</span>    <span class="c1"># Save a copy of the model output to save_dir</span>
+<span class="n">n_vhse_loop</span>         <span class="o">=</span> <span class="mi">20</span>      <span class="c1"># Maximum VHSE iterations</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">bool_dust_settling</span> <span class="pre">=</span> <span class="pre">False</span></code> in this example. For RU Lup, the best-fit model assumes well-coupled gas and dust without settling.</p>
+</section>
+<section id="parameter-file">
+<h3>Parameter File<a class="headerlink" href="#parameter-file" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">example_RULup_parameters.csv</span></code> uses the standard DiskMINT CSV format (comma-separated, <code class="docutils literal notranslate"><span class="pre">#</span></code> for comments):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">description</span>
+</pre></div>
+</div>
+<p>Key differences from a generic model setup:</p>
+<ul class="simple">
+<li><p>Larger grid: <code class="docutils literal notranslate"><span class="pre">nr</span> <span class="pre">=</span> <span class="pre">170</span></code>, <code class="docutils literal notranslate"><span class="pre">ntheta</span> <span class="pre">=</span> <span class="pre">200</span></code> to resolve the extended RU Lup disk</p></li>
+<li><p>WD01 dust: <code class="docutils literal notranslate"><span class="pre">dustopacname_1</span> <span class="pre">=</span> <span class="pre">WD01_amax0p3cm</span></code> (Weingartner &amp; Draine 2001 opacity model)</p></li>
+<li><p>Larger a_max: <code class="docutils literal notranslate"><span class="pre">amax_1</span> <span class="pre">=</span> <span class="pre">0.3</span></code> cm</p></li>
+<li><p>DSHARP bulk density: <code class="docutils literal notranslate"><span class="pre">rhobulk</span> <span class="pre">=</span> <span class="pre">3.224</span></code> g cm⁻³</p></li>
+<li><p>Parameters can be overridden directly in the script using:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">para</span><span class="o">.</span><span class="n">edit_parameter</span><span class="p">(</span><span class="s2">&quot;parameter_name&quot;</span><span class="p">,</span> <span class="n">new_value</span><span class="o">=...</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="line-radiative-transfer-with-lime">
+<h3>Line Radiative Transfer with LIME<a class="headerlink" href="#line-radiative-transfer-with-lime" title="Link to this heading">#</a></h3>
+<p>After the DiskMINT model completes, the chemical output (CO abundances on a cylindrical grid) can be passed to LIME for non-LTE line radiative transfer. The <code class="docutils literal notranslate"><span class="pre">data/</span></code> directory contains the necessary LIME input files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">colimemodel.c</span></code>: The LIME model file written in C. It reads the DiskMINT output grid (<code class="docutils literal notranslate"><span class="pre">limegrid.dat</span></code>) and interpolates the gas density, temperature, and <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> abundance at arbitrary positions requested by LIME.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wrapper_LIME_example.py</span></code>: A Python wrapper script that calls LIME with the correct settings (transitions, resolution, velocity range).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">molecule_c18o.inp</span></code>: The <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> molecular data file (energy levels, Einstein coefficients) required by LIME.</p></li>
+</ul>
+<p>To run LIME, ensure it is installed and then execute the wrapper:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-u<span class="w"> </span>wrapper_LIME_example.py<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>output_lime.log
+</pre></div>
+</div>
+<p>Synthetic channel maps will be saved to <code class="docutils literal notranslate"><span class="pre">data/images/</span></code>. These can then be convolved with an observational beam for comparison with ALMA data.</p>
+</section>
+</section>
+<section id="input-files-reference">
+<h2>Input Files Reference<a class="headerlink" href="#input-files-reference" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RULupSpecModel_wuv.inp</span></code></p></td>
+<td><p>RU Lup stellar spectrum including UV, in RADMC-3D format</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dustkappa_WD01_amax0p3cm_N.inp</span></code></p></td>
+<td><p>WD01 dust opacity for grain size bin N (0–19), in RADMC-3D format</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">aave.inp</span></code></p></td>
+<td><p>Average grain size for each size bin</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fracs.inp</span></code></p></td>
+<td><p>Dust mass fraction for each size bin</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fracs_numb.inp</span></code></p></td>
+<td><p>Dust number fraction for each size bin</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ndsd.inp</span></code></p></td>
+<td><p>Normalized dust size distribution</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">colimemodel.c</span></code></p></td>
+<td><p>LIME model source code for interpolating DiskMINT output</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">molecule_c18o.inp</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> molecular data for LIME</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0p5ms_star_notebooks/notebook3_chemical.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Check the Chemical Network Output of DiskMINT models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../AI%20Features/ai_ref_index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">AI Features</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-structure">Directory Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-description">Model Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-model">Running the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-model-options">Key Model Options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-file">Parameter File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-radiative-transfer-with-lime">Line Radiative Transfer with LIME</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files-reference">Input Files Reference</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/examples/example_RULup.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2026, Dingshan Deng.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
