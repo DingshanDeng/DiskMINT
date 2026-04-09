@@ -34,10 +34,12 @@ What external tools are needed (RADMC-3D, dust opacities, line RT code) and how 
 
 ## AI-Assisted Installation (Experimental)
 
-> [!WARNING] DiskMINT-Nursery is experimental. 
-> Install it from its own repository:
-> https://github.com/DingshanDeng/DiskMINT-Nursery
-> More information is described in {doc}`AI Features <../AI Features/ai_ref_index>`
+```{warning}
+DiskMINT-Nursery is experimental.
+Install it from its own repository:
+https://github.com/DingshanDeng/DiskMINT-Nursery
+More information is described in {doc}`AI Features <../AI Features/ai_ref_index>`
+```
 
 Try out [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery), the new AI coding asistant that can walk you through the installation interactively.
 This is an AI agent skill for [Claude Code](https://claude.ai/code),

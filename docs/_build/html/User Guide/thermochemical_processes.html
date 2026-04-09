@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Thermochemical Processes in DiskMINT &#8212; DiskMINT  documentation</title>
+    <title>Key Thermochemical Processes in DiskMINT &#8212; DiskMINT  documentation</title>
   
   
   
@@ -51,8 +51,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Surface Density Fitting Guide" href="surface_density_fitting.html" />
-    <link rel="prev" title="Physics and Chemistry Background" href="physics_background.html" />
+    <link rel="next" title="Physics and Chemistry Background" href="physics_background.html" />
+    <link rel="prev" title="Running DiskMINT on an HPC Cluster" href="hpc_guide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -351,8 +351,8 @@
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="build_your_own_model.html">Build Your DiskMINT Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hpc_guide.html">Running DiskMINT on an HPC Cluster</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Key Thermochemical Processes in DiskMINT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="physics_background.html">Physics and Chemistry Background</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Thermochemical Processes in DiskMINT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="surface_density_fitting.html">Surface Density Fitting Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ml_ai_inference.html">ML / AI-Assisted Inference</a></li>
 </ul>
@@ -398,7 +398,7 @@
     
     <li class="breadcrumb-item"><a href="user_guide_index.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Thermochemical Processes in DiskMINT</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Key Thermochemical Processes in DiskMINT</span></li>
   </ul>
 </nav>
 </div>
@@ -415,8 +415,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="thermochemical-processes-in-diskmint">
-<h1>Thermochemical Processes in DiskMINT<a class="headerlink" href="#thermochemical-processes-in-diskmint" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="key-thermochemical-processes-in-diskmint">
+<h1>Key Thermochemical Processes in DiskMINT<a class="headerlink" href="#key-thermochemical-processes-in-diskmint" title="Link to this heading">#</a></h1>
 <p>This page summarizes the three key thermochemical ingredients that form the physical backbone of DiskMINT:</p>
 <ol class="arabic simple">
 <li><p>vertical hydrostatic equilibrium (VHSE)</p></li>
@@ -427,14 +427,15 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.aanda.org/10.1051/0004-6361/200912129">Visser, van Dishoeck &amp; Black (2009), A&amp;A 503, 323</a> for the original CO isotope-selective photodissociation model</p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R">Ruaud &amp; Gorti (2019), ApJ 885, 146</a> for the original CO chemistry model that the later network builds on</p></li>
+<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a> for the reduced chemical network used to model <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span></p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023), ApJ 954, 165</a> for the original DiskMINT framework</p></li>
 <li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a> for the IM Lup application and the extended structured-model workflow</p></li>
-<li><p><a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a> for the reduced chemical network used to model <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span></p></li>
 </ul>
 <hr class="docutils" />
-<section id="why-thermochemical-modeling-matters">
-<h2>Why thermochemical modeling matters<a class="headerlink" href="#why-thermochemical-modeling-matters" title="Link to this heading">#</a></h2>
-<p>Weak CO isotopologue emission does not always mean that a disk is gas-poor. The emission can also be reduced because CO is selectively photodissociated, frozen onto grains, chemically converted into other ice species, or shifted into a different vertical emitting layer by the disk structure itself.</p>
+<section id="why-thermochemical-modeling-is-necessary">
+<h2>Why thermochemical modeling is necessary<a class="headerlink" href="#why-thermochemical-modeling-is-necessary" title="Link to this heading">#</a></h2>
+<p>Gas emission lines from protoplanetary disks are shaped by multiple intertwined processes: local gas temperature, density, UV radiation, and the disk’s thermal and chemical structure. These factors will not be varied independently, and changing one would affect the others. Therefore, interpreting observed line fluxes must rely on thermochemical models that track all these effects self-consistently rather than treating them as separate corrections.</p>
+<p>For example, weak CO isotopologue emission does not always mean that a disk is gas-poor. The emission can also be reduced because CO is selectively photodissociated, frozen onto grains, chemically converted into other ice species, or shifted into a different vertical emitting layer by the disk structure itself.</p>
 <p>DiskMINT is designed to model these effects self-consistently instead of relying on a fixed CO abundance or a simple global depletion factor. In practice, the <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> emission depends on where the gas is dense enough, warm or cold enough, and chemically protected enough for the molecule to survive and emit.</p>
 </section>
 <section id="vertical-hydrostatic-equilibrium-vhse">
@@ -447,19 +448,19 @@
 <li><p>the gas temperature is computed from thermal coupling with dust grains</p></li>
 <li><p>the gas density is then updated by solving vertical hydrostatic equilibrium</p></li>
 </ul>
-<p>This iterative treatment is one of the core physical ingredients of the model and is essential for locating the emitting layers of the rarer CO isotopologues. The original DiskMINT implementation of this self-consistent framework is presented in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023), ApJ 954, 165</a>, and its application to the structured IM Lup modeling is developed further in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a>.</p>
+<p>This iterative treatment is one of the core physical ingredients of the model and is essential for locating the emitting layers of the rarer CO isotopologues. The original DiskMINT implementation of this self-consistent framework is presented in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023), ApJ 954, 165</a>, and its application to the structured IM Lup modeling is developed further in <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a>. In the later case where we also calculate the dust settling together with the gas structure, the vertical structure is solved by iterating between the gas and dust density structures.</p>
 </section>
 <section id="selective-chemistry-isotope-selective-photodissociation">
 <h2>2. Selective Chemistry: Isotope-selective Photodissociation<a class="headerlink" href="#selective-chemistry-isotope-selective-photodissociation" title="Link to this heading">#</a></h2>
 <p>DiskMINT does not assume that <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> follows a fixed isotopic scaling from <span class="math notranslate nohighlight">\(\mathrm{{}^{12}CO}\)</span>. Instead, it includes isotope-selective photodissociation in the reduced chemistry network.</p>
 <p>The reason is that the more abundant isotopologues self-shield more effectively against UV radiation. Rarer isotopologues such as <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> are less protected and can be dissociated deeper into the disk. This changes both the radial and vertical abundance structure of the gas that actually emits in <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span>.</p>
-<p>This effect is especially important when using <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> as a gas-mass tracer. Without isotope-selective photodissociation, the modeled <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> abundance can be overestimated, which can in turn bias the inferred gas surface density or total gas mass. In DiskMINT, this chemistry is inherited from the reduced network of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a>, which preserves the processes most important for <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> and builds on the original photodissociation model of <a class="reference external" href="https://www.aanda.org/10.1051/0004-6361/200912129">Visser, van Dishoeck &amp; Black (2009), A&amp;A 503, 323</a> and the original chemistry framework of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R">Ruaud &amp; Gorti (2019), ApJ 885, 146</a>.</p>
+<p>This effect is especially important when using <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> as a gas-mass tracer. Without isotope-selective photodissociation, the modeled <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> abundance can be overestimated, which can in turn bias the inferred gas surface density or total gas mass. In DiskMINT, this chemistry is inherited from the reduced network of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a>, which preserves the processes most important for <span class="math notranslate nohighlight">\(\mathrm{C^{18}O}\)</span> and builds on the original photodissociation model of <a class="reference external" href="https://www.aanda.org/10.1051/0004-6361/200912129">Visser, van Dishoeck &amp; Black (2009), A&amp;A 503, 323</a> and the original chemistry framework of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R">Ruaud &amp; Gorti (2019), ApJ 885, 146</a>. This effect is mostly important in the outer disk and the upper layers of the disk, where the UV radiation is stronger and the gas is less dense.</p>
 </section>
 <section id="grain-surface-chemistry">
 <h2>3. Grain-surface Chemistry<a class="headerlink" href="#grain-surface-chemistry" title="Link to this heading">#</a></h2>
-<p>DiskMINT also includes more than simple CO freeze-out. In cold parts of the disk, CO can freeze onto dust grains, but the chemistry does not stop there. On grain surfaces, CO can be converted into <span class="math notranslate nohighlight">\(\mathrm{CO_2}\)</span> ice and related ice reservoirs.</p>
+<p>DiskMINT also includes more than simple CO freeze-out. In cold parts of the disk, CO can freeze onto dust grains, but the chemistry does not stop there. On grain surfaces, CO can be effecitvely converted into <span class="math notranslate nohighlight">\(\mathrm{CO_2}\)</span> ice and related ice reservoirs.</p>
 <p>This matters because freeze-out with grain-surface conversion removes CO from the gas phase more effectively than a simple reversible freeze-out picture. It changes the location of the effective CO snow surface and reduces the amount of CO available to emit in the cold disk.</p>
-<p>In DiskMINT, this process is one of the main ingredients needed to interpret weak CO isotopologue emission physically rather than replacing it with an arbitrary global depletion factor. This treatment follows the reduced chemistry framework of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a>, which in turn extends the original chemistry model of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R">Ruaud &amp; Gorti (2019), ApJ 885, 146</a>, and is one of the ingredients emphasized in both <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023), ApJ 954, 165</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a>.</p>
+<p>In DiskMINT, this process is one of the main ingredients needed to interpret weak CO isotopologue emission physically rather than replacing it with an arbitrary global depletion factor. This treatment follows the reduced chemistry framework of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R">Ruaud, Gorti &amp; Hollenbach (2022), ApJ 925, 49</a>, which in turn extends the original chemistry model of <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2019ApJ...885..146R">Ruaud &amp; Gorti (2019), ApJ 885, 146</a>, and is one of the ingredients emphasized in both <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D">Deng et al. (2023), ApJ 954, 165</a> and <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D">Deng et al. (2025), ApJ 995, 98</a>. This process is mostly important as it changes the location of the vertical snowline of the molecules, resulting in a different emitting layer and temperature structure together with the solved VHSE.</p>
 </section>
 <section id="how-these-three-processes-work-together">
 <h2>How these three processes work together<a class="headerlink" href="#how-these-three-processes-work-together" title="Link to this heading">#</a></h2>
@@ -494,20 +495,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="physics_background.html"
+       href="hpc_guide.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Physics and Chemistry Background</p>
+        <p class="prev-next-title">Running DiskMINT on an HPC Cluster</p>
       </div>
     </a>
     <a class="right-next"
-       href="surface_density_fitting.html"
+       href="physics_background.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Surface Density Fitting Guide</p>
+        <p class="prev-next-title">Physics and Chemistry Background</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -530,7 +531,7 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-thermochemical-modeling-matters">Why thermochemical modeling matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-thermochemical-modeling-is-necessary">Why thermochemical modeling is necessary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-hydrostatic-equilibrium-vhse">1. Vertical Hydrostatic Equilibrium (VHSE)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-chemistry-isotope-selective-photodissociation">2. Selective Chemistry: Isotope-selective Photodissociation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grain-surface-chemistry">3. Grain-surface Chemistry</a></li>

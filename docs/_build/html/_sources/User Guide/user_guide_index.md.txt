@@ -75,7 +75,7 @@ read {doc}`surface_density_fitting` and {doc}`ml_ai_inference` summarize the bro
 
 build_your_own_model
 hpc_guide
-physics_background
 thermochemical_processes
+physics_background
 surface_density_fitting
 ml_ai_inference
