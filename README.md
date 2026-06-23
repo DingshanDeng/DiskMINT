@@ -17,11 +17,43 @@ For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs
 
 link to the [Documentation](https://diskmint.readthedocs.io/en/latest/)
 
+**Conda Environment**
+
+For a source checkout, you can create the recommended Python environment with:
+
+```bash
+conda env create -f environment.yml
+conda activate diskmint_stable
+```
+
+This installs DiskMINT in editable mode with the optional `garden` extra. RADMC-3D, optool, and the Fortran chemistry binary still need the setup described in the documentation for full model runs.
+
 ---
 
 **Try the AI Assistant (Experimental)**
 
 [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an *experimental* AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `AI Features` section in the documentation for details.
+
+**Try DiskMINT-GARDEN (Beta)**
+
+DiskMINT v1.7.0-beta includes a predict-only `diskmint.garden` API for fast disk-property inference from millimeter continuum flux, $\mathrm{C^{18}O}$ line flux, distance, stellar mass, and dust radius. Install optional ML dependencies with:
+
+```bash
+pip install "diskmint[garden]"
+```
+
+```python
+import diskmint.garden.infer as infer
+
+result = infer.from_observations(
+    flux_mm=120.0,
+    flux_c18o=850.0,
+    distance=140.0,
+    mstar=0.8,
+    rdust_90=80.0,
+    band="band6",
+)
+```
 
 ---
 ---

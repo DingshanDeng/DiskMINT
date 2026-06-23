@@ -11,6 +11,9 @@ recursive-include chemistry/src *.f90 *.F90 *.inc *.f
 recursive-include chemistry/reducedRGH22 *
 recursive-include chemistry/with_CO2_ice *
 recursive-include chemistry/without_CO2_ice *
+recursive-include src/diskmint/garden/data *.joblib
+recursive-include examples/example_diskmint_garden *
+include docs/source/examples/example_garden.md
 
 # --- Do NOT ship prebuilt binaries or local build artifacts ---
 prune chemistry/bin

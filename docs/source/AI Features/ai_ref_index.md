@@ -1,17 +1,16 @@
 # AI Features
 
-DiskMINT supports two categories of ML and AI tools: an **AI assistant skill** for guided installation, modeling, and support (available now), and a **machine-learning inference API** for fast disk parameter estimation (in development). This section covers both, and provides the structured reference files used by the AI assistant.
+DiskMINT supports two categories of ML and AI tools: an **AI assistant skill** for guided installation, modeling, and support, and a **machine-learning inference API** for fast disk parameter estimation. This section covers both, and provides the structured reference files used by the AI assistant.
 
 ---
 
 ## DiskMINT-GARDEN -- ML Inference
 
-DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is a grid of DiskMINT models spanning a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. An XGBoost regressor trained on this grid will enable:
+DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is a grid of DiskMINT models spanning a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. The v1.7.0-beta package includes a predict-only XGBoost inference API:
 
-- **Forward inference:** fast prediction of disk observables (millimeter flux, $\mathrm{C^{18}O}$ flux) from input parameters
 - **Inverse inference:** estimates of physical disk properties (gas mass, gas-to-dust ratio, characteristic radius) from observed fluxes
 
-Once released alongside the grid paper, inference will be available via `diskmint.infer()`. See {doc}`../User Guide/ml_ai_inference` for context and to be notified when this feature is published.
+Install with `pip install "diskmint[garden]"`, then call `diskmint.garden.infer.from_observations(...)` or `diskmint.garden.infer.from_dataframe(...)`. Required observed inputs are millimeter continuum flux density, $\mathrm{C^{18}O}$ integrated flux, distance, stellar mass, and the 90 percent dust radius. See {doc}`../User Guide/ml_ai_inference` for the beta API and domain-warning details.
 
 ---
 

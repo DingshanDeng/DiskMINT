@@ -30,10 +30,20 @@ The best-fit DiskMINT model for RU Lup as published in [Deng et al. (2023)](http
 :::
 ::::
 
+::::{grid} 1
+:::{grid-item-card} DiskMINT-GARDEN Inference Quickstart
+:link: example_garden
+:link-type: doc
+
+A lightweight beta example for `diskmint.garden`: load the bundled surrogate model and infer gas mass, dust mass, gas-to-dust ratio, and characteristic radius from observed continuum and $\mathrm{C^{18}O}$ fluxes. Includes a runnable smoke script and an annotated notebook.
+:::
+::::
+
 ```{toctree}
 :hidden:
 :maxdepth: 1
 
 example_0p5ms_star
 example_RULup
+example_garden
 ```

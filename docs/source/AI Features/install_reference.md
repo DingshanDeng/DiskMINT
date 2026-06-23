@@ -37,6 +37,15 @@ conda create -n <your_env_name> python=3.11
 conda activate <your_env_name>
 ```
 
+**Or create the recommended source-checkout environment:**
+```bash
+cd Yourpath/DiskMINT
+conda env create -f environment.yml
+conda activate diskmint_stable
+```
+
+The provided `environment.yml` installs the local checkout with the optional `garden` extra, so it includes the DiskMINT-GARDEN inference dependencies in addition to the core DiskMINT Python dependencies.
+
 **Verify:**
 ```bash
 echo $CONDA_DEFAULT_ENV   # should print your environment name (not empty, not 'base')

@@ -26,6 +26,15 @@ conda install numpy scipy astropy matplotlib
 
 This step is optional — `make install` (below) installs all required dependencies automatically via `pip`. The conda packages above are useful extras for data analysis and visualization.
 
+**Alternative: use the provided environment file.** From the DiskMINT repository root:
+
+```bash
+conda env create -f environment.yml
+conda activate diskmint_stable
+```
+
+This creates a full Python environment with common analysis tools and the optional DiskMINT-GARDEN dependencies. It also installs the local DiskMINT checkout in editable mode via `pip -e .[garden]`. You still need to compile the Fortran chemistry network and install external executables such as RADMC-3D for full model runs.
+
 **Remember** to activate the environment at the start of every session:
 
 ```bash
