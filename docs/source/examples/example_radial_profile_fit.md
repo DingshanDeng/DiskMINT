@@ -108,3 +108,19 @@ profile_comparison/radial_profile_fit_inputs.png
 ```
 
 Extend this plotting helper with your own continuum image or C18O line-radiative-transfer products for direct model-vs-observation comparisons.
+
+## Validating the Example
+
+The fast pytest checks validate the parameter file, reference tables, mode setup, stable runtime flags, and bundled input files without running RADMC-3D:
+
+```bash
+pytest tests/test_example_radial_profile_fit.py
+```
+
+To run the opt-in short model smoke test, use a machine where RADMC-3D and the required DiskMINT runtime dependencies are configured:
+
+```bash
+pytest tests/test_example_radial_profile_fit.py --run-diskmint-examples
+```
+
+The opt-in test copies this example into a temporary directory before running it, so it does not write model outputs into the repository.
