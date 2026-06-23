@@ -1,0 +1,63 @@
+# set up some parameters in CSV format: , as divider
+# lines start with '#' will not be read
+# DiskMINT example: radial profile fitting
+#
+# column order:
+# name(str), value(str/int/float), units(str), valuetype, description
+
+# 1. RADMC-3D Setup
+nphot           , 1.0e7 , None , float64 , Number of Photon Packages
+nthreads        , 10    , None , float64 , Number of Threads using in RADMC3D
+scattering_mode , 0     , None , float64 , Scatter Mode in RADMC3D
+nr              , 30    , None , float64 , Number of Grid in r-direction
+r_step_max      , 5.0   , au   , float64 , Maximum step allowed for rgrid
+ntheta          , 100   , None , float64 , Number of Grid in theta-direction
+nphi            , 1     , None , float64 , Number of Grid in phi-direction
+rin             , 0.05  , au   , float64 , Inner edge of the r grid
+rout            , 1000  , au   , float64 , Outer edge of the r grid
+thetaup         , 0.7   , None , float64 , Upper edge of theta grid
+
+# 2. Stellar Parameters
+fmodel_filename , BTSettl_1p0Msolar_1pc_um_ergpcm2hzs.inp , None                  , str     , Stellar spectrum file in RADMC3D format
+tstar           , 4250                                    , K                     , float64 , Stellar temperature
+mstar           , 1.0                                     , solar masses          , float64 , Stellar mass
+rstar           , 2.5                                     , solar radius          , float64 , Stellar radius
+mdotacc         , 1.0e-8                                  , solar masses per year , float64 , Disk mass accretion rate
+
+# 3. Disk Parameters
+mdiskd           , 4.0e-4 , solar masses , float64 , Disk dust mass
+ratio_g2d_global , 100.0  , None         , float64 , Global gas-to-dust mass ratio
+pl_sufdens       , -1.0   , None         , float64 , Power law index for disk surface density distribution
+pl_tapoff        , 1.0    , None         , float64 , Power law index for disk tapering-off outer edge
+Rtap             , 100.0  , au           , float64 , Disk tapering-off radius
+scaleheight_index , 1     , None         , float64 , Scale height prescription selector
+hp100             , 10    , au           , float64 , Pressure scale height at 100 au
+hprcr             , 0.1   , None         , float64 , Pressure scale height over Rtap at Rtap
+plh               , 1.15  , None         , float64 , Power law index of pressure scale height
+visc_alpha        , 1.0e-3, None         , float64 , Alpha parameter for dust settling
+G0Hab_set         , 1.0e11, Hab          , float64 , UV field at stellar radius in Habing units
+
+# 3.4 Geometry
+incl , 45.0 , degree , float64 , Inclination angle of the disk
+phi  , 0.0  , None   , float64 , Observation position angle of the disk
+
+# 4. Dust Kappa Setup
+dustopacname_1 , optool_20250122 , None    , str     , Base name for dust opacity files
+dustopacname_2 , optool_20250122 , None    , str     , Base name for second dust opacity component
+nr_dust_1      , 20              , None    , float64 , Number of dust species with opacity 1
+nr_dust_2      , 0               , None    , float64 , Number of dust species with opacity 2
+dust_spec_nr   , 20              , None    , float64 , Total number of dust species
+amin_1         , 1e-06           , cm      , float64 , Minimum grain size for dust with opacity 1
+amin_2         , 1e-06           , cm      , float64 , Minimum grain size for dust with opacity 2
+amax_1         , 0.1             , cm      , float64 , Maximum grain size for dust with opacity 1
+amax_2         , 0.1             , cm      , float64 , Maximum grain size for dust with opacity 2
+amin_all       , 1e-06           , cm      , float64 , Overall minimum grain size
+amax_all       , 0.1             , cm      , float64 , Overall maximum grain size
+pla_dustsize   , 3.5             , None    , float64 , Power law index for grain size distribution
+rhobulk        , 2.08            , g cm^-3 , float64 , Bulk density of dust grains
+
+# 5. Chemistry Setup
+chemical_save_dir  , output                , None , str     , Directory to save model output
+chemical_save_name , radial_profile_fit    , None , str     , Name of this model
+nr_cyl_LIME        , 200                   , None , float64 , Number of radial grid points for chemistry output
+nz_cyl_LIME        , 200                   , None , float64 , Number of vertical grid points for chemistry output
