@@ -117,6 +117,6 @@ About DiskMINT <self>
 Quick Start <Quick Start/quick_start_index>
 User Guide <User Guide/user_guide_index>
 Examples <examples/example_index>
-AI Features <AI Features/ai_ref_index>
+ML & AI Assistant <AI Features/ai_ref_index>
 API Reference <api>
 ```

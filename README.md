@@ -32,7 +32,7 @@ This installs DiskMINT in editable mode with the optional `garden` extra. RADMC-
 
 **Try the AI Assistant (Experimental)**
 
-[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an *experimental* AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `AI Features` section in the documentation for details.
+[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an *experimental* AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `ML & AI Assistant` section in the documentation for details.
 
 **Try DiskMINT-GARDEN (Beta)**
 

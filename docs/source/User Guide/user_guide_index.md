@@ -11,7 +11,8 @@ It is intended for users who have already completed the {doc}`../Quick Start/qui
 - How to adapt DiskMINT to a new science target with your own parameter file, dust opacities, and stellar spectrum
 - How to scale from a single model to many models on an HPC cluster
 - How the key physical ingredients in DiskMINT connect to the model outputs
-- How DiskMINT can be used for surface-density fitting and future ML-assisted inference workflows
+- How DiskMINT can be used for surface-density fitting and machine-learning inference workflows
+- How the DiskMINT-Nursery AI assistant can help with installation, model setup, output interpretation, and support escalation
 
 ---
 
@@ -48,11 +49,17 @@ Review the physics and chemistry ingredients behind DiskMINT, including VHSE, du
 
 Learn the profile-fitting workflow used to iteratively constrain radial dust and gas surface densities from resolved observations.
 :::
-:::{grid-item-card} ML / AI-Assisted Inference
-:link: ml_ai_inference
+:::{grid-item-card} DiskMINT-GARDEN
+:link: diskmint_garden
 :link-type: doc
 
-Explore the developing AI and machine-learning tools around DiskMINT, including DiskMINT-Nursery and the DiskMINT-GARDEN inference direction.
+Use the beta machine-learning inference API trained on the DiskMINT-GARDEN model grid to estimate disk properties from observed continuum and $\mathrm{C^{18}O}$ fluxes.
+:::
+:::{grid-item-card} AI Assistant
+:link: ai_assistant
+:link-type: doc
+
+Use DiskMINT-Nursery with supported coding agents for guided installation, runtime assistance, output interpretation, and support escalation.
 :::
 ::::
 
@@ -67,7 +74,10 @@ start with {doc}`build_your_own_model`, then use {doc}`physics_background` and {
 read {doc}`hpc_guide` after the build-your-own-model page.
 
 ### If your goal is interpretation rather than setup
-read {doc}`surface_density_fitting` and {doc}`ml_ai_inference` summarize the broader analysis directions that build on the core DiskMINT workflow.
+read {doc}`surface_density_fitting` and {doc}`diskmint_garden` for analysis workflows that build on the core DiskMINT model outputs.
+
+### If you want agent-guided help
+read {doc}`ai_assistant` for the DiskMINT-Nursery assistant workflow, then use the full {doc}`../AI Features/nursery_tutorial` when you are ready to install the skill.
 
 ```{toctree}
 :hidden:
@@ -78,4 +88,6 @@ hpc_guide
 thermochemical_processes
 physics_background
 surface_density_fitting
-ml_ai_inference
+diskmint_garden
+ai_assistant
+```
