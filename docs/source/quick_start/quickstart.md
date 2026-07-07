@@ -19,18 +19,16 @@ There are a few examples we provided to carry out disk modeling with DiskMINT in
 
 ## Adapting the Example to a New Target
 
-The RU Lup example above is meant to get you to a first successful run quickly. If you want to modify the parameter file, change dust opacities, prepare the stellar and UV spectrum, or understand the chemistry outputs before applying DiskMINT to a new target, use the {doc}`User Guide <../User\ Guide/build_your_own_model>`. More details on what it means for different parameters are also described there.
+The RU Lup example above is meant to get you to a first successful run quickly. If you want to modify the parameter file, change dust opacities, prepare the stellar and UV spectrum, or understand the chemistry outputs before applying DiskMINT to a new target, use the {doc}`User Guide <../user_guide/build_your_own_model>`. More details on what it means for different parameters are also described there.
 
 ## Build Your Own Model and Check Other Examples
 
 ::::{grid} 2
-:gap: 3
+:gutter: 3
 
 :::{grid-item-card} Build Your Own Model
-:link: ../User\ Guide/user_guide_index
-:link-type: doc
 
-Learn how to build your own DiskMINT model step by step in the User Guide.
+Learn how to build your own DiskMINT model step by step in the {doc}`User Guide <../user_guide/user_guide_index>`.
 :::
 
 :::{grid-item-card} Browse Other Examples

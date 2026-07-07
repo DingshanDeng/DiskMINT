@@ -1,6 +1,6 @@
 """Predict-only DiskMINT-GARDEN inference API.
 
-This module exposes the beta inference interface for the bundled DiskMINT-GARDEN
+This module exposes the inference interface for the bundled DiskMINT-GARDEN
 XGBoost surrogate models. Training and diagnostic plotting helpers remain
 development-only in the research repository.
 """
@@ -217,7 +217,7 @@ def _predict_from_luminosities(
         elif col == "R90dust_model":
             arr = df[rdust_col].to_numpy(dtype=float)
         elif col == "R90CO_model":
-            raise ValueError("This beta API does not support GARDEN models requiring R90CO.")
+            raise ValueError("This API does not support GARDEN models requiring R90CO.")
         else:
             raise ValueError(f"Unsupported GARDEN feature in model metadata: {col}")
         x_list.append(_safe_log10(arr) if meta["log_obs"] else arr)

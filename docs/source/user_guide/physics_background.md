@@ -80,7 +80,7 @@ This observation-driven mode is useful when high-quality resolved continuum and 
 
 DiskMINT uses multiple dust grain sizes to solve the thermal coupling between gas and dust and to model the dust opacity more realistically. The users can provide their own dust opacity files in the radmc3d format and specify the grain size distribution parameters to compute the cross-section-weighted averages for radiative transfer. The code also supports reading in custom grain size distributions if the users provide the appropriate input files.
 
-DiskMINT also provides a utils file in the example `<github_repo>/example/diskmint_utils.py` to compute the dust opacity using `optool` or `dsharp_opac`. The users can read those example functions to generate their own dust opacity files for the radiative transfer step. Check {doc}`../examples/example_index.md` for more details on the provided examples. 
+DiskMINT also provides a utils file in the example `<github_repo>/example/diskmint_utils.py` to compute the dust opacity using `optool` or `dsharp_opac`. The users can read those example functions to generate their own dust opacity files for the radiative transfer step. Check {doc}`../examples/example_index` for more details on the provided examples. 
 
 ### Grain Size Distribution
 

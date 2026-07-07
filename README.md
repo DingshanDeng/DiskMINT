@@ -34,9 +34,9 @@ This installs DiskMINT in editable mode with the optional `garden` extra. RADMC-
 
 [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an *experimental* AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `ML & AI Assistant` section in the documentation for details.
 
-**Try DiskMINT-GARDEN (Beta)**
+**Try DiskMINT-GARDEN**
 
-DiskMINT v1.7.0-beta includes a predict-only `diskmint.garden` API for fast disk-property inference from millimeter continuum flux, $\mathrm{C^{18}O}$ line flux, distance, stellar mass, and dust radius. Install optional ML dependencies with:
+DiskMINT v1.7.0 includes a predict-only `diskmint.garden` API for fast disk-property inference from millimeter continuum flux, $\mathrm{C^{18}O}$ line flux, distance, stellar mass, and dust radius. Install optional ML dependencies with:
 
 ```bash
 pip install "diskmint[garden]"

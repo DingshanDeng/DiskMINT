@@ -17,7 +17,7 @@ dependencies:
   - pyarrow
   - openpyxl >= 3.0
 
-  # DiskMINT-GARDEN beta inference dependencies
+  # DiskMINT-GARDEN inference dependencies
   # The bundled joblib models were produced with scikit-learn 1.8.
   - joblib
   - scikit-learn >= 1.8,<1.9

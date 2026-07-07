@@ -6,11 +6,11 @@ DiskMINT supports two categories of ML and AI tools: an **AI assistant skill** f
 
 ## DiskMINT-GARDEN -- ML Inference
 
-DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is a grid of DiskMINT models spanning a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. The v1.7.0-beta package includes a predict-only XGBoost inference API:
+DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is a grid of DiskMINT models spanning a range of stellar masses, disk masses, gas-to-dust ratios, and characteristic radii. The v1.7.0 package includes a predict-only XGBoost inference API:
 
 - **Inverse inference:** estimates of physical disk properties (gas mass, gas-to-dust ratio, characteristic radius) from observed fluxes
 
-Install with `pip install "diskmint[garden]"`, then call `diskmint.garden.infer.from_observations(...)` or `diskmint.garden.infer.from_dataframe(...)`. Required observed inputs are millimeter continuum flux density, $\mathrm{C^{18}O}$ integrated flux, distance, stellar mass, and the 90 percent dust radius. See {doc}`../User Guide/diskmint_garden` for the beta API and domain-warning details.
+Install with `pip install "diskmint[garden]"`, then call `diskmint.garden.infer.from_observations(...)` or `diskmint.garden.infer.from_dataframe(...)`. Required observed inputs are millimeter continuum flux density, $\mathrm{C^{18}O}$ integrated flux, distance, stellar mass, and the 90 percent dust radius. See {doc}`../user_guide/diskmint_garden` for API and domain-warning details.
 
 ---
 

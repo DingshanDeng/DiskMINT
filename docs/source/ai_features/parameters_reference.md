@@ -4,7 +4,7 @@ Compact lookup table for every configurable parameter in DiskMINT. Parameters ar
 
 **CSV column order:** `name, value, units, valuetype, description`
 
-Lines beginning with `#` are ignored. See {doc}`../User Guide/build_your_own_model` for the full guide.
+Lines beginning with `#` are ignored. See {doc}`../user_guide/build_your_own_model` for the full guide.
 
 ---
 

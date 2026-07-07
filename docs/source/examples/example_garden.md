@@ -1,6 +1,6 @@
 # DiskMINT-GARDEN Quickstart
 
-DiskMINT-GARDEN is the beta inference API for estimating disk properties from
+DiskMINT-GARDEN is the inference API for estimating disk properties from
 observed millimeter continuum and $\mathrm{C^{18}O}$ fluxes. Unlike the other
 examples in this section, it does not run RADMC-3D or the chemistry network.
 

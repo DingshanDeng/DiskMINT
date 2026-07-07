@@ -1,4 +1,4 @@
-"""DiskMINT-GARDEN beta inference tools."""
+"""DiskMINT-GARDEN inference tools."""
 
 from .infer import from_dataframe, from_observations, get_model_path, load_model
 

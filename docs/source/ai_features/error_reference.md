@@ -63,7 +63,7 @@ export DISKMINT_BIN_DIR="Yourpath/DiskMINT/chemistry/bin"
 ls $DISKMINT_BIN_DIR/disk_main     # verify the binary exists
 ```
 
-Add to `~/.zshrc` or `~/.bashrc` to make permanent. See {doc}`../Quick Start/Installation` for details.
+Add to `~/.zshrc` or `~/.bashrc` to make permanent. See {doc}`../quick_start/Installation` for details.
 
 ---
 
@@ -204,6 +204,6 @@ ls data/dustkappa_*.inp
 
 If an error is not listed here or cannot be resolved with the above steps, use the support escalation procedure:
 
-1. Collect environment info and logs (see {doc}`../AI Features/install_reference`)
+1. Collect environment info and logs (see {doc}`install_reference`)
 2. Check open issues: https://github.com/DingshanDeng/DiskMINT/issues
 3. Draft a support email using the template in the DiskMINT-Nursery escalation reference, or open a new issue with the collected information

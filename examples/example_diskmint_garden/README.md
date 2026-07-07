@@ -1,6 +1,6 @@
 # DiskMINT-GARDEN Quickstart
 
-This example shows the beta `diskmint.garden` inference API. It does not run a
+This example shows the `diskmint.garden` inference API. It does not run a
 full DiskMINT thermochemical model; it loads the bundled DiskMINT-GARDEN
 surrogate model and predicts disk properties from observed fluxes.
 

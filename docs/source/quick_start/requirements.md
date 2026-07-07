@@ -102,7 +102,7 @@ These are provided in `examples/example_utils/diskmint_utils.py`:
 
 - **`wrapper_optool_opac()`** — generates dust opacity files for multiple grain size bins by calling `optool` with the correct arguments and moving the output into the `RADMC-3D`-compatible format expected by `DiskMINT`. The default grain composition follows the DIANA standard opacity (pyroxene + carbon, with 25% porosity).
 
-More information about the model input/output and how to set up the models are described in the {doc}`../User Guide/user_guide_index`.
+More information about the model input/output and how to set up the models are described in the {doc}`../user_guide/user_guide_index`.
 
 ---
 
@@ -119,4 +119,4 @@ echo $DISKMINT_BIN_DIR  # should point to the compiled DiskMINT chemistry binary
 
 ---
 
-For more details on how each tool fits into a full model run, see the {doc}`../User Guide/user_guide_index`.
+For more details on how each tool fits into a full model run, see the {doc}`../user_guide/user_guide_index`.

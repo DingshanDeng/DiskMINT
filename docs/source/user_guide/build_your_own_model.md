@@ -1,6 +1,6 @@
 # Build Your DiskMINT Model
 
-This guide walks you through adapting DiskMINT for a new target, from setting up your parameter file to interpreting the outputs. It assumes you have already run the RU Lup example from {doc}`../Quick Start/quickstart`.
+This guide walks you through adapting DiskMINT for a new target, from setting up your parameter file to interpreting the outputs. It assumes you have already run the RU Lup example from {doc}`../quick_start/quickstart`.
 
 ---
 
@@ -94,7 +94,7 @@ Two modes are supported (`scaleheight_index`):
 | `pla_dustsize` | Grain size distribution power law index (MRN: 3.5). |
 | `rhobulk` | Bulk grain density (g cm⁻³). |
 
-See [Section 2](#2-configuring-dust-opacities) for how to prepare the opacity files.
+See {ref}`Section 2 <configuring-dust-opacities>` for how to prepare the opacity files.
 
 **Section 5 — Chemistry Setup**
 
@@ -106,6 +106,7 @@ See [Section 2](#2-configuring-dust-opacities) for how to prepare the opacity fi
 
 ---
 
+(configuring-dust-opacities)=
 ## 2. Configuring Dust Opacities
 
 DiskMINT requires pre-computed dust opacity tables in RADMC-3D `dustkappa_*.inp` format. A set of ready-to-use optool-computed tables is included in `examples/example_diskmint_hpc/input/`.

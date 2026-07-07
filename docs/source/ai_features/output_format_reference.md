@@ -2,7 +2,7 @@
 
 Directory layout, file formats, and column definitions for all DiskMINT output files. Includes Python snippets for loading each file type.
 
-For the pipeline that produces these files see {doc}`workflow_reference`. For the User Guide description see {doc}`../User Guide/build_your_own_model`.
+For the pipeline that produces these files see {doc}`workflow_reference`. For the User Guide description see {doc}`../user_guide/build_your_own_model`.
 
 ---
 

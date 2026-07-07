@@ -190,7 +190,7 @@ make uninstall-codex
 
 ## Notes
 
-- The skill reads reference files from `docs/source/AI Features/` inside your local DiskMINT installation. If those files are not present (e.g., an older DiskMINT version installed without docs), the skill falls back to [diskmint.readthedocs.io](https://diskmint.readthedocs.io).
+- The skill reads reference files from `docs/source/ai_features/` inside your local DiskMINT installation. If those files are not present (e.g., an older DiskMINT version installed without docs), the skill falls back to [diskmint.readthedocs.io](https://diskmint.readthedocs.io).
 - The skill never modifies your parameter CSV without showing a diff and asking for confirmation first.
 - The skill does not run `sudo` commands automatically — commands requiring elevated permissions are always printed for you to copy-paste.
 - For bugs or feedback on the skill itself, open an issue at [DiskMINT-Nursery/issues](https://github.com/DingshanDeng/DiskMINT-Nursery/issues).

@@ -1,7 +1,7 @@
 # Installation Reference
 
 Compact reference for setting up the full `DiskMINT` environment.
-For a narrative walkthrough, see {doc}`../Quick Start/Installation` and {doc}`../Quick Start/requirements`.
+For a narrative walkthrough, see {doc}`../quick_start/Installation` and {doc}`../quick_start/requirements`.
 
 ---
 
@@ -204,7 +204,7 @@ source ~/.zshrc
 optool --version
 ```
 
-**DiskMINT wrapper:** `examples/example_utils/diskmint_utils.py` provides `wrapper_optool_opac()` to call optool with DIANA-standard grain parameters and output directly to RADMC-3D format. See {doc}`../User Guide/user_guide_index` for usage.
+**DiskMINT wrapper:** `examples/example_utils/diskmint_utils.py` provides `wrapper_optool_opac()` to call optool with DIANA-standard grain parameters and output directly to RADMC-3D format. See {doc}`../user_guide/user_guide_index` for usage.
 
 ---
 

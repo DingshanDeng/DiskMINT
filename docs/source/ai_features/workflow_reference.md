@@ -2,7 +2,7 @@
 
 Step-by-step description of the DiskMINT pipeline: what each stage does, which files it reads and writes, and how stages connect. Intended as a quick lookup for the AI assistant and as a human-readable pipeline overview.
 
-For the full narrative walkthrough see {doc}`../Quick Start/quickstart`. For parameter details see {doc}`parameters_reference`.
+For the full narrative walkthrough see {doc}`../quick_start/quickstart`. For parameter details see {doc}`parameters_reference`.
 
 ---
 

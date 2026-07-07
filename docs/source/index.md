@@ -58,7 +58,7 @@ Feel free to put any questions, suggestions, and/or comments on the `GitHub` pag
 2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `make install`. This should install both the `Python` and `Fortran` modules into your machine. 
 3. Start Using! 
 
-For more information, please check our {doc}`Quick Start Guide </Quick Start/quick_start_index>`.
+For more information, please check our {doc}`Quick Start Guide </quick_start/quick_start_index>`.
 
 ---
 
@@ -114,9 +114,9 @@ We welcome contributions, issue reports, and questions about `DiskMINT`! If you 
 :maxdepth: 2
 
 About DiskMINT <self>
-Quick Start <Quick Start/quick_start_index>
-User Guide <User Guide/user_guide_index>
+Quick Start <quick_start/quick_start_index>
+User Guide <user_guide/user_guide_index>
 Examples <examples/example_index>
-ML & AI Assistant <AI Features/ai_ref_index>
+ML & AI Assistant <ai_features/ai_ref_index>
 API Reference <api>
 ```

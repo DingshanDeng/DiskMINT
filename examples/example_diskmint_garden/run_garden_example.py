@@ -1,4 +1,4 @@
-"""Smoke example for the beta DiskMINT-GARDEN inference API."""
+"""Smoke example for the DiskMINT-GARDEN inference API."""
 
 from __future__ import annotations
 

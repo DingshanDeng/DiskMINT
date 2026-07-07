@@ -44,7 +44,7 @@ A target-agnostic workflow example for iteratively adjusting the dust surface de
 :link: example_garden
 :link-type: doc
 
-A lightweight beta example for `diskmint.garden`: load the bundled surrogate model and infer gas mass, dust mass, gas-to-dust ratio, and characteristic radius from observed continuum and $\mathrm{C^{18}O}$ fluxes. Includes a runnable smoke script and an annotated notebook.
+A lightweight example for `diskmint.garden`: load the bundled surrogate model and infer gas mass, dust mass, gas-to-dust ratio, and characteristic radius from observed continuum and $\mathrm{C^{18}O}$ fluxes. Includes a runnable smoke script and an annotated notebook.
 :::
 ::::
 

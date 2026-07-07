@@ -2,7 +2,7 @@
 
 This section covers the more advanced parts of the DiskMINT workflow, from building a model for a new target to running large grids and interpreting the physical assumptions behind the code.
 
-It is intended for users who have already completed the {doc}`../Quick Start/quick_start_index` section or run one of the worked {doc}`../examples/example_index`.
+It is intended for users who have already completed the {doc}`../quick_start/quick_start_index` section or run one of the worked {doc}`../examples/example_index`.
 
 ---
 
@@ -53,7 +53,7 @@ Learn the profile-fitting workflow used to iteratively constrain radial dust and
 :link: diskmint_garden
 :link-type: doc
 
-Use the beta machine-learning inference API trained on the DiskMINT-GARDEN model grid to estimate disk properties from observed continuum and $\mathrm{C^{18}O}$ fluxes.
+Use the machine-learning inference API trained on the DiskMINT-GARDEN model grid to estimate disk properties from observed continuum and $\mathrm{C^{18}O}$ fluxes.
 :::
 :::{grid-item-card} AI Assistant
 :link: ai_assistant
@@ -77,7 +77,7 @@ read {doc}`hpc_guide` after the build-your-own-model page.
 read {doc}`surface_density_fitting` and {doc}`diskmint_garden` for analysis workflows that build on the core DiskMINT model outputs.
 
 ### If you want agent-guided help
-read {doc}`ai_assistant` for the DiskMINT-Nursery assistant workflow, then use the full {doc}`../AI Features/nursery_tutorial` when you are ready to install the skill.
+read {doc}`ai_assistant` for the DiskMINT-Nursery assistant workflow, then use the full {doc}`../ai_features/nursery_tutorial` when you are ready to install the skill.
 
 ```{toctree}
 :hidden:

@@ -16,14 +16,14 @@ The skill activates when you explicitly mention DiskMINT or `import diskmint` in
 
 ## Where To Start
 
-For full installation and usage instructions, see {doc}`../AI Features/nursery_tutorial`.
+For full installation and usage instructions, see {doc}`../ai_features/nursery_tutorial`.
 
-For copy-paste prompts, see {doc}`../AI Features/prompts_reference`.
+For copy-paste prompts, see {doc}`../ai_features/prompts_reference`.
 
 For the structured files used by the assistant, see:
 
-- {doc}`../AI Features/install_reference`
-- {doc}`../AI Features/parameters_reference`
-- {doc}`../AI Features/workflow_reference`
-- {doc}`../AI Features/output_format_reference`
-- {doc}`../AI Features/error_reference`
+- {doc}`../ai_features/install_reference`
+- {doc}`../ai_features/parameters_reference`
+- {doc}`../ai_features/workflow_reference`
+- {doc}`../ai_features/output_format_reference`
+- {doc}`../ai_features/error_reference`

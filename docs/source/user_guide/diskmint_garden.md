@@ -1,8 +1,8 @@
 # DiskMINT-GARDEN
 
-DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is the beta machine-learning inference API for estimating disk properties from observed millimeter continuum and $\mathrm{C^{18}O}$ fluxes. Unlike a full DiskMINT model run, it does not run RADMC-3D or the chemistry network. It uses XGBoost regressors trained on the DiskMINT-GARDEN model grid.
+DiskMINT-GARDEN (Grid of Astrochemical Radiative Disk EmissioN) is the machine-learning inference API for estimating disk properties from observed millimeter continuum and $\mathrm{C^{18}O}$ fluxes. Unlike a full DiskMINT model run, it does not run RADMC-3D or the chemistry network. It uses XGBoost regressors trained on the DiskMINT-GARDEN model grid.
 
-**Status: beta in DiskMINT v1.7.0-beta**
+**Available since DiskMINT v1.7.0**
 
 The current API provides inverse inference for:
 
@@ -13,7 +13,7 @@ The current API provides inverse inference for:
 
 ## Installation
 
-Install the optional ML dependencies before using the beta API:
+Install the optional ML dependencies before using the API:
 
 ```bash
 pip install "diskmint[garden]"
@@ -54,7 +54,7 @@ Always check the grid-domain diagnostics. A flagged prediction means the observe
 
 ## Bundled Models
 
-The beta package bundles two trained artifacts:
+The package bundles two trained artifacts:
 
 | Model | Line input | Validation note |
 |---|---|---|
