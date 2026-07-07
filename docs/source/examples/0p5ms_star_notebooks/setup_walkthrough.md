@@ -180,7 +180,7 @@ utils.wrapper_optool_opac(
 `wrapper_optool_opac` calls `optool` under the hood to compute Mie scattering and absorption
 opacities for each size bin. The resulting `dustkappa_*.inp` files are written to `data_dir`
 in RADMC-3D format. This step requires `optool` to be on your `PATH` (see
-[Requirements](../../Quick Start/requirements)).
+[Requirements](../../quick_start/requirements)).
 
 ---
 

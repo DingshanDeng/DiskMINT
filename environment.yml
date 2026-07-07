@@ -1,0 +1,37 @@
+name: diskmint_stable
+channels:
+  - conda-forge
+dependencies:
+  # Core Python environment
+  - python = 3.11
+  - pip >= 24.0
+  - numpy
+  - scipy
+
+  # Common analysis and notebook tools
+  - astropy
+  - ipykernel
+  - jupyter
+  - matplotlib >= 3.8
+  - pandas >= 2.0
+  - pyarrow
+  - openpyxl >= 3.0
+
+  # DiskMINT-GARDEN inference dependencies
+  # The bundled joblib models were produced with scikit-learn 1.8.
+  - joblib
+  - scikit-learn >= 1.8,<1.9
+  - py-xgboost
+  - xgboost
+
+  # Test/build helpers for users working from a source checkout
+  - build
+  - pytest
+
+  # macOS xgboost needs an OpenMP runtime; harmless on Linux conda envs.
+  - llvm-openmp
+
+  - pip:
+      # Install DiskMINT itself from the repository checkout. Run
+      # `conda env create -f environment.yml` from the repo root.
+      - -e .[garden]

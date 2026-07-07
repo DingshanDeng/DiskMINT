@@ -22,4 +22,4 @@ except PackageNotFoundError:
 
 __author__ = "Dingshan Deng"
 __copyright__ = "Copyright (C) 2023-2025 Dingshan Deng"
-__all__ = ["constants", "model", "disk_density", "execute", "dustopac", "modelgrid"]
+__all__ = ["constants", "model", "disk_density", "execute", "dustopac", "modelgrid", "garden"]

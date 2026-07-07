@@ -17,11 +17,24 @@ For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs
 
 link to the [Documentation](https://diskmint.readthedocs.io/en/latest/)
 
+**Conda Environment**
+
+For a source checkout, you can create the recommended Python environment with:
+
+```bash
+conda env create -f environment.yml
+conda activate diskmint_stable
+```
+
+This installs DiskMINT in editable mode with the optional `garden` extra. RADMC-3D, optool, and the Fortran chemistry binary still need the setup described in the documentation for full model runs.
+
+You can use any Python environment you like (conda, venv, etc.) — `diskmint_stable` is just the name used throughout the documentation. Whichever you choose, activate it *before* running `make install`: the Makefile installs into whatever `python`/`pip` is currently active, it does not create or activate an environment for you.
+
 ---
 
 **Try the AI Assistant (Experimental)**
 
-[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an *experimental* AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `AI Features` section in the documentation for details.
+[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an *experimental* AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `ML & AI Assistant` section in the documentation for details.
 
 ---
 ---
