@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# author: Dingshan Deng @ University of Arizona
+# contact: dingshandeng@arizona.edu
+# created: 07/07/2026
 
 """
 Example: fit continuum and C18O radial profiles by changing surface density
 and gas-to-dust ratio.
 
 Run from this directory:
-python -u example_model_radial_profile_fit.py 2>&1 | tee -a output_radial_profile_fit.log
+python -u 1-model_radial_profile_fit_advanced.py 2>&1 | tee -a output_radial_profile_fit.log
 """
 
 import argparse
@@ -108,8 +111,9 @@ def main():
     )
     parser.add_argument(
         "--dust-settling",
-        action="store_true",
-        help="Enable stable DiskMINT dust settling.",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Enable stable DiskMINT dust settling (default: enabled; use --no-dust-settling to disable).",
     )
     parser.add_argument(
         "--skip-chemistry",

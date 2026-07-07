@@ -28,6 +28,8 @@ conda activate diskmint_stable
 
 This installs DiskMINT in editable mode with the optional `garden` extra. RADMC-3D, optool, and the Fortran chemistry binary still need the setup described in the documentation for full model runs.
 
+You can use any Python environment you like (conda, venv, etc.) — `diskmint_stable` is just the name used throughout the documentation. Whichever you choose, activate it *before* running `make install`: the Makefile installs into whatever `python`/`pip` is currently active, it does not create or activate an environment for you.
+
 ---
 
 **Try the AI Assistant (Experimental)**

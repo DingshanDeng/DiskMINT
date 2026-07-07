@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import importlib.util
 import inspect
 import os
@@ -17,11 +18,12 @@ import diskmint.model as model
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE_DIR = ROOT / "examples" / "example_diskmint_models" / "example_radial_profile_fit"
-SCRIPT_PATH = EXAMPLE_DIR / "example_model_radial_profile_fit.py"
+SCRIPT_PATH = EXAMPLE_DIR / "1-model_radial_profile_fit_advanced.py"
+SIMPLE_SCRIPT_PATH = EXAMPLE_DIR / "0-model_radial_profile_fit_simple.py"
 
 
 def _load_example_module():
-    spec = importlib.util.spec_from_file_location("example_model_radial_profile_fit", SCRIPT_PATH)
+    spec = importlib.util.spec_from_file_location("model_radial_profile_fit_advanced", SCRIPT_PATH)
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -149,7 +151,7 @@ def test_radial_profile_fit_short_model_run_when_enabled(pytestconfig, tmp_path)
     command = [
         sys.executable,
         "-u",
-        "example_model_radial_profile_fit.py",
+        "1-model_radial_profile_fit_advanced.py",
         "--mode",
         "model_A_constant_g2d",
         "--n-vhse-loop",
@@ -169,3 +171,31 @@ def test_radial_profile_fit_short_model_run_when_enabled(pytestconfig, tmp_path)
 
     assert result.returncode == 0, result.stdout
     assert (run_dir / "data" / "example_radial_profile_fit_model_A_constant_g2d_parameters_setup.csv").is_file()
+
+
+def test_radial_profile_fit_simple_script_stays_flat():
+    # The simple script runs a full exe.runmodel() as an unguarded module-level
+    # side effect, so it cannot be imported/executed here like the advanced
+    # script's helpers are. Check its structure via ast/source inspection
+    # instead, to make sure it stays a flat, no-argparse teaching example.
+    source = SIMPLE_SCRIPT_PATH.read_text()
+    tree = ast.parse(source)
+
+    imported_names = {
+        alias.name
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Import)
+        for alias in node.names
+    }
+    function_names = {
+        node.name for node in ast.walk(tree) if isinstance(node, ast.FunctionDef)
+    }
+
+    assert "argparse" not in imported_names
+    assert "main" not in function_names
+    assert 'if __name__ == "__main__":' not in source
+    assert "np.loadtxt" in source
+    assert "sigma_reference_template.dat" in source
+    assert 'para.edit_parameter("sigmad_ref"' in source
+    assert 'para.edit_parameter("chemical_save_name", new_value="example_radial_profile_fit_simple")' in source
+    assert 'para.edit_parameter("chemical_save_dir"' in source

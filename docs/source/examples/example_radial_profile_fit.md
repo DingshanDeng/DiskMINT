@@ -26,9 +26,11 @@ The intended workflow is:
 
 ```text
 example_radial_profile_fit/
-├── example_model_radial_profile_fit.py
+├── 0-model_radial_profile_fit_simple.py
+├── 1-model_radial_profile_fit_advanced.py
 ├── radial_profile_fit_parameters.csv
 ├── compare_radial_profiles.py
+├── README.md
 ├── input/
 │   ├── BTSettl_1p0Msolar_1pc_um_ergpcm2hzs.inp
 │   ├── dustkappa_optool_20250122_*.inp
@@ -44,24 +46,46 @@ example_radial_profile_fit/
     └── example_c18o_profile.csv
 ```
 
-## Running the Example
+## Quick Start (Simple Script)
+
+`0-model_radial_profile_fit_simple.py` is a flat, single-run script with no
+command-line arguments — start here. It reads
+`radial_profile_fit_parameters.csv`, installs
+`model_inputs/sigma_reference_template.dat` as `sigmad_ref`, keeps
+`ratio_g2d_global` constant, and runs with dust settling enabled
+(`bool_dust_settling = True`) by default. Results are saved under
+`output/example_radial_profile_fit_simple/`:
+
+```bash
+python -u 0-model_radial_profile_fit_simple.py 2>&1 | tee -a output_radial_profile_fit_simple.log
+```
+
+To change run options (VHSE iterations, dust settling, chemistry on/off),
+edit the variables near the top of the script directly — there are no flags.
+
+## Running the Example (Advanced Script)
+
+`1-model_radial_profile_fit_advanced.py` is argparse-driven, with two named
+modes and CLI knobs for VHSE iterations, dust settling, and skipping
+chemistry. Dust settling is enabled by default here too; pass
+`--no-dust-settling` to disable it.
 
 Run the baseline model with a constant gas-to-dust ratio:
 
 ```bash
-python -u example_model_radial_profile_fit.py --mode model_A_constant_g2d 2>&1 | tee -a output_radial_profile_fit.log
+python -u 1-model_radial_profile_fit_advanced.py --mode model_A_constant_g2d 2>&1 | tee -a output_radial_profile_fit.log
 ```
 
 Run the radial fitting template, which uses both a reference dust surface density and a radial gas-to-dust table:
 
 ```bash
-python -u example_model_radial_profile_fit.py --mode model_B_radial_profile_fit 2>&1 | tee -a output_radial_profile_fit.log
+python -u 1-model_radial_profile_fit_advanced.py --mode model_B_radial_profile_fit 2>&1 | tee -a output_radial_profile_fit.log
 ```
 
 For a quicker density/thermal test before running chemistry:
 
 ```bash
-python -u example_model_radial_profile_fit.py --mode model_B_radial_profile_fit --skip-chemistry 2>&1 | tee -a output_radial_profile_fit.log
+python -u 1-model_radial_profile_fit_advanced.py --mode model_B_radial_profile_fit --skip-chemistry 2>&1 | tee -a output_radial_profile_fit.log
 ```
 
 ## Key Controls
@@ -92,6 +116,7 @@ radius_cm  gas_to_dust_ratio
 
 The example uses only stable DiskMINT runtime flags: VHSE, SED, dust settling, chemistry, model saving, and dust-kappa metadata handling.
 Experimental dust fragmentation, radial drift, temperature decoupling, inner-rim, and same-chemistry-grid flags are intentionally not used here.
+Both scripts enable dust settling by default; use `--no-dust-settling` with the advanced script (or edit `bool_dust_settling` directly in the simple script) to disable it.
 
 ## Plotting the Bundled Profiles
 

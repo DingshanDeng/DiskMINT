@@ -48,8 +48,10 @@ conda activate diskmint_stable
 **Quicker Installation (as of v1.6.0+)** 
 
 1. Download the code use the `git clone` or download this repo as zip from the latest [releases](https://github.com/DingshanDeng/DiskMINT/releases) into your local directory `Yourpath/DiskMINT/`.
-2. Open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `make install`. This should install both the `Python` and `Fortran` modules into your machine. 
+2. **Activate a Python environment first** (any of the options from the "Python Environment" section above — we recommend `diskmint_stable` from `environment.yml`). Then open terminal, go inside your path `cd Yourpath/DiskMINT/`, type `make install`. This should install both the `Python` and `Fortran` modules into your machine.
 3. Start Using! 
+
+> **Note:** `make install` runs `python -m pip install -e .` using whichever `python` is currently active on your `PATH`. If you skip step 2 and run `make install` with no environment activated, it may fail (e.g. `pip: command not found`) or install into the wrong Python — it does not create or activate an environment for you. Pick whichever environment you like; we just recommend `diskmint_stable` so it matches the rest of the documentation.
 
 **Manual Installation (all versions)**
 
