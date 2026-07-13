@@ -1,7 +1,5 @@
 # DiskMINT-Nursery Tutorial
 
-> **Status: Experimental.** DiskMINT-Nursery is in early development. Features and interfaces may change between releases.
-
 [DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an AI assistant skill for supported coding agents, for example [Claude Code](https://claude.ai/code) and [OpenAI Codex CLI](https://developers.openai.com/codex/cli). It helps you work with DiskMINT from first installation through model setup, output interpretation, and error diagnosis. It works by reading the structured AI reference files built into the DiskMINT documentation and using them to ground its answers in your actual installation.
 
 ---

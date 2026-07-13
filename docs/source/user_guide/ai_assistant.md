@@ -2,8 +2,6 @@
 
 DiskMINT-Nursery is the AI assistant workflow for DiskMINT. It is a companion skill for supported coding agents, including [Claude Code](https://claude.ai/code), [OpenAI Codex CLI](https://developers.openai.com/codex/cli), and compatible assistants.
 
-**Status: available, experimental**
-
 DiskMINT-Nursery helps users work through the full DiskMINT workflow while grounding answers in the structured reference files distributed with the DiskMINT documentation.
 
 ## What It Helps With

@@ -8,7 +8,7 @@
 
 `DiskMINT` (Disk Model for INdividual Targets) is a tool for modeling individual disks and deriving more robust disk mass estimates.
 `DiskMINT` is a `Python3`-`Fortran` code built on [`RADMC-3D` v2.0](https://github.com/dullemond/radmc3d-2.0) for the continuum (and gas line) radiative transfer, and it includes a reduced chemical network suggested in [Ruaud, Gorti & Hollenbach (2022)](https://ui.adsabs.harvard.edu/abs/2022ApJ...925...49R/abstract) to determine the $\mathrm{C^{18}O}$ emission.
-For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract) and [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D).
+For more information, see [Deng et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230702657D/abstract), [Deng et al. (2025)](https://ui.adsabs.harvard.edu/abs/2025ApJ...995...98D), and [Deng et al. (2026)](https://ui.adsabs.harvard.edu/abs/2026arXiv260626332D/abstract).
 
 ---
 ---
@@ -32,9 +32,9 @@ You can use any Python environment you like (conda, venv, etc.) — `diskmint_st
 
 ---
 
-**Try the AI Assistant (Experimental)**
+**Try the AI Assistant**
 
-[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an *experimental* AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `ML & AI Assistant` section in the documentation for details.
+[DiskMINT-Nursery](https://github.com/DingshanDeng/DiskMINT-Nursery) is an AI agent skill that can guide you through installation, model setup, and output interpretation using Claude Code, OpenAI Codex CLI, or compatible AI coding assistants. See the `ML & AI Assistant` section in the documentation for details.
 
 ---
 ---
@@ -103,6 +103,27 @@ archivePrefix = {arXiv},
        eprint = {2307.02657},
  primaryClass = {astro-ph.EP},
        adsurl = {https://ui.adsabs.harvard.edu/abs/2023ApJ...954..165D},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
+
+If you use `DiskMINT-GARDEN`, please cite 
+
+```
+@ARTICLE{2026arXiv260626332D,
+       author = {{Deng}, Dingshan and {Gorti}, Uma and {Pascucci}, Ilaria and {Ruaud}, Maxime},
+        title = "{DiskMINT-GARDEN: Self-consistent Models to Estimate Disk Masses}",
+      journal = {arXiv e-prints},
+     keywords = {Earth and Planetary Astrophysics, Astrophysics of Galaxies, Instrumentation and Methods for Astrophysics, Solar and Stellar Astrophysics},
+         year = 2026,
+        month = jun,
+          eid = {arXiv:2606.26332},
+        pages = {arXiv:2606.26332},
+          doi = {10.48550/arXiv.2606.26332},
+archivePrefix = {arXiv},
+       eprint = {2606.26332},
+ primaryClass = {astro-ph.EP},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2026arXiv260626332D},
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 ```
